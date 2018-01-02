@@ -1,0 +1,9 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "webproxy_uploadfiles.pbl" "";
+@end;
+@begin Objects 
+ "ws_copyresult.sru" "webproxy_uploadfiles.pbl";
+ "ws_fieldinformation.sru" "webproxy_uploadfiles.pbl";
+ "ws_copy.srx" "webproxy_uploadfiles.pbl";
+@end;

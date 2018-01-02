@@ -1,0 +1,13 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "document_publication.pbl" "";
+@end;
+@begin Objects 
+ "docpublication.sra" "document_publication.pbl";
+ "d_sq_tb_dddw_select_document_owner.srd" "document_publication.pbl";
+ "d_sq_tb_doc_file_detail.srd" "document_publication.pbl";
+ "d_sq_tb_doc_file_listing.srd" "document_publication.pbl";
+ "d_sq_tb_document_access_profitcenter.srd" "document_publication.pbl";
+ "d_sq_tb_document_user_profitcenter.srd" "document_publication.pbl";
+ "w_document_publication.srw" "document_publication.pbl";
+@end;

@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_select_parm.srs
+$PBExportComments$Parameters for selecting voyage and charterer
+global type s_select_parm from structure
+	integer		vessel_nr
+	string		claim_type
+end type
+

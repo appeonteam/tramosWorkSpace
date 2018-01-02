@@ -1,0 +1,54 @@
+﻿$PBExportHeader$d_payment_settle_offservice.srd
+$PBExportComments$Used when generating CODA transactions
+release 10;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=160 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=108 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=start_date dbname="NTC_OFF_SERVICE.START_DATE" )
+ column=(type=datetime updatewhereclause=yes name=end_date dbname="NTC_OFF_SERVICE.END_DATE" )
+ column=(type=long updatewhereclause=yes name=offhire dbname="OFFHIRE" )
+ column=(type=decimal(25) updatewhereclause=yes name=bunker dbname="BUNKER" )
+ column=(type=long update=yes updatewhereclause=yes name=trans_to_coda dbname="NTC_OFF_SERVICE.TRANS_TO_CODA" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes identity=yes name=off_service_id dbname="NTC_OFF_SERVICE.OFF_SERVICE_ID" )
+ column=(type=decimal(4) updatewhereclause=yes name=off_days dbname="compute_0007" )
+ retrieve="SELECT NTC_OFF_SERVICE.START_DATE,
+		NTC_OFF_SERVICE.END_DATE,
+		0 AS OFFHIRE,
+		round((isnull(NTC_OFF_SERVICE.HFO_TON,0) * isnull(NTC_OFF_SERVICE.HFO_PRICE,0))
+			* isnull(NTC_OFF_SERVICE.EXCHANGE_RATE_USD,1) / 100
+			+(isnull(NTC_OFF_SERVICE.DO_TON,0) * isnull(NTC_OFF_SERVICE.DO_PRICE,0))
+			* isnull(NTC_OFF_SERVICE.EXCHANGE_RATE_USD,1) / 100
+			+(isnull(NTC_OFF_SERVICE.GO_TON,0) * isnull(NTC_OFF_SERVICE.GO_PRICE,0))
+			* isnull(NTC_OFF_SERVICE.EXCHANGE_RATE_USD,1) / 100
+			+(isnull(NTC_OFF_SERVICE.LSHFO_TON,0) * isnull(NTC_OFF_SERVICE.LSHFO_PRICE,0))
+			* isnull(NTC_OFF_SERVICE.EXCHANGE_RATE_USD,1) / 100,  2) AS BUNKER,
+		NTC_OFF_SERVICE.TRANS_TO_CODA,
+		NTC_OFF_SERVICE.OFF_SERVICE_ID,
+		sum(isnull(NTC_OFF_SERVICE_DETAIL.DAYS,0))  
+ 	FROM NTC_OFF_SERVICE,   
+		NTC_OFF_SERVICE_DETAIL
+	WHERE NTC_OFF_SERVICE_DETAIL.OFF_SERVICE_ID = NTC_OFF_SERVICE.OFF_SERVICE_ID and  
+		NTC_OFF_SERVICE.PAYMENT_ID = :payment_id AND
+		NTC_OFF_SERVICE.TRANS_TO_CODA <> 1
+	group by NTC_OFF_SERVICE.OFF_SERVICE_ID
+" update="NTC_OFF_SERVICE" updatewhere=0 updatekeyinplace=no arguments=(("payment_id", number)) )
+text(band=header alignment="0" text="Used when settling payments and generating CODA transactions" border="0" color="0" x="32" y="40" height="80" width="2258" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="18" y="16" height="76" width="603" format="[shortdate] [time]" html.valueishtml="0"  name=start_date visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="640" y="16" height="76" width="603" format="[shortdate] [time]" html.valueishtml="0"  name=end_date visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2290" y="4" height="64" width="137" format="[general]" html.valueishtml="0"  name=trans_to_coda visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2427" y="0" height="64" width="1161" format="[general]" html.valueishtml="0"  name=off_service_id visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3589" y="0" height="64" width="649" format="[general]" html.valueishtml="0"  name=off_days visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1609" y="12" height="76" width="517" format="#,##0.00" html.valueishtml="0"  name=bunker visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,19 @@
+﻿$PBExportHeader$p_specialclaimmonitor.srj
+$PBExportComments$Generated Application Executable Project
+EXE:specialclaimmonitor.exe,,0,1,1
+CMP:0,0,0,2,0,0,1
+COM:Sybase, Inc.
+DES:Sybase, Inc. Product File
+CPY:
+PRD:PowerBuilder Enterprise Series
+PVS:2.0.3.3
+PVN:2,0,3,3
+FVS:2.0.3.3
+FVN:2,0,3,3
+MAN:0,asInvoker,0
+PBD:specialclaimmonitor.pbl,,1
+PBD:..\mail\mt_mail.pbl,,1
+PBD:..\sharedobjects\mt\mt_constants.pbl,,1
+PBD:..\sharedobjects\mt\mt_common.pbl,,1
+PBD:..\sharedobjects\mt\mt_services.pbl,,1
+PBD:..\sharedobjects\mt\mt_base_components.pbl,,1

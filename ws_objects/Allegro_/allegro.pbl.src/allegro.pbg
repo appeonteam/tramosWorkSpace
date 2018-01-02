@@ -1,0 +1,12 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "allegro.pbl" "";
+@end;
+@begin Objects 
+ "allegroexport.sra" "allegro.pbl";
+ "d_sq_allegro_trade.srd" "allegro.pbl";
+ "d_sq_allegro_transfer.srd" "allegro.pbl";
+ "d_sq_tb_trade_xml_export.srd" "allegro.pbl";
+ "p_allegro.srj" "allegro.pbl";
+ "n_allegro_export.sru" "allegro.pbl";
+@end;

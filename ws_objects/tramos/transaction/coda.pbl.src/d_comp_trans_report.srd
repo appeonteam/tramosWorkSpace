@@ -1,0 +1,15 @@
+﻿$PBExportHeader$d_comp_trans_report.srd
+$PBExportComments$Composit report for transaction print. Contains "d_comp_trans_report_a" and "d_comp_trans_report_b"
+release 5;
+datawindow(units=3 timer_interval=0 color=1090519039 processing=5 print.documentname="" print.orientation = 0 print.margin.left = 635 print.margin.right = 635 print.margin.top = 635 print.margin.bottom = 635 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=1058 color="536870912" )
+summary(height=264 color="536870912" )
+footer(height=529 color="536870912" )
+detail(height=2301 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("transkeys", number)) )
+text(band=header alignment="2" text="TRAMOS Transaction Report"border="1" color="0" x="105" y="476" height="529" width="19288"  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header alignment="1" expression="today()"border="0" color="0" x="16457" y="52" height="370" width="2936" format="[shortdate]"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+report(band=detail dataobject="d_comp_trans_report_b" x="0" y="1217" height="793" width="19446" border="0"  height.autosize=yes criteria="" nest_arguments=(("transkeys")) trail_footer = yes  name=d_comp_trans_report_b  slideup=directlyabove )
+report(band=detail dataobject="d_comp_trans_report_a" x="0" y="132" height="793" width="19446" border="0"  height.autosize=yes criteria="" nest_arguments=(("transkeys")) trail_footer = yes  name=d_comp_trans_report_a  tag="d_comp_trans_report_a"  slideup=directlyabove )
+compute(band=footer alignment="1" expression="'Page ' + page() + ' of ' + pageCount()"border="0" color="0" x="15980" y="53" height="423" width="3466" format="[general]"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

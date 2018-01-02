@@ -1,0 +1,14 @@
+﻿$PBExportHeader$d_template_list.srd
+$PBExportComments$This datawindow lists all templates.
+release 4;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=77 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=89 color="536870912" )
+table(column=(type=decimal(0) name=ccs_tmpl_pk dbname="CCS_TMPL.CCS_TMPL_PK" )
+ column=(type=char(35) name=ccs_tmpl_name dbname="CCS_TMPL.CCS_TMPL_NAME" )
+ column=(type=char(32766) name=ccs_tmpl_txt dbname="CCS_TMPL.CCS_TMPL_TXT" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_TMPL~" ) COLUMN(NAME=~"CCS_TMPL.CCS_TMPL_PK~") COLUMN(NAME=~"CCS_TMPL.CCS_TMPL_NAME~") COLUMN(NAME=~"CCS_TMPL.CCS_TMPL_TXT~")) ORDER(NAME=~"CCS_TMPL.CCS_TMPL_NAME~" ASC=yes ) " )
+text(band=header alignment="2" text="Template Name"border="0" color="0" x="19" y="4" height="57" width="394"  name=ccs_tmpl_name_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="4" height="77" width="988" format="[general]"  name=ccs_tmpl_name  tag="Template Name" edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

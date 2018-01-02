@@ -1,0 +1,15 @@
+﻿$PBExportHeader$s_vendor.srs
+global type s_vendor from structure
+	string		s_nom_acc_nr		descriptor "comment" = "SupplierCode"
+	integer		i_isblocked		descriptor "comment" = "IsBlocked"
+	integer		i_enabled
+	string		s_n_1		descriptor "comment" = "Name1"
+	boolean		b_found		descriptor "comment" = "flag to determine that vendor exists already in Tramos"
+	string		s_blockedreason		descriptor "comment" = "blocked note"
+	datetime		dt_blocked_date		descriptor "comment" = "now"
+	string		s_source_ref		descriptor "comment" = "file name"
+	string		s_tramos_n_1		descriptor "comment" = "original tramos vendor name"
+	long		l_tramos_vendor_nr		descriptor "comment" = "original tramos vendor number i.e. CHART_NR; AGENT_NR etc"
+	s_vendor_address		str_mainaddress
+end type
+

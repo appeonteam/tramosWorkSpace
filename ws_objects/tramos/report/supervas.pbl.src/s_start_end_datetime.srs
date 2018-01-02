@@ -1,0 +1,6 @@
+﻿$PBExportHeader$s_start_end_datetime.srs
+global type s_start_end_datetime from structure
+	datetime		dt_start
+	datetime		dt_end
+end type
+

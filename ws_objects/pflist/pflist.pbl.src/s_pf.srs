@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_pf.srs
+global type s_pf from structure
+	long		id
+	integer		pc_nr[]
+	integer		pcgroup
+	boolean		iscopy
+end type
+

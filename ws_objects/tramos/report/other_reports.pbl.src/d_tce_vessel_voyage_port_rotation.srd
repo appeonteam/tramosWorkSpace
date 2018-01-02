@@ -1,0 +1,21 @@
+﻿$PBExportHeader$d_tce_vessel_voyage_port_rotation.srd
+$PBExportComments$Used in Report TCE Voyage System
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=136 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=cal_caio_port_code dbname="CAL_CAIO.PORT_CODE" )
+ column=(type=long updatewhereclause=yes name=cal_caio_cal_caio_itinerary_number dbname="CAL_CAIO.CAL_CAIO_ITINERARY_NUMBER" )
+ column=(type=char(35) updatewhereclause=yes name=ports_port_n dbname="PORTS.PORT_N" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CAL_CAIO~" )  TABLE(NAME=~"CAL_CARG~" )  TABLE(NAME=~"PORTS~" ) COLUMN(NAME=~"CAL_CAIO.PORT_CODE~") COLUMN(NAME=~"CAL_CAIO.CAL_CAIO_ITINERARY_NUMBER~") COLUMN(NAME=~"PORTS.PORT_N~")    JOIN (LEFT=~"CAL_CARG.CAL_CARG_ID~"    OP =~"=~"RIGHT=~"CAL_CAIO.CAL_CARG_ID~" )    JOIN (LEFT=~"PORTS.PORT_CODE~"    OP =~"=~"RIGHT=~"CAL_CAIO.PORT_CODE~" )WHERE(    EXP1 =~"CAL_CARG.CAL_CALC_ID~"   OP =~"=~"    EXP2 =~":ai_cal_calc_id~"    LOGIC =~"and~" ) WHERE(    EXP1 =~"CAL_CAIO.PURPOSE_CODE~"   OP =~"in~"    EXP2 =~"~~~"L~~~", ~~~"D~~~"~" ) ) ORDER(NAME=~"CAL_CAIO.CAL_CAIO_ITINERARY_NUMBER~" ASC=yes ) ARG(NAME = ~"ai_cal_calc_id~" TYPE = number) " arguments=(("ai_cal_calc_id", number)) )
+text(band=header alignment="2" text="Cal Caio
+Port Code" border="0" color="0" x="5" y="4" height="128" width="302"  name=cal_caio_port_code_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cal Caio
+Cal Caio Itinerary Number" border="0" color="0" x="311" y="4" height="128" width="677"  name=cal_caio_cal_caio_itinerary_number_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="302" format="[general]"  name=cal_caio_port_code edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="439" y="4" height="76" width="329" format="[general]"  name=cal_caio_cal_caio_itinerary_number edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="987" y="0" height="64" width="946"  name=ports_port_n  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

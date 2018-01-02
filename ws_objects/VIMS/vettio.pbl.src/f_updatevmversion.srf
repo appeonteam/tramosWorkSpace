@@ -1,0 +1,31 @@
+﻿$PBExportHeader$f_updatevmversion.srf
+global type f_UpdateVMVersion from function_object
+end type
+
+forward prototypes
+global subroutine f_updatevmversion (string ls_id, string ls_ver, integer li_db)
+end prototypes
+
+global subroutine f_updatevmversion (string ls_id, string ls_ver, integer li_db);
+// Function to update the VIMS Mobile version number of a vessel or inspector
+Long ll_IMO
+
+// Convert to single digit version
+If Len(ls_Ver) = 8 then ls_Ver = String(Integer(Left(ls_Ver,2))) + "." + String(Integer(Mid(ls_Ver,4,2))) + "." + String(Integer(Right(ls_Ver,2)))
+
+If IsNumber(ls_ID) then    // ID is IMO number
+	ll_IMO = Long(ls_ID)	
+	Update VESSELS Set VETT_VIMSVER = :ls_Ver , VETT_DBVER = :li_DB Where IMO_NUMBER = :ll_IMO and VESSEL_ACTIVE = 1;	
+Else
+	Update USERS Set VETT_VIMSVER = :ls_Ver , VETT_DBVER = :li_DB Where USERID = :ls_ID;
+End If
+
+If SQLCA.SQLCode < 0 or SQLCA.SQLCode = 100 then 
+	Messagebox("Warning", "Could not update VIMS Mobile Version / DB Issue.~n~n" + SQLCA.SQLErrText)
+	Rollback;
+Else
+	Commit;
+End If
+
+end subroutine
+

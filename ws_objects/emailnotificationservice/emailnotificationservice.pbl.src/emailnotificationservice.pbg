@@ -1,0 +1,16 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "emailnotificationservice.pbl" "";
+@end;
+@begin Objects 
+ "emailnotificationservice.sra" "emailnotificationservice.pbl";
+ "d_sq_gr_expired_certificates.srd" "emailnotificationservice.pbl";
+ "d_sq_tb_claims_actions.srd" "emailnotificationservice.pbl";
+ "d_sq_tb_office_email.srd" "emailnotificationservice.pbl";
+ "d_sq_tb_task_duedate_monitor.srd" "emailnotificationservice.pbl";
+ "d_sq_tb_tchire_contracts.srd" "emailnotificationservice.pbl";
+ "d_sq_tb_timebar_monitor.srd" "emailnotificationservice.pbl";
+ "p_emailnotificationservice_exe.srj" "emailnotificationservice.pbl";
+ "s_emailnotificationsettings.srs" "emailnotificationservice.pbl";
+ "n_emailnotifications.sru" "emailnotificationservice.pbl";
+@end;

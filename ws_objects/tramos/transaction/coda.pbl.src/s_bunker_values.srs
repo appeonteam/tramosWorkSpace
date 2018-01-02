@@ -1,0 +1,16 @@
+﻿$PBExportHeader$s_bunker_values.srs
+$PBExportComments$structure to hold bunker values that has to be posted to CODA. (structure is used inside structure s_transaction_input)
+global type s_bunker_values from structure
+	decimal { 2 }		hfo_amount
+	decimal { 2 }		hfo_ton
+	decimal { 2 }		do_amount
+	decimal { 2 }		do_ton
+	decimal { 2 }		go_amount
+	decimal { 2 }		go_ton
+	decimal { 2 }		lshfo_amount
+	decimal { 2 }		lshfo_ton
+	decimal { 2 }		offservice_amount
+	boolean		apmvessel_or_tcinzero
+	string		headowner_Snumber
+end type
+

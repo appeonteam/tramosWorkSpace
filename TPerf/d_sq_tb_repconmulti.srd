@@ -1,0 +1,60 @@
+HA$PBExportHeader$d_sq_tb_repconmulti.srd
+release 11;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no showbackcoloronxp=no )
+header(height=200 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=tperf_repcon_contype dbname="TPERF_REPCON.CONTYPE" dbalias=".CONTYPE" values="A//E, Full Spd:	0/A//E, Eco Spd:	1/A//E, Adj Spd:	2/A//E, Conf:	3/A//E, Bad Wx:	4/A//E, Stoppage:	5/Pumping:	13/Boiler:	14/Inerting:	15/Heat & Cool:	16/Miscellaneous:	17/" )
+ column=(type=decimal(1) updatewhereclause=yes name=hsfo dbname="HSFO" )
+ column=(type=decimal(1) updatewhereclause=yes name=do dbname="DO" )
+ column=(type=decimal(2) updatewhereclause=yes name=per dbname="PER" )
+ column=(type=decimal(1) updatewhereclause=yes name=lsfo dbname="LSFO" )
+ column=(type=decimal(1) updatewhereclause=yes name=go dbname="GO" )
+ retrieve="  SELECT TPERF_REPCON.CONTYPE,   
+         SUM(TPERF_REPCON.QTY_HFO) AS HSFO,   
+         SUM(TPERF_REPCON.QTY_DO) AS DO,   
+         SUM(TPERF_REPCON.PERIOD) AS PER,   
+         SUM(TPERF_REPCON.QTY_LSHFO) AS LSFO,   
+         SUM(TPERF_REPCON.QTY_GO) AS GO 
+    FROM TPERF_REPCON,   
+         TPERF_REPORTS,   
+         TPERF_VOY  
+   WHERE ( TPERF_REPORTS.REP_ID = TPERF_REPCON.REP_ID ) and  
+         ( TPERF_VOY.VOY_ID = TPERF_REPORTS.VOY_ID ) and  
+         ( TPERF_VOY.VESSEL_ID = :VesselID ) and
+         ( CharIndex(~"#~" + Cast(TPERF_VOY.VOY_ID as VarChar) + ~"#~", :VoyIDString) > 0) and
+	 		( TPERF_REPCON.CONTYPE < 18)
+	GROUP BY TPERF_REPCON.CONTYPE
+   ORDER BY TPERF_REPCON.CONTYPE" arguments=(("VesselID", number),("VoyIDString", string)) )
+text(band=header alignment="0" text="Other Sailing Consumption" border="0" color="33554432" x="14" y="4" height="64" width="805" html.valueishtml="0"  name=tperf_repcon_contype_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period" border="0" color="33554432" x="763" y="72" height="64" width="347" html.valueishtml="0"  name=tperf_repcon_qty_hfo_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="DO" border="0" color="33554432" x="1833" y="72" height="64" width="347" html.valueishtml="0"  name=tperf_repcon_qty_do_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="HSFO" border="0" color="33554432" x="1120" y="72" height="64" width="347" html.valueishtml="0"  name=tperf_repcon_period_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="LSFO" border="0" color="33554432" x="1477" y="72" height="64" width="347" html.valueishtml="0"  name=tperf_repcon_qty_lshfo_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="GO" border="0" color="33554432" x="2190" y="72" height="64" width="347" html.valueishtml="0"  name=tperf_repcon_qty_go_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Avg Con" border="0" color="33554432" x="2619" y="72" height="64" width="347" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="(Hours)" border="0" color="8421504" x="809" y="140" height="56" width="256" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="(Metric Tons)" border="0" color="8421504" x="1147" y="140" height="56" width="293" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="(Metric Tons)" border="0" color="8421504" x="1504" y="140" height="56" width="293" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="(Metric Tons)" border="0" color="8421504" x="1861" y="140" height="56" width="293" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="(Metric Tons)" border="0" color="8421504" x="2222" y="140" height="56" width="293" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="(Metric Tons / Day)" border="0" color="8421504" x="2583" y="140" height="56" width="421" html.valueishtml="0"  name=t_7 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="18" y="0" height="64" width="704" format="[general]" html.valueishtml="0"  name=tperf_repcon_contype visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes edit.codetable=yes  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" (  hsfo  +  lsfo   +  do   + go  )  /  per  * 24"border="0" color="16711680" x="2601" y="0" height="64" width="297" format="0.0" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="16711680" x="1179" y="0" height="64" width="201" format="0.0" html.valueishtml="0"  name=hsfo visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="16711680" x="1883" y="4" height="64" width="201" format="0.0" html.valueishtml="0"  name=do visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="16711680" x="837" y="0" height="64" width="201" format="0.0" html.valueishtml="0"  name=per visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="16711680" x="1531" y="0" height="64" width="201" format="0.0" html.valueishtml="0"  name=lsfo visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="16711680" x="2254" y="0" height="64" width="201" format="0.0" html.valueishtml="0"  name=go visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

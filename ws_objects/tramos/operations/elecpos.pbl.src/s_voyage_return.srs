@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_voyage_return.srs
+global type s_voyage_return from structure
+	boolean		ab_autocreateproceeding
+	boolean		ab_allocatefixture
+	long		al_return
+end type
+

@@ -1,0 +1,38 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "eprejbog.pbl" "";
+@end;
+@begin Objects 
+ "d_actual_earnings.srd" "eprejbog.pbl";
+ "d_check_conflict_offservice_tc.srd" "eprejbog.pbl";
+ "d_edit_single_offservice.srd" "eprejbog.pbl";
+ "d_ex_bunker_off_services.srd" "eprejbog.pbl";
+ "d_ex_tb_offservice_calculation.srd" "eprejbog.pbl";
+ "d_find_tc_contract_for_periode.srd" "eprejbog.pbl";
+ "d_get_offservice_vas_indicator.srd" "eprejbog.pbl";
+ "d_off_services.srd" "eprejbog.pbl";
+ "d_off_services_file.srd" "eprejbog.pbl";
+ "d_off_services_file_actual_earnings.srd" "eprejbog.pbl";
+ "d_off_services_file_office.srd" "eprejbog.pbl";
+ "d_offservice_within_voyage.srd" "eprejbog.pbl";
+ "d_table_ntc_off_service.srd" "eprejbog.pbl";
+ "dw_daily_running_costs.srd" "eprejbog.pbl";
+ "dw_idle_days.srd" "eprejbog.pbl";
+ "dw_idle_days_select_voyage.srd" "eprejbog.pbl";
+ "dw_idle_days_select_voyage_and_port.srd" "eprejbog.pbl";
+ "dw_off_services_print.srd" "eprejbog.pbl";
+ "s_off_service.srs" "eprejbog.pbl";
+ "s_tc_trans_fuel.srs" "eprejbog.pbl";
+ "n_offservice.sru" "eprejbog.pbl";
+ "w_actual_earnings.srw" "eprejbog.pbl";
+ "w_check_conflict_offservice_tc.srw" "eprejbog.pbl";
+ "w_daily_running_costs.srw" "eprejbog.pbl";
+ "w_edit_single_offservice.srw" "eprejbog.pbl";
+ "w_idle_days.srw" "eprejbog.pbl";
+ "w_off_service_file.srw" "eprejbog.pbl";
+ "w_off_services.srw" "eprejbog.pbl";
+ "w_offservice_bunker_calculation.srw" "eprejbog.pbl";
+ "w_offservice_tc_fuel_trans.srw" "eprejbog.pbl";
+ "w_select_voyage_and_port_code.srw" "eprejbog.pbl";
+ "w_show_tccontractmatch.srw" "eprejbog.pbl";
+@end;

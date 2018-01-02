@@ -1,0 +1,24 @@
+﻿$PBExportHeader$f_co2emission.srf
+global type f_co2emission from function_object
+end type
+
+forward prototypes
+global function decimal f_co2emission (decimal ad_hfo, decimal ad_do, decimal ad_go, decimal ad_lsfo)
+end prototypes
+
+global function decimal f_co2emission (decimal ad_hfo, decimal ad_do, decimal ad_go, decimal ad_lsfo);decimal {2} ld_co2emission
+
+if isNull(ad_HFO) then ad_HFO = 0
+if isNull(ad_DO) then ad_DO = 0
+if isNull(ad_GO) then ad_GO = 0
+if isnull(ad_lsfo) then ad_lsfo = 0
+
+
+ld_co2emission = (ad_HFO * uo_global.id_co2_constant_hfo) + (ad_DO * uo_global.id_co2_constant_do) + (ad_GO * uo_global.id_co2_constant_go)  + (ad_lsfo * uo_global.id_co2_constant_lshfo)
+
+return ld_co2emission
+
+
+
+end function
+

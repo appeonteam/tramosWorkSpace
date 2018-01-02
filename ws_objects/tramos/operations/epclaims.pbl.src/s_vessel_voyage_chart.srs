@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_vessel_voyage_chart.srs
+$PBExportComments$In w_claims (cb_print), and w_laytime (cb_1)
+global type s_vessel_voyage_chart from structure
+    integer vessel_nr
+    string voyage_nr
+    integer chart_nr
+end type
+

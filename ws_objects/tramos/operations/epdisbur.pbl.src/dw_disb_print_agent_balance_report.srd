@@ -1,0 +1,16 @@
+﻿$PBExportHeader$dw_disb_print_agent_balance_report.srd
+$PBExportComments$Agent balance composite report.
+release 5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=5 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=153 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=73 color="536870912" )
+detail(height=137 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("apm_acc_nr", string)) )
+rectangle(band=header x="385" y="4" height="149" width="2561" brush.hatch="6" brush.color="12632256" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="12632256" )
+text(band=header alignment="0" text="MAERSK"border="0" color="0" x="439" y="36" height="81" width="321"  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Agent Balance"border="0" color="0" x="2250" y="36" height="93" width="613"  font.face="Arial" font.height="-14" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+report(band=detail dataobject="dw_disb_print_agent_balance_pay" x="19" y="4" height="121" width="2007" border="0"  height.autosize=yes criteria="" nest_arguments=(("apm_acc_nr")) trail_footer = yes  name=rep_1  slideup=directlyabove )
+report(band=detail dataobject="dw_disb_print_agent_balance_disb" x="2030" y="4" height="121" width="1751" border="0"  height.autosize=yes criteria="" nest_arguments=(("apm_acc_nr")) trail_footer = yes  name=rep_2  slideup=directlyabove )
+compute(band=footer alignment="0" expression="'Page ' + page() + ' of ' + pageCount()"border="0" color="0" x="1537" y="4" height="65" width="563" format="[general]"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )

@@ -1,0 +1,18 @@
+﻿$PBExportHeader$dw_list_charterer.srd
+$PBExportComments$Charterer list
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=52 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=chart_chart_sn dbname="CHART.CHART_SN" )
+ column=(type=char(70) updatewhereclause=yes name=chart_chart_n_1 dbname="CHART.CHART_N_1" )
+ column=(type=number updatewhereclause=yes key=yes name=cargo_chart_nr dbname="CHART.CHART_NR" )
+ retrieve="PBSELECT( VERSION(400) DISTINCT ()TABLE(NAME=~"CHART~" ) COLUMN(NAME=~"CHART.CHART_SN~") COLUMN(NAME=~"CHART.CHART_N_1~") COLUMN(NAME=~"CHART.CHART_NR~")) ORDER(NAME=~"CHART.CHART_SN~" ASC=yes ) ORDER(NAME=~"CHART.CHART_N_1~" ASC=yes ) " update="CHART" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="Charterer" border="0" color="0" x="27" y="4" height="56" width="247"  name=chart_chart_sn_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="27" y="8" height="56" width="325" format="[general]"  name=chart_chart_sn edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="370" y="8" height="56" width="987" format="[general]"  name=chart_chart_n_1 edit.limit=70 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="12632256" x="1486" y="4" height="56" width="183" format="[general]"  name=cargo_chart_nr edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

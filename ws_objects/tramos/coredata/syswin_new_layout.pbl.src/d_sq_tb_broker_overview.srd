@@ -1,0 +1,108 @@
+﻿$PBExportHeader$d_sq_tb_broker_overview.srd
+$PBExportComments$Used in report "Top Broker" and "n_company_contacts_interface"
+release 11.5;
+datawindow(units=0 timer_interval=0 color=16777215 brushmode=0 transparency=0 gradient.angle=0 gradient.color=8421504 gradient.focus=0 gradient.repetition.count=0 gradient.repetition.length=100 gradient.repetition.mode=0 gradient.scale=100 gradient.spread=100 gradient.transparency=0 picture.blur=0 picture.clip.bottom=0 picture.clip.left=0 picture.clip.right=0 picture.clip.top=0 picture.mode=0 picture.scale.x=100 picture.scale.y=100 picture.transparency=0 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 2 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.background=no print.preview.background=no print.preview.outline=yes hidegrayline=no showbackcoloronxp=no picture.file="" )
+header(height=96 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+summary(height=96 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+footer(height=12 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+detail(height=92 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+table(column=(type=char(35) updatewhereclause=yes name=brokers_broker_name dbname="BROKERS.BROKER_NAME" dbalias=".BROKER_NAME" )
+ column=(type=number updatewhereclause=yes name=commission_dem dbname="commission_dem" )
+ column=(type=number updatewhereclause=yes name=commission_frt dbname="commission_frt" )
+ column=(type=decimal(2) updatewhereclause=yes name=commission_tc dbname="commission_tc" )
+ column=(type=long updatewhereclause=yes name=brokers_broker_nr dbname="BROKERS.BROKER_NR" dbalias=".BROKER_NR" )
+ retrieve="  SELECT DISTINCT    
+         BROKERS.BROKER_NAME,   
+         
+			( SELECT Isnull(Sum(DISTINCT COMMISSIONS.COMM_AMOUNT),0)
+				FROM COMMISSIONS,
+					  CLAIMS
+				WHERE COMMISSIONS.CHART_NR = CLAIMS.CHART_NR and  
+						COMMISSIONS.VESSEL_NR = CLAIMS.VESSEL_NR and  
+						COMMISSIONS.CLAIM_NR = CLAIMS.CLAIM_NR and
+						COMMISSIONS.VOYAGE_NR = CLAIMS.VOYAGE_NR and
+						COMMISSIONS.VOYAGE_NR =  VOYAGES.VOYAGE_NR AND
+						CLAIMS.VESSEL_NR = VESSELS.VESSEL_NR and
+						Substring(COMMISSIONS.VOYAGE_NR,1,2) =  :voyage_year  and
+						CLAIMS.CLAIM_TYPE = ~"DEM~" and
+						COMMISSIONS.VESSEL_NR = VESSELS.VESSEL_NR and 
+						COMMISSIONS.BROKER_NR  = BROKERS.BROKER_NR	) as commission_dem,
+			( SELECT Isnull(Sum(DISTINCT COMMISSIONS.COMM_AMOUNT),0)
+				FROM COMMISSIONS,
+					  CLAIMS
+				WHERE COMMISSIONS.CHART_NR = CLAIMS.CHART_NR and  
+						COMMISSIONS.VESSEL_NR = CLAIMS.VESSEL_NR and  
+						COMMISSIONS.CLAIM_NR = CLAIMS.CLAIM_NR and
+						COMMISSIONS.VOYAGE_NR =  VOYAGES.VOYAGE_NR AND
+						COMMISSIONS.VOYAGE_NR = CLAIMS.VOYAGE_NR and
+						CLAIMS.VESSEL_NR = VESSELS.VESSEL_NR and
+						Substring(COMMISSIONS.VOYAGE_NR,1,2) = :voyage_year  and
+						CLAIMS.CLAIM_TYPE = ~"FRT~" and
+						COMMISSIONS.VESSEL_NR = VESSELS.VESSEL_NR and 
+						COMMISSIONS.BROKER_NR  = BROKERS.BROKER_NR ) as commission_frt,
+			0.00 AS commission_tc,
+			BROKERS.BROKER_NR
+    FROM BROKERS,   
+         COMMISSIONS,   
+         VOYAGES,   
+         VESSELS,   
+         CLAIMS
+WHERE ( COMMISSIONS.VESSEL_NR = VOYAGES.VESSEL_NR ) and  
+         ( VESSELS.VESSEL_NR = VOYAGES.VESSEL_NR ) and  
+         ( COMMISSIONS.VOYAGE_NR = VOYAGES.VOYAGE_NR ) and  
+         ( COMMISSIONS.BROKER_NR = BROKERS.BROKER_NR ) and  
+         ( CLAIMS.VESSEL_NR = VOYAGES.VESSEL_NR ) and  
+         ( CLAIMS.VOYAGE_NR = VOYAGES.VOYAGE_NR ) and  
+         ( CLAIMS.CHART_NR = COMMISSIONS.CHART_NR ) and  
+         ( CLAIMS.VESSEL_NR = COMMISSIONS.VESSEL_NR ) and  
+         ( CLAIMS.VOYAGE_NR = COMMISSIONS.VOYAGE_NR ) and  
+         ( CLAIMS.CLAIM_NR = COMMISSIONS.CLAIM_NR ) and  
+         ( CLAIMS.BROKER_NR = BROKERS.BROKER_NR ) and  
+			( Substring(VOYAGES.VOYAGE_NR,1,2) =  :voyage_year  ) and
+			( VESSELS.PC_NR in  (:profitcenter) ) and
+		BROKERS.BROKER_NR = :brokerid
+
+		
+UNION
+  SELECT DISTINCT BROKERS.BROKER_NAME,   
+         		0.00 as commission_dem,
+			0.00 as commission_frt,
+			isnull(sum(NTC_COMMISSION.AMOUNT),0) AS commission_tc,
+			BROKERS.BROKER_NR
+    FROM NTC_TC_CONTRACT,
+			NTC_PAYMENT,
+			NTC_COMMISSION,
+			BROKERS,   
+         VESSELS   
+			
+   WHERE NTC_TC_CONTRACT.CONTRACT_ID = NTC_PAYMENT.CONTRACT_ID AND
+			NTC_PAYMENT.PAYMENT_ID = NTC_COMMISSION.PAYMENT_ID AND
+			NTC_TC_CONTRACT.VESSEL_NR = VESSELS.VESSEL_NR AND
+			NTC_COMMISSION.BROKER_NR = BROKERS.BROKER_NR AND 
+			 Substring(CONVERT(VARCHAR,DATEPART(yy,NTC_PAYMENT.EST_DUE_DATE)),3,4) = :voyage_year  and
+			 VESSELS.PC_NR in  ( :profitcenter )   and
+			BROKERS.BROKER_NR = :brokerid
+
+	GROUP BY BROKERS.BROKER_NR
+
+" arguments=(("voyage_year", string),("brokerid", number),("profitcenter", numberlist)) )
+text(band=header alignment="2" text="Comm.Dem." border="6" color="0" x="1257" y="16" height="60" width="480" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Comm.Frt." border="6" color="0" x="1755" y="16" height="60" width="466" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Comm.TC" border="6" color="0" x="2240" y="16" height="60" width="466" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1243" y="24" height="60" width="498" format="[general]" html.valueishtml="0"  name=commission_dem visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1783" y="20" height="60" width="443" format="[general]" html.valueishtml="0"  name=commission_frt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2254" y="24" height="60" width="466" format="[general]" html.valueishtml="0"  name=commission_tc visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=summary alignment="1" expression="sum(commission_dem)"border="0" color="0" x="1243" y="32" height="60" width="480" format="#,##0.00" html.valueishtml="0"  name=commdem visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=summary alignment="1" expression="sum(commission_frt)"border="0" color="0" x="1751" y="32" height="60" width="466" format="#,##0.00" html.valueishtml="0"  name=commfrt visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=summary alignment="1" expression="sum(commission_tc)"border="0" color="0" x="2235" y="32" height="60" width="466" format="#,##0.00" html.valueishtml="0"  name=commtc visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

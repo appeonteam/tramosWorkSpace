@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_port_exp_match.srs
+$PBExportComments$Structure for passing parameters from w_tc_contract to w_tc_port_exp_match to match Port Expenses
+global type s_port_exp_match from structure
+	long		contract_id
+	decimal{2}		amount
+	long		port_exp_id
+	string		curr_code
+end type
+

@@ -1,0 +1,29 @@
+﻿$PBExportHeader$str_sql.srs
+$PBExportComments$Used for the parameters to the where clause.
+global type str_sql from structure
+	string		parameters
+	long		vesselgrp[]
+	long		chartgrp[]
+	long		pc[]
+	string		years[]
+	long		brokers[]
+	string		port[]
+	string		country_chart[]
+	long		country[]
+	long		chart_max
+	long		chart_min
+	date		year_start
+	date		year_end
+	long		vessel[]
+	string		port_min
+	string		port_max
+	string		gradegrp[]
+	long		broker_min
+	long		broker_max
+	string		purpose[]
+	long		charterer[]
+	boolean		ib_vessel
+	long		vessel_min
+	long		vessel_max
+end type
+

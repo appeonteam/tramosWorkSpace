@@ -1,0 +1,14 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "vettsvr.pbl" "";
+@end;
+@begin Objects 
+ "vettsvr.sra" "vettsvr.pbl";
+ "d_ext_tb_capimport.srd" "vettsvr.pbl";
+ "d_sq_tb_inspcapexp.srd" "vettsvr.pbl";
+ "d_sq_tb_inspexport.srd" "vettsvr.pbl";
+ "d_sq_tb_itemcapxml.srd" "vettsvr.pbl";
+ "f_log.srf" "vettsvr.pbl";
+ "p_vettsvr.srj" "vettsvr.pbl";
+ "w_xmlimport.srw" "vettsvr.pbl";
+@end;

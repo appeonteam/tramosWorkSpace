@@ -1,0 +1,22 @@
+﻿$PBExportHeader$f_doposts.srf
+global type f_doposts from function_object
+end type
+
+forward prototypes
+global subroutine f_doposts ()
+end prototypes
+
+global subroutine f_doposts ();/********************************************************************
+   f_doposts
+   <DESC>  This function calls yield until the message queue is empty. 
+	This to ensure that when you do the next post it will be the first
+	one in the queue </DESC>
+   <RETURN> <none> </RETURN>
+   <ACCESS> Public (Global Function)</ACCESS>
+   <ARGS>  <none> </ARGS>
+   <USAGE> </USAGE>
+********************************************************************/
+do while Yield()
+loop
+end subroutine
+

@@ -1,0 +1,15 @@
+﻿$PBExportHeader$s_cargo_base_data.srs
+$PBExportComments$Used to receive data from calcule syst. for claimbase.
+global type s_cargo_base_data from structure
+	datetime		laycan_start
+	datetime		laycan_end
+	string		frt_curr_code
+	integer		fixed_exrate_enabled
+	decimal { 6 }		fixed_exrate
+	string		claim_curr
+	string		dem_curr_code
+	boolean		set_ex_rate
+	decimal { 6 }		dem_exrate
+	decimal { 6 }		frt_exrate
+end type
+

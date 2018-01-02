@@ -1,0 +1,32 @@
+﻿$PBExportHeader$f_correctglobalid.srf
+global type f_correctglobalid from function_object
+end type
+
+forward prototypes
+global subroutine f_correctglobalid ()
+end prototypes
+
+global subroutine f_correctglobalid ();
+Datastore lds_Data
+Long ll_Rows, ll_Count
+
+lds_Data = Create DataStore
+lds_Data.DataObject = "d_sq_tb_delmedw"
+lds_Data.SetTransObject(SQLCA)
+
+ll_Rows = lds_Data.Retrieve()
+
+For ll_Count = 1 to ll_Rows
+	If lds_Data.GetItemString(ll_Count, "match") = "No" then
+		lds_Data.SetItem(ll_Count, "globalid", lds_Data.GetItemString(ll_Count, "corrected"))
+	End If
+Next
+
+If lds_Data.Update()<0 then Messagebox("Error", "Error updating globalID")
+
+Commit;
+
+
+
+end subroutine
+

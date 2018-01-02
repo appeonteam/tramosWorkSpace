@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_trade.srs
+global type s_trade from structure
+	long		id
+	integer		pc_nr
+	integer		year
+	integer		pcgroup
+end type
+

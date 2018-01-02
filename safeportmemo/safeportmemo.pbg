@@ -1,0 +1,19 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "safeportmemo\\safeportmemo.pbl" "";
+@end;
+@begin Objects
+ "safeportmemo\\d_one_memo.srd" "safeportmemo\\safeportmemo.pbl";
+ "safeportmemo\\d_safememo_repair.srd" "safeportmemo\\safeportmemo.pbl";
+ "safeportmemo\\d_sq_tb_safeportmemo_country.srd" "safeportmemo\\safeportmemo.pbl";
+ "safeportmemo\\pipe_safeportmemo.srp" "safeportmemo\\safeportmemo.pbl";
+ "safeportmemo\\safeportmemo.sra" "safeportmemo\\safeportmemo.pbl";
+ "safeportmemo\\d_dddw_safeportmemo_city.srd" "safeportmemo\\safeportmemo.pbl";
+ "safeportmemo\\d_safeportmemo.srd" "safeportmemo\\safeportmemo.pbl";
+ "safeportmemo\\d_sq_tb_safeportmemo_city.srd" "safeportmemo\\safeportmemo.pbl";
+ "safeportmemo\\n_safeportmemo.sru" "safeportmemo\\safeportmemo.pbl";
+ "safeportmemo\\p_safeportmemo.srj" "safeportmemo\\safeportmemo.pbl";
+ "safeportmemo\\w_safeportmemo.srw" "safeportmemo\\safeportmemo.pbl";
+ "safeportmemo\\d_dddw_safeportmemo_country.srd" "safeportmemo\\safeportmemo.pbl";
+ "safeportmemo\\d_sq_tb_safeportmemo_portberth.srd" "safeportmemo\\safeportmemo.pbl";
+@end;

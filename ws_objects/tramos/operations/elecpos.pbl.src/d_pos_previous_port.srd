@@ -1,0 +1,44 @@
+﻿$PBExportHeader$d_pos_previous_port.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=port_code dbname="POC.PORT_CODE" )
+ column=(type=char(3) updatewhereclause=yes name=purpose_code dbname="POC.PURPOSE_CODE" )
+ column=(type=datetime updatewhereclause=yes name=port_dept_dt dbname="POC.PORT_DEPT_DT" )
+ column=(type=number updatewhereclause=yes name=dept_hfo dbname="POC.DEPT_HFO" )
+ column=(type=number updatewhereclause=yes name=dept_do dbname="POC.DEPT_DO" )
+ column=(type=number updatewhereclause=yes name=dept_go dbname="POC.DEPT_GO" )
+ column=(type=char(35) updatewhereclause=yes name=ports_port_n dbname="PORTS.PORT_N" )
+ retrieve="  SELECT POC.PORT_CODE,   
+         POC.PURPOSE_CODE,   
+         POC.PORT_DEPT_DT,   
+         POC.DEPT_HFO,   
+         POC.DEPT_DO,   
+         POC.DEPT_GO,
+			PORTS.PORT_N  
+    FROM POC,PORTS
+   WHERE VESSEL_NR = :li_vessel AND 
+			VOYAGE_NR = (SELECT MAX(VOYAGE_NR) FROM POC WHERE VESSEL_NR = :li_vessel AND VOYAGE_NR < :ls_voyage) AND
+			PORT_DEPT_DT = (SELECT MAX(PORT_DEPT_DT) FROM POC WHERE VESSEL_NR = :li_vessel AND
+			                VOYAGE_NR = (SELECT MAX(VOYAGE_NR) FROM POC WHERE VESSEL_NR = :li_vessel 
+																								AND VOYAGE_NR < :ls_voyage)) AND
+			POC.PORT_CODE = PORTS.PORT_CODE 
+            
+" arguments=(("li_vessel", number),("ls_voyage", string)) )
+text(band=detail alignment="0" text="Previous voyage last port :" border="0" color="0" x="9" y="4" height="56" width="667"  name=t_1  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="690" y="4" height="56" width="114" format="[general]"  name=port_code edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="823" y="4" height="56" width="869" format="[general]"  name=ports_port_n edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Purpose:" border="0" color="0" x="1705" y="4" height="56" width="229"  name=t_2  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="1952" y="4" height="56" width="114" format="[general]"  name=purpose_code edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Dept. dt:" border="0" color="0" x="2085" y="4" height="56" width="206"  name=t_3  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="2304" y="4" height="56" width="489" format="[shortdate] [time]"  name=port_dept_dt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Dept. Hfo/Do/Go:" border="0" color="0" x="2807" y="4" height="56" width="398"  name=t_4  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="3218" y="4" height="56" width="219" format="#,##0.00"  name=dept_hfo edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="/" border="0" color="0" x="3451" y="4" height="56" width="23"  name=t_5  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="3488" y="4" height="56" width="219" format="#,##0.00"  name=dept_do edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="3758" y="4" height="56" width="219" format="#,##0.00"  name=dept_go edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="/" border="0" color="0" x="3721" y="4" height="56" width="23"  name=t_6  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

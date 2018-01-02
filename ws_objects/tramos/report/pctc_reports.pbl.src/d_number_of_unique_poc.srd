@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_number_of_unique_poc.srd
+$PBExportComments$Used in report 'd_single_port_visits' (PCTC vessels /Car carriers)
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=no_of_calls dbname="compute_0001" )
+ retrieve="  SELECT count(*)  
+    FROM POC  
+   WHERE POC.VESSEL_NR in ( :vessels ) AND  
+         ((POC.PORT_ARR_DT >= :startdate AND POC.PORT_ARR_DT < :enddate ) or
+         (POC.PORT_DEPT_DT >= :startdate AND POC.PORT_DEPT_DT < :enddate )) AND  
+         POC.PORT_CODE = :portcode    
+" arguments=(("vessels", numberlist),("startdate", datetime),("enddate", datetime),("portcode", string)) )
+text(band=detail alignment="0" text="Unique calls" border="0" color="0" x="370" y="4" height="64" width="357"  name=t_1  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="23" y="4" height="64" width="329" format="#,##0"  name=no_of_calls edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

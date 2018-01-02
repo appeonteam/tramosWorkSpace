@@ -1,0 +1,16 @@
+﻿$PBExportHeader$d_target_on_action.srd
+$PBExportComments$This datawindow displays the target relating to an action. Used on w_actionlist.
+release 4;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=1 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=233 color="536870912" )
+table(column=(type=decimal(0) update=yes key=yes name=ccs_targ__pk dbname="CCS_TARG.CCS_TARG__PK" )
+ column=(type=char(20) update=yes name=userid dbname="CCS_TARG.USERID" )
+ column=(type=char(32766) update=yes name=ccs_targ_desc dbname="CCS_TARG.CCS_TARG_DESC" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_TARG~" ) COLUMN(NAME=~"CCS_TARG.CCS_TARG__PK~") COLUMN(NAME=~"CCS_TARG.USERID~") COLUMN(NAME=~"CCS_TARG.CCS_TARG_DESC~")WHERE( EXP1 =~"CCS_TARG.CCS_TARG__PK~" OP =~"=~" EXP2 =~":num~" ) ) ARG(NAME = ~"num~" TYPE = number) " update="CCS_TARG" updatewhere=1 updatekeyinplace=no arguments=(("num", number)) )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="385" y="20" height="77" width="549" format="[general]"  name=userid  tag=" " edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="385" y="116" height="77" width="1610" format="[general]"  name=ccs_targ_desc  tag="Description of the target" edit.limit=32000 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Sales Person:"border="0" color="0" x="19" y="20" height="65" width="348"  name=userid_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Description:"border="0" color="0" x="19" y="116" height="65" width="302"  name=ccs_targ_desc_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_calc_result.srs
+$PBExportComments$Calculation structure that contains the result of the calculation
+global type s_calc_result from structure
+    double d_tc_eqv
+    double d_gross_freight
+    double d_total_commission
+    double d_demurrage
+end type
+

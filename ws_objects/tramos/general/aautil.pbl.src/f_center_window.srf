@@ -1,0 +1,59 @@
+﻿$PBExportHeader$f_center_window.srf
+$PBExportComments$Center window on screen
+global type f_center_window from function_object
+end type
+
+forward prototypes
+global subroutine f_center_window (window pw_window)
+end prototypes
+
+global subroutine f_center_window (window pw_window);/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+
+ Function : f_center_window
+
+ Object     : 
+  
+ Event	 :  
+
+ Scope     : Global
+
+ ************************************************************************************
+
+ Author    : Martin Israelsen
+   
+ Date       : 1/1-96
+
+ Description : Centers the window on the screen
+
+ Arguments : Window
+
+ Returns   : None
+
+ Variables :  None
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+1/1-96		1.0			MI		Initial version
+  
+************************************************************************************/
+
+
+Long x,y
+environment env
+
+If GetEnvironment(env)=1 Then
+	y = (PixelsToUnits(env.screenheight,YPixelsToUnits!) -pw_window.height) / 2
+	x = (PixelsToUnits(env.screenwidth, XPixelsToUnits!) - pw_window.width) / 2
+
+	pw_window.move(x,y)
+end if
+end subroutine
+

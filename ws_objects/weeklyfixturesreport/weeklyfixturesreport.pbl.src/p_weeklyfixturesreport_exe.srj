@@ -1,0 +1,16 @@
+﻿$PBExportHeader$p_weeklyfixturesreport_exe.srj
+$PBExportComments$Generated Application Executable Project
+EXE:weeklyfixturesreport.exe,,0,1,1
+CMP:0,0,0,2,0,0,1
+COM:Sybase, Inc.
+DES:Sybase, Inc. Product File
+CPY:
+PRD:PowerBuilder Enterprise Series
+PVS:1.0.0.1
+PVN:1,0,0,1
+FVS:1.0.0.1
+FVN:1,0,0,1
+MAN:0,asInvoker,0
+PBD:weeklyfixturesreport.pbl,,1
+PBD:..\sharedobjects\mt\mt_base_components.pbl,,1
+PBD:..\sharedobjects\mt\mt_constants.pbl,,1

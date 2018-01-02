@@ -1,0 +1,42 @@
+﻿$PBExportHeader$f_error_box.srf
+$PBExportComments$Opens window w_error_box passing the current window title and an error message.
+global type f_error_box from function_object
+end type
+
+forward prototypes
+global subroutine f_error_box (string as_title, string as_msg)
+end prototypes
+
+global subroutine f_error_box (string as_title, string as_msg);///////////////////////////////////////////////////////////////////////////
+//
+// Function:	f_error_box
+//
+//	Purpose:
+//
+//		Opens the non-modal window w_error_box to display
+//		an error message when messagebox is not appropriate.
+//
+// Scope:		public
+//
+// Parameters:
+//					as_title			: string
+//					as_msg 	 		: string
+//
+// Returns : None
+//
+//	DATE			NAME		REVISION
+// ----		------------------------------------------------------------
+// Powersoft Corporation	INITIAL VERSION
+//  3-9-96		SYSTEM3	MI		Changed window from non-modal to system 3D response
+//
+//////////////////////////////////////////////////////////////////////
+// not open yet
+
+s_error_msg lstr_error_msg
+
+lstr_error_msg.s_title = as_title
+lstr_error_msg.s_msg = as_msg
+
+OpenWithParm(w_error_box,lstr_error_msg)
+end subroutine
+

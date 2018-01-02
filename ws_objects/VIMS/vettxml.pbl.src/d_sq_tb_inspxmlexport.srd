@@ -1,0 +1,65 @@
+﻿$PBExportHeader$d_sq_tb_inspxmlexport.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=vesselimo dbname="VETT_INSP.VESSELIMO" dbalias=".VESSELIMO" )
+ column=(type=char(50) updatewhereclause=yes name=vesselname dbname="VESSELNAME" )
+ column=(type=char(35) updatewhereclause=yes name=port dbname="PORTS.PORT_N" dbalias=".PORT_N" )
+ column=(type=char(100) updatewhereclause=yes name=comp dbname="VETT_COMP.NAME" dbalias=".NAME" )
+ column=(type=date updatewhereclause=yes name=inspdate dbname="VETT_INSP.INSPDATE" dbalias=".INSPDATE" )
+ column=(type=char(30) updatewhereclause=yes name=fname dbname="VETT_INSP.INSP_FNAME" dbalias=".INSP_FNAME" )
+ column=(type=char(30) updatewhereclause=yes name=lname dbname="VETT_INSP.INSP_LNAME" dbalias=".INSP_LNAME" )
+ column=(type=char(50) updatewhereclause=yes name=inspmodel dbname="VETT_INSPMODEL.NAME" dbalias=".NAME" )
+ column=(type=datetime updatewhereclause=yes name=lastedit dbname="VETT_INSP.LASTEDIT" dbalias=".LASTEDIT" )
+ column=(type=char(32768) updatewhereclause=no name=inspcomm dbname="VETT_ITEM.INSPCOMM" dbalias=".INSPCOMM" )
+ column=(type=long updatewhereclause=yes name=secs dbname="SECS" )
+ column=(type=long updatewhereclause=yes name=milli dbname="MILLI" )
+ retrieve="  SELECT VETT_INSP.VESSELIMO,  
+         (Select Max(VESSEL_NAME) from VESSELS Where IMO_NUMBER = VETT_INSP.VESSELIMO and VESSEL_ACTIVE = 1) as VESSELNAME,  
+         PORTS.PORT_N,   
+         VETT_COMP.NAME,   
+         VETT_INSP.INSPDATE,   
+         VETT_INSP.INSP_FNAME,   
+         VETT_INSP.INSP_LNAME,   
+         VETT_INSPMODEL.NAME,   
+         VETT_INSP.LASTEDIT,
+         VETT_ITEM.INSPCOMM,
+         DateDiff(ss, ~"1970-01-01~", GetDate()) as SECS,
+         DatePart(ms, Getdate()) as MILLI
+    FROM VETT_INSP,
+         VETT_ITEM,   
+         PORTS,   
+         VETT_COMP,   
+         VETT_INSPMODEL
+   WHERE ( VETT_INSP.PORT = PORTS.PORT_CODE ) and  
+         ( VETT_COMP.COMP_ID = VETT_INSP.COMP_ID ) and  
+         ( VETT_INSPMODEL.IM_ID = VETT_INSP.IM_ID ) and
+         ( VETT_ITEM.INSP_ID = VETT_INSP.INSP_ID) and
+         ( VETT_ITEM.ITEM_ID = :ItemID)
+" arguments=(("ItemID", number)) )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="33554432" x="5" y="4" height="60" width="229" format="[general]" html.valueishtml="0"  name=vesselimo visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="256" y="4" height="60" width="311" format="[general]" html.valueishtml="0"  name=port visible="1" edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="33554432" x="590" y="4" height="60" width="443" format="[general]" html.valueishtml="0"  name=comp visible="1" edit.limit=100 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="33554432" x="1047" y="4" height="60" width="297" format="[general]" html.valueishtml="0"  name=inspdate visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="33554432" x="1381" y="4" height="60" width="503" format="[general]" html.valueishtml="0"  name=fname visible="1" edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="33554432" x="1906" y="4" height="60" width="453" format="[general]" html.valueishtml="0"  name=lname visible="1" edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="33554432" x="2373" y="4" height="60" width="498" format="[general]" html.valueishtml="0"  name=inspmodel visible="1" edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="33554432" x="2889" y="4" height="60" width="416" format="[shortdate] [time]" html.valueishtml="0"  name=lastedit visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="33554432" x="3323" y="4" height="60" width="471" format="[general]" html.valueishtml="0"  name=secs visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="11310" y="0" height="48" width="1353" format="[general]" html.valueishtml="0"  name=vesselname visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="33554432" x="3813" y="4" height="60" width="256" format="[general]" html.valueishtml="0"  name=milli visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="33554432" x="4091" y="4" height="60" width="503" format="[general]" html.valueishtml="0"  name=inspcomm visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(usetemplate="t_capsexport" headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0  template=(comment="" encoding="UTF-8" name="t_capsexport" xml="<?xml version=~"1.0~" encoding=~"UTF-16LE~" standalone=~"yes~"?><datarecord recno=~"~~t'www.smslimited.com/apm/' +  String(vesselimo) + &quot;/apm46/&quot; + String(secs) + string(milli)~" title=~"Corrective Action Process~" status=~"open~" retention=~"12 months or until completed~" formversion=~"7.1~" creationdate=~"~~tString(DateTime(Today(), Now()), &quot;yyyy-mm-ddThh:mm:ss&quot;)~" formUniqueID=~"apm46~" formrevisiondate=~"~~tString( vett_insp_lastedit , &quot;dd/mm/yyyy&quot;)~" formrevisionnumber=~"11~"><commondata __pbband=~"detail~"><ReportNumber type=~"reportnumber~" browse=~"yes~"/><From/><AutoEmailToDept/><AutoEmailToOther/><AutoEmailToOther2/><Position/><Result> inspmodel </Result><PerformedDate type=~"date~" browse=~"yes~">String(inspdate , &quot;yyyy-mm-dd&quot;) + &quot;T00:00:00&quot;</PerformedDate><PerformedBy>fname + &quot; &quot; +  lname </PerformedBy><AuditInspectionOrganisation>comp</AuditInspectionOrganisation><ExternalAuditorInspectorEmail/><ClassSocReference/><ReferenceNumber/><DateClosed type=~"date~"/><DateClosedOut type=~"date~"/><CAPPort>port</CAPPort><Categorised>If( Left(inspmodel , 4) = &quot;Port&quot;, &quot;A Deficiency&quot;, If (Left(inspmodel, 3) = &quot;ISM&quot;, &quot;&quot;, &quot;An Observation&quot;))</Categorised><CorrectiveActionReportOrRequest/><ISM>If(Left( inspmodel, 3) = &quot;ISM&quot;, &quot;Y&quot;, &quot;&quot;)</ISM><CDI>If(Left( inspmodel, 3) = &quot;CDI&quot;, &quot;Y&quot;, &quot;&quot;)</CDI><ISO9001/><ISO14001/><SIRE>If(Left(inspmodel, 4) = &quot;SIRE&quot;, &quot;Y&quot;, &quot;&quot;)</SIRE><MIRE>If(Left( inspmodel, 4) = &quot;MIRE&quot;, &quot;Y&quot;, &quot;&quot;)</MIRE><SIRENotRelevantToVessel/><SIRENoFurtherActionRequired/><OtherControlSpecification>If(Left( inspmodel , 3) not in (&quot;ISM&quot;, &quot;CDI&quot;, &quot;SIRE&quot;, &quot;MIRE&quot;), &quot;&quot;, &quot;Y&quot;)</OtherControlSpecification><OtherSpecified>If(Left( inspmodel , 3) not in (&quot;ISM&quot;, &quot;CDI&quot;, &quot;SIRE&quot;, &quot;MIRE&quot;), &quot;&quot;,  inspmodel )</OtherSpecified><ConditionComment browse=~"yes~" browseorder=~"1~">inspcomm</ConditionComment><CostOfNonConformance/><AmountCostOfNonConformance/><OtherAmount/><OtherHours/><HoursLostCostOfNonConformance/><ImmediateAction/><WasItPermanentSolution/><Lessons/><MeetingType/><MeetingDate type=~"date~"/><VesselName type=~"preinfo~" dataID=~"apm2~">vesselname</VesselName><IMONumber type=~"preinfo~" dataID=~"apm2~">vesselimo</IMONumber><UnderlyingCause/><RootCause/><RootCauseDescription/><ImmediateDirectCause/><ApparentCause/></commondata><block name=~"rptAction~"><repeatdata><Action/><Responsibility/><DateDue type=~"date~"/><DateCompleted type=~"date~"/></repeatdata></block><block name=~"rptActionRootCause~"><repeatdata><Action/><Responsibility/><DateDue type=~"date~"/><DateCompleted type=~"date~"/></repeatdata></block></datarecord>"))
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_enter_nonportexp_voyagenr_parm.srs
+$PBExportComments$Parameters passed to the w_enter_nonportexp_voyagenr window
+global type s_enter_nonportexp_voyagenr_parm from structure
+	long		vessel_nr
+	datetime		activity_period
+end type
+

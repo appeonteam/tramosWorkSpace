@@ -1,0 +1,27 @@
+﻿$PBExportHeader$f_split.srf
+global type f_split from function_object
+end type
+
+forward prototypes
+global subroutine f_split (string as_string, character ac_separator, integer ai_return[])
+global subroutine f_split (string as_string, character ac_separator, ref string as_return[])
+end prototypes
+
+global subroutine f_split (string as_string, character ac_separator, integer ai_return[]);
+end subroutine
+
+global subroutine f_split (string as_string, character ac_separator, ref string as_return[]);
+Integer li_Integer, li_Count = 1
+
+as_Return[1] = ""
+
+For li_Integer = 1 to Len(as_String)
+	If Mid(as_String, li_Integer, 1) = ac_Separator then
+		li_Count ++
+		as_Return[li_Count] = ""
+	Else
+		as_Return[li_Count] += Mid(as_String, li_Integer, 1)
+	End If
+Next
+end subroutine
+

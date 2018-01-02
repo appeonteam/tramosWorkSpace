@@ -1,0 +1,30 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tramos\\operations\\specialclaims.pbl" "";
+@end;
+@begin Objects
+ "tramos\\operations\\d_sq_tb_users_profitc_offices.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\n_specialclaim_interface.sru" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\w_specialclaim_actionlist.srw" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_sq_tb_office_selection.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_dddw_spec_claim_vessel_selection.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\n_specialclaim_invoice.sru" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_sq_tb_specialclaim_action.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_sq_tb_specialclaim_table.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_sq_tb_specialclaim_transaction.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_sq_tb_specialclaim_actionlist.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_sq_tb_specialclaim_file_list.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\n_specialclaim_actionlist_interface.sru" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_sq_tb_specialclaim_base.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_sq_tb_specialclaim_list.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\w_edit_comments.srw" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\w_specialclaim.srw" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_dddw_bu_chart_operator.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_sq_tb_dddw_voyage_selection.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_dddw_voyage_selection.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_dddw_active_agents_sort_by_name.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_dddw_active_brokers_sort_by_name.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_dddw_active_chart_sort_by_name.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_dddw_active_tcowners_sort_by_name.srd" "tramos\\operations\\specialclaims.pbl";
+ "tramos\\operations\\d_sq_tb_responsible_selection.srd" "tramos\\operations\\specialclaims.pbl";
+@end;

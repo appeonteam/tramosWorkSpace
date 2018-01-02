@@ -1,0 +1,14 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tramos\\msps\\rules_engine.pbl" "";
+@end;
+@begin Objects
+ "tramos\\msps\\s_alerts.srs" "tramos\\msps\\rules_engine.pbl";
+ "tramos\\msps\\d_sq_gr_rules_engine_operations.srd" "tramos\\msps\\rules_engine.pbl";
+ "tramos\\msps\\n_generate_alerts.sru" "tramos\\msps\\rules_engine.pbl";
+ "tramos\\msps\\d_sq_gr_rules_alerts.srd" "tramos\\msps\\rules_engine.pbl";
+ "tramos\\msps\\d_sq_gr_rules_config.srd" "tramos\\msps\\rules_engine.pbl";
+ "tramos\\msps\\d_sq_gr_rules_engine_msps.srd" "tramos\\msps\\rules_engine.pbl";
+ "tramos\\msps\\d_sq_gr_rules_setup.srd" "tramos\\msps\\rules_engine.pbl";
+ "tramos\\msps\\d_sq_gr_rules_severity.srd" "tramos\\msps\\rules_engine.pbl";
+@end;

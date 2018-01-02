@@ -1,0 +1,6 @@
+HA$PBExportHeader$stru_loginfo.srs
+global type stru_loginfo from structure
+	stru_authinfo		s_authinfo
+	stru_loginoption		s_loginoption
+end type
+

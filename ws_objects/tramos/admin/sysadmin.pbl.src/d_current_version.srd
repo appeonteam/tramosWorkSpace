@@ -1,0 +1,12 @@
+﻿$PBExportHeader$d_current_version.srd
+$PBExportComments$Used to show/update Current TRAMOS version
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=56 color="536870912" )
+table(column=(type=char(20) update=yes updatewhereclause=yes key=yes name=current_version dbname="TRAMOS_VERSION.CURRENT_VERSION" )
+ retrieve="PBSELECT(TABLE(NAME=~"TRAMOS_VERSION~") COLUMN(NAME=~"TRAMOS_VERSION.CURRENT_VERSION~"))" update="TRAMOS_VERSION" updatewhere=0 updatekeyinplace=yes )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="0" y="0" height="60" width="366" format="[general]"  name=current_version edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16776960" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,18 @@
+﻿$PBExportHeader$s_calc_cargo_data.srs
+$PBExportComments$Used in the calculation of laytime
+global type s_calc_cargo_data from structure
+	string		s_description
+	double		d_total_units
+	boolean		b_reversible_demurrage
+	boolean		b_reversible_freight
+	long		l_cerp_id
+	integer		i_number_of_ports
+	s_calc_port_data		str_port[]
+	double		d_estimated_minutes
+	double		d_estimated_minutes_gear
+	double		d_calculated_minutes
+	double		d_calculated_minutes_gear
+	double		d_demurrage
+	double		d_despatch
+end type
+

@@ -1,0 +1,39 @@
+﻿$PBExportHeader$f_broker_sn_lookup.srf
+$PBExportComments$This function reurn TRUE if broker_sn exists or FALSE if not.
+global type f_broker_sn_lookup from function_object
+end type
+
+forward prototypes
+global function boolean f_broker_sn_lookup (string broker_sn)
+end prototypes
+
+global function boolean f_broker_sn_lookup (string broker_sn);/********************************************************************
+   f_broker_sn_lookup
+   <DESC>  </DESC>
+   <RETURN> (None) </RETURN>
+   <ACCESS> public </ACCESS>
+   <ARGS>
+		broker_sn
+   </ARGS>
+   <USAGE>	</USAGE>
+   <HISTORY>
+   	Date       CR-Ref       Author            Comments
+   	18/06/2013 CR2877       WWA048        		
+   </HISTORY>
+********************************************************************/
+
+string ls_broker_sn
+
+SELECT TOP 1 BROKER_SN 
+  INTO :ls_broker_sn
+  FROM BROKERS
+ WHERE BROKER_SN = :broker_sn;
+ 
+if sqlca.sqlcode < 0 or sqlca.sqlcode = 100 then 
+	return (false)
+else
+	return(true)
+end if
+
+end function
+

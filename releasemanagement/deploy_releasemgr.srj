@@ -1,0 +1,34 @@
+HA$PBExportHeader$deploy_releasemgr.srj
+EXE:release_mgr.exe,,0,0,1
+CMP:0,0,0,2,0,0,1
+COM:Sybase, Inc.
+DES:Sybase, Inc. Product File
+CPY:
+PRD:PowerBuilder Enterprise Series
+PVS:2.0.0.0
+PVN:2,0,0,0
+FVS:2.0.0.0
+FVN:2,0,0,0
+MAN:0,asInvoker,0
+PBD:release_mgr.pbl,,1
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,release_mgr,a
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,stru_loginoption,s
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,f_getdate,f
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,d_testusers,d
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,stru_loginfo,s
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,w_main,w
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,stru_authinfo,s
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,w_seluser,w
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,d_release_list,d
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,n_app,u
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,w_public_report,w
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,d_pubreport_list,d
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,n_string,u
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,d_pubreport_detail,d
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,w_login,w
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,u_sle,u
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,stru_seluparm,s
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,d_seluser,d
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,f_hoursafter,f
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,w_input_report_info,w
+OBJ:D:\Tramos_Branch_201703\releasemanagement\release_mgr.pbl,d_release_form,d

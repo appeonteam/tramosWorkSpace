@@ -1,0 +1,8 @@
+﻿$PBExportHeader$str_error_stack.srs
+$PBExportComments$Structure used to hold error messages
+global type str_error_stack from structure
+	string		classname
+	string		method
+	string		message
+end type
+

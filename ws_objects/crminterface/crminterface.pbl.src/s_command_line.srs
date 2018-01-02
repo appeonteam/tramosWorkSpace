@@ -1,0 +1,12 @@
+﻿$PBExportHeader$s_command_line.srs
+global type s_command_line from structure
+	string		as_server		descriptor "comment" = "Database server name"
+	string		as_database		descriptor "comment" = "Database name"
+	string		as_mode		descriptor "comment" = "Application running mode"
+	string		as_log_level		descriptor "comment" = "Log level option"
+	string		as_export		descriptor "comment" = "Export data option"
+	string		as_folder_log		descriptor "comment" = "Log file folder option"
+	string		as_folder_file		descriptor "comment" = "The exported CSV file folder"
+	string		as_emailto[]		descriptor "comment" = "Send mail to who when a database error occurs"
+end type
+

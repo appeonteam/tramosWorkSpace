@@ -1,0 +1,36 @@
+﻿$PBExportHeader$d_sq_tb_tcout_vas_act_offservice.srd
+release 10;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=64 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(36) updatewhereclause=yes name=amount dbname="AMOUNT" )
+ retrieve="SELECT isnull(sum((NTC_OFF_SERVICE_DETAIL.DAYS * NTC_OFF_SERVICE_DETAIL.RATE) 
+		* (1 - (isnull(NTC_PAYMENT.ADR_COMM_PCT,0)/100)) 
+		* (isnull(NTC_OFF_SERVICE.EXCHANGE_RATE_USD,100)/100)
+		* (isnull(NTC_PAYMENT.EX_RATE_USD,100)/100)),0)  AS AMOUNT
+	FROM NTC_OFF_SERVICE,   
+      	NTC_OFF_SERVICE_DETAIL,   
+         	NTC_PAYMENT  
+	WHERE ( NTC_OFF_SERVICE_DETAIL.OFF_SERVICE_ID = NTC_OFF_SERVICE.OFF_SERVICE_ID ) 
+	and ( NTC_PAYMENT.PAYMENT_ID = NTC_OFF_SERVICE.PAYMENT_ID ) 
+	and ( NTC_PAYMENT.CONTRACT_ID in (:contractID) ) 
+	AND ( NTC_PAYMENT.TRANS_TO_CODA = 1 ) 
+	AND ( NTC_OFF_SERVICE.USE_IN_VAS = 1 ) 
+	AND (NOT (NTC_OFF_SERVICE.START_DATE < :voyage_start AND NTC_OFF_SERVICE.END_DATE <= :voyage_start ) 
+	AND NOT (NTC_OFF_SERVICE.START_DATE >= :voyage_end AND NTC_OFF_SERVICE.END_DATE > :voyage_end))
+" arguments=(("contractID", numberlist),("voyage_start", datetime),("voyage_end", datetime)) )
+text(band=header alignment="2" text="act offservice" border="0" color="33554432" x="0" y="4" height="56" width="343" html.valueishtml="0"  name=avg_rate_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=0 border="0" color="0" x="279" y="0" height="76" width="2528" html.valueishtml="0"  name=amount visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

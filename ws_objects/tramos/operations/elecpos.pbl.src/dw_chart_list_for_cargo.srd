@@ -1,0 +1,19 @@
+﻿$PBExportHeader$dw_chart_list_for_cargo.srd
+$PBExportComments$This Datawindow is used to list the charterers who have loads for a vessel.
+release 4;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=73 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=73 color="536870912" )
+table(column=(type=char(10) name=chart_chart_sn dbname="CHART.CHART_SN" )
+ column=(type=char(70) name=chart_chart_n_1 dbname="CHART.CHART_N_1" )
+ column=(type=number name=chart_chart_nr dbname="CHART.CHART_NR" )
+ retrieve="PBSELECT( VERSION(400) DISTINCT ()TABLE(NAME=~"CHART~" ) TABLE(NAME=~"CD~" ) COLUMN(NAME=~"CHART.CHART_SN~") COLUMN(NAME=~"CHART.CHART_N_1~") COLUMN(NAME=~"CHART.CHART_NR~") JOIN (LEFT=~"CHART.CHART_NR~" OP =~"=~"RIGHT=~"CD.CHART_NR~" )WHERE( EXP1 =~"CD.VESSEL_NR~" OP =~"=~" EXP2 =~":vessel_nr ~" LOGIC =~"and~" ) WHERE( EXP1 =~"CD.VOYAGE_NR~" OP =~"=~" EXP2 =~":voyage_nr ~" ) ) ARG(NAME = ~"vessel_nr~" TYPE = number) ARG(NAME = ~"voyage_nr~" TYPE = string) " arguments=(("vessel_nr", number),("voyage_nr", string)) )
+data("Charterer","Charterer Full Name", 0,) 
+text(band=header alignment="0" text="Short Name"border="0" color="0" x="19" y="4" height="57" width="293"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Long Name"border="0" color="0" x="348" y="4" height="57" width="284"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Nr"border="0" color="0" x="1207" y="4" height="57" width="55"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="4" height="57" width="252" format="[general]"  name=chart_chart_sn edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="348" y="4" height="57" width="823" format="[general]"  name=chart_chart_n_1 edit.limit=70 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1207" y="4" height="57" width="238" format="[general]"  name=chart_chart_nr edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

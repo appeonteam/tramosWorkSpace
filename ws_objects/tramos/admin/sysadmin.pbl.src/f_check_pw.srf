@@ -1,0 +1,87 @@
+﻿$PBExportHeader$f_check_pw.srf
+$PBExportComments$This function is used to check if a password has been used before
+global type f_check_pw from function_object
+end type
+
+forward prototypes
+global function integer f_check_pw (string as_userid, string as_password)
+end prototypes
+
+global function integer f_check_pw (string as_userid, string as_password);/* This function checkes if password is used before.
+	if yes return -1
+	if no store new password and return 1 */
+	
+datastore lds
+integer li_rc, li_row
+string ls_search, ls_hashedpw
+datetime ldt
+u_tran_changeuser SQLchangeuser
+n_cryptoapi lnv_crypto 
+
+
+
+
+SQLchangeuser = CREATE u_tran_changeuser
+
+SQLchangeuser.DBMS = SQLCA.DBMS
+SQLchangeuser.Database = SQLCA.Database
+SQLchangeuser.ServerName = SQLCA.ServerName
+SQLchangeuser.LogId = SQLCA.LogId
+SQLchangeuser.UserId = SQLCA.Userid
+SQLchangeuser.Logpass = SQLCA.Logpass
+SQLchangeuser.DBPass = SQLCA.DBpass
+//SQLchangeuser.LogId = "sa"
+//SQLchangeuser.UserId = "sa"
+//SQLchangeuser.Logpass = "tramos"
+//SQLchangeuser.DBPass = "tramos"
+
+lnv_crypto.iProviderType     = lnv_crypto.PROV_RSA_FULL
+lnv_crypto.iCryptoProvider   = lnv_crypto.of_GetDefaultProvider()
+lnv_crypto.iEncryptAlgorithm = lnv_crypto.CALG_RC4
+lnv_crypto.iHashAlgorithm    = lnv_crypto.CALG_MD5
+
+
+CONNECT USING SQLchangeuser;
+
+IF SQLchangeuser.SQLCode <> 0 THEN 
+	messagebox("DataBase Error","Could not attach to Database as user SA, please check that the password is correct")
+	destroy SQLchangeuser
+	return -1         
+End if
+
+lds = CREATE datastore
+lds.DataObject = "d_used_passwords"
+lds.SetTransObject(SQLchangeuser)
+li_rc = lds.Retrieve(as_userid)
+
+ls_hashedpw = lnv_crypto.of_gethashvalue(as_password)
+
+if li_rc > 0 then
+	ls_search = "password='" + ls_hashedpw  +"'"
+	if lds.find(ls_search,1,99) > 0 then 
+		DISCONNECT USING SQLchangeuser;
+		destroy SQLchangeuser
+		destroy lds
+		return -1
+	end if
+	if li_rc > 7 then lds.deleterow(lds.rowcount())
+end if
+
+li_row = lds.InsertRow(0)
+lds.setItem(li_row, "userid", as_userid)
+lds.setItem(li_row, "password", ls_hashedpw)
+ldt = datetime(today(), now())
+lds.setItem(li_row, "changed_date", ldt)
+if lds.update() = 1 then
+	UPDATE USERS SET PW_LAST_CHANGED = :ldt WHERE USERID = :as_userid USING SQLchangeuser;
+	commit;
+else
+	rollback;
+end if
+	
+destroy lds
+DISCONNECT USING SQLchangeuser;
+destroy SQLchangeuser
+return 1
+end function
+

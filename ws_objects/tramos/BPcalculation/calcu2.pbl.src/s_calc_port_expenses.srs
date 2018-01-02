@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_calc_port_expenses.srs
+$PBExportComments$This structure is used together with window w_calc_port_expenses and is holding retrieval arguments
+global type s_calc_port_expenses from structure
+	long		shiptype[]
+	string		portcode
+	string		purpose
+	integer		years
+end type
+

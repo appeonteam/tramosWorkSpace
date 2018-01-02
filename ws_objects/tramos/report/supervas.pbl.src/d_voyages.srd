@@ -1,0 +1,23 @@
+﻿$PBExportHeader$d_voyages.srd
+$PBExportComments$Used in datastore to find all voyages (incl. TC Out) for a specified vessel and year.
+release 5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=69 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=81 color="536870912" )
+table(column=(type=char(5) updatewhereclause=yes name=compute_0001 dbname="compute_0001" )
+ retrieve="SELECT DISTINCT substring(lt_voyages.VOYAGE_NR,1,5)   
+FROM VOYAGES lt_voyages   
+WHERE  lt_voyages.VESSEL_NR in (:ai_vessel_nr)  AND  
+         (lt_voyages.CAL_CALC_ID > 1 OR  
+         lt_voyages.VOYAGE_TYPE = 2) AND  
+         substring(lt_voyages.VOYAGE_NR,1,2) = substring(:as_year,1,2) AND 
+			lt_voyages.VOYAGE_FINISHED = (SELECT DISTINCT MAX(VOYAGES.VOYAGE_FINISHED) 
+													FROM VOYAGES 
+													WHERE VOYAGES.VESSEL_NR = lt_voyages.VESSEL_NR 
+													AND substring(VOYAGES.VOYAGE_NR,1,5) = substring(lt_voyages.VOYAGE_NR,1,5)) 
+
+   
+" arguments=(("ai_vessel_nr", number),("as_year", string)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="69" width="115" format="[general]"  name=compute_0001 edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

@@ -1,0 +1,25 @@
+﻿$PBExportHeader$s_apost.srs
+$PBExportComments$Structure used in userobject u_electronic_file.
+global type s_apost from structure
+	string		acctyr
+	string		voucno
+	string		picno
+	string		batch
+	string		userid
+	string		apmacc
+	string		currcd
+	long		exrate
+	string		cocode
+	string		pport
+	string		contr
+	string		dept
+	string		desc
+	string		suffix
+	decimal {2}	amount
+	string		invno
+	string		invdat
+	string		suppcd
+	string		paydat
+	decimal {2}	vat
+end type
+

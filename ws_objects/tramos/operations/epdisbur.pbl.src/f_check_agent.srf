@@ -1,0 +1,105 @@
+﻿$PBExportHeader$f_check_agent.srf
+$PBExportComments$Used to create agents in Port of Call when disb. are made
+global type f_check_agent from function_object
+end type
+
+forward prototypes
+global function boolean f_check_agent (integer vessel_nr, string voyage_nr, string port_code, integer pcn, integer agent_nr)
+end prototypes
+
+global function boolean f_check_agent (integer vessel_nr, string voyage_nr, string port_code, integer pcn, integer agent_nr);/* Implemented 10-09-02. The purpose of this function is to find out whether a agent is created
+in POC.
+
+1. Checks POC to find out whether the disbursement is having a POC
+	1.1. If yes then get the agent_nr. If agent_nr is equal to current agent nr then return 
+	1.2. Else check Cargo and find out whether agent exists here
+			1.2.1. If yes then return
+			1.2.2. Else check TRA_NCAG and find out whether agent exists here
+						1.2.2.1. If yes then return
+						1.2.2.2. Else check whether POC is having a agent 
+									1.2.2.2.1. If yes then create agent in TRA_NCAG
+									1.2.2.2.2. Else create agent in POC
+*/
+
+integer li_agent_nr, li_pocs
+boolean lb_agent_in_poc = true
+
+  SELECT count(*)
+    INTO :li_pocs
+    FROM POC  
+   WHERE ( POC.VESSEL_NR = :vessel_nr ) AND  
+         ( POC.VOYAGE_NR = :voyage_nr ) AND  
+         ( POC.PORT_CODE = :port_code ) AND  
+         ( POC.PCN = :pcn );
+if (li_pocs > 0) then
+	  SELECT POC.AGENT_NR  
+	    INTO :li_agent_nr  
+   	 FROM POC  
+	   WHERE ( POC.VESSEL_NR = :vessel_nr ) AND  
+   	      ( POC.VOYAGE_NR = :voyage_nr ) AND  
+      	   ( POC.PORT_CODE = :port_code ) AND  
+         	( POC.PCN = :pcn );
+	
+	if (li_agent_nr = agent_nr) then
+		return true
+	else
+		if isnull(li_agent_nr) then lb_agent_in_poc = false
+		
+			
+		  SELECT count(*)  
+    		INTO :li_pocs
+		    FROM CARGO  
+		   WHERE ( CARGO.VESSEL_NR = :vessel_nr ) AND  
+      	   	( CARGO.VOYAGE_NR = :voyage_nr ) AND  
+      		   ( CARGO.PORT_CODE = :port_code ) AND  
+	         	( CARGO.PCN = :pcn ) AND  
+	   	      ( CARGO.AGENT_NR = :agent_nr );   
+			
+			if (li_pocs > 0) then
+				return true
+			else
+				  SELECT count(*)  
+				    INTO :li_pocs  
+				    FROM TRA_NCAG  
+			   WHERE ( TRA_NCAG.VESSEL_NR = :vessel_nr ) AND  
+			         ( TRA_NCAG.VOYAGE_NR = :voyage_nr ) AND  
+         			( TRA_NCAG.PORT_CODE = :port_code ) AND  
+			         ( TRA_NCAG.PCN = :pcn ) AND  
+			         ( TRA_NCAG.AGENT_NR = :agent_nr );
+						
+						if (li_pocs > 0) then
+							return true
+						else
+							if (lb_agent_in_poc) then
+								  INSERT INTO TRA_NCAG  
+        							 (	VESSEL_NR, 
+										VOYAGE_NR,   
+						       	   PORT_CODE,   
+						         	PCN,   
+						            AGENT_NR )  
+							  VALUES ( :vessel_nr,   
+										  :voyage_nr,   
+										  :port_code,   
+										  :pcn,   
+										  :agent_nr);
+										  commit;
+							else
+								  UPDATE POC  
+    								SET AGENT_NR = :agent_nr  
+								   WHERE ( POC.VESSEL_NR = :vessel_nr ) AND  
+								         ( POC.VOYAGE_NR = :voyage_nr ) AND  
+						      	   	( POC.PORT_CODE = :port_code ) AND  
+								         ( POC.PCN = :pcn )   ;	
+											commit;
+							
+							end if
+						end if
+			end if 
+		end if
+end if
+
+
+
+return true
+end function
+

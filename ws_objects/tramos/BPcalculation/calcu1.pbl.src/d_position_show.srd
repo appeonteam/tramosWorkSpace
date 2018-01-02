@@ -1,0 +1,11 @@
+﻿$PBExportHeader$d_position_show.srd
+$PBExportComments$Show position window for the Position window. Under development
+release 4;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=489 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=9 color="536870912" )
+table(column=(type=char(10) name=temp dbname="temp" )
+ )
+text(band=header alignment="2" text="This window is under development"border="0" color="255" x="348" y="356" height="81" width="1217"  name=temp_t  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

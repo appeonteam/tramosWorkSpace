@@ -1,0 +1,15 @@
+﻿$PBExportHeader$s_create_commission.srs
+$PBExportComments$Var-parm to transfer selected claim back to w_commission
+global type s_create_commission from structure
+	integer		i_vessel_no
+	string		s_voyage_no
+	double		d_amount
+	string		s_invoice
+	integer		i_chart_no
+	long		l_claim_no
+	datetime		dt_cp_date
+	datetime		set_off_dt
+	string		s_curr_code
+	double		d_amount_local
+end type
+

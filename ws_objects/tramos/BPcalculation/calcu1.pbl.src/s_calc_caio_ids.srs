@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_calc_caio_ids.srs
+$PBExportComments$Contains the load and disch ports id's
+global type s_calc_caio_ids from structure
+    double d_loadports_id[]
+    double d_dischports_id[]
+end type
+

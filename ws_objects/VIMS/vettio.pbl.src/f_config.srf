@@ -1,0 +1,49 @@
+﻿$PBExportHeader$f_config.srf
+global type f_Config from function_object
+end type
+
+forward prototypes
+global function integer f_config (string as_configid, ref string as_data, integer ai_optype)
+end prototypes
+
+global function integer f_config (string as_configid, ref string as_data, integer ai_optype);// Function to read/write global settings
+// Returns 0 for success and -1 for error
+
+Choose Case ai_OpType
+	Case 0  // Get Setting
+		as_Data = ''
+		Select VALUE into :as_Data from VETT_CONFIG Where C_ID = :as_ConfigID;
+		If SQLCA.SQLCode < 0 then
+			Rollback;
+			Return -1
+		End If
+		Commit;
+		Return 0
+	Case 1  // Save Setting
+		Update VETT_CONFIG Set VALUE = :as_Data Where C_ID = :as_ConfigID;
+		
+		If SQLCA.SQLCode<0 then
+			Rollback;
+			Return -1
+		Else
+			If SQLCA.SQLnrows = 0 then
+				Insert Into VETT_CONFIG (C_ID, VALUE) Values (:as_ConfigID, :as_Data);			
+				If SQLCA.SQLCode = 0 then
+					Commit;
+					Return 0
+				End If
+			End If
+			Commit;
+			Return 0
+		End If
+	Case 3  // Delete Setting
+		Delete from VETT_CONFIG Where C_ID = :as_ConfigID;
+		If SQLCA.SQLCode <> 0 then
+			Rollback;
+			Return -1
+		End If
+		Commit;
+		Return 0
+End Choose
+end function
+

@@ -1,0 +1,9 @@
+﻿$PBExportHeader$str_fileattachment.srs
+$PBExportComments$currently not used.  removed in v23.05
+global type str_fileattachment from structure
+	string		dwname
+	long		retrieval_arg
+	string		window_title
+	string		dwname_overview
+end type
+

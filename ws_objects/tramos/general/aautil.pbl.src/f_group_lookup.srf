@@ -1,0 +1,22 @@
+﻿$PBExportHeader$f_group_lookup.srf
+$PBExportComments$Returns true if the given grade group exists
+global type f_group_lookup from function_object
+end type
+
+forward prototypes
+global function boolean f_group_lookup (string fs_group)
+end prototypes
+
+global function boolean f_group_lookup (string fs_group);STRING ls_group
+SELECT GRADE_GROUP
+INTO :ls_group
+FROM GROUPS
+WHERE GRADE_GROUP = :fs_group;
+IF (SQLCA.SQLCode < 0) OR (SQLCA.SQLCode = 100) THEN 
+	Return (FALSE)
+ELSE
+	Return(TRUE)
+END IF
+
+end function
+

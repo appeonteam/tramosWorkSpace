@@ -1,0 +1,40 @@
+﻿$PBExportHeader$f_addmonths.srf
+global type f_addmonths from function_object
+end type
+
+forward prototypes
+global function datetime f_addmonths (datetime adt_start, integer ai_months)
+end prototypes
+
+global function datetime f_addmonths (datetime adt_start, integer ai_months);
+Integer li_Year, li_Month, li_Day
+
+If IsNull(adt_start) then Return adt_start
+
+li_Day = Day(Date(adt_start))
+li_Month = Month(Date(adt_start))
+li_Year = Year(Date(adt_start))
+
+li_Month += ai_months    // Add months
+
+do until li_Month < 13   // Check for year change
+	li_Month -= 12
+	li_Year++
+loop
+
+do until li_Month > 0    // Check if subtracting months
+	li_Month += 12
+	li_Year --
+loop
+
+// Check if date is valid
+
+do
+	adt_start = DateTime(Date(li_Year, li_Month, li_Day))
+	If adt_start = DateTime("1900-01-01") then li_Day --
+loop until adt_start > DateTime("1900-01-01")
+
+Return adt_start
+
+end function
+

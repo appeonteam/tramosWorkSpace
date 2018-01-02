@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_port_departure_values_parameter.srs
+$PBExportComments$Structure to transfer parameters from Port of Call to Departure Bunker Values
+global type s_port_departure_values_parameter from structure
+	integer		vessel
+	string		voyage
+	string		portcode
+	integer		pcn
+end type
+

@@ -1,0 +1,22 @@
+﻿$PBExportHeader$daysinmonth.srf
+$PBExportComments$Calculates no. days in month
+global type daysinmonth from function_object
+end type
+
+forward prototypes
+global function integer daysinmonth (date pi_date)
+end prototypes
+
+global function integer daysinmonth (date pi_date);Integer li_year,li_month
+
+li_month = month(pi_date)
+li_year = year(pi_date)
+
+IF li_month = 12 THEN /* If december */
+	return ( DaysAfter(Date(li_year, li_month, 1), Date(li_year+1, 1, 1)) )
+ELSE
+	return ( DaysAfter(Date(li_year, li_month, 1), Date(li_year, li_month+1, 1)) )
+END IF
+
+end function
+

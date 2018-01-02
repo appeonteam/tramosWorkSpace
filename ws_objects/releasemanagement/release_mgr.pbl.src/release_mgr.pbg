@@ -1,0 +1,29 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "release_mgr.pbl" "";
+@end;
+@begin Objects 
+ "release_mgr.sra" "release_mgr.pbl";
+ "d_dddw_saveas_type.srd" "release_mgr.pbl";
+ "d_pubreport_detail.srd" "release_mgr.pbl";
+ "d_pubreport_list.srd" "release_mgr.pbl";
+ "d_release_form.srd" "release_mgr.pbl";
+ "d_release_list.srd" "release_mgr.pbl";
+ "d_seluser.srd" "release_mgr.pbl";
+ "d_testusers.srd" "release_mgr.pbl";
+ "f_getdate.srf" "release_mgr.pbl";
+ "f_hoursafter.srf" "release_mgr.pbl";
+ "deploy_releasemgr.srj" "release_mgr.pbl";
+ "stru_authinfo.srs" "release_mgr.pbl";
+ "stru_loginfo.srs" "release_mgr.pbl";
+ "stru_loginoption.srs" "release_mgr.pbl";
+ "stru_seluparm.srs" "release_mgr.pbl";
+ "n_app.sru" "release_mgr.pbl";
+ "n_string.sru" "release_mgr.pbl";
+ "u_sle.sru" "release_mgr.pbl";
+ "w_input_report_info.srw" "release_mgr.pbl";
+ "w_login.srw" "release_mgr.pbl";
+ "w_main.srw" "release_mgr.pbl";
+ "w_public_report.srw" "release_mgr.pbl";
+ "w_seluser.srw" "release_mgr.pbl";
+@end;

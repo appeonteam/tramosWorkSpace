@@ -1,0 +1,19 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tramos\\general\\base.pbl" "";
+@end;
+@begin Objects
+ "tramos\\general\\uo_cb_base.sru" "tramos\\general\\base.pbl";
+ "tramos\\general\\uo_ddlb_base.sru" "tramos\\general\\base.pbl";
+ "tramos\\general\\uo_gb_base.sru" "tramos\\general\\base.pbl";
+ "tramos\\general\\uo_lb_base.sru" "tramos\\general\\base.pbl";
+ "tramos\\general\\uo_rb_base.sru" "tramos\\general\\base.pbl";
+ "tramos\\general\\uo_cbx_base.sru" "tramos\\general\\base.pbl";
+ "tramos\\general\\uo_mle_base.sru" "tramos\\general\\base.pbl";
+ "tramos\\general\\uo_datawindow.sru" "tramos\\general\\base.pbl";
+ "tramos\\general\\uo_st_base.sru" "tramos\\general\\base.pbl";
+ "tramos\\general\\uo_sle_base.sru" "tramos\\general\\base.pbl";
+ "tramos\\general\\u_dw_multiselect_dragdrop.sru" "tramos\\general\\base.pbl";
+ "tramos\\general\\u_datawindow_sqlca.sru" "tramos\\general\\base.pbl";
+ "tramos\\general\\u_datawindow_dragdrop.sru" "tramos\\general\\base.pbl";
+@end;

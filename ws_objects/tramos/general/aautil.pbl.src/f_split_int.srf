@@ -1,0 +1,29 @@
+﻿$PBExportHeader$f_split_int.srf
+global type f_split_int from function_object
+end type
+
+forward prototypes
+global function integer f_split_int (ref long al_array[], string as_string, string as_separator)
+end prototypes
+
+global function integer f_split_int (ref long al_array[], string as_string, string as_separator);string   ls, sep  
+long   i, lpos, p, ln  
+sep=as_separator  
+ls=as_string+sep  
+
+i=1  
+lpos=1  
+ln=len(sep)  
+
+p=pos(ls,sep,lpos)  
+do   while   p>0  
+	al_array[i]=long(mid(ls,lpos,p   -   lpos))
+	lpos=p+ln  
+	i++  
+	p=pos(ls,sep,lpos)  
+loop  
+return   i   -1   
+
+
+end function
+

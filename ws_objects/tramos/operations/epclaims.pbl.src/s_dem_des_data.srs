@@ -1,0 +1,19 @@
+﻿$PBExportHeader$s_dem_des_data.srs
+$PBExportComments$Used to receive data from calcule system for dem/des.
+global type s_dem_des_data from structure
+	string		ports
+	string		purpose
+	decimal { 2 }		hour_rate
+	decimal { 2 }		daily_rate
+	decimal { 2 }		laytime_allowed
+	decimal { 2 }		dem_rate
+	decimal { 2 }		des_rate
+	integer		hours
+	decimal { 2 }		disch_hour_rate
+	decimal { 2 }		disch_daily_rate
+	decimal { 2 }		disch_allowed
+	string		terms
+	long		calcaioid
+	decimal{2}		d_other_allowed
+end type
+

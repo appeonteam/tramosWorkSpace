@@ -1,0 +1,20 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "claimcurrencyadjustments.pbl" "";
+@end;
+@begin Objects 
+ "claimcurrencyadjustments.sra" "claimcurrencyadjustments.pbl";
+ "d_sq_tb_cc_addresscoms.srd" "claimcurrencyadjustments.pbl";
+ "d_sq_tb_cc_claims.srd" "claimcurrencyadjustments.pbl";
+ "d_sq_tb_cc_commissions.srd" "claimcurrencyadjustments.pbl";
+ "d_sq_tb_cc_frttranscation.srd" "claimcurrencyadjustments.pbl";
+ "d_sq_tb_cc_nofrttranscation.srd" "claimcurrencyadjustments.pbl";
+ "d_sq_tb_cc_singleclaim.srd" "claimcurrencyadjustments.pbl";
+ "d_sq_tb_cc_specialclaims.srd" "claimcurrencyadjustments.pbl";
+ "d_sq_tb_cc_specialclaimtranscations.srd" "claimcurrencyadjustments.pbl";
+ "p_claimcurrencyadjustments.srj" "claimcurrencyadjustments.pbl";
+ "s_cargo_base_data.srs" "claimcurrencyadjustments.pbl";
+ "n_adjustgenerator.sru" "claimcurrencyadjustments.pbl";
+ "n_claimcurrencyadjust.sru" "claimcurrencyadjustments.pbl";
+ "w_adjustgenerator.srw" "claimcurrencyadjustments.pbl";
+@end;

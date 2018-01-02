@@ -1,0 +1,14 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "rules_engine.pbl" "";
+@end;
+@begin Objects 
+ "d_sq_gr_rules_alerts.srd" "rules_engine.pbl";
+ "d_sq_gr_rules_config.srd" "rules_engine.pbl";
+ "d_sq_gr_rules_engine_msps.srd" "rules_engine.pbl";
+ "d_sq_gr_rules_engine_operations.srd" "rules_engine.pbl";
+ "d_sq_gr_rules_setup.srd" "rules_engine.pbl";
+ "d_sq_gr_rules_severity.srd" "rules_engine.pbl";
+ "s_alerts.srs" "rules_engine.pbl";
+ "n_generate_alerts.sru" "rules_engine.pbl";
+@end;

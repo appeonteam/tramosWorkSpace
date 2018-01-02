@@ -1,0 +1,15 @@
+﻿$PBExportHeader$d_template_edit.srd
+$PBExportComments$Create or edit a given template.
+release 5;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=1 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=1081 color="536870912" )
+table(column=(type=char(35) update=yes updatewhereclause=yes name=ccs_tmpl_name dbname="CCS_TMPL.CCS_TMPL_NAME" )
+ column=(type=char(32766) update=yes updatewhereclause=yes name=ccs_tmpl_txt dbname="CCS_TMPL.CCS_TMPL_TXT" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes name=ccs_tmpl_pk dbname="CCS_TMPL.CCS_TMPL_PK" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_TMPL~" ) COLUMN(NAME=~"CCS_TMPL.CCS_TMPL_NAME~") COLUMN(NAME=~"CCS_TMPL.CCS_TMPL_TXT~") COLUMN(NAME=~"CCS_TMPL.CCS_TMPL_PK~")WHERE( EXP1 =~"CCS_TMPL.CCS_TMPL_PK~" OP =~"=~" EXP2 =~":num~" ) ) ARG(NAME = ~"num~" TYPE = number) " update="CCS_TMPL" updatewhere=0 updatekeyinplace=no arguments=(("num", number)) )
+text(band=detail alignment="0" text="Name:"border="0" color="0" x="19" y="20" height="57" width="156"  name=ccs_tmpl_name_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="202" y="20" height="65" width="988" format="[general]"  name=ccs_tmpl_name  tag="Template Name" edit.limit=35 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="19" y="116" height="929" width="2652" format="[general]"  name=ccs_tmpl_txt  tag="The Template text" edit.limit=32000 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.hscrollbar=yes edit.vscrollbar=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )

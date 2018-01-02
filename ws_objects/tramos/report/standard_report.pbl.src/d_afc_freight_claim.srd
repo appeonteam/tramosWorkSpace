@@ -1,0 +1,39 @@
+﻿$PBExportHeader$d_afc_freight_claim.srd
+$PBExportComments$Used in report "Fleettracking".
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(35) updatewhereclause=yes name=afc_grade_name dbname="FREIGHT_ADVANCED.AFC_GRADE_NAME" )
+ column=(type=number updatewhereclause=yes name=afc_bol_quantity dbname="FREIGHT_ADVANCED.AFC_BOL_QUANTITY" )
+ column=(type=decimal(0) updatewhereclause=yes name=afc_ws dbname="compute_0003" )
+ column=(type=decimal(2) updatewhereclause=yes name=afc_per_mts dbname="compute_0004" )
+ column=(type=decimal(2) updatewhereclause=yes name=afc_ws_rate dbname="compute_0005" )
+ column=(type=decimal(2) updatewhereclause=yes name=afc_main_lumpsum dbname="compute_0006" )
+ retrieve="  SELECT DISTINCT FREIGHT_ADVANCED.AFC_GRADE_NAME,   
+         FREIGHT_ADVANCED.AFC_BOL_QUANTITY,   
+         IsNull(FREIGHT_ADVANCED.AFC_WS,0),   
+         IsNull(FREIGHT_ADVANCED.AFC_PER_MTS,0),   
+         IsNull(FREIGHT_ADVANCED.AFC_WS_RATE,0),   
+         IsNull(FREIGHT_ADVANCED.AFC_MAIN_LUMPSUM,0) 
+    FROM FREIGHT_ADVANCED,   
+         CLAIMS  
+   WHERE ( CLAIMS.CHART_NR = FREIGHT_ADVANCED.CHART_NR ) and  
+         ( CLAIMS.VESSEL_NR = FREIGHT_ADVANCED.VESSEL_NR ) and  
+         ( CLAIMS.VOYAGE_NR = FREIGHT_ADVANCED.VOYAGE_NR ) and  
+         ( CLAIMS.CLAIM_NR = FREIGHT_ADVANCED.CLAIM_NR ) and  
+         ( FREIGHT_ADVANCED.CHART_NR = :charter_nr ) AND  
+         ( FREIGHT_ADVANCED.VESSEL_NR = :vessel_nr ) AND  
+         ( FREIGHT_ADVANCED.VOYAGE_NR = :voyage_nr ) AND  
+         ( FREIGHT_ADVANCED.CLAIM_NR = :claim )    
+" arguments=(("vessel_nr", number),("voyage_nr", string),("charter_nr", number),("claim", number)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="60" width="987" format="[general]"  name=afc_grade_name edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="1051" y="4" height="60" width="329" format="#,###0.000"  name=afc_bol_quantity edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1413" y="8" height="60" width="315" format="[general]"  name=afc_ws edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1774" y="12" height="60" width="288" format="[general]"  name=afc_per_mts edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2149" y="8" height="60" width="274" format="[general]"  name=afc_ws_rate edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2459" y="8" height="60" width="233" format="[general]"  name=afc_main_lumpsum edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+
+sparse(names="afc_grade_name	afc_bol_quantity	afc_ws	afc_per_mts	afc_ws_rate	afc_main_lumpsum")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

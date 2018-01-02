@@ -1,0 +1,34 @@
+﻿$PBExportHeader$d_sq_tb_totalresp.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=176 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=obs dbname="OBS" )
+ column=(type=char(50) updatewhereclause=yes name=vett_resp_resptext dbname="VETT_RESP.RESPTEXT" )
+ retrieve="SELECT Count(ANS) as OBS,   
+         VETT_RESP.RESPTEXT  
+    FROM VETT_MASTER, VETT_RESP 
+WHERE (VETT_MASTER.RESP_ID = VETT_RESP.RESP_ID)
+GROUP BY VETT_RESP.RESPTEXT   
+"  sort="obs D " )
+data(null null ) 
+text(band=header alignment="0" text="Valid Observation Responsibility" border="0" color="33554432" x="9" y="28" height="64" width="1074" html.valueishtml="0"  name=resptext_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="882" y="8" height="52" width="114" format="[general]" html.valueishtml="0"  name=obs visible="0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+rectangle(band=detail x="430" y="8" height="48" width="183~t obs  /  maxobs  * 1000"  name=r_11 visible="1" brush.hatch="6" brush.color="15780518" pen.style="0" pen.width="5" pen.color="33554432"  background.mode="2" background.color="33554432" )
+compute(band=detail alignment="0" expression=" vett_resp_resptext + ~":~""border="0" color="33554432" x="14" y="8" height="52" width="398" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="String( obs ) + ' (' + String( obs / totalobs , ~"0%~") + ')'"border="0" color="33554432" x="617~t440 + obs  /  maxobs  * 1000" y="4" height="52" width="215" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="0" expression="Max( obs )"border="0" color="33554432" x="233" y="112" height="52" width="82" format="[GENERAL]" html.valueishtml="0"  name=maxobs visible="0"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="0" expression="Sum( obs )"border="0" color="33554432" x="329" y="112" height="52" width="215" format="[GENERAL]" html.valueishtml="0"  name=totalobs visible="0"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

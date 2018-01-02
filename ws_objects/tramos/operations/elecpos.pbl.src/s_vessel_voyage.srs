@@ -1,0 +1,12 @@
+﻿$PBExportHeader$s_vessel_voyage.srs
+$PBExportComments$structure holding a vessel and voyage number
+global type s_vessel_voyage from structure
+	integer		vessel_nr
+	string		voyage_nr
+	boolean		new
+	string		type_name
+	long		cal_calc_id
+	string		calc_desc
+	string		vessel_name
+end type
+

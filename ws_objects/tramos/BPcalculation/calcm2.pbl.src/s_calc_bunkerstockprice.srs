@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_calc_bunkerstockprice.srs
+global type s_calc_bunkerstockprice from structure
+	decimal { 4 }		d_fo_price
+	decimal { 4 }		d_do_price
+	decimal { 4 }		d_mgo_price
+	decimal { 4 }		d_lsfo_price
+end type
+

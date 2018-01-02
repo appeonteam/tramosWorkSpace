@@ -1,0 +1,7 @@
+﻿$PBExportHeader$ustruct_att.srs
+global type ustruct_att from structure
+	integer		index
+	long		idlist[]
+	string		namelist[]
+end type
+

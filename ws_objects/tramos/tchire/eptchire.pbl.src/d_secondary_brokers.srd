@@ -1,0 +1,23 @@
+﻿$PBExportHeader$d_secondary_brokers.srd
+$PBExportComments$This dw lets the user add, modify or delete secondary brokers for a T/C-Hire
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=number update=yes updatewhereclause=yes key=yes name=vessel_nr dbname="TRA_STCB.VESSEL_NR" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=tchire_cp_date dbname="TRA_STCB.TCHIRE_CP_DATE" )
+ column=(type=number update=yes updatewhereclause=yes key=yes name=broker_nr dbname="TRA_STCB.BROKER_NR" )
+ column=(type=decimal(4) update=yes updatewhereclause=yes name=broker_commission dbname="TRA_STCB.BROKER_COMMISSION" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"TRA_STCB~" ) COLUMN(NAME=~"TRA_STCB.VESSEL_NR~") COLUMN(NAME=~"TRA_STCB.TCHIRE_CP_DATE~") COLUMN(NAME=~"TRA_STCB.BROKER_NR~") COLUMN(NAME=~"TRA_STCB.BROKER_COMMISSION~")WHERE( EXP1 =~"TRA_STCB.VESSEL_NR~" OP =~"=~" EXP2 =~":vessel_nr~" LOGIC =~"and~" ) WHERE( EXP1 =~"TRA_STCB.TCHIRE_CP_DATE~" OP =~"=~" EXP2 =~":cp_date~" ) ) ARG(NAME = ~"vessel_nr~" TYPE = number) ARG(NAME = ~"cp_date~" TYPE = datetime) " update="TRA_STCB" updatewhere=1 updatekeyinplace=yes arguments=(("vessel_nr", number),("cp_date", datetime)) )
+text(band=header alignment="2" text="Vessel Nr" border="0" color="0" x="2025" y="12" height="56" width="247"  name=vessel_nr_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Tchire Cp Date" border="0" color="0" x="1554" y="8" height="56" width="366"  name=tchire_cp_date_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Broker" border="0" color="0" x="9" y="8" height="56" width="608"  name=broker_nr_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Commission" border="0" color="0" x="631" y="8" height="56" width="325"  name=broker_commission_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="2" color="0" x="2025" y="8" height="56" width="274" format="[general]"  name=vessel_nr edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="1463" y="4" height="56" width="503" format="dd-mm-yy hh:mm"  name=tchire_cp_date edit.limit=0 edit.case=any edit.format="dd-mm-yy hh:mm" edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="2" color="0" x="9" y="4" height="56" width="608" format="[general]"  name=broker_nr dddw.name=dw_broker_list dddw.displaycolumn=broker_sn dddw.datacolumn=broker_nr dddw.percentwidth=300 dddw.lines=0 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.required=yes dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16776960" )
+column(band=detail id=4 alignment="1" tabsequence=20 border="2" color="0" x="631" y="4" height="56" width="325" format="#,##0.00"  name=broker_commission editmask.required=yes editmask.mask="#,##0.00"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16776960" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

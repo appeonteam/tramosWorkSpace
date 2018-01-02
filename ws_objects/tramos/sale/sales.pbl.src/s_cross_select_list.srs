@@ -1,0 +1,13 @@
+﻿$PBExportHeader$s_cross_select_list.srs
+$PBExportComments$Structure used in the user object u_cross_select.
+global type s_cross_select_list from structure
+    string dwin_list
+    string dwin_selects
+    long select_key
+    string column_names[2]
+    string column_headers[2]
+    string list_key_column_name
+    string selects_key_column_name
+    string selects_key2_column_name
+end type
+

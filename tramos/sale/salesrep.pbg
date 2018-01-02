@@ -1,0 +1,36 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tramos\\sale\\salesrep.pbl" "";
+@end;
+@begin Objects
+ "tramos\\sale\\d_calender.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_calender2.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_report_status_reports.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_calender3.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_calender4.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_target2_ex.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_chart2.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_gift_all_chart.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_gift_all_brok.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_chart_keys.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\w_print_calender.srw" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_chart_freeform.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_chart_freeform2.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_chart.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_chart_targets.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_chart_group.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_meeting_reports.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_contacts.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\w_print_charterer.srw" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_target_ex_ny.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_chart_pr_target.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_report_targ_keys.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_target.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_target2.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_gift_report_broker.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_action_sta_pr_target.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\w_print_target.srw" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_gift_report.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\d_rep_action_pr_target.srd" "tramos\\sale\\salesrep.pbl";
+ "tramos\\sale\\w_print_gifts.srw" "tramos\\sale\\salesrep.pbl";
+@end;

@@ -1,0 +1,94 @@
+﻿$PBExportHeader$dw_transaction_action_comment.srd
+$PBExportComments$Header datawindow for window w_actions_transactions, showing som claim details.
+release 12;
+datawindow(units=0 timer_interval=0 color=67108864 brushmode=0 transparency=0 gradient.angle=0 gradient.color=8421504 gradient.focus=0 gradient.repetition.count=0 gradient.repetition.length=100 gradient.repetition.mode=0 gradient.scale=100 gradient.spread=100 gradient.transparency=0 picture.blur=0 picture.clip.bottom=0 picture.clip.left=0 picture.clip.right=0 picture.clip.top=0 picture.mode=0 picture.scale.x=100 picture.scale.y=100 picture.transparency=0 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.background=no print.preview.background=no print.preview.outline=yes hidegrayline=no showbackcoloronxp=no picture.file="" )
+header(height=68 color="22628899" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+summary(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+footer(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+detail(height=1700 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+table(column=(type=datetime updatewhereclause=yes name=claims_discharge_date dbname="CLAIMS.DISCHARGE_DATE" )
+ column=(type=datetime update=yes updatewhereclause=yes name=claims_forwarding_date dbname="CLAIMS.FORWARDING_DATE" )
+ column=(type=char(35) updatewhereclause=yes name=brokers_broker_name dbname="BROKERS.BROKER_NAME" )
+ column=(type=char(70) updatewhereclause=yes name=chart_chart_n_1 dbname="CHART.CHART_N_1" )
+ column=(type=char(35) updatewhereclause=yes name=offices_office_name dbname="OFFICES.OFFICE_NAME" )
+ column=(type=long updatewhereclause=yes name=claims_vessel_nr dbname="CLAIMS.VESSEL_NR" )
+ column=(type=char(7) updatewhereclause=yes name=claims_voyage_nr dbname="CLAIMS.VOYAGE_NR" )
+ column=(type=long updatewhereclause=yes name=claims_chart_nr dbname="CLAIMS.CHART_NR" )
+ column=(type=long updatewhereclause=yes name=claims_claim_nr dbname="CLAIMS.CLAIM_NR" )
+ column=(type=datetime updatewhereclause=yes name=claims_cp_date dbname="CLAIMS.CP_DATE" )
+ column=(type=char(15) updatewhereclause=yes name=claims_cp_text dbname="CLAIMS.CP_TEXT" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=claims_expect_receive_pct dbname="CLAIMS.EXPECT_RECEIVE_PCT" )
+ column=(type=char(4) updatewhereclause=yes name=claims_claim_type dbname="CLAIMS.CLAIM_TYPE" )
+ column=(type=decimal(4) update=yes updatewhereclause=yes name=orig_amount dbname="ORIG_AMOUNT" )
+ column=(type=char(3) updatewhereclause=yes name=claims_curr_code dbname="CLAIMS.CURR_CODE" )
+ column=(type=char(1500) update=yes updatewhereclause=yes name=claims_claim_comment dbname="CLAIMS.CLAIM_COMMENT" )
+ column=(type=number update=yes updatewhereclause=yes name=claims_claim_sent dbname="CLAIMS.CLAIM_SENT" values="Claim Sent:	0/Claim Sent:	0" )
+ column=(type=number update=yes updatewhereclause=yes name=claims_broker_confirmed dbname="CLAIMS.BROKER_CONFIRMED" )
+ column=(type=number update=yes updatewhereclause=yes name=claims_charterer_confirmed dbname="CLAIMS.CHARTERER_CONFIRMED" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=claims_status dbname="CLAIMS.STATUS" )
+ column=(type=datetime update=yes updatewhereclause=yes name=claims_status_date dbname="CLAIMS.STATUS_DATE" )
+ column=(type=char(50) updatewhereclause=yes name=claims_claim_email dbname="CLAIMS.CLAIM_EMAIL" )
+ column=(type=number updatewhereclause=yes name=claims_show_in_vas dbname="CLAIMS.SHOW_IN_VAS" )
+ column=(type=datetime updatewhereclause=yes name=claims_claim_sent_date dbname="CLAIMS.CLAIM_SENT_DATE" )
+ column=(type=datetime updatewhereclause=yes name=claims_broker_confirmed_date dbname="CLAIMS.BROKER_CONFIRMED_DATE" )
+ column=(type=datetime updatewhereclause=yes name=claims_charterer_confirmed_date dbname="CLAIMS.CHARTERER_CONFIRMED_DATE" )
+ column=(type=long updatewhereclause=yes name=brokers_broker_nr dbname="BROKERS.BROKER_NR" )
+ retrieve="  SELECT CLAIMS.DISCHARGE_DATE,   
+         CLAIMS.FORWARDING_DATE,   
+         BROKERS.BROKER_NAME,   
+         CHART.CHART_N_1,   
+         OFFICES.OFFICE_NAME,   
+         CLAIMS.VESSEL_NR,   
+         CLAIMS.VOYAGE_NR,   
+         CLAIMS.CHART_NR,   
+         CLAIMS.CLAIM_NR,   
+         CLAIMS.CP_DATE,   
+         CLAIMS.CP_TEXT,   
+         CLAIMS.EXPECT_RECEIVE_PCT,   
+         CLAIMS.CLAIM_TYPE,   
+         (select SENT_AMOUNT
+            from CLAIM_SENT
+           where CLAIM_SENT.CHART_NR = CLAIMS.CHART_NR 
+             and CLAIM_SENT.VESSEL_NR = CLAIMS.VESSEL_NR 
+             and CLAIM_SENT.VOYAGE_NR = CLAIMS.VOYAGE_NR 
+             and CLAIM_SENT.CLAIM_NR = CLAIMS.CLAIM_NR 
+           group by CLAIM_SENT.CHART_NR, CLAIM_SENT.VESSEL_NR, CLAIM_SENT.VOYAGE_NR, CLAIM_SENT.CLAIM_NR
+          having SENT_NR = min(SENT_NR)
+         ) as ORIG_AMOUNT,   
+         CLAIMS.CURR_CODE,   
+         CLAIMS.CLAIM_COMMENT,   
+         CLAIMS.CLAIM_SENT,   
+         CLAIMS.BROKER_CONFIRMED,   
+         CLAIMS.CHARTERER_CONFIRMED,   
+         CLAIMS.STATUS,   
+         CLAIMS.STATUS_DATE,   
+         CLAIMS.CLAIM_EMAIL,   
+         CLAIMS.SHOW_IN_VAS,   
+         CLAIMS.CLAIM_SENT_DATE,   
+         CLAIMS.BROKER_CONFIRMED_DATE,   
+         CLAIMS.CHARTERER_CONFIRMED_DATE,
+         BROKERS.BROKER_NR  
+    FROM CLAIMS,   
+         BROKERS,   
+         OFFICES,   
+         CHART  
+   WHERE ( CHART.CHART_NR = CLAIMS.CHART_NR ) and  
+         ( BROKERS.BROKER_NR =* CLAIMS.BROKER_NR) AND  
+         ( OFFICES.OFFICE_NR =* CLAIMS.OFFICE_NR) AND  
+         ( ( CLAIMS.VESSEL_NR = :vessel_nr ) AND  
+         ( CLAIMS.VOYAGE_NR = :voyage_nr ) AND  
+         ( CLAIMS.CHART_NR = :chart_nr ) AND  
+         ( CLAIMS.CLAIM_NR = :claim_nr ) )    " arguments=(("vessel_nr", number),("voyage_nr", string),("chart_nr", number),("claim_nr", number)) )
+text(band=header alignment="0" text="Claim Comment" border="0" color="16777215" x="9" y="4" height="52" width="352" html.valueishtml="0"  name=t_1 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=16 alignment="0" tabsequence=10 border="0" color="0" x="0" y="0" height="1684" width="1074" format="[general]" html.valueishtml="0"  name=claims_claim_comment visible="1" edit.limit=1500 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autovscroll=yes edit.vscrollbar=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0  template=(comment="" encoding="UTF-16LE" name="default" xml="<?xml version=~"1.0~" encoding=~"UTF-16LE~" standalone=~"no~"?><dw_transaction_action_header><dw_transaction_action_header_row __pbband=~"detail~"><claims_discharge_date/><claims_forwarding_date/><brokers_broker_name/><chart_chart_n_1/><offices_office_name/><claims_vessel_nr>claims_vessel_nr</claims_vessel_nr><claims_voyage_nr>claims_voyage_nr</claims_voyage_nr><claims_chart_nr>claims_chart_nr</claims_chart_nr><claims_claim_nr>claims_claim_nr</claims_claim_nr><claims_cp_date/><claims_cp_text/><claims_expect_receive_pct/><claims_claim_type/></dw_transaction_action_header_row></dw_transaction_action_header>"))
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

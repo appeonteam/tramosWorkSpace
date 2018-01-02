@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_non_port_broker_comm.srs
+$PBExportComments$Used when entering Non Port Expenses Broker Commission
+global type s_non_port_broker_comm from structure
+	long		non_port_id
+	boolean		trans_to_coda
+	decimal { 2 }		broker_pct
+	long		payment_id
+end type
+

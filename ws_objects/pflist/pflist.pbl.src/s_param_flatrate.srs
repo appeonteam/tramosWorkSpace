@@ -1,0 +1,11 @@
+﻿$PBExportHeader$s_param_flatrate.srs
+$PBExportComments$Used as a containet passing values between windows u_tccalculation and w_f_tc_calculation_add
+global type s_param_flatrate from structure
+	long		ll_year
+	string		ls_fixture_trade
+	decimal		ld_flatrateports
+	decimal		ld_flatrate_defaultports
+	string		ls_msg_ports
+	string		ls_msg_defaultports
+end type
+

@@ -1,0 +1,21 @@
+﻿$PBExportHeader$d_sq_tb_charterer_group_dddw.srd
+release 10;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes identity=yes name=ccs_chgp_pk dbname="CCS_CHGP.CCS_CHGP_PK" )
+ column=(type=char(35) update=yes updatewhereclause=yes name=ccs_chgp_name dbname="CCS_CHGP.CCS_CHGP_NAME" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_CHGP~" ) COLUMN(NAME=~"CCS_CHGP.CCS_CHGP_PK~") COLUMN(NAME=~"CCS_CHGP.CCS_CHGP_NAME~")) ORDER(NAME=~"CCS_CHGP.CCS_CHGP_NAME~" ASC=yes ) " update="CCS_CHGP" updatewhere=1 updatekeyinplace=no  sort="ccs_chgp_name A " )
+column(band=detail id=2 alignment="0" tabsequence=10 border="0" color="33554432" x="18" y="4" height="64" width="823" format="[general]" html.valueishtml="0"  name=ccs_chgp_name visible="1" edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

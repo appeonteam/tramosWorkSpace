@@ -1,0 +1,14 @@
+HA$PBExportHeader$f_drawondw.srf
+global type f_drawondw from function_object
+end type
+
+forward prototypes
+global subroutine f_drawondw (datawindow adw_target, long al_x, long al_y, long al_xlen, long al_ylen, long al_color, integer ai_size, integer ai_style)
+end prototypes
+
+global subroutine f_drawondw (datawindow adw_target, long al_x, long al_y, long al_xlen, long al_ylen, long al_color, integer ai_size, integer ai_style);// This function draws a line on a datawindow in specified color and size.
+// To draw a single pixel, set al_xlen and al_ylen to zero
+
+adw_Target.Modify("create line(band=Detail x1='"+String(al_x)+"' y1='"+String(al_y)+"' x2='"+string(al_x+al_xlen)+"' y2='"+String(al_y+al_ylen)+"' pen.style='" + String(ai_Style) + "' pen.width='"+String(ai_Size)+"' pen.color='"+String(al_Color)+"' background.color='16777215')")
+end subroutine
+

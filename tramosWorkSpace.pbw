@@ -1,0 +1,21 @@
+Save Format v3.0(19990112)
+@begin Unchecked
+@end;
+@begin Targets
+ 0 "tramos.pbt";
+ 10 "mspsinterface\\msps_interface.pbt";
+ 1 "vims\\vett.pbt";
+ 11 "crminterface\\crminterface.pbt";
+ 2 "vims\\vcn.pbt";
+ 12 "releasemanagement\\release_mgr.pbt";
+ 3 "mail\\smtp_mail_service.pbt";
+ 13 "emailnotificationservice\\emailnotificationservice.pbt";
+ 4 "websiteinterface\\websiteinterface.pbt";
+ 5 "fixturereports\\fixturereports.pbt";
+ 6 "poolcommissionposting\\poolcommissionposting.pbt";
+ 7 "claimcurrencyadjustments\\claimcurrencyadjustments.pbt";
+ 8 "interfacemanager\\interfacemanager.pbt";
+ 9 "axestimates\\axestimates.pbt";
+@end;
+DefaultTarget "emailnotificationservice\\emailnotificationservice.pbt";
+DefaultRemoteTarget "emailnotificationservice\\emailnotificationservice.pbt";

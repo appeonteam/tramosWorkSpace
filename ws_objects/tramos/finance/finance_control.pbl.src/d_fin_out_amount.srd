@@ -1,0 +1,241 @@
+﻿$PBExportHeader$d_fin_out_amount.srd
+release 12;
+datawindow(units=0 timer_interval=0 color=1073741824 brushmode=0 transparency=0 gradient.angle=0 gradient.color=8421504 gradient.focus=0 gradient.repetition.count=0 gradient.repetition.length=100 gradient.repetition.mode=0 gradient.scale=100 gradient.spread=100 gradient.transparency=0 picture.blur=0 picture.clip.bottom=0 picture.clip.left=0 picture.clip.right=0 picture.clip.top=0 picture.mode=0 picture.scale.x=100 picture.scale.y=100 picture.transparency=0 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.background=no print.preview.background=no print.preview.outline=yes hidegrayline=no showbackcoloronxp=no picture.file="" )
+header(height=68 color="67108864" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+summary(height=112 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+footer(height=64 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+detail(height=68 color="1073741824~tIf( Mod(getrow(), 2) = 0,  16777200  , 16777215 )" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" height.autosize=yes )
+table(column=(type=long updatewhereclause=yes name=claims_vessel_nr dbname="VESSEL_NR" )
+ column=(type=char(50) updatewhereclause=yes name=vessels_vessel_name dbname="VESSEL_NAME" )
+ column=(type=char(10) updatewhereclause=yes name=claims_voyage_nr dbname="VOYAGE_NR" )
+ column=(type=long updatewhereclause=yes name=claims_claim_nr dbname="CLAIM_NR" )
+ column=(type=char(10) updatewhereclause=yes name=claims_claim_type dbname="CLAIM_TYPE" )
+ column=(type=char(10) updatewhereclause=yes name=opponent_type dbname="Opponent Type" )
+ column=(type=long updatewhereclause=yes name=chart_opponent_no dbname="CHART/OPPONENT_NO" )
+ column=(type=char(70) updatewhereclause=yes name=chart_opponent_name dbname="CHART/OPPONENT_NAME" )
+ column=(type=long updatewhereclause=yes name=claims_broker_nr dbname="BROKER_NR" )
+ column=(type=char(35) updatewhereclause=yes name=brokers_broker_name dbname="BROKER_NAME" )
+ column=(type=char(35) updatewhereclause=yes name=profit_c_pc_name dbname="PC_NAME" )
+ column=(type=number updatewhereclause=yes name=out_amount_usd dbname="OUT_AMOUNT_USD" )
+ column=(type=datetime updatewhereclause=yes name=claims_cp_date dbname="CP_DATE" )
+ column=(type=decimal(0) updatewhereclause=yes name=contract_id dbname="CONTRACT_ID" )
+ column=(type=char(41) updatewhereclause=yes name=claims_created_by dbname="CREATED_BY" )
+ column=(type=char(5) updatewhereclause=yes name=vessel_ref_nr dbname="VESSEL_REF_NR" )
+ column=(type=char(10) updatewhereclause=yes name=receivable_payable dbname="Receivable/Payable" )
+ column=(type=char(8) updatewhereclause=yes name=estimate_actual dbname="Estimate/Actual" )
+ retrieve="  SELECT CLAIMS.VESSEL_NR,   
+         VESSELS.VESSEL_NAME,
+         CLAIMS.VOYAGE_NR,   
+         CLAIMS.CLAIM_NR,   
+         cast(CLAIMS.CLAIM_TYPE as univarchar(10)) as CLAIM_TYPE,   
+		'Charterer' AS 'Opponent Type',
+         CLAIMS.CHART_NR AS 'CHART/OPPONENT_NO',
+         CHART.CHART_N_1 AS 'CHART/OPPONENT_NAME',   
+         CLAIMS.BROKER_NR,
+         BROKERS.BROKER_NAME,
+         PROFIT_C.PC_NAME,   
+         round((round(CLAIMS.CLAIM_AMOUNT,2) - isnull(TRANS.TRANS_AMOUNT, 0)) * 
+  				(
+			dbo.FN_GET_EXCHANGERATE(
+			   CAL_CARG_CURRENCY.DEM_CURR_CODE,
+				CAL_CARG_CURRENCY.SET_EXRATE,
+				CAL_CARG_CURRENCY.DEM_EXRATE,
+				CAL_CARG_CURRENCY.FREIGHT_EXRATE,
+				CAL_CARG_CURRENCY.FREIGHT_CURR_CODE,
+				CLAIMS.CLAIM_TYPE,
+				CLAIMS.CURR_CODE,
+				LATEST_EXCHANGE_RATE.EXRATE_USD)
+				) / 100,2
+         ) as OUT_AMOUNT_USD,
+         CLAIMS.CP_DATE,
+         0 as CONTRACT_ID,
+         CLAIMS.CREATED_BY,
+         VESSELS.VESSEL_REF_NR,
+		''  AS 'Receivable/Payable',
+		'' AS 'Estimate/Actual'
+  	FROM CLAIMS LEFT JOIN (
+         select TR.CHART_NR, TR.VESSEL_NR, TR.VOYAGE_NR, TR.CLAIM_NR, sum(round(TR.C_TRANS_AMOUNT,2)) as TRANS_AMOUNT
+         from CLAIM_TRANSACTION TR
+         group by TR.CHART_NR, TR.VESSEL_NR, TR.VOYAGE_NR, TR.CLAIM_NR
+         ) TRANS ON (CLAIMS.CHART_NR = TRANS.CHART_NR and CLAIMS.VESSEL_NR = TRANS.VESSEL_NR and CLAIMS.VOYAGE_NR = TRANS.VOYAGE_NR and CLAIMS.CLAIM_NR = TRANS.CLAIM_NR)
+    LEFT JOIN BROKERS ON (CLAIMS.BROKER_NR = BROKERS.BROKER_NR)
+	 LEFT JOIN VOYAGES ON (VOYAGES.VESSEL_NR = CLAIMS.VESSEL_NR AND VOYAGES.VOYAGE_NR = CLAIMS.VOYAGE_NR)
+	 LEFT JOIN CAL_CARG_CURRENCY ON (CAL_CARG_CURRENCY.CAL_CERP_ID = CLAIMS.CAL_CERP_ID AND CAL_CARG_CURRENCY.CAL_CALC_ID = VOYAGES.CAL_CALC_ID)
+	 LEFT JOIN LATEST_EXCHANGE_RATE ON (LATEST_EXCHANGE_RATE.CURR_CODE = CLAIMS.CURR_CODE), 
+         VESSELS, CHART, PROFIT_C, USERS_PROFITCENTER
+   WHERE (LEFT(CLAIMS.VOYAGE_NR,2) >= ~"00~" and LEFT(CLAIMS.VOYAGE_NR,2) < ~"50~") AND
+         round(round(CLAIMS.CLAIM_AMOUNT,2) - isnull(TRANS.TRANS_AMOUNT, 0) ,2) > 0 AND
+         (CLAIMS.CLAIM_TYPE <> ~"FRT~" ) AND 
+         (VESSELS.VESSEL_NR = CLAIMS.VESSEL_NR) AND
+         (PROFIT_C.PC_NR = VESSELS.PC_NR) AND
+         (CHART.CHART_NR = CLAIMS.CHART_NR) AND
+         (USERS_PROFITCENTER.USERID = suser_name()) AND
+         (USERS_PROFITCENTER.PC_NR = VESSELS.PC_NR)
+         
+UNION ALL
+
+  SELECT CLAIMS.VESSEL_NR,   
+         VESSELS.VESSEL_NAME,
+         CLAIMS.VOYAGE_NR,   
+         CLAIMS.CLAIM_NR,   
+         CLAIMS.CLAIM_TYPE,   
+		'Charterer',
+         CLAIMS.CHART_NR,
+         CHART.CHART_N_1,   
+         CLAIMS.BROKER_NR,
+         BROKERS.BROKER_NAME,
+         PROFIT_C.PC_NAME,   
+         round(CLAIMS.CLAIM_AMOUNT * 
+  				(
+			dbo.FN_GET_EXCHANGERATE(
+			   CAL_CARG_CURRENCY.DEM_CURR_CODE,
+				CAL_CARG_CURRENCY.SET_EXRATE,
+				CAL_CARG_CURRENCY.DEM_EXRATE,
+				CAL_CARG_CURRENCY.FREIGHT_EXRATE,
+				CAL_CARG_CURRENCY.FREIGHT_CURR_CODE,
+				CLAIMS.CLAIM_TYPE,
+				CLAIMS.CURR_CODE,
+				LATEST_EXCHANGE_RATE.EXRATE_USD)
+				) / 100, 2
+         ) as OUT_AMOUNT_USD,
+         CLAIMS.CP_DATE,
+         0 as CONTRACT_ID,
+         CLAIMS.CREATED_BY,
+         VESSELS.VESSEL_REF_NR,
+			'',
+			''
+    FROM CLAIMS
+	 LEFT JOIN BROKERS ON (BROKERS.BROKER_NR = CLAIMS.BROKER_NR)
+	 LEFT JOIN VOYAGES ON (VOYAGES.VESSEL_NR = CLAIMS.VESSEL_NR AND VOYAGES.VOYAGE_NR = CLAIMS.VOYAGE_NR)
+	 LEFT JOIN CAL_CARG_CURRENCY ON (CAL_CARG_CURRENCY.CAL_CERP_ID = CLAIMS.CAL_CERP_ID AND CAL_CARG_CURRENCY.CAL_CALC_ID = VOYAGES.CAL_CALC_ID)
+	 LEFT JOIN LATEST_EXCHANGE_RATE ON (LATEST_EXCHANGE_RATE.CURR_CODE = CLAIMS.CURR_CODE),
+         VESSELS,
+         CHART,
+         PROFIT_C,
+         USERS_PROFITCENTER
+   WHERE (LEFT(CLAIMS.VOYAGE_NR,2) >= ~"00~" and LEFT(CLAIMS.VOYAGE_NR,2) < ~"50~") AND
+         (CLAIMS.CLAIM_TYPE = ~"FRT~" ) AND 
+         (VESSELS.VESSEL_NR = CLAIMS.VESSEL_NR) AND
+         (PROFIT_C.PC_NR = VESSELS.PC_NR) AND
+         (USERS_PROFITCENTER.PC_NR = VESSELS.PC_NR) AND
+         (USERS_PROFITCENTER.USERID = suser_name()) AND 
+         (CHART.CHART_NR = CLAIMS.CHART_NR) AND
+         (CLAIMS.CLAIM_AMOUNT > 0)
+
+UNION ALL
+  
+  SELECT NTC_TC_CONTRACT.VESSEL_NR,   
+         VESSELS.VESSEL_NAME,   
+         NTC_TC_PERIOD.TCOUT_VOYAGE_NR,
+         NTC_TC_CONTRACT.TCOWNER_NR,
+         ~"TC-OUT~",
+		'Charterer',
+         CHART.CHART_NR,
+         CHART.CHART_N_1,
+         0,
+         ~"~",   
+         PROFIT_C.PC_NAME,
+         NTCP.PAYMENT_BALANCE,
+         NTC_TC_CONTRACT.TC_HIRE_CP_DATE,
+         NTC_TC_CONTRACT.CONTRACT_ID,
+         ~"~" AS CREATED_BY,
+         VESSELS.VESSEL_REF_NR,
+		'',
+		''
+    FROM NTC_PAYMENT NTCP,   
+         NTC_TC_CONTRACT,   
+         CHART,   
+         TCOWNERS,   
+         VESSELS,   
+         NTC_TC_PERIOD,
+         PROFIT_C,
+         USERS_PROFITCENTER
+   WHERE ( CHART.CHART_NR =* NTC_TC_CONTRACT.CHART_NR) AND  
+         ( TCOWNERS.TCOWNER_NR =* NTC_TC_CONTRACT.TCOWNER_NR) AND  
+         ( NTC_TC_CONTRACT.CONTRACT_ID = NTCP.CONTRACT_ID ) AND  
+         ( VESSELS.PC_NR = PROFIT_C.PC_NR) AND
+         (VESSELS.PC_NR = USERS_PROFITCENTER.PC_NR) AND
+         (USERS_PROFITCENTER.USERID = suser_name()) AND 
+         ( VESSELS.VESSEL_NR = NTC_TC_CONTRACT.VESSEL_NR ) AND  
+         ( NTC_TC_PERIOD.CONTRACT_ID = NTC_TC_CONTRACT.CONTRACT_ID ) AND 
+         ( NTC_TC_PERIOD.PERIODE_START <= NTCP.EST_DUE_DATE ) AND
+         ( NTC_TC_PERIOD.PERIODE_END > NTCP.EST_DUE_DATE ) AND
+         ( NTC_TC_CONTRACT.TC_HIRE_IN = 0) AND        
+         ( NTCP.PAYMENT_BALANCE <> 0 ) AND
+         ((select MAX(NTP.RATE) from NTC_TC_PERIOD NTP where NTP.CONTRACT_ID = NTC_TC_CONTRACT.CONTRACT_ID) <> 0) AND 
+         ( NTCP.EST_DUE_DATE < :adt_today)
+
+  UNION ALL    
+
+    SELECT SPECIAL_CLAIM.VESSEL_NR,
+			VESSELS.VESSEL_NAME,   
+			SPECIAL_CLAIM.VOYAGE_NR,
+			SPECIAL_CLAIM.SPECIAL_CLAIM_ID,
+			'SPEC',
+			(CASE SPECIAL_CLAIM.DEBTOR_CREDITOR WHEN 1 THEN 'Charterer' WHEN 2 THEN 'TC Owner' WHEN 3 THEN 'Head Owner' WHEN 4 THEN 'Agent' WHEN 5 THEN 'Broker' WHEN 6 THEN '3rd Party' END),
+            (CASE SPECIAL_CLAIM.DEBTOR_CREDITOR WHEN 1 THEN SPECIAL_CLAIM.CHART_NR WHEN 2 THEN SPECIAL_CLAIM.TCOWNER_NR WHEN 3 THEN SPECIAL_CLAIM.TCOWNER_NR WHEN 4 THEN SPECIAL_CLAIM.AGENT_NR WHEN 5 THEN SPECIAL_CLAIM.BROKER_NR WHEN 6 THEN NULL END),
+			(CASE SPECIAL_CLAIM.DEBTOR_CREDITOR WHEN 1 THEN CHART.CHART_N_1 WHEN 2 THEN TCOWNERS.TCOWNER_N_1 WHEN 3 THEN TCOWNERS.TCOWNER_N_1 WHEN 4 THEN AGENTS.AGENT_N_1 WHEN 5 THEN  BROKERS.BROKER_NAME WHEN 6 THEN THIRD_PARTY_NAME END),
+            NULL,
+            NULL,
+            PROFIT_C.PC_NAME,
+            ROUND(SPECIAL_CLAIM.AMOUNT_USD - ISNULL((SELECT SUM(AMOUNT_USD) FROM SPECIAL_CLAIM_TRANSACTION WHERE SPECIAL_CLAIM_ID = SPECIAL_CLAIM.SPECIAL_CLAIM_ID), 0), 2),
+            dbo.FN_GET_CPDATEBYVOYAGE(SPECIAL_CLAIM.VESSEL_NR, SPECIAL_CLAIM.VOYAGE_NR, (CASE SPECIAL_CLAIM.DEBTOR_CREDITOR WHEN 1 THEN SPECIAL_CLAIM.CHART_NR ELSE 0 END)),
+            CASE WHEN len(SPECIAL_CLAIM.VOYAGE_NR) = 7 THEN dbo.FN_GET_CONTRACTIDBYVOYAGE(SPECIAL_CLAIM.VESSEL_NR, SPECIAL_CLAIM.VOYAGE_NR) ELSE NULL END,
+           (SELECT ISNULL(USERS.FIRST_NAME, '') + ' ' + ISNULL(USERS.LAST_NAME, '') FROM SPECIAL_CLAIM_ACTION, USERS WHERE SPECIAL_CLAIM_ID = SPECIAL_CLAIM.SPECIAL_CLAIM_ID AND SPECIAL_CLAIM_ACTION.CREATED_BY = USERS.USERID AND SPECIAL_CLAIM_ACTION.DESCRIPTION = 'Claim Created!') AS CREATED_BY,
+             VESSELS.VESSEL_REF_NR,
+			CASE INCOME WHEN 1 THEN 'Receivable' ELSE 'Payable' END,
+			CASE ESTIMATE WHEN 0 THEN 'Actual' ELSE 'Estimate' END	
+	FROM SPECIAL_CLAIM LEFT JOIN CHART ON SPECIAL_CLAIM.CHART_NR = CHART.CHART_NR
+                     LEFT JOIN TCOWNERS ON SPECIAL_CLAIM.TCOWNER_NR = TCOWNERS.TCOWNER_NR
+                      LEFT JOIN AGENTS ON SPECIAL_CLAIM.AGENT_NR = AGENTS.AGENT_NR
+                     LEFT JOIN  BROKERS ON SPECIAL_CLAIM.BROKER_NR = BROKERS.BROKER_NR,
+         VESSELS,
+        PROFIT_C,
+        USERS_PROFITCENTER
+    WHERE SPECIAL_CLAIM.VESSEL_NR = VESSELS.VESSEL_NR
+    AND PROFIT_C.PC_NR = VESSELS.PC_NR
+    AND USERS_PROFITCENTER.PC_NR = VESSELS.PC_NR
+    AND USERS_PROFITCENTER.USERID = suser_name()
+	AND ROUND(SPECIAL_CLAIM.AMOUNT - ISNULL((SELECT SUM(AMOUNT) FROM SPECIAL_CLAIM_TRANSACTION WHERE SPECIAL_CLAIM_ID = SPECIAL_CLAIM.SPECIAL_CLAIM_ID), 0), 2) <> 0
+        " arguments=(("adt_today", datetime))  sort="claims_vessel_nr A compute_voyage_sort A " )
+text(band=header alignment="2" text="No." border="6" color="0" x="9" y="4" height="56" width="87" html.valueishtml="0"  name=t_2  tag="claims_vessel_nr A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Vessel" border="6" color="0" x="114" y="4" height="56" width="613" html.valueishtml="0"  name=claims_vessel_nr_t  tag="vessels_vessel_name A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Voyage" border="6" color="0" x="745" y="4" height="56" width="192" html.valueishtml="0"  name=claims_voyage_nr_t  tag="compute_voyage_sort A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Broker" border="6" color="0" x="1893" y="4" height="56" width="741" html.valueishtml="0"  name=claims_broker_nr_t  tag="brokers_broker_name A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Profit center" border="6" color="0" x="2651" y="4" height="56" width="334" html.valueishtml="0"  name=t_3  tag="profit_c_pc_name A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="C/P date" border="6" color="0" x="3406" y="4" height="56" width="251" html.valueishtml="0"  name=t_1  tag="claims_cp_date A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Created by" border="6" color="0" x="3675" y="4" height="56" width="658" html.valueishtml="0"  name=t_4  tag="claims_created_by A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Balance" border="6" color="0" x="3003" y="4" height="56" width="384" html.valueishtml="0"  name=balance  tag="out_amount_usd A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Type" border="6" color="0" x="955" y="4" height="56" width="165" html.valueishtml="0"  name=claims_claim_nr_t  tag="claims_claim_type A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Charterer" border="6" color="0" x="1138" y="4" height="56" width="736" html.valueishtml="0"  name=claims_chart_nr_t  tag="chart_opponent_name A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="5" y="4" height="56" width="101" format="[general]" html.valueishtml="0"  name=claims_vessel_nr visible="0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="56" width="101" format="[general]" html.valueishtml="0"  name=vessel_ref_nr visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="119" y="4" height="56" width="608" format="[general]" html.valueishtml="0"  name=vessels_vessel_name visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="736" y="4" height="56" width="210" format="@@@@@-@@" html.valueishtml="0"  name=claims_voyage_nr visible="1" edit.limit=7 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="1897" y="4" height="56" width="741" format="[general]" html.valueishtml="0"  name=brokers_broker_name visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="2496" y="4" height="56" width="23" format="[general]" html.valueishtml="0"  name=claims_broker_nr visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="2533" y="4" height="56" width="23" format="[general]" html.valueishtml="0"  name=claims_claim_nr visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=detail alignment="0" expression="IF (number (left (claims_voyage_nr , 2)) < 50, string(20) +  claims_voyage_nr , string(19) +  claims_voyage_nr )"border="0" color="0" x="2592" y="4" height="56" width="23" format="[GENERAL]" html.valueishtml="0"  name=compute_voyage_sort visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="0" x="3410" y="4" height="56" width="247" format="dd/mm-yy" html.valueishtml="0"  name=claims_cp_date visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="3694" y="84" height="56" width="334" format="[general]" html.valueishtml="0"  name=contract_id visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="3680" y="4" height="56" width="654" format="[general]" html.valueishtml="0"  name=claims_created_by visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="2665" y="4" height="56" width="320" format="[general]" html.valueishtml="0"  name=profit_c_pc_name visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="2999" y="4" height="56" width="393" format="#,##0.00" html.valueishtml="0"  name=out_amount_usd visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="951" y="4" height="56" width="174" format="[general]" html.valueishtml="0"  name=claims_claim_type visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1143" y="4" height="56" width="736" format="[general]" html.valueishtml="0"  name=chart_opponent_name visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+line(band=summary x1="2994" y1="100" x2="3397" y2="100"  name=l_2 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" )
+line(band=summary x1="2994" y1="4" x2="3397" y2="4"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" )
+line(band=summary x1="3333" y1="116" x2="3781" y2="116"  name=l_3 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" )
+compute(band=summary alignment="1" expression=" sum( out_amount_usd  for all) "border="0" color="0" x="2999" y="20" height="56" width="393" format="#,##0.00" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=footer alignment="0" expression="today()"border="0" color="0" x="27" y="8" height="52" width="361" format="dd/mm-yy hh:mm" html.valueishtml="0"  name=date_1 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=footer alignment="1" expression="'Page ' + page() + ' of ' + pageCount()"border="0" color="0" x="3771" y="4" height="56" width="562" format="[general]" html.valueishtml="0"  name=page_1 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()

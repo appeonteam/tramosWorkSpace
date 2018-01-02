@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_calculated_to_estimated.srs
+$PBExportComments$Contains the calculation id's for the calculated and estimated calculations
+global type s_calculated_to_estimated from structure
+    long l_calculated
+    long l_estimated
+end type
+

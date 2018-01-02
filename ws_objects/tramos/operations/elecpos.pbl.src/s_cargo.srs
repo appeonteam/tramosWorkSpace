@@ -1,0 +1,41 @@
+﻿$PBExportHeader$s_cargo.srs
+$PBExportComments$This structure holds cargo info.
+global type s_cargo from structure
+	integer		vessel_nr
+	string		voyage_nr
+	string		port_code
+	integer		pcn
+	integer		agent_nr
+	integer		chart_nr
+	long		calc_id
+	long		cerp_id
+	boolean		cargo_in_out
+	boolean		detail
+	string		layout
+	string		grade
+	decimal { 2 }		ship_fig
+	decimal { 2 }		surv_fig
+	string		group
+	integer		profitcenter
+	datawindow		cargo
+	integer		xpos
+	integer		ypos
+	boolean		mtbe_mandartory
+	boolean		bio_mandartory
+	boolean		dye_marked_mandartory
+	decimal { 2 }		mtbe
+	long		issued
+	string		destination
+	decimal { 2 }		density
+	decimal { 2 }		temp
+	decimal { 2 }		rate
+	decimal { 2 }		bio
+	integer		dye
+	datetime		berthing
+	datetime		arrival
+	datetime		departure
+	decimal { 4 }		bol_qty
+	string		terminal
+	datetime		bl_date
+end type
+

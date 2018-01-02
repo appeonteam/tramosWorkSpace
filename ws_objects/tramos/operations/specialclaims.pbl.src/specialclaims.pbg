@@ -1,0 +1,30 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "specialclaims.pbl" "";
+@end;
+@begin Objects 
+ "d_dddw_active_agents_sort_by_name.srd" "specialclaims.pbl";
+ "d_dddw_active_brokers_sort_by_name.srd" "specialclaims.pbl";
+ "d_dddw_active_chart_sort_by_name.srd" "specialclaims.pbl";
+ "d_dddw_active_tcowners_sort_by_name.srd" "specialclaims.pbl";
+ "d_dddw_bu_chart_operator.srd" "specialclaims.pbl";
+ "d_dddw_spec_claim_vessel_selection.srd" "specialclaims.pbl";
+ "d_dddw_voyage_selection.srd" "specialclaims.pbl";
+ "d_sq_tb_dddw_voyage_selection.srd" "specialclaims.pbl";
+ "d_sq_tb_office_selection.srd" "specialclaims.pbl";
+ "d_sq_tb_responsible_selection.srd" "specialclaims.pbl";
+ "d_sq_tb_specialclaim_action.srd" "specialclaims.pbl";
+ "d_sq_tb_specialclaim_actionlist.srd" "specialclaims.pbl";
+ "d_sq_tb_specialclaim_base.srd" "specialclaims.pbl";
+ "d_sq_tb_specialclaim_file_list.srd" "specialclaims.pbl";
+ "d_sq_tb_specialclaim_list.srd" "specialclaims.pbl";
+ "d_sq_tb_specialclaim_table.srd" "specialclaims.pbl";
+ "d_sq_tb_specialclaim_transaction.srd" "specialclaims.pbl";
+ "d_sq_tb_users_profitc_offices.srd" "specialclaims.pbl";
+ "n_specialclaim_actionlist_interface.sru" "specialclaims.pbl";
+ "n_specialclaim_interface.sru" "specialclaims.pbl";
+ "n_specialclaim_invoice.sru" "specialclaims.pbl";
+ "w_edit_comments.srw" "specialclaims.pbl";
+ "w_specialclaim.srw" "specialclaims.pbl";
+ "w_specialclaim_actionlist.srw" "specialclaims.pbl";
+@end;

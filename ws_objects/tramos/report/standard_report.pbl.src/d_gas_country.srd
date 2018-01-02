@@ -1,0 +1,14 @@
+﻿$PBExportHeader$d_gas_country.srd
+$PBExportComments$Used in dragdropbox country.
+release 7;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=ports_country_id dbname="PORTS.COUNTRY_ID" )
+ column=(type=char(50) updatewhereclause=yes name=country_country_name dbname="COUNTRY.COUNTRY_NAME" )
+ retrieve="PBSELECT( VERSION(400) DISTINCT ()TABLE(NAME=~"PORTS~" )  TABLE(NAME=~"COUNTRY~" ) COLUMN(NAME=~"PORTS.COUNTRY_ID~") COLUMN(NAME=~"COUNTRY.COUNTRY_NAME~")    JOIN (LEFT=~"COUNTRY.COUNTRY_ID~"    OP =~"=~"RIGHT=~"PORTS.COUNTRY_ID~" )WHERE(    EXP1 =~"PORTS.VIA_POINT~"   OP =~"=~"    EXP2 =~"0~" ) ) " )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="56" width="128" format="[general]"  name=ports_country_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="155" y="4" height="56" width="471" format="[general]"  name=country_country_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

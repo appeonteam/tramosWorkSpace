@@ -1,0 +1,11 @@
+﻿$PBExportHeader$s_vendor_address.srs
+global type s_vendor_address from structure
+	string		s_line1
+	string		s_line2
+	string		s_line3
+	string		s_telephone
+	string		s_cityname
+	string		s_email
+	string		s_countrycode
+end type
+

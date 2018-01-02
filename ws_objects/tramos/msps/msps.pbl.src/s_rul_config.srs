@@ -1,0 +1,15 @@
+﻿$PBExportHeader$s_rul_config.srs
+global type s_rul_config from structure
+	long		config_id
+	long		type_id
+	long		vessel_nr
+	string		voyage_nr
+	long		rul_id
+	string		rul_sourcelabel
+	string		rul_unit
+	string		rul_targetfield1
+	string		rul_targetlabel1
+	string		rul_targetfield2
+	string		rul_targetlabel2
+end type
+

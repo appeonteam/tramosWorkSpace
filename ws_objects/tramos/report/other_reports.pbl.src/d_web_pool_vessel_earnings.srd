@@ -1,0 +1,88 @@
+﻿$PBExportHeader$d_web_pool_vessel_earnings.srd
+release 11;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no showbackcoloronxp=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=vessel_nr dbname="POOL_VESSEL_EARNINGS.VESSEL_NR" dbalias=".VESSEL_NR" )
+ column=(type=char(1) updatewhereclause=yes name=cessel_nr dbname="" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=voyage_nr dbname="POOL_VESSEL_EARNINGS.VOYAGE_NR" dbalias=".VOYAGE_NR" )
+ column=(type=datetime update=yes updatewhereclause=yes name=startdate dbname="POOL_VESSEL_EARNINGS.STARTDATE" dbalias=".STARTDATE" )
+ column=(type=datetime update=yes updatewhereclause=yes name=enddate dbname="POOL_VESSEL_EARNINGS.ENDDATE" dbalias=".ENDDATE" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=ballastport dbname="POOL_VESSEL_EARNINGS.BALLASTPORT" dbalias=".BALLASTPORT" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=loadport dbname="POOL_VESSEL_EARNINGS.LOADPORT" dbalias=".LOADPORT" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=dischargeport dbname="POOL_VESSEL_EARNINGS.DISCHARGEPORT" dbalias=".DISCHARGEPORT" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=charterer dbname="POOL_VESSEL_EARNINGS.CHARTERER" dbalias=".CHARTERER" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=freightpaid dbname="POOL_VESSEL_EARNINGS.FREIGHTPAID" dbalias=".FREIGHTPAID" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=dempaid dbname="POOL_VESSEL_EARNINGS.DEMPAID" dbalias=".DEMPAID" )
+ column=(type=decimal(4) update=yes updatewhereclause=yes name=days dbname="POOL_VESSEL_EARNINGS.DAYS" dbalias=".DAYS" )
+ column=(type=decimal(4) update=yes updatewhereclause=yes name=offservicedays dbname="POOL_VESSEL_EARNINGS.OFFSERVICEDAYS" dbalias=".OFFSERVICEDAYS" )
+ column=(type=decimal(4) update=yes updatewhereclause=yes name=usdprday dbname="POOL_VESSEL_EARNINGS.USDPRDAY" dbalias=".USDPRDAY" )
+ column=(type=decimal(4) update=yes updatewhereclause=yes name=daysyear dbname="POOL_VESSEL_EARNINGS.DAYSYEAR" dbalias=".DAYSYEAR" )
+ column=(type=decimal(4) update=yes updatewhereclause=yes name=usdprdayyear dbname="POOL_VESSEL_EARNINGS.USDPRDAYYEAR" dbalias=".USDPRDAYYEAR" )
+ column=(type=long updatewhereclause=yes name=compute_0017 dbname="compute_0017" )
+ column=(type=char(15) update=yes updatewhereclause=yes name=grade_group dbname="POOL_VESSEL_EARNINGS.GRADE_GROUP" dbalias=".GRADE_GROUP" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=contract_type dbname="POOL_VESSEL_EARNINGS.CONTRACT_TYPE" dbalias=".CONTRACT_TYPE" )
+ column=(type=char(40) update=yes updatewhereclause=yes name=load_area dbname="POOL_VESSEL_EARNINGS.LOAD_AREA" dbalias=".LOAD_AREA" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=vessel_ref_nr dbname="POOL_VESSEL_EARNINGS.VESSEL_REF_NR" dbalias=".VESSEL_REF_NR" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=vessel_type dbname="POOL_VESSEL_EARNINGS.VESSEL_TYPE" dbalias=".VESSEL_TYPE" )
+ retrieve="  SELECT POOL_VESSEL_EARNINGS.VESSEL_NR,
+			~"~",   
+         POOL_VESSEL_EARNINGS.VOYAGE_NR,   
+         POOL_VESSEL_EARNINGS.STARTDATE,   
+         POOL_VESSEL_EARNINGS.ENDDATE,   
+         POOL_VESSEL_EARNINGS.BALLASTPORT,   
+         POOL_VESSEL_EARNINGS.LOADPORT,   
+         POOL_VESSEL_EARNINGS.DISCHARGEPORT,   
+         POOL_VESSEL_EARNINGS.CHARTERER,   
+         POOL_VESSEL_EARNINGS.FREIGHTPAID,   
+         POOL_VESSEL_EARNINGS.DEMPAID,   
+         POOL_VESSEL_EARNINGS.DAYS,   
+         POOL_VESSEL_EARNINGS.OFFSERVICEDAYS,   
+         POOL_VESSEL_EARNINGS.USDPRDAY,   
+         POOL_VESSEL_EARNINGS.DAYSYEAR,   
+         POOL_VESSEL_EARNINGS.USDPRDAYYEAR,
+			0,  
+         POOL_VESSEL_EARNINGS.GRADE_GROUP,
+         POOL_VESSEL_EARNINGS.CONTRACT_TYPE,
+         POOL_VESSEL_EARNINGS.LOAD_AREA,
+			POOL_VESSEL_EARNINGS.VESSEL_REF_NR, 
+			POOL_VESSEL_EARNINGS.VESSEL_TYPE   
+    FROM POOL_VESSEL_EARNINGS
+	 WHERE Substring(POOL_VESSEL_EARNINGS.VOYAGE_NR,1,2) = :as_year   
+" update="POOL_VESSEL_EARNINGS" updatewhere=0 updatekeyinplace=no arguments=(("as_year", string)) )
+text(band=header alignment="2" text="Do NOT change the order or number and type of fields, as rowscopy from w_pool_vessel_earnings.dw_report will then fail !" border="0" color="0" x="0" y="8" height="56" width="3173" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=10 border="0" color="0" x="5" y="4" height="76" width="329" format="[general]" html.valueishtml="0"  name=vessel_nr visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="0" color="0" x="471" y="4" height="76" width="123" format="[general]" html.valueishtml="0"  name=voyage_nr visible="1" edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="0" color="0" x="622" y="4" height="76" width="603" format="[shortdate] [time]" html.valueishtml="0"  name=startdate visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="0" color="0" x="1230" y="4" height="76" width="603" format="[shortdate] [time]" html.valueishtml="0"  name=enddate visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="0" color="0" x="1838" y="4" height="76" width="1399" format="[general]" html.valueishtml="0"  name=ballastport visible="1" edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=60 border="0" color="0" x="3241" y="4" height="76" width="1399" format="[general]" html.valueishtml="0"  name=loadport visible="1" edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=70 border="0" color="0" x="4649" y="4" height="76" width="1399" format="[general]" html.valueishtml="0"  name=dischargeport visible="1" edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=80 border="0" color="0" x="6053" y="4" height="76" width="1399" format="[general]" html.valueishtml="0"  name=charterer visible="1" edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=90 border="0" color="0" x="7456" y="4" height="76" width="302" format="[general]" html.valueishtml="0"  name=freightpaid visible="1" edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=100 border="0" color="0" x="7762" y="4" height="76" width="302" format="[general]" html.valueishtml="0"  name=dempaid visible="1" edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=110 border="0" color="0" x="8069" y="4" height="76" width="329" format="[general]" html.valueishtml="0"  name=days visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="1" tabsequence=120 border="0" color="0" x="8402" y="4" height="76" width="329" format="[general]" html.valueishtml="0"  name=offservicedays visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="1" tabsequence=130 border="0" color="0" x="8791" y="4" height="76" width="329" format="[general]" html.valueishtml="0"  name=usdprday visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="1" tabsequence=140 border="0" color="0" x="9125" y="4" height="76" width="329" format="[general]" html.valueishtml="0"  name=daysyear visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="1" tabsequence=150 border="0" color="0" x="9458" y="4" height="76" width="329" format="[general]" html.valueishtml="0"  name=usdprdayyear visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="9879" y="8" height="64" width="270" format="[general]" html.valueishtml="0"  name=compute_0017 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=160 border="0" color="0" x="10149" y="0" height="64" width="407" format="[general]" html.valueishtml="0"  name=grade_group visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=170 border="0" color="0" x="10555" y="0" height="64" width="539" format="[general]" html.valueishtml="0"  name=contract_type visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=180 border="0" color="0" x="11095" y="0" height="64" width="27" format="[general]" html.valueishtml="0"  name=cessel_nr visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=190 border="0" color="0" x="11122" y="0" height="64" width="1079" format="[general]" html.valueishtml="0"  name=load_area visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=200 border="0" color="0" x="12201" y="0" height="64" width="462" format="[general]" html.valueishtml="0"  name=vessel_ref_nr visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=210 border="0" color="0" x="12663" y="0" height="64" width="1353" html.valueishtml="0"  name=vessel_type visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

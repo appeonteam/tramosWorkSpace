@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_chart_target_list.srd
+$PBExportComments$Datawindow used in w_chart_target_select.
+release 4;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=57 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=57 color="536870912" )
+table(column=(type=char(10) name=chart_chart_sn dbname="CHART.CHART_SN" )
+ column=(type=char(70) name=chart_chart_n_1 dbname="CHART.CHART_N_1" )
+ column=(type=decimal(0) name=ccs_targ_ccs_targ__pk dbname="CCS_TARG.CCS_TARG__PK" )
+ column=(type=number name=chart_chart_nr dbname="CHART.CHART_NR" )
+ column=(type=decimal(0) update=yes key=yes name=charterers_targets_ccs_targ__pk dbname="CHARTERERS_TARGETS.CCS_TARG__PK" )
+ column=(type=number update=yes key=yes name=charterers_targets_chart_nr dbname="CHARTERERS_TARGETS.CHART_NR" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_TARG~" ) TABLE(NAME=~"CHART~" ) TABLE(NAME=~"CHARTERERS_TARGETS~" ) COLUMN(NAME=~"CHART.CHART_SN~") COLUMN(NAME=~"CHART.CHART_N_1~") COLUMN(NAME=~"CCS_TARG.CCS_TARG__PK~") COLUMN(NAME=~"CHART.CHART_NR~") COLUMN(NAME=~"CHARTERERS_TARGETS.CCS_TARG__PK~") COLUMN(NAME=~"CHARTERERS_TARGETS.CHART_NR~") JOIN (LEFT=~"CHART.CHART_NR~" OP =~"=~"RIGHT=~"CHARTERERS_TARGETS.CHART_NR~" ) JOIN (LEFT=~"CCS_TARG.CCS_TARG__PK~" OP =~"=~"RIGHT=~"CHARTERERS_TARGETS.CCS_TARG__PK~" )WHERE( EXP1 =~"CHARTERERS_TARGETS.CCS_TARG__PK~" OP =~"=~" EXP2 =~":ccs_targ_pk~" ) ) ARG(NAME = ~"ccs_targ_pk~" TYPE = number) " update="CHARTERERS_TARGETS" updatewhere=1 updatekeyinplace=yes arguments=(("ccs_targ_pk", number)) )
+text(band=header alignment="2" text="Shortname"border="0" color="0" x="19" y="4" height="57" width="279"  name=chart_sn_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Name"border="0" color="0" x="339" y="4" height="57" width="142"  name=chart_n_1_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="330" y="4" height="57" width="805" format="[general]"  name=chart_chart_n_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="4" height="57" width="293" format="[general]"  name=chart_chart_sn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )

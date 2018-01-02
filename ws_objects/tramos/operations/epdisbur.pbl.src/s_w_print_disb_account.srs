@@ -1,0 +1,15 @@
+﻿$PBExportHeader$s_w_print_disb_account.srs
+$PBExportComments$This structure is used to transfer parameters to the window 'w_print_disbursement_account'
+global type s_w_print_disb_account from structure
+	integer		vessel_nr
+	string		vessel_name
+	string		voyage_nr
+	string		port_code
+	string		port_name
+	integer		pcn
+	string		agent_name
+	integer		agent_no
+	datastore		dw_tc_exp
+	string		vessel_ref_nr
+end type
+

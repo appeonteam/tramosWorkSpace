@@ -1,0 +1,22 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "pflist\\fixturedailyreports.pbl" "";
+@end;
+@begin Objects
+ "pflist\\d_daily_report_crude.srd" "pflist\\fixturedailyreports.pbl";
+ "pflist\\d_daily_report_interval.srd" "pflist\\fixturedailyreports.pbl";
+ "pflist\\d_daily_report_fixture_spot.srd" "pflist\\fixturedailyreports.pbl";
+ "pflist\\d_daily_report_position.srd" "pflist\\fixturedailyreports.pbl";
+ "pflist\\d_daily_report_crude_fixture_coa.srd" "pflist\\fixturedailyreports.pbl";
+ "pflist\\d_daily_report_comment_report.srd" "pflist\\fixturedailyreports.pbl";
+ "pflist\\d_daily_report_crude_area.srd" "pflist\\fixturedailyreports.pbl";
+ "pflist\\d_daily_report_crude_cargo.srd" "pflist\\fixturedailyreports.pbl";
+ "pflist\\d_daily_report_crude_fixture_market_curr.srd" "pflist\\fixturedailyreports.pbl";
+ "pflist\\d_daily_report_cargo.srd" "pflist\\fixturedailyreports.pbl";
+ "pflist\\d_daily_report_comment.srd" "pflist\\fixturedailyreports.pbl";
+ "pflist\\d_daily_report_bunker.srd" "pflist\\fixturedailyreports.pbl";
+ "pflist\\d_daily_report_fixture_market.srd" "pflist\\fixturedailyreports.pbl";
+ "pflist\\d_daily_report_standard.srd" "pflist\\fixturedailyreports.pbl";
+ "pflist\\d_daily_report_crude_fixture_market.srd" "pflist\\fixturedailyreports.pbl";
+ "pflist\\d_daily_report_report.srd" "pflist\\fixturedailyreports.pbl";
+@end;

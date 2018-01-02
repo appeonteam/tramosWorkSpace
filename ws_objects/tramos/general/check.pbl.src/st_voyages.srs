@@ -1,0 +1,10 @@
+﻿$PBExportHeader$st_voyages.srs
+$PBExportComments$Structure containing four arrays(vessel_nr, voyage_nr, type, calc_id).
+global type st_voyages from structure
+	integer		vessel_nr[]
+	string		voyage_nr[]
+	integer		voyage_type[]
+	long		calc_id[]
+	string		vessel_ref_nr[]
+end type
+

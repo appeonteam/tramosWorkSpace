@@ -1,0 +1,14 @@
+﻿$PBExportHeader$s_speed.srs
+$PBExportComments$Contains speed, speedtype and consumption
+global type s_speed from structure
+	long		l_contype_id
+	long		l_zone_id
+	string		s_name
+	integer		i_type
+	double		d_speed
+	double		d_mgo
+	double		d_fo
+	double		d_do		descriptor "comment" = "~r~n"
+	decimal{4}		d_lsfo
+end type
+

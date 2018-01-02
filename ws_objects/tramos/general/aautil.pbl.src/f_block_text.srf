@@ -1,0 +1,78 @@
+﻿$PBExportHeader$f_block_text.srf
+$PBExportComments$Returns a string formatted into the specified width.
+global type f_block_text from function_object
+end type
+
+forward prototypes
+global function string f_block_text (string as_orig, integer ai_width)
+end prototypes
+
+global function string f_block_text (string as_orig, integer ai_width);////////////////////////////////////////////////////////////////////////
+//
+//   Function : F_Block_Text
+//
+//    Purpose : Receives a string and the width of the block for the string
+//              to formatted into. Returns the string formatted in the 
+//              specified width. Uses carriage control/line feed (~r~n)
+//              as the line separator.
+//
+//       Date : September 9, 1992
+//
+//  Arguments : string  orig  - original string to be formatted
+//              integer width - width of the format block 
+//
+//    Returns : string result - the reformatted string
+//
+//        Log :
+//
+//             DATE        WHO           WHAT
+//            ------      -----     -------------------------------------
+//
+//////////////////////////////////////////////////////////////////////////
+
+
+string  ls_crlf = "~r~n"
+string  ls_token, ls_result, ls_curr_chr
+integer li_curr_pos, li_ascii_val, li_posi
+
+ls_result = ""
+
+do while len ( as_orig ) > 0 
+
+	li_curr_pos =  ai_width + 1                            // start at the right border and work back
+	ls_curr_chr = mid ( as_orig, li_curr_pos, 1 )             // looking for a white space character  
+	li_ascii_val = asc(ls_curr_chr)                        // (ASCII value 32)
+	do while ( asc ( ls_curr_chr ) > 32 ) and ( li_curr_pos >= 1 )
+
+		li_curr_pos  = li_curr_pos - 1
+		ls_curr_chr  = mid ( as_orig, li_curr_pos, 1 )
+		li_ascii_val = asc ( ls_curr_chr )
+
+	loop
+
+	if li_curr_pos <= 1 then li_curr_pos = len ( as_orig )     // no white space found ?
+
+	ls_token = left ( as_orig, li_curr_pos - 1 )               // break at the white space char
+	li_posi = pos ( ls_token, ls_crlf )                        // check for a ls_crlf in the new line
+
+	if li_posi > 0 then	                                // if ls_crlf found then break the string at the ls_crlf
+		ls_token = left ( as_orig, li_posi - 1 )                // and put the right side back in the 
+		as_orig  = mid ( as_orig, li_posi + 2 )                 // original string
+	else	
+		as_orig = mid ( as_orig, li_curr_pos + 1 )
+	end if
+
+	if len ( ls_result ) > 0 then 
+		ls_result = ls_result + ls_crlf + ls_token                 // add in the new separator
+	else
+		ls_result = ls_token
+	end if
+
+loop
+
+return ls_result
+
+
+
+end function
+

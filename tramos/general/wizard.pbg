@@ -1,0 +1,12 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tramos\\general\\wizard.pbl" "";
+@end;
+@begin Objects
+ "tramos\\general\\d_calc_speed.srd" "tramos\\general\\wizard.pbl";
+ "tramos\\general\\d_calc_wizard_gas_cha.srd" "tramos\\general\\wizard.pbl";
+ "tramos\\general\\d_calc_wizard_vlcc.srd" "tramos\\general\\wizard.pbl";
+ "tramos\\general\\d_calc_wizard_vlgc.srd" "tramos\\general\\wizard.pbl";
+ "tramos\\general\\d_calc_wizard_product.srd" "tramos\\general\\wizard.pbl";
+ "tramos\\general\\d_calc_wizard_bulk_hdy_pmx.srd" "tramos\\general\\wizard.pbl";
+@end;

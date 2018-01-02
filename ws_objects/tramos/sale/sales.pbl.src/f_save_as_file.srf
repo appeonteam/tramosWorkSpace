@@ -1,0 +1,15 @@
+﻿$PBExportHeader$f_save_as_file.srf
+$PBExportComments$A function to save datawindows as files.
+global type f_save_as_file from function_object
+end type
+
+forward prototypes
+global subroutine f_save_as_file (string as_object_name, string as_window_title)
+end prototypes
+
+global subroutine f_save_as_file (string as_object_name, string as_window_title);w_save_as_file lw_my_window
+opensheetwithparm(lw_my_window,as_object_name,w_tramos_main,gi_win_pos,original!)
+lw_my_window.title=as_window_title
+return	
+end subroutine
+

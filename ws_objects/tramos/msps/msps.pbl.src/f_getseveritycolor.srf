@@ -1,0 +1,32 @@
+﻿$PBExportHeader$f_getseveritycolor.srf
+global type f_getseveritycolor from function_object
+end type
+
+forward prototypes
+global function long f_getseveritycolor (integer ai_severityorder)
+end prototypes
+
+global function long f_getseveritycolor (integer ai_severityorder);/********************************************************************
+   f_getseveritycolor
+   <DESC> Get highest severity level color </DESC>
+   <RETURN>	
+         long: color value
+   <ACCESS> public/protected/private </ACCESS>
+   <ARGS>
+		ai_severityorder:severity order 
+   </ARGS>
+   <USAGE>	
+	
+	</USAGE>
+   <HISTORY>
+   	Date       CR-Ref       Author             Comments
+   		20-12-2013		CR3240       XSZ004       First Version
+   </HISTORY>
+********************************************************************/
+long ll_severitycolor
+
+SELECT SEVERITY_COLOR INTO:ll_severitycolor FROM RUL_SEVERITIES WHERE SEVERITY_LEVEL = :ai_severityorder USING SQLCA;
+
+return ll_severitycolor
+end function
+

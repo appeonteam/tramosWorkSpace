@@ -1,0 +1,17 @@
+﻿$PBExportHeader$d_meet_stat.srd
+$PBExportComments$Dummy datawindow used to combine meeting- and status reports.
+release 5;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=69 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=81 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=date dbname="date" )
+ column=(type=char(16000) updatewhereclause=yes name=desc dbname="desc" )
+ column=(type=number updatewhereclause=yes name=key dbname="key" )
+ column=(type=char(1) updatewhereclause=yes name=rep_or_status dbname="rep_or_status" )
+ )
+text(band=header alignment="0" text="Date:"border="0" color="0" x="19" y="4" height="57" width="124"  name=date_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Description"border="0" color="0" x="238" y="4" height="57" width="289"  name=desc_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="19" y="4" height="69" width="202" format="dd-mm-yy [time]"  name=date editmask.mask="dd-mm-yy" editmask.focusrectangle=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="238" y="4" height="69" width="1372" format="[general]"  name=desc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

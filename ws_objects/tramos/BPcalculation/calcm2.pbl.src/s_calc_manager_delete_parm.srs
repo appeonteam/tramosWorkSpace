@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_calc_manager_delete_parm.srs
+$PBExportComments$Parameteres for w_calc_manager_delete
+global type s_calc_manager_delete_parm from structure
+    string s_calc_description
+    string s_cargo_description
+    integer i_no_cargoes
+end type
+

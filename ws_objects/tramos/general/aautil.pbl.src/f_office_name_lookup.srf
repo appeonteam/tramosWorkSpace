@@ -1,0 +1,22 @@
+﻿$PBExportHeader$f_office_name_lookup.srf
+$PBExportComments$This function reurn TRUE if office_name exists or FALSE if not.
+global type f_office_name_lookup from function_object
+end type
+
+forward prototypes
+global function boolean f_office_name_lookup (string office_name)
+end prototypes
+
+global function boolean f_office_name_lookup (string office_name);STRING ls_office_name
+SELECT OFFICE_NAME
+INTO :ls_office_name
+FROM OFFICES
+WHERE OFFICE_NAME = :office_name;
+IF SQLCA.SQLCode < 0 OR SQLCA.SQLCode = 100 THEN 
+	Return (FALSE)
+ELSE
+	Return(TRUE)
+END IF
+
+end function
+

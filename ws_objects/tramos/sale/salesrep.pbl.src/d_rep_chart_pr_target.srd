@@ -1,0 +1,22 @@
+﻿$PBExportHeader$d_rep_chart_pr_target.srd
+$PBExportComments$Report List all charterers selected for at given target used nested in expanded target report.
+release 4;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=129 color="536870912" )
+summary(height=29 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=65 color="536870912" )
+table(column=(type=char(10) name=chart_sn dbname="CHART.CHART_SN" )
+ column=(type=char(70) name=chart_n_1 dbname="CHART.CHART_N_1" )
+ column=(type=number name=chart_nr dbname="CHART.CHART_NR" )
+ column=(type=decimal(0) name=charterers_targets_ccs_targ__pk dbname="CHARTERERS_TARGETS.CCS_TARG__PK" )
+ column=(type=number name=charterers_targets_chart_nr dbname="CHARTERERS_TARGETS.CHART_NR" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CHART~" ) TABLE(NAME=~"CHARTERERS_TARGETS~" ) COLUMN(NAME=~"CHART.CHART_SN~") COLUMN(NAME=~"CHART.CHART_N_1~") COLUMN(NAME=~"CHART.CHART_NR~") COLUMN(NAME=~"CHARTERERS_TARGETS.CCS_TARG__PK~") COLUMN(NAME=~"CHARTERERS_TARGETS.CHART_NR~") JOIN (LEFT=~"CHART.CHART_NR~" OP =~"=~"RIGHT=~"CHARTERERS_TARGETS.CHART_NR~" )WHERE( EXP1 =~"CHARTERERS_TARGETS.CCS_TARG__PK~" OP =~"=~" EXP2 =~":ccs_targ_pk~" ) ) ORDER(NAME=~"CHART.CHART_SN~" ASC=yes ) ARG(NAME = ~"ccs_targ_pk~" TYPE = number) " arguments=(("ccs_targ_pk", number)) )
+text(band=header alignment="0" text="Charterers                                                      "border="0" color="0" x="19" y="8" height="45" width="1281"  font.face="Arial" font.height="-7" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Long Name"border="0" color="0" x="14" y="84" height="45" width="302"  font.face="Arial" font.height="-7" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression="rowcount()"border="0" color="0" x="526" y="8" height="45" width="124" format="[GENERAL]"  font.face="Arial" font.height="-7" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text=")"border="0" color="0" x="654" y="8" height="45" width="28"  font.face="Arial" font.height="-7" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="19" y1="60" x2="1290" y2="60" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="4" height="53" width="988" format="[general]"  name=chart_n_1  tag=" " height.autosize=yes edit.limit=70 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=summary x1="19" y1="12" x2="1290" y2="12" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="( Rows:"border="0" color="0" x="348" y="8" height="45" width="174"  font.face="Arial" font.height="-7" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )

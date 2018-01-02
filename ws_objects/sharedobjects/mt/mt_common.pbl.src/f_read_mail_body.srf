@@ -1,0 +1,94 @@
+﻿$PBExportHeader$f_read_mail_body.srf
+global type f_read_mail_body from function_object
+end type
+
+forward prototypes
+global function long f_read_mail_body (long al_smtp_mail_id, ref string as_output, long al_trunksize)
+end prototypes
+
+global function long f_read_mail_body (long al_smtp_mail_id, ref string as_output, long al_trunksize);/********************************************************************
+   f_read_mail_body
+   <DESC>	Read large UNITEXT from ASE into PB
+	
+	</DESC>
+   <RETURN>	long:
+            <LI> c#return.Success:  1, ok
+            <LI> c#return.Failure: -1, failed	</RETURN>
+   <ACCESS> public</ACCESS>
+   <ARGS>
+		al_smtp_mail_id : the SMTP_MAIL_ID in table SMTP_MAIL
+		as_output       : the text content from database
+		al_trunksize    : the number of characters to be read once.
+		                  It should not exceed 8000 characters.
+   </ARGS>
+   <USAGE>	How to use this function	</USAGE>
+   <HISTORY>
+		Date     CR-Ref        Author   Comments
+		13/10/16 CR4534        SSX014   First Version
+   </HISTORY>
+********************************************************************/
+
+string ls_ret, ls_trunk
+long ll_textlen, ll_sqlcode, ls_trunklen
+long ll_offset, ll_textsize, ll_read
+
+// Check arguments
+if isnull(al_trunksize) or al_trunksize <= 0 then
+	return -1
+end if
+
+// Get the length of email body
+SetNull(ll_textlen)
+SELECT LEN(MAIL_BODY_TEXT) INTO :ll_textlen
+FROM SMTP_MAIL
+WHERE SMTP_MAIL_ID = :al_smtp_mail_id;
+
+if IsNull(ll_textlen) then
+	return -1
+elseif ll_textlen = 0 then
+	as_output = ""
+	return 1
+end if
+
+DECLARE sp_read_mail_body PROCEDURE FOR
+	SP_READ_MAIL_BODY @smtp_mail_id = :al_smtp_mail_id,
+		@offset = :ll_offset, @textsize = :ll_textsize;
+		
+ll_read = 0
+ll_offset = 0
+if ll_textlen < al_trunksize then
+	ll_textsize = ll_textlen
+else
+	ll_textsize = al_trunksize
+end if
+
+ls_ret = ""
+do while ll_read < ll_textlen
+	EXECUTE sp_read_mail_body;
+	ll_sqlcode = SQLCA.SQLCode
+	if ll_sqlcode = 0 then
+		FETCH NEXT sp_read_mail_body INTO :ls_trunk;
+		CLOSE sp_read_mail_body;
+		ls_trunklen = len(ls_trunk)
+		ls_ret += ls_trunk
+		ll_read += ls_trunklen
+		ll_offset += ls_trunklen
+		if ll_textlen - ll_read < al_trunksize then
+			ll_textsize = ll_textlen - ll_read
+		else
+			ll_textsize = al_trunksize
+		end if
+	elseif ll_sqlcode = -1 then
+		return -1
+	elseif ll_sqlcode = 100 then
+		return -1
+	else
+		return -1
+	end if
+loop
+
+as_output = ls_ret
+return 1
+
+end function
+

@@ -1,0 +1,24 @@
+﻿$PBExportHeader$f_broker_active.srf
+global type f_broker_active from function_object
+end type
+
+forward prototypes
+global function boolean f_broker_active (long al_brokernr)
+end prototypes
+
+global function boolean f_broker_active (long al_brokernr);/* This function checks if a broker is active or not. User to validate in datawindows */
+integer	li_active
+
+SELECT BROKER_ACTIVE
+	INTO :li_active
+	FROM BROKERS
+	WHERE BROKER_NR = :al_brokernr ;
+
+if li_active = 1 then
+	return true
+else
+	return false
+end if
+
+end function
+

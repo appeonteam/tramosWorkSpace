@@ -1,0 +1,11 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "vims\\vettsvr.pbl" "";
+@end;
+@begin Objects
+ "vims\\d_sq_tb_inspexport.srd" "vims\\vettsvr.pbl";
+ "vims\\d_sq_tb_sirecaps.srd" "vims\\vettsvr.pbl";
+ "vims\\d_sq_tb_reminders.srd" "vims\\vettsvr.pbl";
+ "vims\\d_sq_tb_redflagportrem.srd" "vims\\vettsvr.pbl";
+ "vims\\p_vettsvr.srj" "vims\\vettsvr.pbl";
+@end;

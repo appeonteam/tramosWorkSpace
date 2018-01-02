@@ -1,0 +1,11 @@
+HA$PBExportHeader$param_info.srs
+global type param_info from structure
+	long		vesselid
+	long		voyageid
+	long		reportid
+	byte		selection
+	string		paramstring
+	string		AppVersion
+	string		AppBuilt
+end type
+

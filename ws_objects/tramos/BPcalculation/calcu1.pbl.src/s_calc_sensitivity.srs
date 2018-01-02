@@ -1,0 +1,22 @@
+﻿$PBExportHeader$s_calc_sensitivity.srs
+$PBExportComments$Structure sent between sensitivity and calculation
+global type s_calc_sensitivity from structure
+	double		d_rate[]
+	double		d_lumpsum[]
+	double		d_worldscale[]
+	double		d_fo_price[]
+	double		d_tc
+	double		d_loadrate[]
+	double		d_dischrate[]
+	double		d_despatch[]
+	double		d_day_gross
+	double		d_day_net
+	double		d_tc_month
+	double		d_fixed_costs
+	double		d_cargo_demurrage
+	double		d_cargo_despatch
+	double		d_load_quantity[10, 7]
+	double		d_disch_quantity[10, 7]
+	string		s_variable_name
+end type
+

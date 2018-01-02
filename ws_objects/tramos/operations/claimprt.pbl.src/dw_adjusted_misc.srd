@@ -1,0 +1,35 @@
+﻿$PBExportHeader$dw_adjusted_misc.srd
+$PBExportComments$Used as composit report in "dw_monthly_misc"
+release 5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=1 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=437 color="536870912" )
+table(column=(type=number updatewhereclause=yes name=compute_0001 dbname="compute_0001" )
+ retrieve="  SELECT sum(CLAIM_TRANSACTION.C_TRANS_AMOUNT_USD)  
+    FROM VESSELS,   
+         CLAIM_TRANSACTION,   
+         CLAIMS  
+   WHERE ( CLAIMS.CHART_NR = CLAIM_TRANSACTION.CHART_NR ) and  
+         ( CLAIMS.VESSEL_NR = CLAIM_TRANSACTION.VESSEL_NR ) and  
+         ( CLAIMS.VOYAGE_NR = CLAIM_TRANSACTION.VOYAGE_NR ) and  
+         ( CLAIMS.CLAIM_NR = CLAIM_TRANSACTION.CLAIM_NR ) and  
+         ( CLAIMS.VESSEL_NR = VESSELS.VESSEL_NR ) and  
+         ( ( CLAIM_TRANSACTION.C_TRANS_VAL_DATE >= :startdate ) AND  
+         ( CLAIM_TRANSACTION.C_TRANS_VAL_DATE <= :enddate ) AND  
+         ( VESSELS.PC_NR in ( :pc_nrs ) ) AND  
+         ( CLAIMS.CLAIM_TYPE <> 'DEM' ) AND  
+         ( CLAIMS.CLAIM_TYPE <> 'DES'  ) AND  
+         ( CLAIMS.CLAIM_TYPE <> 'NULL' ) AND
+  			( CLAIMS.CLAIM_TYPE <> 'FRT' ) AND
+         ( CLAIM_TRANSACTION.C_TRANS_CODE <> 'R' ) AND  
+         ( CLAIM_TRANSACTION.C_TRANS_CODE <> 'C' ) )    
+" arguments=(("startdate", datetime),("enddate", datetime),("pc_nrs", numberlist)) )
+line(band=detail x1="42" y1="400" x2="746" y2="400" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=detail x1="42" y1="412" x2="746" y2="412" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="19" y="4" height="425" width="755" brush.hatch="7" brush.color="553648127" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="Adjusted"border="0" color="0" x="46" y="24" height="65" width="229"  font.face="Times New Roman" font.height="-10" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="USD"border="0" color="0" x="622" y="196" height="65" width="115"  font.face="Times New Roman" font.height="-10" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="42" y1="280" x2="746" y2="280" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="46" y="304" height="77" width="705" format="#,##0.00"  name=compute_0001 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Times New Roman" font.height="-10" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

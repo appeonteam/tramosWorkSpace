@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_select_voyage_chartererowner.srs
+$PBExportComments$Structure used to parse voyage/charterer/owner after selection to tc_hire window
+global type s_select_voyage_chartererowner from structure
+    string voyage_nr
+    integer charter_nr
+    integer owner_nr
+end type
+

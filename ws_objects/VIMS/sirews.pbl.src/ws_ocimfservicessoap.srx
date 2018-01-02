@@ -1,0 +1,35 @@
+﻿$PBExportHeader$ws_ocimfservicessoap.srx
+$PBExportComments$Proxy imported from Web service using Web Service Proxy Generator.
+global type ws_OcimfServicesSoap from NonVisualObject
+end type
+
+type variables
+Protected:
+   string xmlns = ""
+   string tm = "http://microsoft.com/wsdl/mime/textMatching/"
+   string soapenc = "http://schemas.xmlsoap.org/soap/encoding/"
+   string wsdl = "http://schemas.xmlsoap.org/wsdl/"
+   string http = "http://schemas.xmlsoap.org/wsdl/http/"
+   string mime = "http://schemas.xmlsoap.org/wsdl/mime/"
+   string soap = "http://schemas.xmlsoap.org/wsdl/soap/"
+   string soap12 = "http://schemas.xmlsoap.org/wsdl/soap12/"
+   string tns = "http://www.ocimf.com/"
+   string s = "http://www.w3.org/2001/XMLSchema"
+   string pb__TargetNamespace = "http://www.ocimf.com/"
+   string BindingStyle = ""
+
+   string endpoint = "http://staging.uk.ws.ocimf.biz/OcimfServices.asmx"
+   string __tns__OcimfWsResponse = "OcimfWsResponse(s:int ResultCode,s:string ErrorMessage,s:string ErrorTicketNumber,s:string DataXml)@tns#YES_QUALIFIED"
+   tns__OcimfWsResponse i__tns__OcimfWsResponse
+   string __tns__InvokeMethod = "InvokeMethod(s:string TokenID,s:string MethodName,s:string Version,s:string RequestXml)@tns#YES_QUALIFIED"
+   tns__InvokeMethod i__tns__InvokeMethod
+   string __tns__StartWebServiceSession = "StartWebServiceSession(s:string AccountNumber,s:string LoginName,s:string Password)@tns#YES_QUALIFIED"
+   tns__StartWebServiceSession i__tns__StartWebServiceSession
+end variables
+
+forward prototypes
+public:
+function tns__OcimfWsResponse InvokeMethod (string TokenID, string MethodName, string Version, string RequestXml) alias for "InvokeMethod([in] s:string TokenID, [in] s:string MethodName, [in] s:string Version, [in] s:string RequestXml) return tns:OcimfWsResponse InvokeMethodResult@http://www.ocimf.com/@http://www.ocimf.com/InvokeMethod*InvokeMethod*http://www.ocimf.com/"
+function tns__OcimfWsResponse StartWebServiceSession (string AccountNumber, string LoginName, string Password) alias for "StartWebServiceSession([in] s:string AccountNumber, [in] s:string LoginName, [in] s:string Password) return tns:OcimfWsResponse StartWebServiceSessionResult@http://www.ocimf.com/@http://www.ocimf.com/StartWebServiceSession*StartWebServiceSession*http://www.ocimf.com/"
+end prototypes
+

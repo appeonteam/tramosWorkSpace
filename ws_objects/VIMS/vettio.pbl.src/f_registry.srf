@@ -1,0 +1,17 @@
+﻿$PBExportHeader$f_registry.srf
+global type f_registry from function_object
+end type
+
+forward prototypes
+global function integer f_registry (string as_key, ref string as_value, boolean ab_save)
+end prototypes
+
+global function integer f_registry (string as_key, ref string as_value, boolean ab_save);// Saves or loads a value from the registry
+
+If ab_Save then
+	Return RegistrySet("HKEY_LOCAL_MACHINE\Software\VIMS\", as_Key, RegString!, as_Value)
+Else
+	Return RegistryGet("HKEY_LOCAL_MACHINE\Software\VIMS\", as_Key, RegString!, as_Value)
+End If
+end function
+

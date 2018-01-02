@@ -1,0 +1,21 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "vendor_import.pbl" "";
+@end;
+@begin Objects 
+ "d_sq_gr_vendor_active_agent.srd" "vendor_import.pbl";
+ "d_sq_gr_vendor_active_broker_cp.srd" "vendor_import.pbl";
+ "d_sq_gr_vendor_active_broker_tc.srd" "vendor_import.pbl";
+ "d_sq_gr_vendor_active_chart_cp.srd" "vendor_import.pbl";
+ "d_sq_gr_vendor_active_chart_tc.srd" "vendor_import.pbl";
+ "d_sq_gr_vendor_active_tcowner_tc.srd" "vendor_import.pbl";
+ "d_sq_gr_vendor_active_tcowner_vessels.srd" "vendor_import.pbl";
+ "d_sq_gr_vendor_log.srd" "vendor_import.pbl";
+ "d_sq_gr_vendor_update_agents.srd" "vendor_import.pbl";
+ "d_sq_gr_vendor_update_brokers.srd" "vendor_import.pbl";
+ "d_sq_gr_vendor_update_chart.srd" "vendor_import.pbl";
+ "d_sq_gr_vendor_update_tcowners.srd" "vendor_import.pbl";
+ "s_vendor.srs" "vendor_import.pbl";
+ "s_vendor_address.srs" "vendor_import.pbl";
+ "n_interfacelogicvendors.sru" "vendor_import.pbl";
+@end;

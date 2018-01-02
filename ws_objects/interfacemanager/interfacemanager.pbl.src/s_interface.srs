@@ -1,0 +1,19 @@
+﻿$PBExportHeader$s_interface.srs
+global type s_interface from structure
+	string		s_description		descriptor "comment" = "the text desciption saved in the record (read)"
+	string		s_folderlocation		descriptor "comment" = "folder where system listens for files (read)"
+	string		s_folderarchive		descriptor "comment" = "archive folder if required (read)"
+	string		s_mqqueuemanager		descriptor "comment" = "MQ manager name, if left empty no MQ series processing is made (read from database)"
+	string		s_mqqueuename		descriptor "comment" = "the queue name for MQ (read from database)"
+	integer		i_filenamecounter		descriptor "comment" = "a counter for the files sent today (updated in database when there is activity)"
+	long		l_sourcereferencecounter		descriptor "comment" = "a counter for the complete number of files sent (updated in database when there is activity)"
+	datetime		dtm_lastprocessed		descriptor "comment" = "last time interface successfully processed (updated in database when there is activity)"
+	long		l_id		descriptor "comment" = "id of the interface"
+	double		d_transcounter		descriptor "comment" = "used to pass ax transaction number TX9999999999 throughout n_interface objects (stored in memory only)"
+	boolean		b_archive		descriptor "comment" = "Archive flag (read s_folderarchive & validated)"
+	string		s_folderout
+	string		s_folderworking
+	string		s_name
+	string		s_filenameprefix
+end type
+

@@ -1,0 +1,20 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "claimcurrencyadjustments\\claimcurrencyadjustments.pbl" "";
+@end;
+@begin Objects
+ "claimcurrencyadjustments\\d_sq_tb_cc_specialclaimtranscations.srd" "claimcurrencyadjustments\\claimcurrencyadjustments.pbl";
+ "claimcurrencyadjustments\\d_sq_tb_cc_specialclaims.srd" "claimcurrencyadjustments\\claimcurrencyadjustments.pbl";
+ "claimcurrencyadjustments\\d_sq_tb_cc_addresscoms.srd" "claimcurrencyadjustments\\claimcurrencyadjustments.pbl";
+ "claimcurrencyadjustments\\d_sq_tb_cc_commissions.srd" "claimcurrencyadjustments\\claimcurrencyadjustments.pbl";
+ "claimcurrencyadjustments\\d_sq_tb_cc_singleclaim.srd" "claimcurrencyadjustments\\claimcurrencyadjustments.pbl";
+ "claimcurrencyadjustments\\d_sq_tb_cc_frttranscation.srd" "claimcurrencyadjustments\\claimcurrencyadjustments.pbl";
+ "claimcurrencyadjustments\\d_sq_tb_cc_nofrttranscation.srd" "claimcurrencyadjustments\\claimcurrencyadjustments.pbl";
+ "claimcurrencyadjustments\\d_sq_tb_cc_claims.srd" "claimcurrencyadjustments\\claimcurrencyadjustments.pbl";
+ "claimcurrencyadjustments\\s_cargo_base_data.srs" "claimcurrencyadjustments\\claimcurrencyadjustments.pbl";
+ "claimcurrencyadjustments\\n_claimcurrencyadjust.sru" "claimcurrencyadjustments\\claimcurrencyadjustments.pbl";
+ "claimcurrencyadjustments\\n_adjustgenerator.sru" "claimcurrencyadjustments\\claimcurrencyadjustments.pbl";
+ "claimcurrencyadjustments\\p_claimcurrencyadjustments.srj" "claimcurrencyadjustments\\claimcurrencyadjustments.pbl";
+ "claimcurrencyadjustments\\w_adjustgenerator.srw" "claimcurrencyadjustments\\claimcurrencyadjustments.pbl";
+ "claimcurrencyadjustments\\claimcurrencyadjustments.sra" "claimcurrencyadjustments\\claimcurrencyadjustments.pbl";
+@end;

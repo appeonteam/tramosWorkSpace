@@ -1,0 +1,22 @@
+﻿$PBExportHeader$f_profitcenter_lookup.srf
+$PBExportComments$This function reurn TRUE if profitcenter_nr exists or FALSE if not.
+global type f_profitcenter_lookup from function_object
+end type
+
+forward prototypes
+global function boolean f_profitcenter_lookup (integer profitcenter_nr)
+end prototypes
+
+global function boolean f_profitcenter_lookup (integer profitcenter_nr);INT ls_profitcenter_nr
+SELECT PC_NR 
+INTO :ls_profitcenter_nr
+FROM PROFIT_C
+WHERE PC_NR = :profitcenter_nr;
+IF SQLCA.SQLCode < 0 OR SQLCA.SQLCode = 100 THEN 
+	Return (FALSE)
+ELSE
+	Return(TRUE)
+END IF
+
+end function
+

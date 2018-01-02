@@ -1,0 +1,105 @@
+﻿$PBExportHeader$d_grouped_request_list.srd
+release 10;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 9 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=yes )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=52 color="81324524" )
+detail(height=68 color="536870912~tif(mod(getrow(), 2)=0, rgb(200,255,255),rgb(240,255,255))" )
+table(column=(type=char(35) updatewhereclause=yes name=creq_type_type_desc dbname="CREQ_TYPE.TYPE_DESC" )
+ column=(type=char(35) updatewhereclause=yes name=creq_priority_priority_desc dbname="CREQ_PRIORITY.PRIORITY_DESC" )
+ column=(type=char(35) updatewhereclause=yes name=creq_status_status_description dbname="CREQ_STATUS.STATUS_DESCRIPTION" )
+ column=(type=char(35) updatewhereclause=yes name=creq_module_module_desc dbname="CREQ_MODULE.MODULE_DESC" )
+ column=(type=char(35) updatewhereclause=yes name=creq_sub_module_sub_module_desc dbname="CREQ_SUB_MODULE.SUB_MODULE_DESC" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes identity=yes name=request_id dbname="CREQ_REQUEST.REQUEST_ID" )
+ column=(type=number updatewhereclause=yes name=creq_status_initial_status dbname="CREQ_STATUS.INITIAL_STATUS" )
+ column=(type=long updatewhereclause=yes name=creq_status_text_color dbname="CREQ_STATUS.TEXT_COLOR" )
+ column=(type=char(20) updatewhereclause=yes name=users_first_name dbname="USERS.FIRST_NAME" )
+ column=(type=char(20) updatewhereclause=yes name=users_last_name dbname="USERS.LAST_NAME" )
+ column=(type=char(35) updatewhereclause=yes name=creq_request_assigned_to dbname="CREQ_REQUEST.ASSIGNED_TO" )
+ column=(type=char(10) updatewhereclause=yes name=creq_request_release_version dbname="CREQ_REQUEST.RELEASE_VERSION" )
+ column=(type=decimal(0) updatewhereclause=yes name=status_id dbname="CREQ_REQUEST.STATUS_ID" )
+ column=(type=long updatewhereclause=yes name=est_hrs_min dbname="CREQ_REQUEST.EST_HRS_MIN" )
+ column=(type=long updatewhereclause=yes name=est_hrs_max dbname="CREQ_REQUEST.EST_HRS_MAX" )
+ column=(type=decimal(0) updatewhereclause=yes identity=yes name=creq_project_project_id dbname="CREQ_PROJECT.PROJECT_ID" )
+ column=(type=decimal(0) updatewhereclause=yes name=creq_project_priority_id dbname="CREQ_PROJECT.PRIORITY_ID" )
+ column=(type=char(50) updatewhereclause=yes name=creq_project_project_name dbname="CREQ_PROJECT.PROJECT_NAME" )
+ column=(type=decimal(0) updatewhereclause=yes name=creq_request_priority_id dbname="CREQ_REQUEST.PRIORITY_ID" )
+ retrieve="  SELECT CREQ_TYPE.TYPE_DESC,   
+         CREQ_PRIORITY.PRIORITY_DESC,   
+         CREQ_STATUS.STATUS_DESCRIPTION,   
+         CREQ_MODULE.MODULE_DESC,   
+         CREQ_SUB_MODULE.SUB_MODULE_DESC,   
+         CREQ_REQUEST.REQUEST_ID,   
+         CREQ_STATUS.INITIAL_STATUS,   
+         CREQ_STATUS.TEXT_COLOR,   
+         USERS.FIRST_NAME,   
+         USERS.LAST_NAME,   
+         CREQ_REQUEST.ASSIGNED_TO,   
+         CREQ_REQUEST.RELEASE_VERSION,   
+         CREQ_REQUEST.STATUS_ID,   
+         CREQ_REQUEST.EST_HRS_MIN,   
+         CREQ_REQUEST.EST_HRS_MAX,   
+         CREQ_PROJECT.PROJECT_ID,   
+         CREQ_PROJECT.PRIORITY_ID,   
+         CREQ_PROJECT.PROJECT_NAME,
+		CREQ_REQUEST.PRIORITY_ID  
+    FROM CREQ_REQUEST,
+		CREQ_PROJECT,
+		CREQ_SUB_MODULE,    
+         CREQ_MODULE,   
+         CREQ_PRIORITY,   
+         CREQ_STATUS,   
+         CREQ_TYPE,   
+         USERS  
+   WHERE CREQ_PROJECT.PROJECT_ID =* CREQ_REQUEST.PROJECT_ID AND
+		CREQ_SUB_MODULE.SUBMODULE_ID =* CREQ_REQUEST.SUBMODULE_ID AND
+		( CREQ_MODULE.MODULE_ID = CREQ_REQUEST.MODULE_ID ) and  
+         ( CREQ_PRIORITY.PRIORITY_ID = CREQ_REQUEST.PRIORITY_ID ) and  
+         ( CREQ_STATUS.STATUS_ID = CREQ_REQUEST.STATUS_ID ) and  
+         ( CREQ_TYPE.TYPE_ID = CREQ_REQUEST.TYPE_ID ) and  
+         ( CREQ_REQUEST.CREATED_BY = USERS.USERID )  and
+		( CREQ_REQUEST.PROBLEM_DESC LIKE :searchstring )
+ORDER BY CREQ_PROJECT.PROJECT_ID ASC,   
+		CREQ_TYPE.TYPE_DESC DESC,   
+         CREQ_STATUS.STATUS_DESCRIPTION ASC,   
+         CREQ_PRIORITY.PRIORITY_DESC ASC,   
+         CREQ_MODULE.MODULE_DESC ASC   
+" arguments=(("searchstring", string))  sort="compute_4 D request_id D " )
+group(level=1 header.height=80 trailer.height=0 by=("creq_project_project_id" ) header.color="12639424" trailer.color="536870912" )
+text(band=header alignment="2" text="Type" border="6" color="0" x="165" y="4" height="56" width="347" html.valueishtml="0"  name=creq_type_type_desc_t  tag="compute_4 D, creq_type_type_desc A" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="Priority" border="6" color="0" x="530" y="4" height="56" width="347" html.valueishtml="0"  name=creq_priority_priority_desc_t  tag="compute_4 D, creq_priority_priority_desc A" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="Status" border="6" color="0" x="896" y="4" height="56" width="347" html.valueishtml="0"  name=creq_status_status_description_t  tag="compute_4 D, creq_status_status_description A" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="ID#" border="6" color="0" x="9" y="4" height="56" width="137" html.valueishtml="0"  name=t_2  tag="compute_4 D, request_id A" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="Module" border="6" color="0" x="1481" y="4" height="56" width="347" html.valueishtml="0"  name=creq_module_module_desc_t  tag="compute_4 D, creq_module_module_desc A" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="SubModule" border="6" color="0" x="1847" y="4" height="56" width="347" html.valueishtml="0"  name=creq_sub_module_sub_module_desc_t  tag="compute_4 D, creq_sub_module_sub_module_desc A" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="Created by" border="6" color="0" x="2213" y="4" height="56" width="594" html.valueishtml="0"  name=t_1  tag="compute_4 D, name A" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="Ver." border="6" color="0" x="1262" y="4" height="56" width="201" html.valueishtml="0"  name=creq_request_release_version_t  tag="compute_4 D, creq_request_release_version A" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="Assigned to" border="6" color="0" x="2825" y="4" height="56" width="594" html.valueishtml="0"  name=creq_request_assigned_to_t  tag="compute_4 D, creq_request_assigned_to A" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+compute(band=header.1 alignment="0" expression="if(isNull( creq_project_project_id) , ~"{{Not assigned to project}}~",  creq_project_project_name )"border="0" color="0" x="14" y="12" height="56" width="1202" format="[GENERAL]" html.valueishtml="0"  name=compute_4 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=17 alignment="0" tabsequence=32766 border="0" color="0" x="1362" y="12" height="56" width="352" format="[general]" html.valueishtml="0"  name=creq_project_priority_id visible="1" dddw.name=d_dddw_priority dddw.displaycolumn=priority_desc dddw.datacolumn=priority_id dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0~t creq_status_text_color " x="165" y="4" height="56" width="347" format="[general]" html.valueishtml="0"  name=creq_type_type_desc visible="1" edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0~t creq_status_text_color " x="530" y="4" height="56" width="347" format="[general]" html.valueishtml="0"  name=creq_priority_priority_desc visible="1" edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0~t creq_status_text_color " x="896" y="4" height="56" width="347" format="[general]" html.valueishtml="0"  name=creq_status_status_description visible="1" edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="9" y="4" height="56" width="137" format="[general]" html.valueishtml="0"  name=request_id visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0~t creq_status_text_color " x="1481" y="4" height="56" width="347" format="[general]" html.valueishtml="0"  name=creq_module_module_desc visible="1" edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0~t creq_status_text_color " x="1847" y="4" height="56" width="347" format="[general]" html.valueishtml="0"  name=creq_sub_module_sub_module_desc visible="1" edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="trim( users_first_name )+~" ~"+trim( users_last_name )"border="0" color="0~t creq_status_text_color " x="2213" y="4" height="56" width="594" format="[GENERAL]" html.valueishtml="0"  name=name visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="2" tabsequence=32766 border="0" color="0~t creq_status_text_color " x="1262" y="4" height="56" width="201" format="[general]" html.valueishtml="0"  name=creq_request_release_version visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0~t creq_status_text_color " x="2825" y="4" height="56" width="594" format="[general]" html.valueishtml="0"  name=creq_request_assigned_to visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=footer alignment="0" text="Rows" border="0" color="0" x="3287" y="4" height="44" width="133" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="1" expression="rowcount()"border="0" color="0" x="3077" y="4" height="44" width="183" format="#,##0" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=footer alignment="1" text="Estimated hours:" border="0" color="0" x="18" y="4" height="56" width="366" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="1" expression="sum( est_hrs_min for all)"border="0" color="0" x="411" y="4" height="44" width="183" format="#,##0" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum( est_hrs_max for all)"border="0" color="0" x="713" y="4" height="44" width="183" format="#,##0" html.valueishtml="0"  name=compute_3 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=footer alignment="2" text="to" border="0" color="0" x="613" y="4" height="56" width="82" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

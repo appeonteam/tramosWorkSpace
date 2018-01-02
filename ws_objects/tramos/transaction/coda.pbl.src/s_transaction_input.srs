@@ -1,0 +1,59 @@
+﻿$PBExportHeader$s_transaction_input.srs
+$PBExportComments$Structure used as parameter from modules to u_transaction_xxx when generating transactions.
+global type s_transaction_input from structure
+	boolean		coda_or_cms		descriptor "comment" = "generic"
+	integer		vessel_no		descriptor "comment" = "generic"
+	string		voyage_no		descriptor "comment" = "generic"
+	integer		charter_no		descriptor "comment" = "generic"
+	integer		claim_no		descriptor "comment" = "generic"
+	integer		broker_no		descriptor "comment" = "generic"
+	string		comm_inv_no
+	decimal { 4 }		comm_amount
+	datetime		doc_date
+	string		control_no
+	string		agent_voucher_no
+	datetime		tc_cp_date
+	string		port
+	integer		pcn
+	integer		agent_no
+	decimal { 4 }		payment_amount
+	datetime		payment_print_date
+	string		payment_description
+	decimal { 4 }		amount_usd		descriptor "comment" = "generic"
+	decimal { 4 }		amount_local		descriptor "comment" = "generic"
+	datetime		disb_port_arr_date
+	string		disb_currency_code
+	decimal { 4 }		disb_ex_rate_to_dkk
+	integer		variations_year
+	integer		variations_month
+	decimal { 4 }		variations_amount
+	decimal { 2 }		variations_ignoreddays
+	integer		variations_voyagetype
+	string		variations_nomdescription
+	decimal { 4 }		bunker_ton
+	string		owner_charter_nom_acc
+	n_ds		settle_tc_payment
+	decimal { 2 }		tc_payment_amount
+	datetime		payment_start
+	datetime		payment_end
+	double		payment_id
+	double		tc_offservice_id
+	decimal { 2 }		opsa_broker_comm
+	decimal { 2 }		opsa_offservice_detail_amount
+	datetime		opsa_offservice_detail_date
+	s_bunker_values		s_bunker_values
+	decimal { 4 }		previous_amount_usd
+	decimal { 4 }		ex_rate_to_dkk		descriptor "comment" = "generic"
+	string		currency_code		descriptor "comment" = "generic"
+	long		broker_id_array[]
+	decimal { 4 }		broker_amount_array[]
+	string		ax_invoice_nr
+	string		ax_invoice_text
+	string		full_voyage_no
+	string		s_sanction_line_1
+	string		s_sanction_line_2
+	string		s_sanction_currency
+	decimal { 6 }		d_exrate_from_invoice
+	boolean		b_showmsg
+end type
+

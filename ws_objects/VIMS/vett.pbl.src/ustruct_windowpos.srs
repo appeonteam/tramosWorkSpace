@@ -1,0 +1,11 @@
+﻿$PBExportHeader$ustruct_windowpos.srs
+global type ustruct_windowpos from structure
+	long		hwnd
+	long		hwndAfter
+	integer		x
+	integer		y
+	integer		cx
+	integer		cy
+	unsignedinteger		flags
+end type
+

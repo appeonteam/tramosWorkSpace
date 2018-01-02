@@ -1,0 +1,260 @@
+﻿$PBExportHeader$m_modelprint.srm
+forward
+global type m_modelprint from menu
+end type
+type m_completeviq from menu within m_modelprint
+end type
+type m_withguidancenotes from menu within m_completeviq
+end type
+type m_withoutguidancenotes from menu within m_completeviq
+end type
+type m_completeviq from menu within m_modelprint
+m_withguidancenotes m_withguidancenotes
+m_withoutguidancenotes m_withoutguidancenotes
+end type
+type m_reorganizedviq from menu within m_modelprint
+end type
+type m_withguidancenotes0 from menu within m_reorganizedviq
+end type
+type m_withoutguidancenotes0 from menu within m_reorganizedviq
+end type
+type m_reorganizedviq from menu within m_modelprint
+m_withguidancenotes0 m_withguidancenotes0
+m_withoutguidancenotes0 m_withoutguidancenotes0
+end type
+global type m_modelprint from menu
+m_completeviq m_completeviq
+m_reorganizedviq m_reorganizedviq
+end type
+end forward
+
+global type m_modelprint from menu
+m_completeviq m_completeviq
+m_reorganizedviq m_reorganizedviq
+end type
+global m_modelprint m_modelprint
+
+on m_modelprint.create
+m_modelprint=this
+call super::create
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_completeviq=create m_completeviq
+this.m_reorganizedviq=create m_reorganizedviq
+this.Item[UpperBound(this.Item)+1]=this.m_completeviq
+this.Item[UpperBound(this.Item)+1]=this.m_reorganizedviq
+end on
+
+on m_modelprint.destroy
+call super::destroy
+destroy(this.m_completeviq)
+destroy(this.m_reorganizedviq)
+end on
+
+type m_completeviq from menu within m_modelprint
+m_withguidancenotes m_withguidancenotes
+m_withoutguidancenotes m_withoutguidancenotes
+end type
+
+on m_completeviq.create
+call super::create
+this.text = "Complete Model"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_withguidancenotes=create m_withguidancenotes
+this.m_withoutguidancenotes=create m_withoutguidancenotes
+this.Item[UpperBound(this.Item)+1]=this.m_withguidancenotes
+this.Item[UpperBound(this.Item)+1]=this.m_withoutguidancenotes
+end on
+
+on m_completeviq.destroy
+call super::destroy
+destroy(this.m_withguidancenotes)
+destroy(this.m_withoutguidancenotes)
+end on
+
+type m_withguidancenotes from menu within m_completeviq
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_PrintModel(1)
+end event
+
+on m_withguidancenotes.create
+call super::create
+this.text = "With Guidance Notes"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_withguidancenotes.destroy
+call super::destroy
+end on
+
+type m_withoutguidancenotes from menu within m_completeviq
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_PrintModel(2)
+end event
+
+on m_withoutguidancenotes.create
+call super::create
+this.text = "Without Guidance Notes"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_withoutguidancenotes.destroy
+call super::destroy
+end on
+
+type m_reorganizedviq from menu within m_modelprint
+m_withguidancenotes0 m_withguidancenotes0
+m_withoutguidancenotes0 m_withoutguidancenotes0
+end type
+
+on m_reorganizedviq.create
+call super::create
+this.text = "Reorganized Model"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_withguidancenotes0=create m_withguidancenotes0
+this.m_withoutguidancenotes0=create m_withoutguidancenotes0
+this.Item[UpperBound(this.Item)+1]=this.m_withguidancenotes0
+this.Item[UpperBound(this.Item)+1]=this.m_withoutguidancenotes0
+end on
+
+on m_reorganizedviq.destroy
+call super::destroy
+destroy(this.m_withguidancenotes0)
+destroy(this.m_withoutguidancenotes0)
+end on
+
+type m_withguidancenotes0 from menu within m_reorganizedviq
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_PrintModel(3)
+end event
+
+on m_withguidancenotes0.create
+call super::create
+this.text = "With Guidance Notes"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_withguidancenotes0.destroy
+call super::destroy
+end on
+
+type m_withoutguidancenotes0 from menu within m_reorganizedviq
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_PrintModel(4)
+end event
+
+on m_withoutguidancenotes0.create
+call super::create
+this.text = "Without Guidance Notes"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_withoutguidancenotes0.destroy
+call super::destroy
+end on
+

@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_print_parameters.srs
+$PBExportComments$Stores brokernr and if_tc, used in w_commission, and w_generate_settle_print
+global type s_print_parameters from structure
+    long si_broker_nr
+    boolean sb_tc_print
+end type
+

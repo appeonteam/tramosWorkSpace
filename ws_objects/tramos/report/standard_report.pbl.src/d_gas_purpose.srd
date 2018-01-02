@@ -1,0 +1,14 @@
+﻿$PBExportHeader$d_gas_purpose.srd
+$PBExportComments$Used in dragdropbox purpose.
+release 7;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(3) updatewhereclause=yes key=yes name=purpose_code dbname="PURPOSE.PURPOSE_CODE" )
+ column=(type=char(15) updatewhereclause=yes name=purpose_desc dbname="PURPOSE.PURPOSE_DESC" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"PURPOSE~" ) COLUMN(NAME=~"PURPOSE.PURPOSE_CODE~") COLUMN(NAME=~"PURPOSE.PURPOSE_DESC~")) " update="PURPOSE" updatewhere=0 updatekeyinplace=no  sort="purpose_desc A " )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1554" y="4" height="60" width="119" format="[general]"  name=purpose_code edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="489" format="[general]"  name=purpose_desc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,31 @@
+HA$PBExportHeader$f_transfervoyage.srf
+global type f_TransferVoyage from function_object
+end type
+
+forward prototypes
+global subroutine f_transfervoyage (string as_voyfilename, string as_sourcepath, string as_datapath, boolean ab_rejected)
+end prototypes
+
+global subroutine f_transfervoyage (string as_voyfilename, string as_sourcepath, string as_datapath, boolean ab_rejected);String is_Path
+Integer ii_FuncRet
+
+if ab_Rejected then
+	is_Path = "Rejected\"
+else
+	is_Path = left(as_VoyFileName, 3) + "\"
+end if
+
+If not DirectoryExists(as_Datapath + is_Path) then
+	ii_FuncRet = CreateDirectory( as_Datapath + is_Path)
+	if ii_FuncRet < 1 then 
+		f_addsysalert(3, as_VoyFileName, 0, 'Directory: ' + as_DataPath + is_Path)
+		Return 
+	end if
+end if
+
+ii_FuncRet = Filemove(as_SourcePath + as_VoyFileName, as_Datapath + is_Path + as_VoyFileName)
+
+If ii_FuncRet<1 then FileDelete(as_SourcePath + as_VoyFileName)
+	
+end subroutine
+

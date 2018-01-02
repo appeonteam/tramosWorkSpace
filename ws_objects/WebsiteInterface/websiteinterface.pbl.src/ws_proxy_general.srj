@@ -1,0 +1,11 @@
+﻿$PBExportHeader$ws_proxy_general.srj
+GeneratorID:{1B1DCEE2-E514-11D1-B30A-006008925BD4}GENBC00000000
+
+WSDLLOCATION:TramosService.wsdl	
+COMPONENT:0
+PACKAGE:1	WebService.TramosService
+COMMENT:
+DEPLOYMENT:webproxy.pbl	1	1
+PROJECT:
+PREFIX:ws_
+ASSEMBLY:0	1	websiteproxy_general.dll

@@ -1,0 +1,19 @@
+﻿$PBExportHeader$f_str_to_dec.srf
+$PBExportComments$converts string to decimal.
+global type f_str_to_dec from function_object
+end type
+
+forward prototypes
+global function double f_str_to_dec (string fs_stringval)
+end prototypes
+
+global function double f_str_to_dec (string fs_stringval);double ld_ret
+int li_pos
+li_pos = pos(fs_stringval,",")
+if li_pos <> 0 then
+	fs_stringval = Replace ( fs_stringval, li_pos, 1, "." )
+end if
+ld_ret = double(fs_stringval)	
+return ld_ret
+end function
+

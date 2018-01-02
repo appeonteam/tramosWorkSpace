@@ -1,0 +1,18 @@
+﻿$PBExportHeader$s_calc_vessel_data.srs
+$PBExportComments$Contains the vessel data used in the calculation
+global type s_calc_vessel_data from structure
+	boolean		b_apmvessel
+	double		d_fo_price
+	double		d_do_price
+	double		d_mgo_price
+	string		s_name
+	double		d_drc
+	double		d_oa
+	double		d_cap
+	double		d_tc
+	double		d_sdwt
+	double		d_budgetcomm
+	integer		i_pcnr
+	decimal{4}		d_lsfo_price
+end type
+

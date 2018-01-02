@@ -1,0 +1,777 @@
+﻿$PBExportHeader$m_modelprint.srm
+forward
+global type m_modelprint from menu
+end type
+type m_completeviq from menu within m_modelprint
+end type
+type m_withguidancenotes from menu within m_completeviq
+end type
+type m_withoutguidancenotes from menu within m_completeviq
+end type
+type m_completeviq from menu within m_modelprint
+m_withguidancenotes m_withguidancenotes
+m_withoutguidancenotes m_withoutguidancenotes
+end type
+type m_groupedbyrisk from menu within m_modelprint
+end type
+type m_withriskguidancenotes from menu within m_groupedbyrisk
+end type
+type m_lowriskonly from menu within m_withriskguidancenotes
+end type
+type m_mediumriskonly from menu within m_withriskguidancenotes
+end type
+type m_highriskonly from menu within m_withriskguidancenotes
+end type
+type m_allrisks from menu within m_withriskguidancenotes
+end type
+type m_withriskguidancenotes from menu within m_groupedbyrisk
+m_lowriskonly m_lowriskonly
+m_mediumriskonly m_mediumriskonly
+m_highriskonly m_highriskonly
+m_allrisks m_allrisks
+end type
+type m_withoutriskguidancenotes from menu within m_groupedbyrisk
+end type
+type m_lowriskonly0 from menu within m_withoutriskguidancenotes
+end type
+type m_mediumriskonly0 from menu within m_withoutriskguidancenotes
+end type
+type m_highriskonly0 from menu within m_withoutriskguidancenotes
+end type
+type m_allrisks0 from menu within m_withoutriskguidancenotes
+end type
+type m_withoutriskguidancenotes from menu within m_groupedbyrisk
+m_lowriskonly0 m_lowriskonly0
+m_mediumriskonly0 m_mediumriskonly0
+m_highriskonly0 m_highriskonly0
+m_allrisks0 m_allrisks0
+end type
+type m_groupedbyrisk from menu within m_modelprint
+m_withriskguidancenotes m_withriskguidancenotes
+m_withoutriskguidancenotes m_withoutriskguidancenotes
+end type
+type m_reorganizedviq from menu within m_modelprint
+end type
+type m_withguidancenotes0 from menu within m_reorganizedviq
+end type
+type m_withoutguidancenotes0 from menu within m_reorganizedviq
+end type
+type m_reorganizedviq from menu within m_modelprint
+m_withguidancenotes0 m_withguidancenotes0
+m_withoutguidancenotes0 m_withoutguidancenotes0
+end type
+type m_reorganizedviqbooklet from menu within m_modelprint
+end type
+type m_withguidancenotes1 from menu within m_reorganizedviqbooklet
+end type
+type m_withoutguidancenotes1 from menu within m_reorganizedviqbooklet
+end type
+type m_reorganizedviqbooklet from menu within m_modelprint
+m_withguidancenotes1 m_withguidancenotes1
+m_withoutguidancenotes1 m_withoutguidancenotes1
+end type
+global type m_modelprint from menu
+m_completeviq m_completeviq
+m_groupedbyrisk m_groupedbyrisk
+m_reorganizedviq m_reorganizedviq
+m_reorganizedviqbooklet m_reorganizedviqbooklet
+end type
+end forward
+
+global type m_modelprint from menu
+m_completeviq m_completeviq
+m_groupedbyrisk m_groupedbyrisk
+m_reorganizedviq m_reorganizedviq
+m_reorganizedviqbooklet m_reorganizedviqbooklet
+end type
+global m_modelprint m_modelprint
+
+on m_modelprint.create
+m_modelprint=this
+call super::create
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_completeviq=create m_completeviq
+this.m_groupedbyrisk=create m_groupedbyrisk
+this.m_reorganizedviq=create m_reorganizedviq
+this.m_reorganizedviqbooklet=create m_reorganizedviqbooklet
+this.Item[UpperBound(this.Item)+1]=this.m_completeviq
+this.Item[UpperBound(this.Item)+1]=this.m_groupedbyrisk
+this.Item[UpperBound(this.Item)+1]=this.m_reorganizedviq
+this.Item[UpperBound(this.Item)+1]=this.m_reorganizedviqbooklet
+end on
+
+on m_modelprint.destroy
+call super::destroy
+destroy(this.m_completeviq)
+destroy(this.m_groupedbyrisk)
+destroy(this.m_reorganizedviq)
+destroy(this.m_reorganizedviqbooklet)
+end on
+
+type m_completeviq from menu within m_modelprint
+m_withguidancenotes m_withguidancenotes
+m_withoutguidancenotes m_withoutguidancenotes
+end type
+
+on m_completeviq.create
+call super::create
+this.text = "Complete Model"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_withguidancenotes=create m_withguidancenotes
+this.m_withoutguidancenotes=create m_withoutguidancenotes
+this.Item[UpperBound(this.Item)+1]=this.m_withguidancenotes
+this.Item[UpperBound(this.Item)+1]=this.m_withoutguidancenotes
+end on
+
+on m_completeviq.destroy
+call super::destroy
+destroy(this.m_withguidancenotes)
+destroy(this.m_withoutguidancenotes)
+end on
+
+type m_withguidancenotes from menu within m_completeviq
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_PrintModel(1)
+end event
+
+on m_withguidancenotes.create
+call super::create
+this.text = "With Guidance Notes"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_withguidancenotes.destroy
+call super::destroy
+end on
+
+type m_withoutguidancenotes from menu within m_completeviq
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_PrintModel(2)
+end event
+
+on m_withoutguidancenotes.create
+call super::create
+this.text = "Without Guidance Notes"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_withoutguidancenotes.destroy
+call super::destroy
+end on
+
+type m_groupedbyrisk from menu within m_modelprint
+m_withriskguidancenotes m_withriskguidancenotes
+m_withoutriskguidancenotes m_withoutriskguidancenotes
+end type
+
+on m_groupedbyrisk.create
+call super::create
+this.text = "Grouped By Risk"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_withriskguidancenotes=create m_withriskguidancenotes
+this.m_withoutriskguidancenotes=create m_withoutriskguidancenotes
+this.Item[UpperBound(this.Item)+1]=this.m_withriskguidancenotes
+this.Item[UpperBound(this.Item)+1]=this.m_withoutriskguidancenotes
+end on
+
+on m_groupedbyrisk.destroy
+call super::destroy
+destroy(this.m_withriskguidancenotes)
+destroy(this.m_withoutriskguidancenotes)
+end on
+
+type m_withriskguidancenotes from menu within m_groupedbyrisk
+m_lowriskonly m_lowriskonly
+m_mediumriskonly m_mediumriskonly
+m_highriskonly m_highriskonly
+m_allrisks m_allrisks
+end type
+
+on m_withriskguidancenotes.create
+call super::create
+this.text = "With Guidance Notes"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_lowriskonly=create m_lowriskonly
+this.m_mediumriskonly=create m_mediumriskonly
+this.m_highriskonly=create m_highriskonly
+this.m_allrisks=create m_allrisks
+this.Item[UpperBound(this.Item)+1]=this.m_lowriskonly
+this.Item[UpperBound(this.Item)+1]=this.m_mediumriskonly
+this.Item[UpperBound(this.Item)+1]=this.m_highriskonly
+this.Item[UpperBound(this.Item)+1]=this.m_allrisks
+end on
+
+on m_withriskguidancenotes.destroy
+call super::destroy
+destroy(this.m_lowriskonly)
+destroy(this.m_mediumriskonly)
+destroy(this.m_highriskonly)
+destroy(this.m_allrisks)
+end on
+
+type m_lowriskonly from menu within m_withriskguidancenotes
+end type
+
+event clicked;Parentwindow.dynamic event ue_PrintModel(9)
+end event
+
+on m_lowriskonly.create
+call super::create
+this.text = "Low Risk Only"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_lowriskonly.destroy
+call super::destroy
+end on
+
+type m_mediumriskonly from menu within m_withriskguidancenotes
+end type
+
+event clicked;Parentwindow.dynamic event ue_PrintModel(10)
+end event
+
+on m_mediumriskonly.create
+call super::create
+this.text = "Medium Risk Only"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_mediumriskonly.destroy
+call super::destroy
+end on
+
+type m_highriskonly from menu within m_withriskguidancenotes
+end type
+
+event clicked;Parentwindow.dynamic event ue_PrintModel(11)
+end event
+
+on m_highriskonly.create
+call super::create
+this.text = "High Risk Only"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_highriskonly.destroy
+call super::destroy
+end on
+
+type m_allrisks from menu within m_withriskguidancenotes
+end type
+
+event clicked;Parentwindow.dynamic event ue_PrintModel(8)
+end event
+
+on m_allrisks.create
+call super::create
+this.text = "All Risks"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_allrisks.destroy
+call super::destroy
+end on
+
+type m_withoutriskguidancenotes from menu within m_groupedbyrisk
+m_lowriskonly0 m_lowriskonly0
+m_mediumriskonly0 m_mediumriskonly0
+m_highriskonly0 m_highriskonly0
+m_allrisks0 m_allrisks0
+end type
+
+on m_withoutriskguidancenotes.create
+call super::create
+this.text = "Without Guidance Notes"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_lowriskonly0=create m_lowriskonly0
+this.m_mediumriskonly0=create m_mediumriskonly0
+this.m_highriskonly0=create m_highriskonly0
+this.m_allrisks0=create m_allrisks0
+this.Item[UpperBound(this.Item)+1]=this.m_lowriskonly0
+this.Item[UpperBound(this.Item)+1]=this.m_mediumriskonly0
+this.Item[UpperBound(this.Item)+1]=this.m_highriskonly0
+this.Item[UpperBound(this.Item)+1]=this.m_allrisks0
+end on
+
+on m_withoutriskguidancenotes.destroy
+call super::destroy
+destroy(this.m_lowriskonly0)
+destroy(this.m_mediumriskonly0)
+destroy(this.m_highriskonly0)
+destroy(this.m_allrisks0)
+end on
+
+type m_lowriskonly0 from menu within m_withoutriskguidancenotes
+end type
+
+event clicked;Parentwindow.dynamic event ue_PrintModel(12)
+end event
+
+on m_lowriskonly0.create
+call super::create
+this.text = "Low Risk Only"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_lowriskonly0.destroy
+call super::destroy
+end on
+
+type m_mediumriskonly0 from menu within m_withoutriskguidancenotes
+end type
+
+event clicked;Parentwindow.dynamic event ue_PrintModel(13)
+end event
+
+on m_mediumriskonly0.create
+call super::create
+this.text = "Medium Risk Only"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_mediumriskonly0.destroy
+call super::destroy
+end on
+
+type m_highriskonly0 from menu within m_withoutriskguidancenotes
+end type
+
+event clicked;Parentwindow.dynamic event ue_PrintModel(14)
+end event
+
+on m_highriskonly0.create
+call super::create
+this.text = "High Risk Only"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_highriskonly0.destroy
+call super::destroy
+end on
+
+type m_allrisks0 from menu within m_withoutriskguidancenotes
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_PrintModel(7)
+end event
+
+on m_allrisks0.create
+call super::create
+this.text = "All Risks"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_allrisks0.destroy
+call super::destroy
+end on
+
+type m_reorganizedviq from menu within m_modelprint
+m_withguidancenotes0 m_withguidancenotes0
+m_withoutguidancenotes0 m_withoutguidancenotes0
+end type
+
+on m_reorganizedviq.create
+call super::create
+this.text = "Reorganized Model - A4 Size"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_withguidancenotes0=create m_withguidancenotes0
+this.m_withoutguidancenotes0=create m_withoutguidancenotes0
+this.Item[UpperBound(this.Item)+1]=this.m_withguidancenotes0
+this.Item[UpperBound(this.Item)+1]=this.m_withoutguidancenotes0
+end on
+
+on m_reorganizedviq.destroy
+call super::destroy
+destroy(this.m_withguidancenotes0)
+destroy(this.m_withoutguidancenotes0)
+end on
+
+type m_withguidancenotes0 from menu within m_reorganizedviq
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_PrintModel(3)
+end event
+
+on m_withguidancenotes0.create
+call super::create
+this.text = "With Guidance Notes"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_withguidancenotes0.destroy
+call super::destroy
+end on
+
+type m_withoutguidancenotes0 from menu within m_reorganizedviq
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_PrintModel(4)
+end event
+
+on m_withoutguidancenotes0.create
+call super::create
+this.text = "Without Guidance Notes"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_withoutguidancenotes0.destroy
+call super::destroy
+end on
+
+type m_reorganizedviqbooklet from menu within m_modelprint
+m_withguidancenotes1 m_withguidancenotes1
+m_withoutguidancenotes1 m_withoutguidancenotes1
+end type
+
+on m_reorganizedviqbooklet.create
+call super::create
+this.text = "Reorganized Model - A5 Size"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_withguidancenotes1=create m_withguidancenotes1
+this.m_withoutguidancenotes1=create m_withoutguidancenotes1
+this.Item[UpperBound(this.Item)+1]=this.m_withguidancenotes1
+this.Item[UpperBound(this.Item)+1]=this.m_withoutguidancenotes1
+end on
+
+on m_reorganizedviqbooklet.destroy
+call super::destroy
+destroy(this.m_withguidancenotes1)
+destroy(this.m_withoutguidancenotes1)
+end on
+
+type m_withguidancenotes1 from menu within m_reorganizedviqbooklet
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_PrintModel(5)
+end event
+
+on m_withguidancenotes1.create
+call super::create
+this.text = "With Guidance Notes"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_withguidancenotes1.destroy
+call super::destroy
+end on
+
+type m_withoutguidancenotes1 from menu within m_reorganizedviqbooklet
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_PrintModel(6)
+end event
+
+on m_withoutguidancenotes1.create
+call super::create
+this.text = "Without Guidance Notes"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_withoutguidancenotes1.destroy
+call super::destroy
+end on
+

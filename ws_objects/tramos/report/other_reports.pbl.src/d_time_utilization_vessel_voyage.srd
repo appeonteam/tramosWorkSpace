@@ -1,0 +1,45 @@
+﻿$PBExportHeader$d_time_utilization_vessel_voyage.srd
+$PBExportComments$TCE Report - retrieves all voyages that has to be calculated
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=vessel_nr dbname="VOYAGES.VESSEL_NR" dbalias=".VESSEL_NR" )
+ column=(type=char(5) updatewhereclause=yes name=voyage_nr dbname="compute_0002" )
+ column=(type=long updatewhereclause=yes name=voyages_voyage_type dbname="VOYAGES.VOYAGE_TYPE" dbalias=".VOYAGE_TYPE" )
+ column=(type=decimal(0) updatewhereclause=yes name=voyages_cal_calc_id dbname="VOYAGES.CAL_CALC_ID" dbalias=".CAL_CALC_ID" )
+ column=(type=char(50) updatewhereclause=yes name=vessels_vessel_name dbname="VESSELS.VESSEL_NAME" dbalias=".VESSEL_NAME" )
+ column=(type=char(5) updatewhereclause=yes name=vessel_ref_nr dbname="VESSELS.VESSEL_REF_NR" dbalias=".VESSEL_REF_NR" )
+ retrieve="  SELECT DISTINCT VOYAGES.VESSEL_NR,   
+         SUBSTRING(VOYAGES.VOYAGE_NR,1,5),
+			VOYAGES.VOYAGE_TYPE,
+			VOYAGES.CAL_CALC_ID,
+			VESSELS.VESSEL_NAME,
+			VESSELS.VESSEL_REF_NR  
+    FROM VOYAGES, VESSELS
+   WHERE SUBSTRING(VOYAGES.VOYAGE_NR,1,2) = :year AND
+			VOYAGES.VESSEL_NR IN (:vessels) AND
+			VOYAGES.VESSEL_NR = VESSELS.VESSEL_NR AND
+			VOYAGES.VOYAGE_FINISHED = 1 AND
+			VOYAGES.CAL_CALC_ID > 1
+		   
+" arguments=(("year", string),("vessels", numberlist)) )
+text(band=header alignment="2" text="Vessel Nr" border="0" color="0" x="5" y="4" height="64" width="329" html.valueishtml="0"  name=vessel_nr_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="329" format="[general]" html.valueishtml="0"  name=vessel_nr visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="398" y="4" height="64" width="338" format="[general]" html.valueishtml="0"  name=voyage_nr visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="919" y="4" height="64" width="137" format="[general]" html.valueishtml="0"  name=voyages_voyage_type visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1362" y="8" height="64" width="1161" format="[general]" html.valueishtml="0"  name=voyages_cal_calc_id visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2523" y="0" height="64" width="677" format="[general]" html.valueishtml="0"  name=vessels_vessel_name visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=0 border="0" color="0" x="3250" y="0" height="64" width="398" html.valueishtml="0"  name=vessel_ref_nr visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()

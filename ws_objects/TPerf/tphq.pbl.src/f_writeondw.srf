@@ -1,0 +1,23 @@
+﻿$PBExportHeader$f_writeondw.srf
+global type f_writeondw from function_object
+end type
+
+forward prototypes
+global subroutine f_writeondw (datawindow adw_target, long al_x, long al_y, long al_width, string as_text, long al_color)
+end prototypes
+
+global subroutine f_writeondw (datawindow adw_target, long al_x, long al_y, long al_width, string as_text, long al_color);// This function writes text on a datawindow in specified font at the specified location and size
+
+String Err
+
+Err = "create text(band=Detail color='0' alignment='2' border='0'"&
+		+ " height.autosize=No pointer='Arrow!' visible='1' moveable=0 resizeable=0 x='" + String(al_X) + "'"&
+		+ " y='" + String(al_Y) + "' height='15' width='" + String(al_width) + "' text='" + as_Text + "'"&
+		+ " font.face='Arial Narrow' font.height= '-8' font.weight='400' font.family='0' font.pitch='0' font.charset='0' font.italic='0'"&
+		+ " font.strikethrough='0' font.underline='0' background.mode='1' background.color='0')"
+Err = adw_Target.Modify(Err)
+
+If Err>"" then messagebox("Err", Err)
+
+end subroutine
+

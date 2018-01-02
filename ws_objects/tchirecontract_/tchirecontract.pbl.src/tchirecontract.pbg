@@ -1,0 +1,10 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "tchirecontract.pbl" "";
+@end;
+@begin Objects 
+ "tchirecontract.sra" "tchirecontract.pbl";
+ "d_sq_tb_office_email.srd" "tchirecontract.pbl";
+ "d_tchire_contracts.srd" "tchirecontract.pbl";
+ "p_tchirecontract.srj" "tchirecontract.pbl";
+@end;

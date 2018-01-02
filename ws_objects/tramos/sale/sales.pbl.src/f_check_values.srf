@@ -1,0 +1,88 @@
+﻿$PBExportHeader$f_check_values.srf
+$PBExportComments$Checks a list of numbers if they are found in the values given in the parameter "as_values".
+global type f_check_values from function_object
+end type
+
+forward prototypes
+global function boolean f_check_values (string as_string, string as_valid_chars, string as_values)
+end prototypes
+
+global function boolean f_check_values (string as_string, string as_valid_chars, string as_values);/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : Global Function f_check_values
+  
+ Object     : 
+  
+ Event	 : Open
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Kim Husson Kasperek
+   
+ Date       : 15-08-96
+
+ Description : Checks a list of numbers if they are found in the values given in the parameter "as_values"
+			The syntax for the string of values accepted is "@value1@value2@ ... @value3@"
+
+ Arguments : 	as_string			: The string of dates to be checked
+			as_valid_chars	: The chars to be accepted in the syntax-check
+			as_values		: Accepted values
+
+ Returns   : True if the values are accepted
+
+ Variables : 
+
+ Other : 
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+15-08-96		2.0			KHK		New version
+************************************************************************************/
+
+CHAR lc_ch
+STRING ls_tmpstr1, ls_tmpstr2
+INTEGER li_counter
+BOOLEAN  lb_error
+
+ls_tmpstr1 = as_string
+ls_tmpstr2 = ""
+lb_error = FALSE
+
+IF LEN(ls_tmpstr1) > 0 THEN		// The string is NOT empty
+
+	ls_tmpstr1 = ls_tmpstr1 + "@"		// Add a stopsign to the string
+
+	FOR li_counter=1 to LEN(ls_tmpstr1)				// For all characters in the string DO
+		lc_ch = UPPER(MID(ls_tmpstr1,li_counter,1))		// Fetch the charecters i the string one by one
+		IF POS(as_valid_chars,lc_ch) > 0 THEN			// Is the actual character valid	- if it is add it to
+			ls_tmpstr2 = ls_tmpstr2 + lc_ch			// the working string ls_tmpstr2
+
+		ELSEIF POS("+-*/",lc_ch) > 0 THEN				// A delimiter-signs which indicates a number is completed, and
+												// now shall be checked if it is within the borders min/max
+
+			lb_error = lb_error OR NOT POS(as_values,ls_tmpstr2) > 0
+			ls_tmpstr2 = ""
+		ELSEIF POS("()",lc_ch) > 0 THEN				// Delimiter-signs - nothing done, the check of the working string
+												// ls_tmpstr2 i done when other delimiters is met (see above)
+			//nothing done
+		ELSEIF lc_ch = "@" THEN					// Stop-sign - final test is done
+			lb_error = lb_error OR NOT POS(as_values,ls_tmpstr2) > 0
+		ELSE
+			lb_error = TRUE
+		END IF
+	NEXT
+
+ELSE
+	lb_error = FALSE
+END IF
+
+RETURN NOT lb_error 		//Return the result, True if the syntax of the numberstring was OK
+
+end function
+

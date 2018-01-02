@@ -1,0 +1,80 @@
+﻿$PBExportHeader$months_and_days.srf
+$PBExportComments$Returns months and days in structure
+global type months_and_days from function_object
+end type
+
+forward prototypes
+global function integer months_and_days (datetime startdate, datetime enddate, ref s_hire_month_and_days monthanddays[])
+end prototypes
+
+global function integer months_and_days (datetime startdate, datetime enddate, ref s_hire_month_and_days monthanddays[]);/* Function returns months and days between two datetime variables */
+/* in the array structure S_HIRE_MONTH_AND_DAYS */
+
+int i
+time Midnight = Time(0,0,0,0)
+
+/* Reset array structure */
+FOR i = 1 TO 3
+	SetNull(monthanddays[i].count)
+NEXT
+
+/* 1/x 00:00 to 1/y 00:00 - only months */
+IF Time(startdate) = Midnight AND Day(Date(startdate)) = 1 AND &
+	Time(enddate) = Midnight AND Day(Date(enddate)) = 1 THEN
+	monthanddays[1].dayormonth = FALSE
+	monthanddays[1].count = Month(Date(enddate)) - Month(Date(startdate)) + &
+									(Year(Date(enddate)) - Year(Date(startdate))) * 12
+	RETURN 0
+END IF
+
+/* 1/x 00:00 to enddate */
+IF Month(Date(enddate)) = Month(Date(startdate)) AND &
+	Year(Date(enddate)) = Year(Date(startdate)) THEN
+	monthanddays[1].dayormonth = TRUE
+	monthanddays[1].count = round((timedifference(startdate, enddate))/1440,4)
+	RETURN 0
+ELSEIF Time(startdate) = Midnight AND Day(Date(startdate)) = 1 and &
+	Month(Date(enddate)) > Month(Date(startdate)) THEN
+	monthanddays[1].dayormonth = FALSE
+	monthanddays[1].count = Month(Date(enddate)) - Month(Date(startdate)) + &
+									(Year(Date(enddate)) - Year(Date(startdate))) * 12
+	monthanddays[2].dayormonth = TRUE
+	monthanddays[2].count = round((timedifference(DateTime(Date(Year(Date(enddate)), Month(Date(enddate)), 1), Midnight), enddate))/1440,4)
+	RETURN 0
+END IF
+
+/* Enddate month is next month and startdate's day is larger */
+IF Day(Date(startdate)) > Day(Date(enddate)) AND &
+	(( 	Month(Date(enddate)) = Month(Date(startdate)) + 1 AND &
+			Year(Date(enddate)) = Year(Date(startdate)) ) OR &
+	( 		Month(Date(enddate)) = Month(Date(startdate)) - 11 AND &
+			Year(Date(enddate)) = Year(Date(startdate)) + 1 )) THEN
+	monthanddays[1].dayormonth = TRUE
+	monthanddays[1].count = round(timedifference(startdate, DateTime(Date(Year(Date(enddate)), Month(Date(enddate)), 1), Midnight))/1440,4)
+	monthanddays[2].dayormonth = TRUE
+	monthanddays[2].count = round(timedifference(DateTime(Date(Year(Date(enddate)), Month(Date(enddate)), 1), Midnight), enddate)/1440,4)
+	RETURN 0
+END IF
+
+/* Three periods */
+
+/* First startdate to 1. next month */
+monthanddays[1].dayormonth = TRUE
+IF Month(Date(startdate)) = 12 THEN
+	monthanddays[1].count = round((timedifference(startdate, DateTime(Date(Year(Date(startdate))+1, 1, 1), Midnight )))/1440,4)
+ELSE
+	monthanddays[1].count = round((timedifference(startdate, DateTime(Date(Year(Date(startdate)), Month(Date(startdate))+1, 1), Midnight)))/1440,4)
+END IF
+
+/* Second is number of months */
+monthanddays[2].dayormonth = FALSE
+monthanddays[2].count = Month(Date(enddate)) - Month(Date(startdate)) + &
+								(Year(Date(enddate)) - Year(Date(startdate))) * 12 - 1
+
+/* Third is 1. last month to enddate */
+monthanddays[3].dayormonth = TRUE
+monthanddays[3].count = round((timedifference(DateTime(Date(Year(Date(enddate)), Month(Date(enddate)), 1), Midnight), enddate))/1440,4)
+RETURN 0
+
+end function
+

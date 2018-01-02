@@ -1,0 +1,7 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "vettxml.pbl" "";
+@end;
+@begin Objects 
+ "d_sq_tb_inspxmlexport.srd" "vettxml.pbl";
+@end;

@@ -1,0 +1,15 @@
+﻿$PBExportHeader$d_dddw_priority.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(35) updatewhereclause=yes name=priority_desc dbname="CREQ_PRIORITY.PRIORITY_DESC" )
+ column=(type=long updatewhereclause=yes name=priority_sort dbname="CREQ_PRIORITY.PRIORITY_SORT" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes identity=yes name=priority_id dbname="CREQ_PRIORITY.PRIORITY_ID" )
+ column=(type=number updatewhereclause=yes name=initial_priority dbname="CREQ_PRIORITY.INITIAL_PRIORITY" values="Initial	1/Initial	0" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CREQ_PRIORITY~" ) COLUMN(NAME=~"CREQ_PRIORITY.PRIORITY_DESC~") COLUMN(NAME=~"CREQ_PRIORITY.PRIORITY_SORT~") COLUMN(NAME=~"CREQ_PRIORITY.PRIORITY_ID~") COLUMN(NAME=~"CREQ_PRIORITY.INITIAL_PRIORITY~")) ORDER(NAME=~"CREQ_PRIORITY.PRIORITY_SORT~" ASC=yes ) " update="CREQ_PRIORITY" updatewhere=0 updatekeyinplace=no )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="56" width="384" format="[general]"  name=priority_desc edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="402" y="4" height="56" width="201" format="[general]"  name=initial_priority checkbox.text="Initial" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

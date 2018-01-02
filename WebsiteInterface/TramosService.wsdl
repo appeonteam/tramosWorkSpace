@@ -1,0 +1,107 @@
+
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://microsoft.com/webservices/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://microsoft.com/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/webservices/">
+      <s:element name="UpdatePosition">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePositionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePositionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFleet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFleetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateFleetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdatePositionSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePosition" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePositionSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePositionResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFleetSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateFleet" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFleetSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateFleetResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TramosServiceSoap">
+    <wsdl:operation name="UpdatePosition">
+      <wsdl:input message="tns:UpdatePositionSoapIn" />
+      <wsdl:output message="tns:UpdatePositionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFleet">
+      <wsdl:input message="tns:UpdateFleetSoapIn" />
+      <wsdl:output message="tns:UpdateFleetSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TramosServiceSoap" type="tns:TramosServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdatePosition">
+      <soap:operation soapAction="http://microsoft.com/webservices/UpdatePosition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFleet">
+      <soap:operation soapAction="http://microsoft.com/webservices/UpdateFleet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TramosServiceSoap12" type="tns:TramosServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdatePosition">
+      <soap12:operation soapAction="http://microsoft.com/webservices/UpdatePosition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFleet">
+      <soap12:operation soapAction="http://microsoft.com/webservices/UpdateFleet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TramosService">
+    <wsdl:port name="TramosServiceSoap" binding="tns:TramosServiceSoap">
+      <soap:address location="http://maersktankerstst.apmoller.net/_vti_bin/MaerskTankers/TramosService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TramosServiceSoap12" binding="tns:TramosServiceSoap12">
+      <soap12:address location="http://maersktankerstst.apmoller.net/_vti_bin/MaerskTankers/TramosService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,22 @@
+﻿$PBExportHeader$f_currency_lookup.srf
+$PBExportComments$This function reurn TRUE if currency_code exists or FALSE if not.
+global type f_currency_lookup from function_object
+end type
+
+forward prototypes
+global function boolean f_currency_lookup (string currency_code)
+end prototypes
+
+global function boolean f_currency_lookup (string currency_code);string ls_curr_code
+SELECT CURR_CODE 
+INTO :ls_curr_code
+FROM CURRENCY
+WHERE CURR_CODE = :currency_code;
+IF SQLCA.SQLCode < 0 OR SQLCA.SQLCode = 100 THEN 
+	Return (FALSE)
+ELSE
+	Return(TRUE)
+END IF
+
+end function
+

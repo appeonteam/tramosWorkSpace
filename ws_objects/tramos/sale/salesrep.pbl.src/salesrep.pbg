@@ -1,0 +1,36 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "salesrep.pbl" "";
+@end;
+@begin Objects 
+ "d_calender.srd" "salesrep.pbl";
+ "d_calender2.srd" "salesrep.pbl";
+ "d_calender3.srd" "salesrep.pbl";
+ "d_calender4.srd" "salesrep.pbl";
+ "d_gift_all_brok.srd" "salesrep.pbl";
+ "d_gift_all_chart.srd" "salesrep.pbl";
+ "d_gift_report.srd" "salesrep.pbl";
+ "d_gift_report_broker.srd" "salesrep.pbl";
+ "d_rep_action_pr_target.srd" "salesrep.pbl";
+ "d_rep_action_sta_pr_target.srd" "salesrep.pbl";
+ "d_rep_chart.srd" "salesrep.pbl";
+ "d_rep_chart_freeform.srd" "salesrep.pbl";
+ "d_rep_chart_freeform2.srd" "salesrep.pbl";
+ "d_rep_chart_group.srd" "salesrep.pbl";
+ "d_rep_chart_keys.srd" "salesrep.pbl";
+ "d_rep_chart_pr_target.srd" "salesrep.pbl";
+ "d_rep_chart_targets.srd" "salesrep.pbl";
+ "d_rep_chart2.srd" "salesrep.pbl";
+ "d_rep_contacts.srd" "salesrep.pbl";
+ "d_rep_meeting_reports.srd" "salesrep.pbl";
+ "d_rep_target.srd" "salesrep.pbl";
+ "d_rep_target_ex_ny.srd" "salesrep.pbl";
+ "d_rep_target2.srd" "salesrep.pbl";
+ "d_rep_target2_ex.srd" "salesrep.pbl";
+ "d_report_status_reports.srd" "salesrep.pbl";
+ "d_report_targ_keys.srd" "salesrep.pbl";
+ "w_print_calender.srw" "salesrep.pbl";
+ "w_print_charterer.srw" "salesrep.pbl";
+ "w_print_gifts.srw" "salesrep.pbl";
+ "w_print_target.srw" "salesrep.pbl";
+@end;

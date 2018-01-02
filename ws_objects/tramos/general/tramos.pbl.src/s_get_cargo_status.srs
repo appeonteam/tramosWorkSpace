@@ -1,0 +1,14 @@
+﻿$PBExportHeader$s_get_cargo_status.srs
+$PBExportComments$This structure is used for the tramos nvo function :uf_get_cargo_status. It contains a calc id and an array of structure :s_get_cargo_status_detail
+global type s_get_cargo_status from structure
+	string		port_code
+	string		grade_name
+	string		grade_group
+	boolean		load
+	boolean		viapoint
+	integer		cargo_row_no
+	boolean		locked
+	datetime		arrival_dt
+	long		caioid
+end type
+

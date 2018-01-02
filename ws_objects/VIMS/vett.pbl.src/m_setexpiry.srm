@@ -1,0 +1,224 @@
+﻿$PBExportHeader$m_setexpiry.srm
+forward
+global type m_setexpiry from menu
+end type
+type m_3months from menu within m_setexpiry
+end type
+type m_6months from menu within m_setexpiry
+end type
+type m_12months from menu within m_setexpiry
+end type
+type m_13months from menu within m_setexpiry
+end type
+type m_24months from menu within m_setexpiry
+end type
+global type m_setexpiry from menu
+m_3months m_3months
+m_6months m_6months
+m_12months m_12months
+m_13months m_13months
+m_24months m_24months
+end type
+end forward
+
+global type m_setexpiry from menu
+m_3months m_3months
+m_6months m_6months
+m_12months m_12months
+m_13months m_13months
+m_24months m_24months
+end type
+global m_setexpiry m_setexpiry
+
+on m_setexpiry.create
+m_setexpiry=this
+call super::create
+this.text = "m_setexpiry"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_3months=create m_3months
+this.m_6months=create m_6months
+this.m_12months=create m_12months
+this.m_13months=create m_13months
+this.m_24months=create m_24months
+this.Item[UpperBound(this.Item)+1]=this.m_3months
+this.Item[UpperBound(this.Item)+1]=this.m_6months
+this.Item[UpperBound(this.Item)+1]=this.m_12months
+this.Item[UpperBound(this.Item)+1]=this.m_13months
+this.Item[UpperBound(this.Item)+1]=this.m_24months
+end on
+
+on m_setexpiry.destroy
+call super::destroy
+destroy(this.m_3months)
+destroy(this.m_6months)
+destroy(this.m_12months)
+destroy(this.m_13months)
+destroy(this.m_24months)
+end on
+
+type m_3months from menu within m_setexpiry
+end type
+
+on m_3months.create
+call super::create
+this.text = "3 Months"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_3months.destroy
+call super::destroy
+end on
+
+event clicked;
+Parentwindow.dynamic event ue_SetExpiryDate(3)
+end event
+
+type m_6months from menu within m_setexpiry
+end type
+
+on m_6months.create
+call super::create
+this.text = "6 Months"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_6months.destroy
+call super::destroy
+end on
+
+event clicked;Parentwindow.dynamic event ue_SetExpiryDate(6)
+end event
+
+type m_12months from menu within m_setexpiry
+end type
+
+on m_12months.create
+call super::create
+this.text = "12 Months"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_12months.destroy
+call super::destroy
+end on
+
+event clicked;
+Parentwindow.dynamic event ue_SetExpiryDate(12)
+end event
+
+type m_13months from menu within m_setexpiry
+end type
+
+on m_13months.create
+call super::create
+this.text = "13 Months"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_13months.destroy
+call super::destroy
+end on
+
+event clicked;Parentwindow.dynamic event ue_SetExpiryDate(13)
+end event
+
+type m_24months from menu within m_setexpiry
+end type
+
+on m_24months.create
+call super::create
+this.text = "24 Months"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_24months.destroy
+call super::destroy
+end on
+
+event clicked;Parentwindow.dynamic event ue_SetExpiryDate(24)
+end event
+

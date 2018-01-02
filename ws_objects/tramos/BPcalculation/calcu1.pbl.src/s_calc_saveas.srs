@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_calc_saveas.srs
+$PBExportComments$Contains data for saving a calculation in a new name
+global type s_calc_saveas from structure
+    string s_description
+    integer i_calctype
+end type
+

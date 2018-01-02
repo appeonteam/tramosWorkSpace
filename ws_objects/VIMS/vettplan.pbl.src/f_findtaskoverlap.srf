@@ -1,0 +1,30 @@
+﻿$PBExportHeader$f_findtaskoverlap.srf
+global type f_findtaskoverlap from function_object
+end type
+
+forward prototypes
+global function integer f_findtaskoverlap (string as_userid, datetime adt_from, datetime adt_to, long al_taskid)
+end prototypes
+
+global function integer f_findtaskoverlap (string as_userid, datetime adt_from, datetime adt_to, long al_taskid);// Function to find if there are overlapping tasks for the selected dates for a user
+
+Integer li_Found
+
+Select Count(TASK_ID) into :li_Found from VETT_TASKS 
+Where (USERID = :as_UserID) and 
+      (TASK_ID <> :al_taskID) and
+      (((FROMDATE >= :adt_from) and (FROMDATE <= :adt_To)) or
+		 ((FROMDATE <= :adt_from) and (TODATE >= :adt_To)) or
+		 ((TODATE >= :adt_from) and (TODATE <= :adt_To)));
+
+If SQLCA.SQLCode < 0 then 
+	MessageBox("DB Error", "An error occured while checking task dates.~n~n" + SQLCA.SQLErrtext, Exclamation!)
+	Rollback;
+	Return -1
+End If
+
+Commit;
+
+Return li_Found  // Return rows found
+end function
+

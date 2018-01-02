@@ -1,0 +1,28 @@
+﻿$PBExportHeader$f_getstringbyindex.srf
+global type f_getstringbyindex from function_object
+end type
+
+forward prototypes
+global function string f_getstringbyindex (string as_string, integer ai_index)
+end prototypes
+
+global function string f_getstringbyindex (string as_string, integer ai_index);// This function parses a string containing multiple strings separated by '°' characters.
+// It returns the string at position ai_index
+
+String ls_Result
+Integer li_Count
+
+// Loop thru the string
+For li_Count = 1 to Len(as_String)
+	If Mid(as_string, li_Count, 1) = "°" then   // If a separater found
+		ai_Index --       // decrement the index
+		If ai_Index > 0 then ls_Result = ""   // If index higher than zero, reset result
+	Else
+		ls_Result += Mid(as_string, li_Count, 1)   // build result
+	End If
+	If ai_Index = 0 then Return ls_Result  // If index reaches zero, return result
+Next
+
+If ai_Index = 1 then Return ls_Result else Return ""   // In case index doesn't reach zero (for last item)
+end function
+

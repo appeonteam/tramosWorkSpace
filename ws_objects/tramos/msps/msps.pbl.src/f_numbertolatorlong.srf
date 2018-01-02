@@ -1,0 +1,55 @@
+﻿$PBExportHeader$f_numbertolatorlong.srf
+$PBExportComments$convert latitude or longitude to ASCII
+global type f_numbertolatorlong from function_object
+end type
+
+forward prototypes
+global function string f_numbertolatorlong (real ar_latorlong, integer ai_flag)
+end prototypes
+
+global function string f_numbertolatorlong (real ar_latorlong, integer ai_flag);/********************************************************************
+   f_numbertolatorlong
+   <DESC>	convert latitude or longitude to ACSII</DESC>
+   <RETURN>	string:
+            <LI> c#return.Success, X ok
+            <LI> c#return.Failure, X failed	</RETURN>
+   <ACCESS> public/protected/private </ACCESS>
+   <ARGS>
+		ar_latorlong 
+		ai_flag 0:latitude 1:longitude
+   </ARGS>
+   <USAGE>	MSPS Message list DW, 
+	 e.g. 
+		 latitude -> 531.02 = 05°31.02 N, -1531.00 = 15°31.00 S
+		 longitude-> 231.02 = 002°31.02 E, -11531.00 = 115°31.00 W
+	 </USAGE>
+   <HISTORY>
+   	Date       CR-Ref       Author             Comments
+   	14-12-2011 CR20               LHC010        First Version
+   </HISTORY>
+********************************************************************/
+string ls_temp
+string ls_flag
+	
+ls_temp = '00000' + trim(string(abs(ar_latorlong), "####0.00"))
+ls_temp = right(ls_temp, 7 + ai_flag )
+ls_temp = left(ls_temp, 2 + ai_flag) + char(176) + right(ls_temp, 5)  //char(176): °
+    
+//0 latitude  1 longitude
+if (ar_latorlong < 0) then
+	if ai_flag = 0 then 
+		ls_flag = 'S' 
+	else
+		ls_flag = 'W'
+	end if
+else
+	if ai_flag = 0 then 
+		ls_flag = 'N' 
+	else
+		ls_flag = 'E'
+	end if
+end if
+ 
+return ls_temp + " " + ls_flag
+end function
+

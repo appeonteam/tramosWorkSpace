@@ -1,0 +1,151 @@
+﻿$PBExportHeader$m_selection.srm
+forward
+global type m_selection from menu
+end type
+type m_selectall from menu within m_selection
+end type
+type m_deselectall from menu within m_selection
+end type
+type m_resp from menu within m_selection
+end type
+global type m_selection from menu
+m_selectall m_selectall
+m_deselectall m_deselectall
+m_resp m_resp
+end type
+end forward
+
+global type m_selection from menu
+m_selectall m_selectall
+m_deselectall m_deselectall
+m_resp m_resp
+end type
+global m_selection m_selection
+
+on m_selection.create
+m_selection=this
+call super::create
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_selectall=create m_selectall
+this.m_deselectall=create m_deselectall
+this.m_resp=create m_resp
+this.Item[UpperBound(this.Item)+1]=this.m_selectall
+this.Item[UpperBound(this.Item)+1]=this.m_deselectall
+this.Item[UpperBound(this.Item)+1]=this.m_resp
+end on
+
+on m_selection.destroy
+call super::destroy
+destroy(this.m_selectall)
+destroy(this.m_deselectall)
+destroy(this.m_resp)
+end on
+
+type m_selectall from menu within m_selection
+end type
+
+on m_selectall.create
+call super::create
+this.text = "Select All"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_selectall.destroy
+call super::destroy
+end on
+
+event clicked;
+Parentwindow.dynamic event ue_ContextMenuClick(10)
+
+end event
+
+type m_deselectall from menu within m_selection
+end type
+
+on m_deselectall.create
+call super::create
+this.text = "Select None"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_deselectall.destroy
+call super::destroy
+end on
+
+event clicked;
+Parentwindow.dynamic event ue_ContextMenuClick(20)
+end event
+
+type m_resp from menu within m_selection
+end type
+
+on m_resp.create
+call super::create
+this.text = "Invert Selection"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_resp.destroy
+call super::destroy
+end on
+
+event clicked;
+Parentwindow.dynamic event ue_ContextMenuClick(30)
+end event
+

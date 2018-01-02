@@ -1,0 +1,27 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "cms.pbl" "";
+@end;
+@begin Objects 
+ "d_agent_dddw.srd" "cms.pbl";
+ "d_agent_file.srd" "cms.pbl";
+ "d_broker_dddw.srd" "cms.pbl";
+ "d_broker_file.srd" "cms.pbl";
+ "d_chart_file.srd" "cms.pbl";
+ "d_charterer_dddw.srd" "cms.pbl";
+ "d_cms_rris_nr.srd" "cms.pbl";
+ "d_cms_unlock.srd" "cms.pbl";
+ "d_port_dddw.srd" "cms.pbl";
+ "d_user_id_dddw.srd" "cms.pbl";
+ "d_vessel_dddw.srd" "cms.pbl";
+ "s_apost.srs" "cms.pbl";
+ "s_bpost.srs" "cms.pbl";
+ "s_cms_post.srs" "cms.pbl";
+ "s_electronic_a_b_cms.srs" "cms.pbl";
+ "s_electronic_trans.srs" "cms.pbl";
+ "s_transaction.srs" "cms.pbl";
+ "w_chart_agent_broker_files.srw" "cms.pbl";
+ "w_cms_elec_file_log.srw" "cms.pbl";
+ "w_cms_rris_no.srw" "cms.pbl";
+ "w_cms_unlock.srw" "cms.pbl";
+@end;

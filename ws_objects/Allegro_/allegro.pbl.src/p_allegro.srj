@@ -1,0 +1,19 @@
+﻿$PBExportHeader$p_allegro.srj
+EXE:allegroexport.exe,,0,1,1
+CMP:0,0,0,2,0,0,1
+COM:Maersk Tankers
+DES:Export Trades to Allegro
+CPY:Maersk Tankers
+PRD:AllegroExport
+PVS:2,1,1,0
+PVN:2,1,1,0
+FVS:2,1,1,0
+FVN:2,1,1,0
+MAN:0,asInvoker,0
+PBD:allegro.pbl,,1
+PBD:..\sharedobjects\mt\mt_common.pbl,,1
+PBD:..\sharedobjects\mt\mt_base_components.pbl,,1
+PBD:..\sharedobjects\mt\mt_constants.pbl,,1
+PBD:..\sharedobjects\mt\mt_services.pbl,,1
+OBJ:C:\tramosDeploy\allegro\allegro.pbl,n_allegro_export,u
+OBJ:C:\tramosDeploy\allegro\allegro.pbl,allegroexport,a

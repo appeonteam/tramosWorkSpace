@@ -1,0 +1,17 @@
+﻿$PBExportHeader$d_rep_chart_keys.srd
+$PBExportComments$Report displays a selected charterers keycodes.
+release 4;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=77 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=69 color="536870912" )
+table(column=(type=char(10) name=ccs_keyc_ccs_keyc_code dbname="CCS_KEYC.CCS_KEYC_CODE" initial=" " )
+ column=(type=char(35) name=ccs_keyc_ccs_keyc_desc dbname="CCS_KEYC.CCS_KEYC_DESC" initial=" " )
+ column=(type=decimal(0) update=yes key=yes name=charterer_keycodes_ccs_keyc_pk dbname="CHARTERER_KEYCODES.CCS_KEYC_PK" initial=" " )
+ column=(type=number update=yes key=yes name=charterer_keycodes_chart_nr dbname="CHARTERER_KEYCODES.CHART_NR" initial=" " )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_KEYC~" ) TABLE(NAME=~"CHART~" ) TABLE(NAME=~"CHARTERER_KEYCODES~" ) COLUMN(NAME=~"CCS_KEYC.CCS_KEYC_CODE~") COLUMN(NAME=~"CCS_KEYC.CCS_KEYC_DESC~") COLUMN(NAME=~"CHARTERER_KEYCODES.CCS_KEYC_PK~") COLUMN(NAME=~"CHARTERER_KEYCODES.CHART_NR~") JOIN (LEFT=~"CHART.CHART_NR~" OP =~"=~"RIGHT=~"CHARTERER_KEYCODES.CHART_NR~" ) JOIN (LEFT=~"CCS_KEYC.CCS_KEYC_PK~" OP =~"=~"RIGHT=~"CHARTERER_KEYCODES.CCS_KEYC_PK~" )WHERE( EXP1 =~"CHARTERER_KEYCODES.CHART_NR~" OP =~"=~" EXP2 =~":chart_nr~" ) ) ORDER(NAME=~"CCS_KEYC.CCS_KEYC_CODE~" ASC=yes ) ARG(NAME = ~"chart_nr~" TYPE = number) " update="CHARTERER_KEYCODES" updatewhere=2 updatekeyinplace=yes arguments=(("chart_nr", number)) )
+text(band=header alignment="0" text="Description"border="0" color="0" x="366" y="4" height="45" width="321"  name=ccs_keyc_ccs_keyc_desc_t  font.face="Arial             " font.height="-7" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="366" y="4" height="57" width="988" format="[general]"  name=ccs_keyc_ccs_keyc_desc  tag="Description of keycode" edit.limit=35 edit.case=any edit.autoselect=yes  font.face="Arial             " font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="4" height="53" width="302" format="[general]"  name=ccs_keyc_ccs_keyc_code  tag="Keycode Code max 5 charaters" edit.limit=10 edit.case=any edit.autoselect=yes  font.face="Arial             " font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Key Code"border="0" color="0" x="19" y="8" height="45" width="257"  name=ccs_keyc_ccs_keyc_code_t  font.face="Arial             " font.height="-7" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_report_generator.srs
+global type s_report_generator from structure
+	long		id[]
+	long		number
+	integer		pcgroup
+	string		name[]
+end type
+

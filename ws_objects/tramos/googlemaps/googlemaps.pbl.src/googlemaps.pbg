@@ -1,0 +1,12 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "googlemaps.pbl" "";
+@end;
+@begin Objects 
+ "d_sq_tb_abcports.srd" "googlemaps.pbl";
+ "d_sq_tb_reporthistory.srd" "googlemaps.pbl";
+ "d_sq_tb_selectvsl.srd" "googlemaps.pbl";
+ "n_distance.sru" "googlemaps.pbl";
+ "u_googlemap_activex.sru" "googlemaps.pbl";
+ "w_vesselpos.srw" "googlemaps.pbl";
+@end;

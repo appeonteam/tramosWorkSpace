@@ -1,0 +1,11 @@
+﻿$PBExportHeader$s_select_tc_contract.srs
+$PBExportComments$parameters for selecting TC contract
+global type s_select_tc_contract from structure
+	long		vessel_nr
+	integer		tc_hire_in
+	string		purpose
+	datetime		arrival_departure
+	boolean		arrival
+	decimal { 1 }		lt_to_utc_difference
+end type
+

@@ -1,0 +1,26 @@
+﻿$PBExportHeader$f_existsdemurrageaccount.srf
+$PBExportComments$This function checks if there is entered a demurrage account for a given vessel. If not show messagebox reminder
+global type f_existsdemurrageaccount from function_object
+end type
+
+forward prototypes
+global subroutine f_existsdemurrageaccount (integer ai_vessel_nr)
+end prototypes
+
+global subroutine f_existsdemurrageaccount (integer ai_vessel_nr);string 	ls_account
+long		ll_apm_owned_vessel, ll_tcowner_nr, ll_count
+
+setNull(ls_account)
+SELECT APM_ACCOUNT_NR, APM_OWNED_VESSEL, TCOWNER_NR 
+	INTO	:ls_account, :ll_apm_owned_vessel, :ll_tcowner_nr
+	FROM VESSELS 
+	WHERE VESSEL_NR = :ai_vessel_nr;
+commit;
+
+if isNull(ls_account) or len(ls_account) < 1 then
+		MessageBox("Information","Please ask the finance/administrator to update 'Demurrage Bank Account' for selected vessel")
+end if
+
+return
+end subroutine
+

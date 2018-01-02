@@ -1,0 +1,11 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "interfacemanager\\exchangerates.pbl" "";
+@end;
+@begin Objects
+ "interfacemanager\\n_exchangerates.sru" "interfacemanager\\exchangerates.pbl";
+ "interfacemanager\\d_sq_tb_import_exrates.srd" "interfacemanager\\exchangerates.pbl";
+ "interfacemanager\\d_sq_tb_currcodes.srd" "interfacemanager\\exchangerates.pbl";
+ "interfacemanager\\d_sq_gr_latestcurrencycodes.srd" "interfacemanager\\exchangerates.pbl";
+ "interfacemanager\\w_import_exrate.srw" "interfacemanager\\exchangerates.pbl";
+@end;

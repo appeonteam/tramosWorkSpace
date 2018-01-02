@@ -1,0 +1,164 @@
+﻿$PBExportHeader$m_openarea.srm
+forward
+global type m_openarea from menu
+end type
+type m_area from menu within m_openarea
+end type
+type m_country from menu within m_openarea
+end type
+type m_port from menu within m_openarea
+end type
+global type m_openarea from menu
+m_area m_area
+m_country m_country
+m_port m_port
+end type
+end forward
+
+global type m_openarea from menu
+m_area m_area
+m_country m_country
+m_port m_port
+end type
+global m_openarea m_openarea
+
+on m_openarea.create
+m_openarea=this
+call super::create
+this.text = "m_openarea"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_area=create m_area
+this.m_country=create m_country
+this.m_port=create m_port
+this.Item[UpperBound(this.Item)+1]=this.m_area
+this.Item[UpperBound(this.Item)+1]=this.m_country
+this.Item[UpperBound(this.Item)+1]=this.m_port
+end on
+
+on m_openarea.destroy
+call super::destroy
+destroy(this.m_area)
+destroy(this.m_country)
+destroy(this.m_port)
+end on
+
+type m_area from menu within m_openarea
+end type
+
+on m_area.create
+call super::create
+this.text = "Area"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_area.destroy
+call super::destroy
+end on
+
+event clicked;//datawindow.object.dddw.name = ids_area.dataObject
+//datawindow.object.dddw.datacolumn = "areaname"
+//datawindow.object.dddw.displaycolumn = "areaname"
+
+
+
+//f_datastore_spy(ids_area)
+//if isValid( idwc_open ) then
+//	MessageBox("OK", "")
+//else
+//	MessageBox("NOT OK", "")
+//end if
+
+//messageBox("Share", ids_area.sharedata( idwc_open ))
+ids_area.sharedata( idwc_open )
+
+end event
+
+type m_country from menu within m_openarea
+end type
+
+on m_country.create
+call super::create
+this.text = "Country"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_country.destroy
+call super::destroy
+end on
+
+event clicked;ids_country.sharedata( idwc_open )
+
+end event
+
+type m_port from menu within m_openarea
+end type
+
+on m_port.create
+call super::create
+this.text = "Port"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_port.destroy
+call super::destroy
+end on
+
+event clicked;ids_ports.sharedata( idwc_open )
+end event
+

@@ -1,0 +1,19 @@
+﻿$PBExportHeader$st_bunker.srs
+$PBExportComments$Used for bunker registration in uf_check_bunker in userobject u_check_functions.
+global type st_bunker from structure
+	decimal { 4 }		arrival_fuel[]
+	decimal { 4 }		departure_fuel[]
+	decimal { 4 }		arrival_diesel[]
+	decimal { 4 }		departure_diesel[]
+	decimal { 4 }		arrival_gas[]
+	decimal { 4 }		departure_gas[]
+	decimal { 4 }		arrival_lshfo[]
+	decimal { 4 }		departure_lshfo[]
+	decimal { 4 }		lifted_fuel[]
+	decimal { 4 }		lifted_diesel[]
+	decimal { 4 }		lifted_gas[]
+	decimal { 4 }		lifted_lshfo[]
+	string		port_code[]
+	integer		pcn[]
+end type
+

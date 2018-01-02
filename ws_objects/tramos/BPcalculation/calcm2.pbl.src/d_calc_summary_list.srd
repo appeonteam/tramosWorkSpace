@@ -1,0 +1,189 @@
+﻿$PBExportHeader$d_calc_summary_list.srd
+$PBExportComments$calculation summary - used in u_calc_summary
+release 12;
+datawindow(units=0 timer_interval=0 color=81324524 brushmode=0 transparency=0 gradient.angle=0 gradient.color=8421504 gradient.focus=0 gradient.repetition.count=0 gradient.repetition.length=100 gradient.repetition.mode=0 gradient.scale=100 gradient.spread=100 gradient.transparency=0 picture.blur=0 picture.clip.bottom=0 picture.clip.left=0 picture.clip.right=0 picture.clip.top=0 picture.mode=0 picture.scale.x=100 picture.scale.y=100 picture.transparency=0 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.background=no print.preview.background=no print.preview.outline=yes hidegrayline=no showbackcoloronxp=no picture.file="" grid.lines=2 grid.columnmove=no selected.mouse=no )
+header(height=68 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+summary(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+footer(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+detail(height=76 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+table(column=(type=datetime updatewhereclause=yes name=cal_cerp_cal_cerp_date dbname="CAL_CERP.CAL_CERP_DATE" dbalias=".CAL_CERP_DATE" )
+ column=(type=char(50) updatewhereclause=yes name=cal_cerp_cal_cerp_description dbname="CAL_CERP.CAL_CERP_DESCRIPTION" dbalias=".CAL_CERP_DESCRIPTION" )
+ column=(type=long updatewhereclause=yes name=cal_cerp_chart_nr dbname="CAL_CERP.CHART_NR" dbalias=".CHART_NR" )
+ column=(type=decimal(0) updatewhereclause=yes identity=yes name=cal_carg_cal_carg_id dbname="CAL_CARG.CAL_CARG_ID" dbalias=".CAL_CARG_ID" )
+ column=(type=decimal(0) updatewhereclause=yes name=cal_carg_cal_calc_id dbname="CAL_CARG.CAL_CALC_ID" dbalias=".CAL_CALC_ID" )
+ column=(type=decimal(0) updatewhereclause=yes name=cal_carg_cal_cerp_id dbname="CAL_CARG.CAL_CERP_ID" dbalias=".CAL_CERP_ID" )
+ column=(type=long updatewhereclause=yes name=cal_carg_cal_carg_freight_type dbname="CAL_CARG.CAL_CARG_FREIGHT_TYPE" dbalias=".CAL_CARG_FREIGHT_TYPE" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_freight_rate dbname="CAL_CARG.CAL_CARG_FREIGHT_RATE" dbalias=".CAL_CARG_FREIGHT_RATE" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_lumpsum dbname="CAL_CARG.CAL_CARG_LUMPSUM" dbalias=".CAL_CARG_LUMPSUM" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_ws_rate dbname="CAL_CARG.CAL_CARG_WS_RATE" dbalias=".CAL_CARG_WS_RATE" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_flatrate dbname="CAL_CARG.CAL_CARG_FLATRATE" dbalias=".CAL_CARG_FLATRATE" )
+ column=(type=datetime updatewhereclause=yes name=cal_carg_cal_carg_laycan_start dbname="CAL_CARG.CAL_CARG_LAYCAN_START" dbalias=".CAL_CARG_LAYCAN_START" )
+ column=(type=datetime updatewhereclause=yes name=cal_carg_cal_carg_laycan_end dbname="CAL_CARG.CAL_CARG_LAYCAN_END" dbalias=".CAL_CARG_LAYCAN_END" )
+ column=(type=number updatewhereclause=yes name=cal_carg_total_units dbname="CAL_CARG.CAL_CARG_TOTAL_UNITS" dbalias=".CAL_CARG_TOTAL_UNITS" )
+ column=(type=real updatewhereclause=yes name=cal_carg_cal_carg_min_1 dbname="CAL_CARG.CAL_CARG_MIN_1" dbalias=".CAL_CARG_MIN_1" )
+ column=(type=real updatewhereclause=yes name=cal_carg_cal_carg_min_2 dbname="CAL_CARG.CAL_CARG_MIN_2" dbalias=".CAL_CARG_MIN_2" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_overage_1 dbname="CAL_CARG.CAL_CARG_OVERAGE_1" dbalias=".CAL_CARG_OVERAGE_1" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_overage_2 dbname="CAL_CARG.CAL_CARG_OVERAGE_2" dbalias=".CAL_CARG_OVERAGE_2" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_adr_commision dbname="CAL_CARG.CAL_CARG_ADR_COMMISION" dbalias=".CAL_CARG_ADR_COMMISION" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_temp_comission dbname="CAL_CARG.CAL_CARG_TEMP_COMISSION" dbalias=".CAL_CARG_TEMP_COMISSION" )
+ column=(type=number updatewhereclause=yes name=cal_carg_cal_carg_add_days_laden dbname="CAL_CARG.CAL_CARG_ADD_DAYS_LADEN" dbalias=".CAL_CARG_ADD_DAYS_LADEN" )
+ column=(type=number updatewhereclause=yes name=cal_carg_cal_carg_add_days_ballast dbname="CAL_CARG.CAL_CARG_ADD_DAYS_BALLAST" dbalias=".CAL_CARG_ADD_DAYS_BALLAST" )
+ column=(type=number updatewhereclause=yes name=cal_carg_cal_carg_add_days_other dbname="CAL_CARG.CAL_CARG_ADD_DAYS_OTHER" dbalias=".CAL_CARG_ADD_DAYS_OTHER" )
+ column=(type=number updatewhereclause=yes name=cal_carg_cal_carg_add_fo dbname="CAL_CARG.CAL_CARG_ADD_FO" dbalias=".CAL_CARG_ADD_FO" )
+ column=(type=number updatewhereclause=yes name=cal_carg_cal_carg_add_do dbname="CAL_CARG.CAL_CARG_ADD_DO" dbalias=".CAL_CARG_ADD_DO" )
+ column=(type=number updatewhereclause=yes name=cal_carg_cal_carg_add_mgo dbname="CAL_CARG.CAL_CARG_ADD_MGO" dbalias=".CAL_CARG_ADD_MGO" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_add_lumpsum dbname="CAL_CARG_ADD_LUMPSUM" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_add_expenses dbname="CAL_CARG.CAL_CARG_ADD_EXPENSES" dbalias=".CAL_CARG_ADD_EXPENSES" )
+ column=(type=char(50) updatewhereclause=yes name=cal_carg_description dbname="CAL_CARG.CAL_CARG_DESCRIPTION" dbalias=".CAL_CARG_DESCRIPTION" )
+ column=(type=long updatewhereclause=yes name=cal_carg_cal_carg_status dbname="CAL_CARG.CAL_CARG_STATUS" dbalias=".CAL_CARG_STATUS" )
+ column=(type=long updatewhereclause=yes name=cal_carg_cal_carg_order dbname="CAL_CARG.CAL_CARG_ORDER" dbalias=".CAL_CARG_ORDER" )
+ column=(type=number updatewhereclause=yes name=cal_carg_cal_carg_reversible dbname="CAL_CARG.CAL_CARG_REVERSIBLE" dbalias=".CAL_CARG_REVERSIBLE" )
+ column=(type=long updatewhereclause=yes name=cal_carg_adr_com_lump dbname="CAL_CARG_ADR_COM_LUMP" )
+ column=(type=number updatewhereclause=yes name=cal_carg_cal_carg_rev_cerp dbname="CAL_CARG.CAL_CARG_REV_CERP" dbalias=".CAL_CARG_REV_CERP" )
+ column=(type=number updatewhereclause=yes name=cal_carg_cal_carg_rev_freight dbname="CAL_CARG.CAL_CARG_REV_FREIGHT" dbalias=".CAL_CARG_REV_FREIGHT" )
+ column=(type=long updatewhereclause=yes name=cal_carg_cal_carg_add_days_type dbname="CAL_CARG.CAL_CARG_ADD_DAYS_TYPE" dbalias=".CAL_CARG_ADD_DAYS_TYPE" )
+ column=(type=number updatewhereclause=yes name=cal_carg_cal_carg_idle_days dbname="CAL_CARG.CAL_CARG_IDLE_DAYS" dbalias=".CAL_CARG_IDLE_DAYS" )
+ column=(type=number updatewhereclause=yes name=cal_carg_cal_carg_bunkering_days dbname="CAL_CARG.CAL_CARG_BUNKERING_DAYS" dbalias=".CAL_CARG_BUNKERING_DAYS" )
+ column=(type=decimal(2) updatewhereclause=yes name=cal_carg_cal_carg_add_days_laden_pcnt dbname="CAL_CARG.CAL_CARG_ADD_DAYS_LADEN_PCNT" dbalias=".CAL_CARG_ADD_DAYS_LADEN_PCNT" )
+ column=(type=decimal(2) updatewhereclause=yes name=cal_carg_cal_carg_add_days_ballast_pcnt dbname="CAL_CARG.CAL_CARG_ADD_DAYS_BALLAST_PCNT" dbalias=".CAL_CARG_ADD_DAYS_BALLAST_PCNT" )
+ column=(type=decimal(2) updatewhereclause=yes name=cal_carg_cal_carg_add_days_vario_pcnt dbname="CAL_CARG.CAL_CARG_ADD_DAYS_VARIO_PCNT" dbalias=".CAL_CARG_ADD_DAYS_VARIO_PCNT" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_total_gross_freight dbname="CAL_CARG.CAL_CARG_TOTAL_GROSS_FREIGHT" dbalias=".CAL_CARG_TOTAL_GROSS_FREIGHT" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_total_demurrage dbname="CAL_CARG.CAL_CARG_TOTAL_DEMURRAGE" dbalias=".CAL_CARG_TOTAL_DEMURRAGE" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_total_despatch dbname="CAL_CARG.CAL_CARG_TOTAL_DESPATCH" dbalias=".CAL_CARG_TOTAL_DESPATCH" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_total_commission dbname="CAL_CARG.CAL_CARG_TOTAL_COMMISSION" dbalias=".CAL_CARG_TOTAL_COMMISSION" )
+ column=(type=decimal(0) updatewhereclause=yes name=cal_carg_laden_cons_id dbname="CAL_CARG.LADEN_CONS_ID" dbalias=".LADEN_CONS_ID" )
+ column=(type=decimal(0) updatewhereclause=yes name=cal_carg_ballast_cons_id dbname="CAL_CARG.BALLAST_CONS_ID" dbalias=".BALLAST_CONS_ID" )
+ column=(type=char(1) updatewhereclause=yes name=compute_0046 dbname="compute_0046" )
+ column=(type=long updatewhereclause=yes name=locked dbname="locked" )
+ column=(type=long updatewhereclause=yes name=cal_carg_cal_carg_local_flatrate dbname="CAL_CARG.CAL_CARG_LOCAL_FLATRATE" dbalias=".CAL_CARG_LOCAL_FLATRATE" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_misc_income dbname="CAL_CARG.CAL_CARG_MISC_INCOME" dbalias=".CAL_CARG_MISC_INCOME" )
+ column=(type=real updatewhereclause=yes name=cal_carg_cal_carg_add_days_laden_spd dbname="CAL_CARG.CAL_CARG_ADD_DAYS_LADEN_SPD" dbalias=".CAL_CARG_ADD_DAYS_LADEN_SPD" )
+ column=(type=real updatewhereclause=yes name=cal_carg_cal_carg_add_days_ballast_spd dbname="CAL_CARG.CAL_CARG_ADD_DAYS_BALLAST_SPD" dbalias=".CAL_CARG_ADD_DAYS_BALLAST_SPD" )
+ column=(type=long updatewhereclause=yes name=comment dbname="COMMENT" )
+ column=(type=decimal(2) updatewhereclause=yes name=bunker_escalation dbname="CAL_CARG.BUNKER_ESCALATION" dbalias=".BUNKER_ESCALATION" )
+ column=(type=char(3) updatewhereclause=yes name=cal_carg_curr_code dbname="CAL_CARG.CAL_CARG_CURR_CODE" dbalias=".CAL_CARG_CURR_CODE" )
+ column=(type=decimal(6) updatewhereclause=yes name=cal_carg_exrate_usd dbname="CAL_CARG.CAL_CARG_EXRATE_USD" dbalias=".CAL_CARG_EXRATE_USD" )
+ column=(type=decimal(2) updatewhereclause=yes name=cal_carg_lumpsum_local_curr dbname="CAL_CARG.CAL_CARG_LUMPSUM_LOCAL_CURR" dbalias=".CAL_CARG_LUMPSUM_LOCAL_CURR" )
+ column=(type=decimal(2) updatewhereclause=yes name=cal_carg_freight_rate_local_curr dbname="CAL_CARG.CAL_CARG_FREIGHT_RATE_LOCAL_CURR" dbalias=".CAL_CARG_FREIGHT_RATE_LOCAL_CURR" )
+ column=(type=decimal(2) updatewhereclause=yes name=cal_carg_bunker_escalation_local_curr dbname="CAL_CARG.CAL_CARG_BUNKER_ESCALATION_LOCAL_CURR" dbalias=".CAL_CARG_BUNKER_ESCALATION_LOCAL_CURR" )
+ column=(type=date updatewhereclause=yes name=cal_carg_cal_carg_exrate_date dbname="CAL_CARG.CAL_CARG_EXRATE_DATE" dbalias=".CAL_CARG_EXRATE_DATE" )
+ column=(type=number updatewhereclause=yes name=cal_carg_fixed_exrate_enabled dbname="CAL_CARG.FIXED_EXRATE_ENABLED" dbalias=".FIXED_EXRATE_ENABLED" )
+ column=(type=decimal(6) updatewhereclause=yes name=cal_carg_fixed_exrate dbname="CAL_CARG.FIXED_EXRATE" dbalias=".FIXED_EXRATE" )
+ column=(type=char(3) updatewhereclause=yes name=cal_carg_claim_curr dbname="CAL_CARG.CLAIM_CURR" dbalias=".CLAIM_CURR" )
+ column=(type=decimal(0) updatewhereclause=yes name=cal_carg_bunker_cons_id dbname="CAL_CARG.BUNKER_CONS_ID" dbalias=".BUNKER_CONS_ID" )
+ column=(type=decimal(0) updatewhereclause=yes name=cal_carg_idle_cons_id dbname="CAL_CARG.IDLE_CONS_ID" dbalias=".IDLE_CONS_ID" )
+ column=(type=decimal(0) updatewhereclause=yes name=cal_carg_various_cons_id dbname="CAL_CARG.VARIOUS_CONS_ID" dbalias=".VARIOUS_CONS_ID" )
+ column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_add_lsfo dbname="CAL_CARG.CAL_CARG_ADD_LSFO" dbalias=".CAL_CARG_ADD_LSFO" )
+ column=(type=char(3) updatewhereclause=yes name=cal_carg_cal_carg_dem_curr_code dbname="CAL_CARG.CAL_CARG_DEM_CURR_CODE" )
+ column=(type=date updatewhereclause=yes name=cal_carg_cal_carg_dem_exrate_date dbname="CAL_CARG.CAL_CARG_DEM_EXRATE_DATE" )
+ column=(type=decimal(6) updatewhereclause=yes name=cal_carg_cal_carg_dem_exrate_usd dbname="CAL_CARG.CAL_CARG_DEM_EXRATE_USD" )
+ column=(type=number updatewhereclause=yes name=cal_carg_cal_carg_set_ex_rate dbname="CAL_CARG.CAL_CARG_SET_EX_RATE" )
+ retrieve="SELECT CAL_CERP.CAL_CERP_DATE, 
+CAL_CERP.CAL_CERP_DESCRIPTION, 
+CAL_CERP.CHART_NR, 
+CAL_CARG.CAL_CARG_ID, 
+CAL_CARG.CAL_CALC_ID, 
+CAL_CARG.CAL_CERP_ID, 
+CAL_CARG.CAL_CARG_FREIGHT_TYPE, 
+CAL_CARG.CAL_CARG_FREIGHT_RATE, 
+CAL_CARG.CAL_CARG_LUMPSUM, 
+CAL_CARG.CAL_CARG_WS_RATE, 
+CAL_CARG.CAL_CARG_FLATRATE, 
+CAL_CARG.CAL_CARG_LAYCAN_START, 
+CAL_CARG.CAL_CARG_LAYCAN_END, 
+CAL_CARG.CAL_CARG_TOTAL_UNITS, 
+CAL_CARG.CAL_CARG_MIN_1, 
+CAL_CARG.CAL_CARG_MIN_2, 
+CAL_CARG.CAL_CARG_OVERAGE_1, 
+CAL_CARG.CAL_CARG_OVERAGE_2, 
+CAL_CARG.CAL_CARG_ADR_COMMISION, 
+CAL_CARG.CAL_CARG_TEMP_COMISSION, 
+CAL_CARG.CAL_CARG_ADD_DAYS_LADEN, 
+CAL_CARG.CAL_CARG_ADD_DAYS_BALLAST, 
+CAL_CARG.CAL_CARG_ADD_DAYS_OTHER, 
+CAL_CARG.CAL_CARG_ADD_FO, 
+CAL_CARG.CAL_CARG_ADD_DO, 
+CAL_CARG.CAL_CARG_ADD_MGO, 
+( SELECT SUM(CAL_LUMP_ADD_LUMPSUM) FROM CAL_LUMP WHERE CAL_LUMP.CAL_CARG_ID = CAL_CARG.CAL_CARG_ID) as CAL_CARG_ADD_LUMPSUM,   
+CAL_CARG.CAL_CARG_ADD_EXPENSES, 
+CAL_CARG.CAL_CARG_DESCRIPTION, 
+CAL_CARG.CAL_CARG_STATUS, 
+CAL_CARG.CAL_CARG_ORDER, 
+CAL_CARG.CAL_CARG_REVERSIBLE, 
+0 as CAL_CARG_ADR_COM_LUMP, 
+CAL_CARG.CAL_CARG_REV_CERP, 
+CAL_CARG.CAL_CARG_REV_FREIGHT, 
+CAL_CARG.CAL_CARG_ADD_DAYS_TYPE, 
+CAL_CARG.CAL_CARG_IDLE_DAYS, 
+CAL_CARG.CAL_CARG_BUNKERING_DAYS, 
+CAL_CARG.CAL_CARG_ADD_DAYS_LADEN_PCNT, 
+CAL_CARG.CAL_CARG_ADD_DAYS_BALLAST_PCNT, 
+CAL_CARG.CAL_CARG_ADD_DAYS_VARIO_PCNT, 
+CAL_CARG.CAL_CARG_TOTAL_GROSS_FREIGHT, 
+CAL_CARG.CAL_CARG_TOTAL_DEMURRAGE, 
+CAL_CARG.CAL_CARG_TOTAL_DESPATCH, 
+CAL_CARG.CAL_CARG_TOTAL_COMMISSION, 
+CAL_CARG.LADEN_CONS_ID,
+CAL_CARG.BALLAST_CONS_ID,
+~" ~" as compute_0046, 
+-1 as locked, 
+CAL_CARG.CAL_CARG_LOCAL_FLATRATE, 
+CAL_CARG.CAL_CARG_MISC_INCOME, 
+CAL_CARG.CAL_CARG_ADD_DAYS_LADEN_SPD, 
+CAL_CARG.CAL_CARG_ADD_DAYS_BALLAST_SPD, 
+(  SELECT count(*)  
+			FROM CAL_CERP CP2,   
+				CHART  C
+			WHERE  C.CHART_NR = CP2.CHART_NR  and  
+				 CP2.CAL_CERP_ID = CAL_CERP.CAL_CERP_ID and
+				 char_length (C.CHART_COMMENT) > 0 ) as COMMENT,
+CAL_CARG.BUNKER_ESCALATION,
+CAL_CARG.CAL_CARG_CURR_CODE,
+CAL_CARG.CAL_CARG_EXRATE_USD,
+CAL_CARG.CAL_CARG_LUMPSUM_LOCAL_CURR,
+CAL_CARG.CAL_CARG_FREIGHT_RATE_LOCAL_CURR,
+CAL_CARG.CAL_CARG_BUNKER_ESCALATION_LOCAL_CURR,
+CAL_CARG.CAL_CARG_EXRATE_DATE,
+CAL_CARG.FIXED_EXRATE_ENABLED,
+CAL_CARG.FIXED_EXRATE,
+CAL_CARG.CLAIM_CURR, 
+CAL_CARG.BUNKER_CONS_ID,
+CAL_CARG.IDLE_CONS_ID,
+CAL_CARG.VARIOUS_CONS_ID,
+CAL_CARG.CAL_CARG_ADD_LSFO,
+CAL_CARG.CAL_CARG_DEM_CURR_CODE,
+CAL_CARG.CAL_CARG_DEM_EXRATE_DATE,
+CAL_CARG.CAL_CARG_DEM_EXRATE_USD,
+CAL_CARG.CAL_CARG_SET_EX_RATE
+FROM CAL_CARG, CAL_CERP 
+WHERE ( CAL_CARG.CAL_CERP_ID *= CAL_CERP.CAL_CERP_ID) 
+and ( ( CAL_CARG.CAL_CALC_ID = :calc_id ) ) 
+ORDER BY CAL_CARG.CAL_CARG_ORDER ASC " arguments=(("calc_id", number)) )
+text(band=header alignment="0" text=" " border="0" color="0" x="2720" y="4" height="60" width="270" html.valueishtml="0"  name=t_4 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="C/P date" border="0" color="0" x="9" y="4" height="52" width="389" html.valueishtml="0"  name=t_1 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Charterer" border="0" color="0" x="407" y="4" height="60" width="731" html.valueishtml="0"  name=t_2 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Quantity" border="0" color="0" x="2203" y="4" height="60" width="507" html.valueishtml="0"  name=t_3 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Description" border="0" color="0" x="1147" y="4" height="52" width="1047" html.valueishtml="0"  name=cal_carg_description_t visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=48 alignment="0" tabsequence=32766 border="0" color="0" x="407" y="8" height="56" width="731" format="[general]" html.valueishtml="0"  name=compute_0046 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+bitmap(band=detail filename="images\notes.gif" x="1065" y="0" height="68" width="78" border="0" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0"  name=p_comment visible="1~tif(COMMENT > 0, 1, 0)" transparency="0" )
+compute(band=detail alignment="0" expression="If ( cal_carg_cal_carg_status >= 4, ~"Fix~", ~"~")"border="0" color="255" x="2720" y="8" height="56" width="270" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0~tIf ( cal_carg_cal_carg_status >= 4, 255, 0)" x="9" y="8" height="56" width="389" format="dd-mm-yy" html.valueishtml="0"  name=cal_cerp_cal_cerp_date visible="1" editmask.mask="dd-mm-yy" editmask.focusrectangle=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="0" color="0~tIf ( cal_carg_cal_carg_status >= 4, 255, 0)" x="2203" y="8" height="56" width="507" format="#,##0.000" html.valueishtml="0"  name=cal_carg_total_units visible="1" editmask.mask="#,##0.000"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=29 alignment="0" tabsequence=32766 border="0" color="0~tIf ( cal_carg_cal_carg_status >= 4, 255, 0)" x="1147" y="8" height="56" width="1047" format="[general]" html.valueishtml="0"  name=cal_carg_description visible="1" edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=50 alignment="0" tabsequence=32766 border="0" color="0" x="3182" y="0" height="56" width="69" format="[general]" html.valueishtml="0"  name=cal_carg_cal_carg_local_flatrate visible="0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=51 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="0" height="56" width="896" format="[general]" html.valueishtml="0"  name=cal_carg_cal_carg_misc_income visible="0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=52 alignment="0" tabsequence=32766 border="0" color="0" x="4165" y="0" height="56" width="992" format="[general]" html.valueishtml="0"  name=cal_carg_cal_carg_add_days_laden_spd visible="0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=53 alignment="0" tabsequence=32766 border="0" color="0" x="5166" y="0" height="56" width="992" format="[general]" html.valueishtml="0"  name=cal_carg_cal_carg_add_days_ballast_spd visible="0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=31 alignment="0" tabsequence=32766 border="0" color="0" x="2999" y="4" height="56" width="174" format="[general]" html.valueishtml="0"  name=cal_carg_cal_carg_order visible="0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=54 alignment="0" tabsequence=32766 border="0" color="0" x="6167" y="4" height="56" width="411" format="[general]" html.valueishtml="0"  name=comment visible="0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=49 alignment="0" tabsequence=32766 border="0" color="0" x="6587" y="0" height="52" width="1819" format="[general]" html.valueishtml="0"  name=locked visible="0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()

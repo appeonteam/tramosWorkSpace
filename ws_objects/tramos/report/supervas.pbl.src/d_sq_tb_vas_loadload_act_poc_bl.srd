@@ -1,0 +1,46 @@
+﻿$PBExportHeader$d_sq_tb_vas_loadload_act_poc_bl.srd
+$PBExportComments$LoadLoad VAS report Actual Port of Calls before first loadpor
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=344 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=port_code dbname="POC.PORT_CODE" )
+ column=(type=char(35) updatewhereclause=yes name=ports_port_n dbname="PORTS.PORT_N" )
+ column=(type=char(3) updatewhereclause=yes name=purpose_code dbname="POC.PURPOSE_CODE" )
+ column=(type=datetime updatewhereclause=yes name=port_arr_dt dbname="POC.PORT_ARR_DT" )
+ column=(type=datetime updatewhereclause=yes name=port_dept_dt dbname="POC.PORT_DEPT_DT" )
+ retrieve="  SELECT POC.PORT_CODE,
+		PORTS.PORT_N,   
+         POC.PURPOSE_CODE,   
+         POC.PORT_ARR_DT,   
+         POC.PORT_DEPT_DT  
+    FROM POC, PORTS  
+   WHERE POC.PORT_CODE = PORTS.PORT_CODE
+	AND POC.VESSEL_NR = :vessel 
+	AND POC.VOYAGE_NR = :voyage
+	AND POC.PURPOSE_CODE NOT IN ( ~"BUN~", ~"L~", ~"L/D~" )
+	AND POC.PORT_ARR_DT <= (SELECT MIN(P2.PORT_ARR_DT) FROM POC P2 WHERE P2.PURPOSE_CODE IN (~"L~", ~"L/D~") AND P2.VESSEL_NR = :vessel AND P2.VOYAGE_NR = :voyage)
+	ORDER BY POC.PORT_ARR_DT    
+" arguments=(("vessel", number),("voyage", string)) )
+text(band=detail alignment="1" text="Port:" border="0" color="33554432" x="37" y="4" height="56" width="375" html.valueishtml="0"  name=port_code_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="430" y="4" height="56" width="165" format="[general]" html.valueishtml="0"  name=port_code visible="1" edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="626" y="4" height="56" width="805" format="[general]" html.valueishtml="0"  name=ports_port_n visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Purpose:" border="0" color="33554432" x="37" y="80" height="56" width="375" html.valueishtml="0"  name=purpose_code_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="430" y="80" height="56" width="91" format="[general]" html.valueishtml="0"  name=purpose_code visible="1" edit.limit=3 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Arrival:" border="0" color="33554432" x="37" y="156" height="56" width="375" html.valueishtml="0"  name=port_arr_dt_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="33554432" x="430" y="156" height="56" width="503" format="[shortdate] [time]" html.valueishtml="0"  name=port_arr_dt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Departure:" border="0" color="33554432" x="37" y="232" height="56" width="375" html.valueishtml="0"  name=port_dept_dt_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="33554432" x="430" y="232" height="56" width="503" format="[shortdate] [time]" html.valueishtml="0"  name=port_dept_dt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,16 @@
+﻿$PBExportHeader$d_keycode_list3.srd
+$PBExportComments$All keycodes with edit.
+release 4;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=69 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=57 color="536870912" )
+table(column=(type=char(10) update=yes name=ccs_keyc_code dbname="CCS_KEYC.CCS_KEYC_CODE" )
+ column=(type=char(35) update=yes name=ccs_keyc_desc dbname="CCS_KEYC.CCS_KEYC_DESC" )
+ column=(type=decimal(0) update=yes key=yes name=ccs_keyc_pk dbname="CCS_KEYC.CCS_KEYC_PK" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_KEYC~" ) COLUMN(NAME=~"CCS_KEYC.CCS_KEYC_CODE~") COLUMN(NAME=~"CCS_KEYC.CCS_KEYC_DESC~") COLUMN(NAME=~"CCS_KEYC.CCS_KEYC_PK~")) ORDER(NAME=~"CCS_KEYC.CCS_KEYC_CODE~" ASC=yes ) " update="CCS_KEYC" updatewhere=1 updatekeyinplace=yes )
+text(band=header alignment="0" text="Key Code"border="0" color="0" x="19" y="4" height="57" width="238"  name=ccs_keyc_code_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Description"border="0" color="0" x="389" y="4" height="57" width="289"  name=ccs_keyc_desc_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="19" y="4" height="65" width="311" format="[general]"  name=ccs_keyc_code edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="385" y="4" height="65" width="1006" format="[general]"  name=ccs_keyc_desc edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )

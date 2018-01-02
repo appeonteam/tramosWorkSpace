@@ -1,0 +1,56 @@
+﻿$PBExportHeader$redraw_off.srf
+$PBExportComments$Nested redraw control
+global type redraw_off from function_object
+end type
+
+forward prototypes
+global function boolean redraw_off (window pw_window)
+end prototypes
+
+global function boolean redraw_off (window pw_window);/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+
+ Function  : redraw_off
+
+ Object     : 
+  
+ Event	 :  
+
+ Scope     : Global
+
+ ************************************************************************************
+
+ Author    : Martin Israelsen
+   
+ Date       : 1/1-96
+
+ Description : Enables nested redraw on/off commands, which otherwise is a problem
+		in powerbuilder. This function turns redraw off
+
+ Arguments : Window
+
+ Returns   : True
+
+ Variables :  None
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+1/1-96		1.0			MI		Initial version
+  
+************************************************************************************/
+
+
+uo_global.ii_redraw ++
+
+pw_window.Setredraw(false)
+return true
+
+end function
+

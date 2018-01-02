@@ -1,0 +1,33 @@
+﻿$PBExportHeader$d_tce_pool_vessels.srd
+$PBExportComments$TCE Report - retrieves vessel in given Pool(s)
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=vessel_nr dbname="NTC_POOL_VESSELS.VESSEL_NR" dbalias=".VESSEL_NR" )
+ column=(type=char(5) updatewhereclause=yes name=vessel_ref_nr dbname="VESSELS.VESSEL_REF_NR" dbalias=".VESSEL_REF_NR" )
+ retrieve="  SELECT NTC_POOL_VESSELS.VESSEL_NR,
+		VESSELS.VESSEL_REF_NR  
+    FROM NTC_POOL_VESSELS, VESSELS  
+   WHERE NTC_POOL_VESSELS.VESSEL_NR = VESSELS.VESSEL_NR AND
+			NTC_POOL_VESSELS.POOL_ID in ( :pool ) AND  
+         NTC_POOL_VESSELS.START_DT <= :adt_end AND  
+         (NTC_POOL_VESSELS.END_DT >= :adt_start OR  
+         NTC_POOL_VESSELS.END_DT is Null )    
+" arguments=(("pool", numberlist),("adt_start", datetime),("adt_end", datetime)) )
+text(band=header alignment="2" text="Vessel Nr" border="0" color="0" x="5" y="4" height="64" width="329" html.valueishtml="0"  name=vessel_nr_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="329" format="[general]" html.valueishtml="0"  name=vessel_nr visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="485" y="8" height="64" width="137" html.valueishtml="0"  name=vessel_ref_nr visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

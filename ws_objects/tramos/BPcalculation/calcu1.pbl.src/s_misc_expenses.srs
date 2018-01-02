@@ -1,0 +1,10 @@
+﻿$PBExportHeader$s_misc_expenses.srs
+$PBExportComments$Used when calling the misc expenses window on a port
+global type s_misc_expenses from structure
+    double d_caio_id
+    double d_total_misc_expenses
+    double d_edit_locked
+    datawindow dw_port_expenses
+    boolean b_modified
+end type
+

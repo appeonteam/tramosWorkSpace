@@ -1,0 +1,54 @@
+﻿$PBExportHeader$f_addalert.srf
+global type f_addalert from function_object
+end type
+
+forward prototypes
+global function integer f_addalert (long al_voyid, integer ai_repserial, integer ai_alerttype)
+end prototypes
+
+global function integer f_addalert (long al_voyid, integer ai_repserial, integer ai_alerttype);n_datastore lds_alerts
+long ll_row
+
+// Try to locate if identical alert exists
+SELECT ALERT_ID INTO :ll_row FROM TPERF_ALERTS WHERE VOY_ID=:al_VoyID AND REP_SERIAL=:ai_RepSerial AND ALERT_TYPEID=:ai_AlertType;
+
+if SQLCA.SQLCode=0 then 
+	commit;
+	return -1
+end if
+
+commit;
+
+// Create a new alert
+lds_alerts = CREATE n_datastore
+
+lds_alerts.dataobject = "d_sq_tb_table_alerts"
+lds_alerts.setTransObject(SQLCA)
+
+
+ll_row = lds_alerts.insertrow(0)
+
+lds_alerts.setitem( ll_row, "VOY_ID", al_voyid)
+lds_alerts.setitem( ll_row, "Rep_Serial", ai_RepSerial)
+lds_alerts.setitem( ll_row, "Alert_TypeID", ai_AlertType)
+lds_alerts.setitem( ll_row, "ACK", 0)
+
+if lds_alerts.update()=1 then
+	commit;
+	return 0
+else
+	f_addsysalert(1, "VoyID: " + string(al_voyid) + " RepNo: " + string(ai_RepSerial), ai_AlertType, lds_alerts.sqlerrortext)
+	return -2
+end if
+
+/*
+
+Return Values
+
+ 0 = Alert Added
+-1 = Alert Exists
+-2 = Could not add alert (system error generated)
+
+*/
+end function
+

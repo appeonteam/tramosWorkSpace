@@ -1,0 +1,20 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "calcm1.pbl" "";
+@end;
+@begin Objects 
+ "d_calc_weekly_fix_pool.srd" "calcm1.pbl";
+ "d_calc_weekly_fix_profit.srd" "calcm1.pbl";
+ "d_calc_weekly_fix_report.srd" "calcm1.pbl";
+ "u_bpdistance_base.sru" "calcm1.pbl";
+ "u_bpdistance_win32.sru" "calcm1.pbl";
+ "u_calc_base_sqlca.sru" "calcm1.pbl";
+ "u_calc_cargos.sru" "calcm1.pbl";
+ "u_calc_itinerary.sru" "calcm1.pbl";
+ "u_calc_result.sru" "calcm1.pbl";
+ "u_calc_summary.sru" "calcm1.pbl";
+ "u_calculation.sru" "calcm1.pbl";
+ "u_calcutil_nvo.sru" "calcm1.pbl";
+ "u_nvo_calculator.sru" "calcm1.pbl";
+ "w_calc_calculation.srw" "calcm1.pbl";
+@end;

@@ -1,0 +1,11 @@
+HA$PBExportHeader$user_info.srs
+global type user_info from structure
+	string		userid
+	integer		pc_num
+	string		firstname
+	string		lastname
+	string		pc_name
+	byte		access
+	byte		pc_Logo
+end type
+

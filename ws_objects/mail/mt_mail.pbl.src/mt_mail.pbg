@@ -1,0 +1,17 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "mt_mail.pbl" "";
+@end;
+@begin Objects 
+ "create_mail.sra" "mt_mail.pbl";
+ "d_ex_tb_testattachment.srd" "mt_mail.pbl";
+ "d_ex_tb_testmail.srd" "mt_mail.pbl";
+ "d_ex_tb_testreceiver.srd" "mt_mail.pbl";
+ "d_sq_tb_smtp_mail_attachment_table.srd" "mt_mail.pbl";
+ "d_sq_tb_smtp_mail_receiver_table.srd" "mt_mail.pbl";
+ "d_sq_tb_smtp_mail_table.srd" "mt_mail.pbl";
+ "s_email.srs" "mt_mail.pbl";
+ "mt_n_outgoingmail.sru" "mt_mail.pbl";
+ "u_email_preview.sru" "mt_mail.pbl";
+ "w_test.srw" "mt_mail.pbl";
+@end;

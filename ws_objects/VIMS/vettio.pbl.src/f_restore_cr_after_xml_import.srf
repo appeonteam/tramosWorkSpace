@@ -1,0 +1,35 @@
+﻿$PBExportHeader$f_restore_cr_after_xml_import.srf
+global type f_restore_cr_after_xml_import from function_object
+end type
+
+forward prototypes
+global subroutine f_restore_cr_after_xml_import (ref datastore ads_data, string ls_column)
+end prototypes
+
+global subroutine f_restore_cr_after_xml_import (ref datastore ads_data, string ls_column);
+// This function restores all Carriage Returns (that occur before a linefeed character) after importing XML using a template
+// This bug in PB was raised using case 11436252. It was transferred to CR 498729 with Sybase. But no action has been taken.
+
+Integer li_Row, li_Loop
+String ls_Data, ls_NewData
+
+Try
+
+	For li_Row = 1 to ads_Data.RowCount( )
+		ls_Data = ads_Data.GetItemString(li_Row, ls_Column)
+		
+		If Pos(ls_Data, "~n") > 0 then
+			ls_NewData = ""
+			For li_Loop = 1 to Len(ls_Data)			
+				If Mid(ls_Data, li_Loop, 1) = "~n" and Mid(ls_Data, li_Loop - 1, 1) <> "~r" then ls_NewData += "~r"
+				ls_NewData += Mid(ls_Data, li_Loop, 1)
+			Next
+			ads_Data.SetItem(li_Row, ls_Column, ls_NewData)
+		End If
+	Next
+
+Catch (Exception ex)
+	Messagebox("Error", "An exception occurred in the workaround for the XML bug. CRs will be lost.~n~nError: " + ex.Text ) 
+End Try
+end subroutine
+

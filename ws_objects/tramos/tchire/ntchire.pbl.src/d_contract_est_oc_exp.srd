@@ -1,0 +1,69 @@
+﻿$PBExportHeader$d_contract_est_oc_exp.srd
+$PBExportComments$Shows Estimated Owner/Charterer Expenses for a specified contract. Used to show historic, current and future payments for a payment
+release 10;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=112 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes key=yes identity=yes name=est_oc_id dbname="NTC_EST_OC_EXP.EST_OC_ID" )
+ column=(type=decimal(0) updatewhereclause=yes name=contract_id dbname="NTC_PAYMENT.CONTRACT_ID" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=payment_id dbname="NTC_EST_OC_EXP.PAYMENT_ID" )
+ column=(type=char(50) updatewhereclause=yes name=comment dbname="NTC_EST_OC_EXP.COMMENT" )
+ column=(type=char(3) updatewhereclause=yes name=curr_code dbname="NTC_EST_OC_EXP.CURR_CODE" )
+ column=(type=decimal(6) updatewhereclause=yes name=ex_rate_tc dbname="NTC_EST_OC_EXP.EX_RATE_TC" )
+ column=(type=decimal(2) updatewhereclause=yes name=amount dbname="NTC_EST_OC_EXP.AMOUNT" )
+ column=(type=long updatewhereclause=yes name=payment_status dbname="NTC_PAYMENT.PAYMENT_STATUS" )
+ column=(type=datetime updatewhereclause=yes name=est_due_date dbname="NTC_PAYMENT.EST_DUE_DATE" )
+ column=(type=datetime updatewhereclause=yes name=retrieval_date dbname="RETRIEVAL_DATE" )
+ column=(type=long updatewhereclause=yes name=trans_to_coda dbname="NTC_EST_OC_EXP.TRANS_TO_CODA" )
+ column=(type=number updatewhereclause=yes name=owner_exp dbname="NTC_EST_OC_EXP.OWNER_EXP" values="Owner Exp.	1/Charterer Exp.	0/" )
+ retrieve="  SELECT NTC_EST_OC_EXP.EST_OC_ID,   
+         NTC_PAYMENT.CONTRACT_ID,   
+         NTC_EST_OC_EXP.PAYMENT_ID,   
+         NTC_EST_OC_EXP.COMMENT,   
+         NTC_EST_OC_EXP.CURR_CODE,   
+         NTC_EST_OC_EXP.EX_RATE_TC,   
+         NTC_EST_OC_EXP.AMOUNT,   
+         NTC_PAYMENT.PAYMENT_STATUS,   
+         NTC_PAYMENT.EST_DUE_DATE,   
+         (SELECT NTC_PAYMENT.EST_DUE_DATE FROM NTC_PAYMENT WHERE NTC_PAYMENT.PAYMENT_ID = :ra_payment_id) AS RETRIEVAL_DATE,   
+         NTC_EST_OC_EXP.TRANS_TO_CODA,
+		NTC_EST_OC_EXP.OWNER_EXP	  
+    FROM NTC_EST_OC_EXP,   
+         NTC_PAYMENT  
+   WHERE ( NTC_PAYMENT.PAYMENT_ID = NTC_EST_OC_EXP.PAYMENT_ID ) and 
+	   ( NTC_EST_OC_EXP.REVERSE_EST_OC_ID IS NOT NULL ) AND 
+         ( ( NTC_PAYMENT.CONTRACT_ID = :contract_id ) AND  
+         ( NTC_EST_OC_EXP.PAYMENT_ID <= :payment_id_high ) AND  
+         ( NTC_EST_OC_EXP.PAYMENT_ID >= :payment_id_low ) OR  
+         ( NTC_EST_OC_EXP.PAYMENT_ID = :ra_payment_id ) )   
+ORDER BY NTC_PAYMENT.EST_DUE_DATE ASC   
+" update="NTC_EST_OC_EXP" updatewhere=0 updatekeyinplace=no arguments=(("contract_id", number),("payment_id_low", number),("payment_id_high", number),("ra_payment_id", number)) )
+text(band=header alignment="2" text="Owner/ChartererExpense" border="6" color="0" x="0" y="4" height="104" width="585" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Comment" border="6" color="0" x="599" y="4" height="104" width="1120" html.valueishtml="0"  name=exp_comment_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Amount" border="6" color="0" x="1733" y="4" height="104" width="311" html.valueishtml="0"  name=amount_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Curr" border="6" color="0" x="2057" y="4" height="104" width="151" html.valueishtml="0"  name=curr_code_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Exch. Rate" border="6" color="0" x="2222" y="4" height="104" width="256" html.valueishtml="0"  name=ex_rate_tc_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Due Date" border="6" color="0" x="2491" y="4" height="104" width="238" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="3319" y="4" height="56" width="329" format="[general]" html.valueishtml="0"  name=payment_id visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3776" y="0" height="56" width="343" format="[shortdate] [time]" html.valueishtml="0"  name=retrieval_date visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3662" y="0" height="56" width="114" format="[general]" html.valueishtml="0"  name=payment_status visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="4142" y="0" height="56" width="347" format="[general]" html.valueishtml="0"  name=trans_to_coda visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0~tIF(payment_status>2, CASE(est_due_date WHEN IS<retrieval_date THEN RGB(128,0,0) WHEN IS>retrieval_date THEN RGB(255,0,0)  ELSE RGB(128,128,0)), case(est_due_date WHEN IS< retrieval_date THEN RGB(0,0,255) WHEN IS> retrieval_date THEN RGB(0,128,0) ELSE RGB(0,0,0)))" x="0" y="4" height="56" width="585" format="[general]" html.valueishtml="0"  name=owner_exp visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.codetable=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0~tIF(payment_status>2, CASE(est_due_date WHEN IS<retrieval_date THEN RGB(128,0,0) WHEN IS>retrieval_date THEN RGB(255,0,0)  ELSE RGB(128,128,0)), case(est_due_date WHEN IS< retrieval_date THEN RGB(0,0,255) WHEN IS> retrieval_date THEN RGB(0,128,0) ELSE RGB(0,0,0)))" x="599" y="4" height="56" width="1120" format="[general]" html.valueishtml="0"  name=comment visible="1" edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0~tIF(payment_status>2, CASE(est_due_date WHEN IS<retrieval_date THEN RGB(128,0,0) WHEN IS>retrieval_date THEN RGB(255,0,0)  ELSE RGB(128,128,0)), case(est_due_date WHEN IS< retrieval_date THEN RGB(0,0,255) WHEN IS> retrieval_date THEN RGB(0,128,0) ELSE RGB(0,0,0)))" x="1733" y="4" height="56" width="311" format="[general]" html.valueishtml="0"  name=amount visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0~tIF(payment_status>2, CASE(est_due_date WHEN IS<retrieval_date THEN RGB(128,0,0) WHEN IS>retrieval_date THEN RGB(255,0,0)  ELSE RGB(128,128,0)), case(est_due_date WHEN IS< retrieval_date THEN RGB(0,0,255) WHEN IS> retrieval_date THEN RGB(0,128,0) ELSE RGB(0,0,0)))" x="2057" y="4" height="56" width="151" format="[general]" html.valueishtml="0"  name=curr_code visible="1" edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0~tIF(payment_status>2, CASE(est_due_date WHEN IS<retrieval_date THEN RGB(128,0,0) WHEN IS>retrieval_date THEN RGB(255,0,0)  ELSE RGB(128,128,0)), case(est_due_date WHEN IS< retrieval_date THEN RGB(0,0,255) WHEN IS> retrieval_date THEN RGB(0,128,0) ELSE RGB(0,0,0)))" x="2222" y="4" height="56" width="256" format="#,##0.0000" html.valueishtml="0"  name=ex_rate_tc visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0~tIF(payment_status>2, CASE(est_due_date WHEN IS<retrieval_date THEN RGB(128,0,0) WHEN IS>retrieval_date THEN RGB(255,0,0)  ELSE RGB(128,128,0)), case(est_due_date WHEN IS< retrieval_date THEN RGB(0,0,255) WHEN IS> retrieval_date THEN RGB(0,128,0) ELSE RGB(0,0,0)))" x="2491" y="4" height="56" width="238" format="dd/mm-yy" html.valueishtml="0"  name=est_due_date visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

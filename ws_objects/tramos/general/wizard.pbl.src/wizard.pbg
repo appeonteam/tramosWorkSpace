@@ -1,0 +1,12 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "wizard.pbl" "";
+@end;
+@begin Objects 
+ "d_calc_speed.srd" "wizard.pbl";
+ "d_calc_wizard_bulk_hdy_pmx.srd" "wizard.pbl";
+ "d_calc_wizard_gas_cha.srd" "wizard.pbl";
+ "d_calc_wizard_product.srd" "wizard.pbl";
+ "d_calc_wizard_vlcc.srd" "wizard.pbl";
+ "d_calc_wizard_vlgc.srd" "wizard.pbl";
+@end;

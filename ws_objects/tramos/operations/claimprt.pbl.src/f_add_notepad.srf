@@ -1,0 +1,43 @@
+﻿$PBExportHeader$f_add_notepad.srf
+$PBExportComments$Used in w_print_freight, add comments to voyage notepad
+global type f_add_notepad from function_object
+end type
+
+forward prototypes
+global function boolean f_add_notepad (integer ai_vessel_nr, string as_voyage_nr, double ad_amount_local, double ad_amount_usd, double ad_ex_rate, string as_type, string as_currency)
+end prototypes
+
+global function boolean f_add_notepad (integer ai_vessel_nr, string as_voyage_nr, double ad_amount_local, double ad_amount_usd, double ad_ex_rate, string as_type, string as_currency);string ls_notes
+
+// Hente det allerede gemte. Var ikke mulig i en SQL	
+SELECT VOYAGE_NOTES
+INTO :ls_notes
+FROM VOYAGES
+WHERE (VOYAGES.VESSEL_NR = :ai_vessel_nr) AND (VOYAGES.VOYAGE_NR = :as_voyage_nr);
+
+if isnull(ls_notes) then
+	ls_notes = "~n~r System message (" + string(today(),"dd-mm-yy") + "): - " + & 
+				as_type +" invoice printed in USD. Amount in " + as_currency + " " + string(ad_amount_local, "#,###.00") +  " converted to USD using conversion rate " + &
+				string(ad_ex_rate, "#,###.0000") + " to amount in USD " + string(ad_amount_usd,"#,###.00") + ". Printed by " + uo_global.is_userid + "."
+else
+	ls_notes += "~n~r System message(" + string(today(),"dd-mm-yy") + "): - " + &
+				as_type +" invoice printed in USD. Amount in " + as_currency  + " " + string(ad_amount_local, "#,###.00") +  " converted to USD using conversion rate " + &
+				string(ad_ex_rate, "#,###.0000") + " to amount in USD " + string(ad_amount_usd,"#,###.00") + ". Printed by " + uo_global.is_userid + "."
+end if
+					
+// INDSÆTTELSE AF KOMMENTAR I VOYAGE NOTEPAD
+UPDATE VOYAGES  
+SET VOYAGE_NOTES = :ls_notes 
+WHERE ( VOYAGES.VESSEL_NR = :ai_vessel_nr ) AND ( VOYAGES.VOYAGE_NR = :as_voyage_nr);
+
+if (SQLCA.sqlCODE <> 0) then
+	messagebox("Error", "An error has occured inserting comment in voyage notepad.")
+	rollback;
+	return false
+else
+	commit;
+	return true
+end if
+
+end function
+

@@ -1,0 +1,5 @@
+﻿$PBExportHeader$struct_voylist.srs
+global type struct_voylist from structure
+	long		VoyList[]
+end type
+

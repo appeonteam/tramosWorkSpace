@@ -1,0 +1,24 @@
+﻿$PBExportHeader$s_vas_file.srs
+$PBExportComments$Structure used for handling one voyage, for VAS file. w_generate_supervasfile
+global type s_vas_file from structure
+	integer		vessel
+	string		voyage
+	date		startdate
+	date		enddate
+	decimal { 4 }		offdays
+	integer		charter
+	decimal { 2 }		result
+	decimal { 2 }		bunkerexp
+	decimal { 2 }		miscexp
+	decimal { 2 }		exrate
+	decimal { 2 }		income
+	decimal { 2 }		commission
+	decimal { 2 }		portexp
+	decimal { 2 }		grossincome
+	decimal { 2 }		totaldays
+	decimal { 2 }		demurrage
+	decimal { 2 }		freight
+	decimal { 2 }		tchire
+	string		vessel_ref_nr
+end type
+

@@ -1,0 +1,18 @@
+﻿$PBExportHeader$d_rep_contacts.srd
+$PBExportComments$Report contact person given charterer.
+release 4;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=65 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=61 color="536870912" )
+table(column=(type=char(35) name=ccs_cont_name dbname="CCS_CONT.CCS_CONT_NAME" )
+ column=(type=char(35) name=ccs_cont_title dbname="CCS_CONT.CCS_CONT_TITLE" )
+ column=(type=char(20) name=userid dbname="CCS_CONT.USERID" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_CONT~" ) COLUMN(NAME=~"CCS_CONT.CCS_CONT_NAME~") COLUMN(NAME=~"CCS_CONT.CCS_CONT_TITLE~") COLUMN(NAME=~"CCS_CONT.USERID~")WHERE( EXP1 =~"CCS_CONT.CHART_NR~" OP =~"=~" EXP2 =~":chart_nr~" ) ) ARG(NAME = ~"chart_nr~" TYPE = number) " arguments=(("chart_nr", number)) )
+text(band=header alignment="0" text="APM Contact"border="0" color="0" x="2012" y="16" height="45" width="371"  name=userid_t  font.face="Arial" font.height="-7" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Title"border="0" color="0" x="1015" y="16" height="45" width="129"  name=ccs_cont_title_t  font.face="Arial" font.height="-7" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Contact Persons"border="0" color="0" x="14" y="16" height="45" width="467"  name=ccs_cont_name_t  font.face="Arial" font.height="-7" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1015" y="4" height="57" width="988" format="[general]"  name=ccs_cont_title  tag="Contact Title" edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="2012" y="4" height="57" width="110" format="[general]"  name=userid  tag=" " edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="4" height="57" width="988" format="[general]"  name=ccs_cont_name  tag="Contact Name" edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

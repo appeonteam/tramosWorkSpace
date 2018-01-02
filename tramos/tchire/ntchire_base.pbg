@@ -1,0 +1,18 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tramos\\tchire\\ntchire_base.pbl" "";
+@end;
+@begin Objects
+ "tramos\\tchire\\d_delme_convert_payment_list.srd" "tramos\\tchire\\ntchire_base.pbl";
+ "tramos\\tchire\\w_tc_base.srw" "tramos\\tchire\\ntchire_base.pbl";
+ "tramos\\tchire\\w_tc_sheet_ancestor.srw" "tramos\\tchire\\ntchire_base.pbl";
+ "tramos\\tchire\\n_ntchire_ds.sru" "tramos\\tchire\\ntchire_base.pbl";
+ "tramos\\tchire\\u_ntchire_dw.sru" "tramos\\tchire\\ntchire_base.pbl";
+ "tramos\\tchire\\u_ntchire_grid_dw.sru" "tramos\\tchire\\ntchire_base.pbl";
+ "tramos\\tchire\\w_delme_convert_contract.srw" "tramos\\tchire\\ntchire_base.pbl";
+ "tramos\\tchire\\d_delme_convert_move_bp.srd" "tramos\\tchire\\ntchire_base.pbl";
+ "tramos\\tchire\\d_delme_convert_portexp.srd" "tramos\\tchire\\ntchire_base.pbl";
+ "tramos\\tchire\\w_delme_convert_password.srw" "tramos\\tchire\\ntchire_base.pbl";
+ "tramos\\tchire\\d_delme_convert_paid.srd" "tramos\\tchire\\ntchire_base.pbl";
+ "tramos\\tchire\\d_delme_convert_contract_list.srd" "tramos\\tchire\\ntchire_base.pbl";
+@end;

@@ -1,0 +1,18 @@
+﻿$PBExportHeader$str_parms.srs
+$PBExportComments$All-in-one structure of arrays of simple datatypes
+global type str_parms from structure
+	string		string_arg[]
+	character		char_arg[]
+	integer		integer_arg[]
+	long		long_arg[]
+	date		date_arg[]
+	datetime		datetime_arg[]
+	time		time_arg[]
+	boolean		boolean_arg[]
+	real		real_arg[]
+	decimal { 2 }		decimal_arg[]
+	boolean		canceled
+	double		double_arg[]
+	boolean		boolean_ismandatory
+end type
+

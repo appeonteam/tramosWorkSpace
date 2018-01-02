@@ -1,0 +1,127 @@
+﻿$PBExportHeader$f_check_syntax_vessel_voyage.srf
+$PBExportComments$Checks a list of vessel/voyages if it meets the given syntax.
+global type f_check_syntax_vessel_voyage from function_object
+end type
+
+forward prototypes
+global function boolean f_check_syntax_vessel_voyage (string as_string)
+end prototypes
+
+global function boolean f_check_syntax_vessel_voyage (string as_string);/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : Global Function f_chech_syntax_vessel_voyage
+  
+ Object     : 
+  
+ Event	 : Open
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Kim Husson Kasperek
+   
+ Date       : 12-08-96
+
+ Description : Checks a list of vessel/voyages if it meets the given syntax (only values for vessel, and intervals
+			 for voyages), which is;
+				e.x.: "123/9607,443/9608-9610,765/9601"
+
+ Arguments : 	as_string			: The string of vessel/voyages to be checked
+			as_valid_chars	: The chars to be accepted in the syntax-check
+
+ Returns   : True if the string of dates is valid, otherwise False
+
+ Variables : 
+
+ Other : 
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+15-08-96		1.0			KHK		Initial version
+************************************************************************************/
+
+CHAR lc_ch
+STRING ls_tmpstr1, ls_tmpstr2, ls_resultstr
+INTEGER li_counter
+BOOLEAN lb_number, lb_char, lb_komma, lb_slash, lb_interval, lb_interval_end, lb_voyage, lb_start, lb_error
+
+ls_resultstr = ""
+ls_tmpstr2 = ""
+lb_number = FALSE
+lb_char = FALSE
+lb_slash = FALSE
+lb_komma = FALSE
+lb_interval = FALSE
+lb_interval_end = TRUE
+lb_voyage = FALSE
+lb_start = TRUE
+lb_error = FALSE
+
+IF LEN(as_string) > 0 THEN			// The string is NOT empty
+
+	ls_tmpstr1 = as_string + "@"		// The string to be checked in a working variable and add a stop-sign
+
+	FOR li_counter=1 to LEN(ls_tmpstr1)				// For all characters in the string DO
+		lc_ch = UPPER(MID(ls_tmpstr1,li_counter,1))		// Fetch the characters i the string one by one
+		IF POS("0123456789",lc_ch) > 0 THEN
+			lb_number = TRUE
+			lb_char = FALSE
+			lb_slash = FALSE
+			lb_komma = FALSE
+			lb_interval = FALSE
+		ELSEIF POS("ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ",lc_ch) > 0 THEN
+			lb_error = lb_error OR lb_komma OR lb_start
+			lb_number = FALSE
+			lb_char = TRUE
+			lb_slash = FALSE
+			lb_komma = FALSE
+			lb_interval = FALSE
+		ELSEIF lc_ch = "/" THEN
+			lb_error = lb_error OR lb_voyage OR lb_char OR lb_slash OR lb_komma OR lb_interval OR lb_start
+			lb_number = FALSE
+			lb_char = FALSE
+			lb_slash = TRUE
+			lb_komma = FALSE
+			lb_interval = FALSE
+			lb_voyage = TRUE
+		ELSEIF lc_ch = "," THEN
+			lb_error = lb_error OR NOT lb_voyage OR lb_slash OR lb_komma OR lb_interval OR lb_start
+			lb_number = FALSE
+			lb_char = FALSE
+			lb_slash = FALSE
+			lb_komma = TRUE
+			lb_interval = FALSE
+			lb_interval_end = TRUE
+			lb_voyage = FALSE
+		ELSEIF lc_ch = "-" THEN
+			lb_error = lb_error OR NOT lb_voyage OR lb_slash OR lb_komma OR lb_interval OR NOT lb_interval_end OR lb_start
+			lb_number = FALSE
+			lb_char = FALSE
+			lb_slash = FALSE
+			lb_komma = FALSE
+			lb_interval = TRUE
+			lb_interval_end = FALSE
+		ELSEIF lc_ch = "@" THEN
+			lb_error = lb_error OR NOT lb_voyage OR lb_slash OR lb_komma OR lb_interval
+			lb_number = FALSE
+			lb_char = FALSE
+			lb_slash = FALSE
+			lb_komma = FALSE
+			lb_interval = FALSE
+			lb_interval_end = TRUE
+		ELSE
+			lb_error = TRUE
+		END IF
+		lb_start = FALSE
+	NEXT
+END IF
+
+Return not lb_error
+
+end function
+

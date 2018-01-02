@@ -1,0 +1,12 @@
+﻿$PBExportHeader$ustruct_systime.srs
+global type ustruct_systime from structure
+	unsignedinteger		wyear
+	unsignedinteger		wmonth
+	unsignedinteger		wdayofweek
+	unsignedinteger		wday
+	unsignedinteger		whour
+	unsignedinteger		wminute
+	unsignedinteger		wsecond
+	unsignedinteger		wmilliseconds
+end type
+

@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_secondary_brokers.srs
+$PBExportComments$This structure is used to initiate the secondary brokers window.
+global type s_secondary_brokers from structure
+    integer vessel_nr
+    datetime cp_date
+end type
+

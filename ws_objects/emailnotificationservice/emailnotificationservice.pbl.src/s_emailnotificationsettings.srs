@@ -1,0 +1,13 @@
+﻿$PBExportHeader$s_emailnotificationsettings.srs
+$PBExportComments$standard structure to pass configuration settings across the app
+global type s_emailnotificationsettings from structure
+	boolean		b_expired_certs_enabled
+	boolean		b_claim_actions_enabled
+	boolean		b_task_duedate_enabled
+	boolean		b_timebar_enabled
+	boolean		b_tccontract_expired_enabled
+	string		s_expired_certs_testemail1
+	string		s_expired_certs_testemail2
+	long		l_expired_certs_days
+end type
+

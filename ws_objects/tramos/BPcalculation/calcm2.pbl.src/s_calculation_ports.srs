@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_calculation_ports.srs
+$PBExportComments$Contains the port code and the itnerary number
+global type s_calculation_ports from structure
+    string s_port
+    integer i_itinerary_number
+end type
+

@@ -1,0 +1,11 @@
+﻿$PBExportHeader$struct_plan.srs
+global type struct_plan from structure
+	string		VslNum
+	string		VslName
+	string		VslType
+	string		VslFlag
+	string		VslResp
+	datetime		SIRELast
+	datetime		SIRENon
+end type
+

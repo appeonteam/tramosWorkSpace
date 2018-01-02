@@ -1,0 +1,22 @@
+﻿$PBExportHeader$f_comma2decimal.srf
+global type f_Comma2Decimal from function_object
+end type
+
+forward prototypes
+global function string f_comma2decimal (string as_number)
+end prototypes
+
+global function string f_comma2decimal (string as_number);
+// Function to convert all commas in a string to decimals
+
+Integer li_Count
+
+For li_Count = 1 to Len(as_Number)
+	If Mid(as_Number, li_Count, 1) = "," then as_Number = Replace(as_Number, li_Count, 1, ".")
+Next
+
+Return as_Number
+	
+
+end function
+

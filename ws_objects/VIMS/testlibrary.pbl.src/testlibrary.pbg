@@ -1,0 +1,12 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "testlibrary.pbl" "";
+@end;
+@begin Objects 
+ "d_sq_tb_itemhistsave.srd" "testlibrary.pbl";
+ "d_sq_tb_mireupdate.srd" "testlibrary.pbl";
+ "d_sq_tb_vslcomm.srd" "testlibrary.pbl";
+ "w_imgpreview.srw" "testlibrary.pbl";
+ "w_roviq.srw" "testlibrary.pbl";
+ "w_test.srw" "testlibrary.pbl";
+@end;

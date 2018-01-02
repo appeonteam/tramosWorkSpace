@@ -1,0 +1,6 @@
+﻿$PBExportHeader$s_multiline.srs
+global type s_multiline from structure
+	string		text
+	integer		width
+end type
+

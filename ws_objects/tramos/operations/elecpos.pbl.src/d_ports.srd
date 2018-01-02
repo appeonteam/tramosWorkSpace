@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_ports.srd
+$PBExportComments$datawindow listing ports.
+release 4;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=197 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=69 color="536870912" )
+table(column=(type=char(10) update=yes key=yes name=port_code dbname="PORTS.PORT_CODE" )
+ column=(type=number update=yes name=via_point dbname="PORTS.VIA_POINT" )
+ column=(type=char(10) update=yes name=disb_port_code dbname="PORTS.DISB_PORT_CODE" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"PORTS~" ) COLUMN(NAME=~"PORTS.PORT_CODE~") COLUMN(NAME=~"PORTS.VIA_POINT~") COLUMN(NAME=~"PORTS.DISB_PORT_CODE~")) " update="PORTS" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Port Code"border="0" color="0" x="5" y="112" height="57" width="252"  name=port_code_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Via Point"border="0" color="0" x="426" y="112" height="57" width="220"  name=via_point_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Disb Port Code"border="0" color="0" x="732" y="112" height="57" width="375"  name=disb_port_code_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Viapoints with no pseudo code"border="0" color="0" x="151" y="24" height="57" width="782"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="10" y="4" height="57" width="252" format="[general]"  name=port_code edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="398" y="8" height="57" width="275" format="[general]"  name=via_point edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="801" y="4" height="57" width="252" format="[general]"  name=disb_port_code edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="1" y1="172" x2="1134" y2="172" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )

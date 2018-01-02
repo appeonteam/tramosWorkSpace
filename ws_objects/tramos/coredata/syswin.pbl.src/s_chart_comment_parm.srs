@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_chart_comment_parm.srs
+$PBExportComments$Structure with parameters to charterer comments (boolean Chart_nr true=chart #, false=calc_id
+global type s_chart_comment_parm from structure
+	boolean		chart_nr
+	long		recID
+end type
+

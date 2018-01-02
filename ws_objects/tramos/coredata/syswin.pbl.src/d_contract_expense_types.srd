@@ -1,0 +1,15 @@
+﻿$PBExportHeader$d_contract_expense_types.srd
+$PBExportComments$Used with f_select_from_list
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes identity=yes name=exp_type_id dbname="NTC_EXP_TYPE.EXP_TYPE_ID" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=type_desc dbname="NTC_EXP_TYPE.TYPE_DESC" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"NTC_EXP_TYPE~" ) COLUMN(NAME=~"NTC_EXP_TYPE.EXP_TYPE_ID~") COLUMN(NAME=~"NTC_EXP_TYPE.TYPE_DESC~")WHERE(    EXP1 =~"NTC_EXP_TYPE.NON_PORT_EXP~"   OP =~"=~"    EXP2 =~"0~" ) ) " update="NTC_EXP_TYPE" updatewhere=1 updatekeyinplace=no  sort="type_desc A " )
+text(band=header alignment="2" text="Description" border="0" color="0" x="18" y="16" height="64" width="1399"  name=type_desc_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="18" y="4" height="76" width="1399" format="[general]"  name=type_desc edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

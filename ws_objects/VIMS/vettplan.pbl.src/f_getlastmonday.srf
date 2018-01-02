@@ -1,0 +1,18 @@
+﻿$PBExportHeader$f_getlastmonday.srf
+global type f_getlastmonday from function_object
+end type
+
+forward prototypes
+global function date f_getlastmonday (date ld_date)
+end prototypes
+
+global function date f_getlastmonday (date ld_date);// Function returns the monday of the week on the which the date falls
+
+Integer li_Num
+
+li_Num = DayNumber(ld_Date) - 1
+If li_Num = 0 then li_Num = 7
+
+Return RelativeDate(ld_Date, 1 - li_Num)
+end function
+

@@ -1,0 +1,47 @@
+﻿$PBExportHeader$d_sq_tb_mire_chap2onward.srd
+release 11;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no showbackcoloronxp=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=long updatewhereclause=yes identity=yes name=obj_id dbname="VETT_OBJ.OBJ_ID" dbalias=".OBJ_ID" )
+ column=(type=long updatewhereclause=yes name=par3num dbname="VETT_OBJ.PAR3NUM" dbalias="PAR3.PAR3NUM" )
+ column=(type=long updatewhereclause=yes name=par2num dbname="VETT_OBJ.PAR2NUM" dbalias="PAR2.PAR2NUM" )
+ column=(type=long updatewhereclause=yes name=par1num dbname="VETT_OBJ.PAR1NUM" dbalias="PAR1.PAR1NUM" )
+ column=(type=long updatewhereclause=yes name=objnum dbname="VETT_OBJ.OBJNUM" dbalias=".OBJNUM" )
+ column=(type=long updatewhereclause=yes name=defrisk dbname="VETT_OBJ.DEFRISK" dbalias=".DEFRISK" )
+ retrieve="  SELECT 
+ 			VETT_OBJ.OBJ_ID,
+      PAR3.OBJNUM as PAR3NUM,
+      PAR2.OBJNUM as PAR2NUM,
+      PAR1.OBJNUM as PAR1NUM, 
+      VETT_OBJ.OBJNUM as OBJNUM,
+      VETT_OBJ.DEFRISK
+  FROM VETT_OBJ INNER JOIN VETT_OBJ PAR1 ON VETT_OBJ.PARENT = PAR1.OBJ_ID
+      LEFT OUTER JOIN VETT_OBJ PAR2 ON (PAR1.PARENT = PAR2.OBJ_ID) AND (PAR1.OBJTYPE > 1)
+      LEFT OUTER JOIN VETT_OBJ PAR3 ON (PAR2.PARENT = PAR3.OBJ_ID) AND (PAR2.OBJTYPE > 1)
+  WHERE (VETT_OBJ.IM_ID = :IM_ID) And 
+        (VETT_OBJ.OBJTYPE > 2) And
+        (VETT_OBJ.ACTIVE > 0)
+
+            
+" filter="Left(fullnum, 3) > '001'"arguments=(("IM_ID", number))  sort="fullnum A " )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="33554432" x="5" y="4" height="76" width="329" format="[general]" html.valueishtml="0"  name=obj_id visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="33554432" x="1115" y="12" height="64" width="206" format="[general]" html.valueishtml="0"  name=objnum visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="33554432" x="366" y="8" height="64" width="251" format="[general]" html.valueishtml="0"  name=par3num visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="33554432" x="635" y="12" height="64" width="251" format="[general]" html.valueishtml="0"  name=par2num visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="33554432" x="901" y="12" height="64" width="201" format="[general]" html.valueishtml="0"  name=par1num visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="If(IsNull(par3num), '', String(par3num, '000')) + If(IsNull(par2num), '', String(par2num, '000')) + String(par1num, '000') + String(ObjNum, '000')"border="0" color="33554432" x="1376" y="12" height="64" width="549" format="[GENERAL]" html.valueishtml="0"  name=fullnum visible="1"  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="33554432" x="1938" y="12" height="64" width="265" format="[general]" html.valueishtml="0"  name=defrisk visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

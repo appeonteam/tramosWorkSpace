@@ -1,0 +1,7 @@
+﻿$PBExportHeader$str_detail_linkage.srs
+global type str_detail_linkage from structure
+	string		ds_detail_name		descriptor "comment" = "dataset name"
+	string		ds_detail_argument[]		descriptor "comment" = "column name"
+	string		ds_detail_argument_type[]		descriptor "comment" = "(number, decimal, string, datetime......)"
+end type
+

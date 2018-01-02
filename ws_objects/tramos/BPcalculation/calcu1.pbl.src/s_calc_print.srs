@@ -1,0 +1,11 @@
+﻿$PBExportHeader$s_calc_print.srs
+$PBExportComments$Parameters used for generating a calculation print
+global type s_calc_print from structure
+	datawindow		dw_calc
+	datawindow		dw_cargos
+	datawindow		dw_sensitivity
+	string		s_header
+	datawindow		dw_calc_itinerary
+	datawindow		dw_calc_route
+end type
+

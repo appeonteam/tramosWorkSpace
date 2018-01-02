@@ -1,0 +1,147 @@
+﻿$PBExportHeader$d_sq_tb_voymultiexport.srd
+release 11;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no showbackcoloronxp=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(5) updatewhereclause=yes name=report_type dbname="Report_Type" )
+ column=(type=datetime updatewhereclause=yes name=smt dbname="SMT" )
+ column=(type=decimal(1) updatewhereclause=yes name=tperf_reports_zone dbname="Zone" )
+ column=(type=decimal(13) updatewhereclause=yes name=latitude dbname="Latitude" )
+ column=(type=decimal(13) updatewhereclause=yes name=longitude dbname="Longitude" )
+ column=(type=decimal(1) updatewhereclause=yes name=dist_to_go dbname="Dist_To_Go" )
+ column=(type=long updatewhereclause=yes name=sea_state dbname="Sea_State" )
+ column=(type=long updatewhereclause=yes name=wind_force dbname="Wind_Force" )
+ column=(type=decimal(0) updatewhereclause=yes name=wind_direction dbname="Wind_Direction" )
+ column=(type=decimal(1) updatewhereclause=yes name=mean_draft dbname="Mean_Draft" )
+ column=(type=datetime updatewhereclause=yes name=tperf_reports_eta dbname="ETA" )
+ column=(type=decimal(2) updatewhereclause=yes name=tperf_reports_stoppage dbname="Stoppage" )
+ column=(type=decimal(2) updatewhereclause=yes name=fullspd_me_period dbname="FullSpd_ME_Period" )
+ column=(type=decimal(1) updatewhereclause=yes name=fullspd_me_distance dbname="FullSpd_ME_Distance" )
+ column=(type=decimal(1) updatewhereclause=yes name=fullspd_me_cons dbname="FullSpd_ME_Cons" )
+ column=(type=decimal(2) updatewhereclause=yes name=ecospd_me_period dbname="EcoSpd_ME_Period" )
+ column=(type=decimal(1) updatewhereclause=yes name=ecospdd_me_distance dbname="EcoSpdD_ME_Distance" )
+ column=(type=decimal(1) updatewhereclause=yes name=ecospd_me_cons dbname="EcoSpd_ME_Cons" )
+ column=(type=decimal(2) updatewhereclause=yes name=adjspd_me_period dbname="AdjSpd_ME_Period" )
+ column=(type=decimal(1) updatewhereclause=yes name=adjspd_me_dist dbname="AdjSpd_ME_DIST" )
+ column=(type=decimal(1) updatewhereclause=yes name=adjspd_me_cons dbname="AdjSpd_ME_Cons" )
+ column=(type=decimal(2) updatewhereclause=yes name=confwaters_me_period dbname="ConfWaters_ME_Period" )
+ column=(type=decimal(1) updatewhereclause=yes name=confwaters_me_distance dbname="ConfWaters_ME_Distance" )
+ column=(type=decimal(1) updatewhereclause=yes name=confwaters_me_cons dbname="ConfWaters_ME_Cons" )
+ column=(type=decimal(2) updatewhereclause=yes name=badwx_me_period dbname="BadWx_ME_Period" )
+ column=(type=decimal(1) updatewhereclause=yes name=badwx_me_distance dbname="BadWx_ME_Distance" )
+ column=(type=decimal(1) updatewhereclause=yes name=badwx_me_cons dbname="BadWx_ME_Cons" )
+ column=(type=decimal(1) updatewhereclause=yes name=fullspd_ae_cons dbname="FullSpd_AE_Cons" )
+ column=(type=decimal(1) updatewhereclause=yes name=ecospd_ae_cons dbname="EcoSpd_AE_Cons" )
+ column=(type=decimal(1) updatewhereclause=yes name=adjspd_ae_cons dbname="AdjSpd_AE_Cons" )
+ column=(type=decimal(1) updatewhereclause=yes name=confwaters_ae_cons dbname="ConfWaters_AE_Cons" )
+ column=(type=decimal(1) updatewhereclause=yes name=badwx_ae_cons dbname="BadWx_AE_Cons" )
+ column=(type=decimal(1) updatewhereclause=yes name=stoppage_ae_cons dbname="Stoppage_AE_Cons" )
+ column=(type=decimal(1) updatewhereclause=yes name=pumping_cons dbname="Pumping_Cons" )
+ column=(type=decimal(1) updatewhereclause=yes name=boiler_cons dbname="Boiler_Cons" )
+ column=(type=decimal(1) updatewhereclause=yes name=inerting_cons dbname="Inerting_Cons" )
+ column=(type=decimal(1) updatewhereclause=yes name=heatcool_cons dbname="HeatCool_Cons" )
+ column=(type=decimal(1) updatewhereclause=yes name=misc_cons dbname="Misc_Cons" )
+ retrieve="  SELECT (Case TPERF_REPORTS.TYPE When 0 Then ~"Dep~" When 1 Then ~"Daily~" When 2 Then ~"Arr~" End) as Report_Type,   
+         DateAdd(mi, ZONE * 60, TPERF_REPORTS.UTC) as SMT,   
+         TPERF_REPORTS.ZONE as Zone,   
+         Round(TPERF_REPORTS.LAT/60,6) as Latitude,   
+         Round(TPERF_REPORTS.LNG/60,6) as Longitude,   
+         TPERF_REPORTS.DTG as Dist_To_Go,   
+         TPERF_REPORTS.SEA as Sea_State,   
+         TPERF_REPORTS.WIND as  Wind_Force,   
+         TPERF_REPORTS.WIND_DIR as Wind_Direction,   
+         TPERF_REPORTS.DRAFT as Mean_Draft,   
+         TPERF_REPORTS.ETA as ETA,   
+         TPERF_REPORTS.STOPPAGE as Stoppage,
+         Sum(Case TPERF_SAILDATA.TYPE When 0 Then TPERF_SAILDATA.PERIOD Else 0 End) as FullSpd_ME_Period,
+         Sum(Case TPERF_SAILDATA.TYPE When 0 Then TPERF_SAILDATA.DIST Else 0 End) as FullSpd_ME_Distance,
+         Sum(Case TPERF_SAILDATA.TYPE When 0 Then MEHFO+MELSHFO+MEDO+MEGO Else 0 End) as FullSpd_ME_Cons,
+         Sum(Case TPERF_SAILDATA.TYPE When 1 Then TPERF_SAILDATA.PERIOD Else 0 End) as EcoSpd_ME_Period,
+         Sum(Case TPERF_SAILDATA.TYPE When 1 Then TPERF_SAILDATA.DIST Else 0 End) as EcoSpdD_ME_Distance,
+         Sum(Case TPERF_SAILDATA.TYPE When 1 Then MEHFO+MELSHFO+MEDO+MEGO Else 0 End) as EcoSpd_ME_Cons,
+         Sum(Case TPERF_SAILDATA.TYPE When 2 Then TPERF_SAILDATA.PERIOD Else 0 End) as AdjSpd_ME_Period,
+         Sum(Case TPERF_SAILDATA.TYPE When 2 Then TPERF_SAILDATA.DIST Else 0 End) as AdjSpd_ME_DIST,
+         Sum(Case TPERF_SAILDATA.TYPE When 2 Then MEHFO+MELSHFO+MEDO+MEGO Else 0 End) as AdjSpd_ME_Cons,
+         Sum(Case TPERF_SAILDATA.TYPE When 3 Then TPERF_SAILDATA.PERIOD Else 0 End) as ConfWaters_ME_Period,
+         Sum(Case TPERF_SAILDATA.TYPE When 3 Then TPERF_SAILDATA.DIST Else 0 End) as ConfWaters_ME_Distance,
+         Sum(Case TPERF_SAILDATA.TYPE When 3 Then MEHFO+MELSHFO+MEDO+MEGO Else 0 End) as ConfWaters_ME_Cons,
+         Sum(Case TPERF_SAILDATA.TYPE When 4 Then TPERF_SAILDATA.PERIOD Else 0 End) as BadWx_ME_Period,
+         Sum(Case TPERF_SAILDATA.TYPE When 4 Then TPERF_SAILDATA.DIST Else 0 End) as BadWx_ME_Distance,
+         Sum(Case TPERF_SAILDATA.TYPE When 4 Then MEHFO+MELSHFO+MEDO+MEGO Else 0 End) as BadWx_ME_Cons,
+         (Select Sum(QTY_HFO+QTY_LSHFO+QTY_DO+QTY_GO) from TPERF_REPCON Where REP_ID = TPERF_REPORTS.REP_ID And CONTYPE = 0) as FullSpd_AE_Cons,
+			   (Select Sum(QTY_HFO+QTY_LSHFO+QTY_DO+QTY_GO) from TPERF_REPCON Where REP_ID = TPERF_REPORTS.REP_ID And CONTYPE = 1) as EcoSpd_AE_Cons,
+				(Select Sum(QTY_HFO+QTY_LSHFO+QTY_DO+QTY_GO) from TPERF_REPCON Where REP_ID = TPERF_REPORTS.REP_ID And CONTYPE = 2) as AdjSpd_AE_Cons,
+				(Select Sum(QTY_HFO+QTY_LSHFO+QTY_DO+QTY_GO) from TPERF_REPCON Where REP_ID = TPERF_REPORTS.REP_ID And CONTYPE = 3) as ConfWaters_AE_Cons,
+				(Select Sum(QTY_HFO+QTY_LSHFO+QTY_DO+QTY_GO) from TPERF_REPCON Where REP_ID = TPERF_REPORTS.REP_ID And CONTYPE = 4) as BadWx_AE_Cons,
+				(Select Sum(QTY_HFO+QTY_LSHFO+QTY_DO+QTY_GO) from TPERF_REPCON Where REP_ID = TPERF_REPORTS.REP_ID And CONTYPE = 5) as Stoppage_AE_Cons,
+				(Select Sum(QTY_HFO+QTY_LSHFO+QTY_DO+QTY_GO) from TPERF_REPCON Where REP_ID = TPERF_REPORTS.REP_ID And CONTYPE = 13) as Pumping_Cons,
+				(Select Sum(QTY_HFO+QTY_LSHFO+QTY_DO+QTY_GO) from TPERF_REPCON Where REP_ID = TPERF_REPORTS.REP_ID And CONTYPE = 14) as Boiler_Cons,
+				(Select Sum(QTY_HFO+QTY_LSHFO+QTY_DO+QTY_GO) from TPERF_REPCON Where REP_ID = TPERF_REPORTS.REP_ID And CONTYPE = 15) as Inerting_Cons,
+				(Select Sum(QTY_HFO+QTY_LSHFO+QTY_DO+QTY_GO) from TPERF_REPCON Where REP_ID = TPERF_REPORTS.REP_ID And CONTYPE = 16) as HeatCool_Cons,
+				(Select Sum(QTY_HFO+QTY_LSHFO+QTY_DO+QTY_GO) from TPERF_REPCON Where REP_ID = TPERF_REPORTS.REP_ID And CONTYPE = 17) as Misc_Cons
+    FROM (TPERF_REPORTS LEFT OUTER JOIN TPERF_SAILDATA ON TPERF_SAILDATA.REP_ID = TPERF_REPORTS.REP_ID)
+   WHERE (TPERF_REPORTS.VOY_ID in (:VoyIDList))
+   GROUP BY TPERF_REPORTS.TYPE,
+         TPERF_REPORTS.UTC,   
+         TPERF_REPORTS.ZONE,   
+         TPERF_REPORTS.LAT,   
+         TPERF_REPORTS.LNG,   
+         TPERF_REPORTS.DTG,   
+         TPERF_REPORTS.SEA,   
+         TPERF_REPORTS.WIND,   
+         TPERF_REPORTS.WIND_DIR,   
+         TPERF_REPORTS.DRAFT,   
+         TPERF_REPORTS.ETA,   
+         TPERF_REPORTS.STOPPAGE
+   ORDER BY TPERF_REPORTS.VOY_ID, TPERF_REPORTS.SERIAL" arguments=(("VoyIDList", numberlist)) )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="8" height="64" width="133" format="[shortdate] [time]" html.valueishtml="0"  name=smt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="33554432" x="155" y="4" height="76" width="494" format="[general]" html.valueishtml="0"  name=tperf_reports_zone visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="33554432" x="663" y="4" height="76" width="453" format="[shortdate] [time]" html.valueishtml="0"  name=tperf_reports_eta visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="33554432" x="1129" y="4" height="76" width="549" format="[general]" html.valueishtml="0"  name=tperf_reports_stoppage visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="33554432" x="1701" y="4" height="64" width="306" format="[general]" html.valueishtml="0"  name=fullspd_me_period visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="1" tabsequence=32766 border="0" color="33554432" x="2057" y="4" height="64" width="233" format="[general]" html.valueishtml="0"  name=fullspd_me_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="0" color="33554432" x="2304" y="4" height="64" width="517" format="[general]" html.valueishtml="0"  name=ecospd_me_period visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="1" tabsequence=32766 border="0" color="33554432" x="2834" y="4" height="64" width="517" format="[general]" html.valueishtml="0"  name=ecospd_me_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="1" tabsequence=32766 border="0" color="33554432" x="3374" y="8" height="64" width="517" format="[general]" html.valueishtml="0"  name=adjspd_me_period visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="1" tabsequence=32766 border="0" color="33554432" x="3904" y="8" height="64" width="517" format="[general]" html.valueishtml="0"  name=adjspd_me_dist visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="1" tabsequence=32766 border="0" color="33554432" x="4434" y="12" height="64" width="517" format="[general]" html.valueishtml="0"  name=adjspd_me_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="1" tabsequence=32766 border="0" color="33554432" x="4969" y="12" height="64" width="517" format="[general]" html.valueishtml="0"  name=confwaters_me_period visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=24 alignment="1" tabsequence=32766 border="0" color="33554432" x="5499" y="12" height="64" width="517" format="[general]" html.valueishtml="0"  name=confwaters_me_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=25 alignment="1" tabsequence=32766 border="0" color="33554432" x="6039" y="12" height="64" width="517" format="[general]" html.valueishtml="0"  name=badwx_me_period visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=27 alignment="1" tabsequence=32766 border="0" color="33554432" x="6569" y="12" height="64" width="517" format="[general]" html.valueishtml="0"  name=badwx_me_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=28 alignment="0" tabsequence=32766 border="0" color="33554432" x="7099" y="8" height="64" width="517" format="[general]" html.valueishtml="0"  name=fullspd_ae_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=29 alignment="0" tabsequence=32766 border="0" color="33554432" x="7630" y="8" height="64" width="517" format="[general]" html.valueishtml="0"  name=ecospd_ae_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=30 alignment="0" tabsequence=32766 border="0" color="33554432" x="8160" y="8" height="64" width="517" format="[general]" html.valueishtml="0"  name=adjspd_ae_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=31 alignment="0" tabsequence=32766 border="0" color="33554432" x="8690" y="8" height="64" width="517" format="[general]" html.valueishtml="0"  name=confwaters_ae_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=32 alignment="0" tabsequence=32766 border="0" color="33554432" x="9221" y="8" height="64" width="430" format="[general]" html.valueishtml="0"  name=badwx_ae_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=33 alignment="0" tabsequence=32766 border="0" color="33554432" x="9669" y="12" height="64" width="517" format="[general]" html.valueishtml="0"  name=stoppage_ae_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=34 alignment="0" tabsequence=32766 border="0" color="33554432" x="10203" y="12" height="64" width="398" format="[general]" html.valueishtml="0"  name=pumping_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=35 alignment="0" tabsequence=32766 border="0" color="33554432" x="10615" y="12" height="64" width="306" format="[general]" html.valueishtml="0"  name=boiler_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=36 alignment="0" tabsequence=32766 border="0" color="33554432" x="10930" y="12" height="64" width="375" format="[general]" html.valueishtml="0"  name=inerting_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=37 alignment="0" tabsequence=32766 border="0" color="33554432" x="11319" y="12" height="64" width="416" format="[general]" html.valueishtml="0"  name=heatcool_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=38 alignment="0" tabsequence=32766 border="0" color="33554432" x="11744" y="12" height="64" width="306" format="[general]" html.valueishtml="0"  name=misc_cons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="12064" y="12" height="64" width="329" format="[general]" html.valueishtml="0"  name=report_type visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="33554432" x="12407" y="12" height="64" width="229" format="[general]" html.valueishtml="0"  name=latitude visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="33554432" x="12649" y="12" height="64" width="265" format="[general]" html.valueishtml="0"  name=longitude visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="33554432" x="12928" y="8" height="64" width="279" format="[general]" html.valueishtml="0"  name=dist_to_go visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="33554432" x="13216" y="8" height="64" width="283" format="[general]" html.valueishtml="0"  name=sea_state visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="33554432" x="13513" y="8" height="64" width="315" format="[general]" html.valueishtml="0"  name=wind_force visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="33554432" x="13842" y="8" height="64" width="402" format="[general]" html.valueishtml="0"  name=wind_direction visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="33554432" x="14258" y="8" height="64" width="334" format="[general]" html.valueishtml="0"  name=mean_draft visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="33554432" x="14606" y="8" height="64" width="517" format="[general]" html.valueishtml="0"  name=fullspd_me_distance visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="33554432" x="15131" y="8" height="64" width="517" format="[general]" html.valueishtml="0"  name=ecospdd_me_distance visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=23 alignment="0" tabsequence=32766 border="0" color="33554432" x="15657" y="8" height="64" width="517" format="[general]" html.valueishtml="0"  name=confwaters_me_distance visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=26 alignment="0" tabsequence=32766 border="0" color="33554432" x="16187" y="12" height="64" width="517" format="[general]" html.valueishtml="0"  name=badwx_me_distance visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

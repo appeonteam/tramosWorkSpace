@@ -1,0 +1,15 @@
+﻿$PBExportHeader$dw_ports_list.srd
+$PBExportComments$This Datawindow lists all the ports registered in the system. It lists them, ordered by port code.
+release 4;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=57 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=73 color="536870912" )
+table(column=(type=char(10) update=yes key=yes name=port_code dbname="PORTS.PORT_CODE" )
+ column=(type=char(35) update=yes name=port_n dbname="PORTS.PORT_N" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"PORTS~" ) COLUMN(NAME=~"PORTS.PORT_CODE~") COLUMN(NAME=~"PORTS.PORT_N~")WHERE( EXP1 =~"PORTS.PORT_CODE~" OP =~"<>~" EXP2 =~"' '~" ) ) ORDER(NAME=~"PORTS.PORT_CODE~" ASC=yes ) ORDER(NAME=~"PORTS.PORT_N~" ASC=yes ) " update="PORTS" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="0" text="Code"border="0" color="0" x="19" y="4" height="57" width="133"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Name"border="0" color="0" x="366" y="4" height="57" width="142"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="4" height="57" width="302" format="[general]"  name=port_code edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="366" y="4" height="57" width="988" format="[general]"  name=port_n edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

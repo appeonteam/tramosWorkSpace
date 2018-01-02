@@ -1,0 +1,10 @@
+﻿$PBExportHeader$s_port_codes.srs
+$PBExportComments$Ports and via points
+global type s_port_codes from structure
+    string from_port_code
+    string via_1
+    string via_2
+    string via_3
+    string to_port_code
+end type
+

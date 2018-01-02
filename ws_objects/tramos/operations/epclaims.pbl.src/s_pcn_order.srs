@@ -1,0 +1,12 @@
+﻿$PBExportHeader$s_pcn_order.srs
+$PBExportComments$Used to sort identical ports, and numbering them.
+global type s_pcn_order from structure
+    boolean load_used
+    boolean disch_used
+    string port
+    integer pcn
+    string purpose
+    datetime dato
+    integer agent
+end type
+

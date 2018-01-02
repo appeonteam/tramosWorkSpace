@@ -1,0 +1,12 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "specialclaimmonitor.pbl" "";
+@end;
+@begin Objects 
+ "specialclaimmonitor.sra" "specialclaimmonitor.pbl";
+ "d_sq_tb_claims_actions.srd" "specialclaimmonitor.pbl";
+ "d_task_duedate_monitor.srd" "specialclaimmonitor.pbl";
+ "d_timebar_monitor.srd" "specialclaimmonitor.pbl";
+ "p_specialclaimmonitor.srj" "specialclaimmonitor.pbl";
+ "n_specialclaimmonitor.sru" "specialclaimmonitor.pbl";
+@end;

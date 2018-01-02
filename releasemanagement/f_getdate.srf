@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_getdate.srf
+global type f_getdate from function_object
+end type
+
+forward prototypes
+global function datetime f_getdate ()
+end prototypes
+
+global function datetime f_getdate ();
+datetime ldt_return
+
+SELECT WHATTIME
+	INTO :ldt_return
+FROM (SELECT GETDATE() AS WHATTIME) A;
+
+return ldt_return
+end function
+

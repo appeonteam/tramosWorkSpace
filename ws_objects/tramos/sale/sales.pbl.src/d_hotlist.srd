@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_hotlist.srd
+$PBExportComments$Lists action status from date as given.
+release 5;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=57 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=73 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=ccs_acts_ccs_acts_sts_d dbname="CCS_ACTS.CCS_ACTS_STS_D" )
+ column=(type=char(32766) updatewhereclause=yes name=ccs_acts_ccs_acts_sts_desc dbname="CCS_ACTS.CCS_ACTS_STS_DESC" )
+ column=(type=char(20) updatewhereclause=yes name=ccs_targ_userid dbname="CCS_TARG.USERID" )
+ column=(type=decimal(0) updatewhereclause=yes name=ccs_acts_ccs_acts_pk dbname="CCS_ACTS.CCS_ACTS_PK" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_ACTS~" ) TABLE(NAME=~"CCS_TARG~" ) COLUMN(NAME=~"CCS_ACTS.CCS_ACTS_STS_D~") COLUMN(NAME=~"CCS_ACTS.CCS_ACTS_STS_DESC~") COLUMN(NAME=~"CCS_TARG.USERID~") COLUMN(NAME=~"CCS_ACTS.CCS_ACTS_PK~") JOIN (LEFT=~"CCS_TARG.CCS_TARG__PK~" OP =~"=~"RIGHT=~"CCS_ACTS.CCS_TARG__PK~" ) HAVING ( EXP1 =~"CCS_ACTS.CCS_ACTS_STS_D~" OP =~">=~" EXP2 =~":date~" )) ORDER(NAME=~"CCS_ACTS.CCS_ACTS_STS_D~" ASC=yes ) ARG(NAME = ~"date~" TYPE = datetime) " arguments=(("date", datetime)) )
+text(band=header alignment="0" text="Status Description"border="0" color="0" x="476" y="4" height="57" width="462"  name=ccs_acts_ccs_acts_sts_desc_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Date Completed"border="0" color="0" x="19" y="4" height="57" width="403"  name=ccs_acts_ccs_acts_sts_d_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Sales Person"border="0" color="0" x="1774" y="4" height="57" width="334"  name=ccs_targ_userid_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="4" height="65" width="202" format="dd-mm-yy [time]"  name=ccs_acts_ccs_acts_sts_d  tag="The date the action is done" editmask.mask="dd-mm-yy" editmask.focusrectangle=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="476" y="4" height="65" width="1299" format="[general]"  name=ccs_acts_ccs_acts_sts_desc  tag=" " edit.limit=32000 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1793" y="4" height="65" width="147" format="[general]"  name=ccs_targ_userid  tag=" " edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

@@ -1,0 +1,31 @@
+﻿$PBExportHeader$s_vas_data.srs
+$PBExportComments$Structure used in u_vas_fix_calc_est_data.
+global type s_vas_data from structure
+	decimal { 2 }		gross_freight
+	decimal { 2 }		demurrage
+	decimal { 2 }		broker_commission
+	decimal { 2 }		port_expenses
+	decimal { 2 }		bunker_expenses
+	decimal { 2 }		misc_expenses
+	decimal { 2 }		drc
+	decimal { 2 }		loading_days
+	decimal { 2 }		discharge_days
+	decimal { 2 }		load_discharge_days
+	decimal { 2 }		bunkering_days
+	decimal { 2 }		canal_days
+	decimal { 2 }		docking_days
+	decimal { 2 }		loaded_days
+	decimal { 2 }		ballast_days
+	decimal { 2 }		other_days
+	decimal { 2 }		idle_days
+	decimal { 4 }		off_service_days
+	decimal { 2 }		hfo_ton
+	decimal { 2 }		hfo_expenses
+	decimal { 2 }		do_ton
+	decimal { 2 }		do_expenses
+	decimal { 2 }		go_ton
+	decimal { 2 }		go_expenses
+	decimal { 2 }		lshfo_ton
+	decimal { 2 }		lshfo_expenses
+end type
+

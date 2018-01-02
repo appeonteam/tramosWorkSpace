@@ -1,0 +1,28 @@
+﻿$PBExportHeader$f_system_tables.srf
+$PBExportComments$Wrapper function for calling the w_select_from_list window
+global type f_system_tables from function_object
+end type
+
+forward prototypes
+global subroutine f_system_tables (string dw, integer search_column_1, string search_column_1_text, integer search_column_2, string search_column_2_text, integer return_column, string window_title, string window_name)
+end prototypes
+
+global subroutine f_system_tables (string dw, integer search_column_1, string search_column_1_text, integer search_column_2, string search_column_2_text, integer return_column, string window_title, string window_name);s_search_window  lstr_parametre
+string ls_returnvalue
+
+lstr_parametre.dw = dw
+lstr_parametre.search_column_1 = search_column_1
+lstr_parametre.search_column_1_text = search_column_1_text
+lstr_parametre.search_column_2 = search_column_2
+lstr_parametre.search_column_2_text = search_column_2_text
+lstr_parametre.return_column = return_column
+lstr_parametre.window_title = window_title
+lstr_parametre.win = window_name 
+
+window sheets
+OpenSheetWithParm(sheets, lstr_parametre,"w_select_from_list", w_tramos_main, gi_win_pos,Original!)
+//OpenWithParm(w_select_from_list, lstr_parametre)
+//ls_returnvalue = message.StringParm
+return 
+end subroutine
+

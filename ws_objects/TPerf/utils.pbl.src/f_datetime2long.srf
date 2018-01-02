@@ -1,0 +1,28 @@
+﻿$PBExportHeader$f_datetime2long.srf
+$PBExportComments$Converts datetime to seconds after 1-1-2000
+global type f_datetime2long from function_object
+end type
+
+forward prototypes
+global function long f_datetime2long (datetime a_dt)
+end prototypes
+
+global function long f_datetime2long (datetime a_dt);/* This function converts a datetime variable to
+	number of seconds after 1. january 1990, and 
+	returns a long 
+*/
+long ll_days
+long ll_secs
+long ll_second
+
+IF IsNull(a_dt) THEN RETURN -1
+
+ll_days = daysafter(date(1990,01,01),date(a_dt))
+ll_secs = secondsafter(time(0,0,0,0),time(a_dt))
+
+ll_second = ll_days*86400 + ll_secs   /* 86400 = 60*60*24 */
+
+RETURN ll_second 
+
+end function
+

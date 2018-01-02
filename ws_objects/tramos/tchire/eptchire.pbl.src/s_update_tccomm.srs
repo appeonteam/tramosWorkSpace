@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_update_tccomm.srs
+$PBExportComments$Structure used when updating TC hire commission
+global type s_update_tccomm from structure
+    datetime com_dt[]
+    datetime upd_dt[]
+    integer stop_point[]
+end type
+

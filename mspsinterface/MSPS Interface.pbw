@@ -1,0 +1,8 @@
+Save Format v3.0(19990112)
+@begin Unchecked
+@end;
+@begin Targets
+ 0 "msps_interface.pbt";
+@end;
+DefaultTarget "msps_interface.pbt";
+DefaultRemoteTarget "msps_interface.pbt";

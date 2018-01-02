@@ -1,0 +1,23 @@
+﻿$PBExportHeader$ws_tramosservice.srx
+$PBExportComments$Proxy imported from Web service using Web Service Proxy Generator.
+global type ws_TramosService from NonVisualObject
+end type
+
+type variables
+Protected:
+        string pbws_ver = ".NET"
+        string cs_namespace = "WebService"
+        string cs_class = "TramosService"
+        string cs_assembly = "websiteproxy_general.dll"
+        string pb_prefix = "ws_"
+        string pb_usenvo = "YES"
+        string pb_target = "c:\tramosws\websiteinterface"
+end variables
+
+forward prototypes
+public:
+function string UpdatePosition(  string xml) alias for "<method name='UpdatePosition' ns='WebService' pbname='UpdatePosition'><return name='returnvalue' type='System.String' isRef='False' ArrayDim='0' IsNullableType='False' /><param name='xml' type='System.String' pos='0' dir='in' ArrayDim='0' IsNullableType='False'/></method>"
+function string UpdateFleet(  string xml) alias for "<method name='UpdateFleet' ns='WebService' pbname='UpdateFleet'><return name='returnvalue' type='System.String' isRef='False' ArrayDim='0' IsNullableType='False' /><param name='xml' type='System.String' pos='0' dir='in' ArrayDim='0' IsNullableType='False'/></method>"
+subroutine CancelAsync (  any userState) alias for "<method name='CancelAsync' ns='WebService' pbname='CancelAsync'><param name='userState' type='System.Object' pos='0' dir='in' ArrayDim='0' IsNullableType='False'/></method>"
+end prototypes
+

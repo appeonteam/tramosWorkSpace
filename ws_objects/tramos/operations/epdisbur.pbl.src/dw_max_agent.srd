@@ -1,0 +1,14 @@
+﻿$PBExportHeader$dw_max_agent.srd
+$PBExportComments$This datawindow lists the agents that are on an expense ~r~nreport. The dw is on the print window.
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=number updatewhereclause=yes name=sum_usd dbname="compute_0001" )
+ column=(type=char(35) updatewhereclause=yes name=agents_agent_n_1 dbname="AGENTS.AGENT_N_1" )
+ retrieve="PBSELECT( VERSION(400) DISTINCT ()TABLE(NAME=~"DISB_EXPENSES~" ) TABLE(NAME=~"AGENTS~" ) COMPUTE(NAME=~"sum(DISB_EXPENSES.EXP_AMOUNT_USD)~") COLUMN(NAME=~"AGENTS.AGENT_N_1~") JOIN (LEFT=~"DISB_EXPENSES.AGENT_NR~" OP =~"=~"RIGHT=~"AGENTS.AGENT_NR~" )WHERE( EXP1 =~"DISB_EXPENSES.VESSEL_NR~" OP =~"=~" EXP2 =~":vessel_nr~" LOGIC =~"and~" ) WHERE( EXP1 =~"DISB_EXPENSES.VOYAGE_NR~" OP =~"=~" EXP2 =~":voyage_nr~" LOGIC =~"and~" ) WHERE( EXP1 =~"DISB_EXPENSES.PORT_CODE~" OP =~"=~" EXP2 =~":port_code~" LOGIC =~"and~" ) WHERE( EXP1 =~"DISB_EXPENSES.PCN~" OP =~"=~" EXP2 =~":pcn~" ) GROUP(NAME=~"DISB_EXPENSES.VESSEL_NR~") GROUP(NAME=~"DISB_EXPENSES.VOYAGE_NR~") GROUP(NAME=~"DISB_EXPENSES.PORT_CODE~") GROUP(NAME=~"DISB_EXPENSES.PCN~") GROUP(NAME=~"AGENTS.AGENT_N_1~")) ORDER(NAME=~"1~" ASC=no) ARG(NAME = ~"vessel_nr~" TYPE = number) ARG(NAME = ~"voyage_nr~" TYPE = string) ARG(NAME = ~"port_code~" TYPE = string) ARG(NAME = ~"pcn~" TYPE = number) " arguments=(("vessel_nr", number),("voyage_nr", string),("port_code", string),("pcn", number)) )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="56" width="677" format="[general]"  name=agents_agent_n_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="695" y="4" height="56" width="361" format="#,##0.00"  name=sum_usd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

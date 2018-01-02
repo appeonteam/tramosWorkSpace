@@ -1,0 +1,17 @@
+﻿$PBExportHeader$d_acts_keys.srd
+$PBExportComments$This datawindow list all keycodes for a selected action.
+release 4;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=57 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=73 color="536870912" )
+table(column=(type=char(10) name=ccs_keyc_ccs_keyc_code dbname="CCS_KEYC.CCS_KEYC_CODE" )
+ column=(type=char(35) name=ccs_keyc_ccs_keyc_desc dbname="CCS_KEYC.CCS_KEYC_DESC" )
+ column=(type=decimal(0) update=yes key=yes name=action_keycodes_ccs_keyc_pk dbname="ACTION_KEYCODES.CCS_KEYC_PK" )
+ column=(type=decimal(0) update=yes key=yes name=action_keycodes_ccs_acts_pk dbname="ACTION_KEYCODES.CCS_ACTS_PK" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"ACTION_KEYCODES~" ) TABLE(NAME=~"CCS_KEYC~" ) COLUMN(NAME=~"CCS_KEYC.CCS_KEYC_CODE~") COLUMN(NAME=~"CCS_KEYC.CCS_KEYC_DESC~") COLUMN(NAME=~"ACTION_KEYCODES.CCS_KEYC_PK~") COLUMN(NAME=~"ACTION_KEYCODES.CCS_ACTS_PK~") JOIN (LEFT=~"CCS_KEYC.CCS_KEYC_PK~" OP =~"=~"RIGHT=~"ACTION_KEYCODES.CCS_KEYC_PK~" )WHERE( EXP1 =~"ACTION_KEYCODES.CCS_ACTS_PK~" OP =~"=~" EXP2 =~":action_num~" ) ) ARG(NAME = ~"action_num~" TYPE = number) " update="ACTION_KEYCODES" updatewhere=1 updatekeyinplace=yes arguments=(("action_num", number)) )
+text(band=header alignment="0" text="Key Code"border="0" color="0" x="19" y="4" height="57" width="238"  name=ccs_keyc_ccs_keyc_code_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Description"border="0" color="0" x="330" y="4" height="57" width="289"  name=ccs_keyc_ccs_keyc_desc_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="65" width="302" format="[general]"  name=ccs_keyc_ccs_keyc_code  tag="Keycode Code max 5 charaters" edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="330" y="4" height="65" width="988" format="[general]"  name=ccs_keyc_ccs_keyc_desc  tag="Description of keycode" edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

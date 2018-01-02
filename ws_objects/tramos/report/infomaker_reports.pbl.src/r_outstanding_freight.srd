@@ -1,0 +1,201 @@
+﻿$PBExportHeader$r_outstanding_freight.srd
+release 17;
+datawindow(units=3 timer_interval=0 color=16777215 brushmode=0 transparency=0 gradient.angle=0 gradient.color=8421504 gradient.focus=0 gradient.repetition.count=0 gradient.repetition.length=100 gradient.repetition.mode=0 gradient.scale=100 gradient.spread=100 gradient.transparency=0 picture.blur=0 picture.clip.bottom=0 picture.clip.left=0 picture.clip.right=0 picture.clip.top=0 picture.mode=0 picture.scale.x=100 picture.scale.y=100 picture.transparency=0 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 635 print.margin.right = 635 print.margin.top = 635 print.margin.bottom = 635 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.background=no print.preview.background=no print.preview.outline=yes hidegrayline=no showbackcoloronxp=no picture.file="" )
+header(height=1243 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+summary(height=767 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+footer(height=582 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+detail(height=661 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+table(column=(type=long updatewhereclause=yes name=claims_vessel_nr dbname="CLAIMS.VESSEL_NR" dbalias=".VESSEL_NR" )
+ column=(type=char(5) updatewhereclause=yes name=vessels_vessel_ref_nr dbname="VESSELS.VESSEL_REF_NR" dbalias=".VESSEL_REF_NR" )
+ column=(type=char(50) updatewhereclause=yes name=vessels_vessel_name dbname="VESSELS.VESSEL_NAME" dbalias=".VESSEL_NAME" )
+ column=(type=char(7) updatewhereclause=yes name=claims_voyage_nr dbname="CLAIMS.VOYAGE_NR" dbalias=".VOYAGE_NR" )
+ column=(type=long updatewhereclause=yes name=claims_claim_nr dbname="CLAIMS.CLAIM_NR" dbalias=".CLAIM_NR" )
+ column=(type=char(4) updatewhereclause=yes name=claims_claim_type dbname="CLAIMS.CLAIM_TYPE" dbalias=".CLAIM_TYPE" )
+ column=(type=char(40) updatewhereclause=yes name=claims_created_by dbname="CLAIMS.CREATED_BY" dbalias=".CREATED_BY" )
+ column=(type=long updatewhereclause=yes name=claims_chart_nr dbname="CLAIMS.CHART_NR" dbalias=".CHART_NR" )
+ column=(type=char(70) updatewhereclause=yes name=chart_chart_n_1 dbname="CHART.CHART_N_1" dbalias=".CHART_N_1" )
+ column=(type=char(20) updatewhereclause=yes name=chart_nom_acc_nr dbname="CHART.NOM_ACC_NR" dbalias=".NOM_ACC_NR" )
+ column=(type=long updatewhereclause=yes name=claims_broker_nr dbname="CLAIMS.BROKER_NR" dbalias=".BROKER_NR" )
+ column=(type=char(35) updatewhereclause=yes name=brokers_broker_name dbname="BROKERS.BROKER_NAME" dbalias=".BROKER_NAME" )
+ column=(type=number updatewhereclause=yes name=out_amount_usd dbname="OUT_AMOUNT_USD" )
+ column=(type=long updatewhereclause=yes name=vessels_pc_nr dbname="VESSELS.PC_NR" dbalias=".PC_NR" )
+ column=(type=datetime updatewhereclause=yes name=claims_forwarding_date dbname="CLAIMS.FORWARDING_DATE" dbalias=".FORWARDING_DATE" )
+ column=(type=datetime updatewhereclause=yes name=disch_date dbname="DISCH_DATE" )
+ column=(type=datetime updatewhereclause=yes name=claims_cp_date dbname="CLAIMS.CP_DATE" dbalias=".CP_DATE" )
+ column=(type=long updatewhereclause=yes name=claims_office_nr dbname="CLAIMS.OFFICE_NR" dbalias=".OFFICE_NR" )
+ column=(type=long updatewhereclause=yes name=claims_claim_sent dbname="CLAIMS.CLAIM_SENT" dbalias=".CLAIM_SENT" )
+ column=(type=datetime updatewhereclause=yes name=claims_claim_sent_date dbname="CLAIMS.CLAIM_SENT_DATE" dbalias=".CLAIM_SENT_DATE" )
+ column=(type=decimal(2) updatewhereclause=yes name=original_amount_in_usd dbname="ORIGINAL_AMOUNT_IN_USD" )
+ column=(type=long updatewhereclause=yes name=claims_broker_confirmed dbname="CLAIMS.BROKER_CONFIRMED" dbalias=".BROKER_CONFIRMED" )
+ column=(type=datetime updatewhereclause=yes name=claims_broker_confirmed_date dbname="CLAIMS.BROKER_CONFIRMED_DATE" dbalias=".BROKER_CONFIRMED_DATE" )
+ column=(type=long updatewhereclause=yes name=claims_charterer_confirmed dbname="CLAIMS.CHARTERER_CONFIRMED" dbalias=".CHARTERER_CONFIRMED" )
+ column=(type=datetime updatewhereclause=yes name=claims_charterer_confirmed_date dbname="CLAIMS.CHARTERER_CONFIRMED_DATE" dbalias=".CHARTERER_CONFIRMED_DATE" )
+ column=(type=char(20) updatewhereclause=yes name=status dbname="STATUS" )
+ column=(type=datetime updatewhereclause=yes name=claims_status_date dbname="CLAIMS.STATUS_DATE" dbalias=".STATUS_DATE" )
+ column=(type=char(50) updatewhereclause=yes name=claims_claim_email dbname="CLAIMS.CLAIM_EMAIL" dbalias=".CLAIM_EMAIL" )
+ column=(type=char(1500) updatewhereclause=yes name=claims_claim_comment dbname="CLAIMS.CLAIM_COMMENT" dbalias=".CLAIM_COMMENT" )
+ retrieve="SELECT CLAIMS.VESSEL_NR,
+       VESSELS.VESSEL_REF_NR,   
+       VESSELS.VESSEL_NAME,   
+       CLAIMS.VOYAGE_NR,   
+       CLAIMS.CLAIM_NR,   
+       CLAIMS.CLAIM_TYPE,   
+       CLAIMS.CREATED_BY,
+       CLAIMS.CHART_NR,  
+       CHART.CHART_N_1,
+       CHART.NOM_ACC_NR,  
+       CLAIMS.BROKER_NR,
+       BROKERS.BROKER_NAME,
+       round(CLAIMS.CLAIM_AMOUNT, 2) * 
+       (
+		 dbo.FN_GET_EXCHANGERATE(
+			CAL_CARG_CURRENCY.DEM_CURR_CODE,
+			CAL_CARG_CURRENCY.SET_EXRATE,
+			CAL_CARG_CURRENCY.DEM_EXRATE,
+			CAL_CARG_CURRENCY.FREIGHT_EXRATE,
+			CAL_CARG_CURRENCY.FREIGHT_CURR_CODE,
+			CLAIMS.CLAIM_TYPE,
+			CLAIMS.CURR_CODE,
+			LATEST_EXCHANGE_RATE.EXRATE_USD) / 100.0
+		 ) as OUT_AMOUNT_USD,
+       VESSELS.PC_NR,
+       CLAIMS.FORWARDING_DATE,
+      ACTEST_POC.DISCHARGE_DATE AS DISCH_DATE,
+       CLAIMS.CP_DATE,
+       CLAIMS.OFFICE_NR,
+       CLAIMS.CLAIM_SENT,
+       CLAIMS.CLAIM_SENT_DATE,
+       convert(decimal(12, 2), (select SENT_AMOUNT
+          from CLAIM_SENT
+         where CLAIM_SENT.CHART_NR = CLAIMS.CHART_NR 
+           and CLAIM_SENT.VESSEL_NR = CLAIMS.VESSEL_NR 
+           and CLAIM_SENT.VOYAGE_NR = CLAIMS.VOYAGE_NR 
+           and CLAIM_SENT.CLAIM_NR = CLAIMS.CLAIM_NR 
+         group by CLAIM_SENT.CHART_NR, CLAIM_SENT.VESSEL_NR, CLAIM_SENT.VOYAGE_NR, CLAIM_SENT.CLAIM_NR
+        having SENT_NR = min(SENT_NR)) *
+       (
+		 dbo.FN_GET_EXCHANGERATE(
+			CAL_CARG_CURRENCY.DEM_CURR_CODE,
+			CAL_CARG_CURRENCY.SET_EXRATE,
+			CAL_CARG_CURRENCY.DEM_EXRATE,
+			CAL_CARG_CURRENCY.FREIGHT_EXRATE,
+			CAL_CARG_CURRENCY.FREIGHT_CURR_CODE,
+			CLAIMS.CLAIM_TYPE,
+			CLAIMS.CURR_CODE,
+			LATEST_EXCHANGE_RATE.EXRATE_USD) / 100.0
+		 )) as ORIGINAL_AMOUNT_IN_USD,
+       CLAIMS.BROKER_CONFIRMED,
+       CLAIMS.BROKER_CONFIRMED_DATE,
+       CLAIMS.CHARTERER_CONFIRMED,
+       CLAIMS.CHARTERER_CONFIRMED_DATE,
+       CLAIMS.[STATUS],
+       CLAIMS.STATUS_DATE,
+       CLAIMS.CLAIM_EMAIL,
+       CLAIMS.CLAIM_COMMENT
+ FROM  CLAIMS LEFT JOIN (SELECT PROCEED.VOYAGE_NR, PROCEED.VESSEL_NR ,MAX(ISNULL(POC.PORT_DEPT_DT, POC_EST.PORT_DEPT_DT)) DISCHARGE_DATE
+                               FROM PROCEED 
+                               LEFT JOIN POC ON PROCEED.VESSEL_NR = POC.VESSEL_NR AND PROCEED.VOYAGE_NR = POC.VOYAGE_NR AND PROCEED.PORT_CODE = POC.PORT_CODE AND PROCEED.PCN = POC.PCN 
+                               LEFT JOIN POC_EST ON PROCEED.VESSEL_NR = POC_EST.VESSEL_NR AND PROCEED.VOYAGE_NR = POC_EST.VOYAGE_NR AND PROCEED.PORT_CODE = POC_EST.PORT_CODE AND PROCEED.PCN = POC_EST.PCN
+                               WHERE (POC.PURPOSE_CODE IN('D','L/D') OR POC_EST.PURPOSE_CODE IN ('D', 'L/D') ) AND (POC.PORT_DEPT_DT IS NOT NULL OR POC_EST.PORT_DEPT_DT IS NOT NULL) 
+                               GROUP BY PROCEED.VESSEL_NR, PROCEED.VOYAGE_NR
+                               ) ACTEST_POC ON ACTEST_POC.VESSEL_NR = CLAIMS.VESSEL_NR AND ACTEST_POC.VOYAGE_NR = CLAIMS.VOYAGE_NR
+		 LEFT JOIN BROKERS ON CLAIMS.BROKER_NR = BROKERS.BROKER_NR
+       INNER JOIN VOYAGES ON (VOYAGES.VESSEL_NR = CLAIMS.VESSEL_NR AND VOYAGES.VOYAGE_NR = CLAIMS.VOYAGE_NR)
+		 LEFT JOIN CAL_CARG_CURRENCY ON (CAL_CARG_CURRENCY.CAL_CERP_ID = CLAIMS.CAL_CERP_ID AND CAL_CARG_CURRENCY.CAL_CALC_ID = VOYAGES.CAL_CALC_ID)
+		 LEFT JOIN LATEST_EXCHANGE_RATE ON (LATEST_EXCHANGE_RATE.CURR_CODE = CLAIMS.CURR_CODE),
+       VESSELS,
+       CHART
+ WHERE (CLAIMS.VESSEL_NR = VESSELS.VESSEL_NR) AND  
+       (CLAIMS.CHART_NR = CHART.CHART_NR) AND    
+       (CLAIMS.INVOICE_NR is not null) AND
+       (CLAIMS.CLAIM_AMOUNT > 0) AND
+       (substring(CLAIMS.VOYAGE_NR,1,2) <> '95') AND
+       (CLAIMS.CLAIM_TYPE = 'FRT') AND 
+       (VESSELS.PC_NR in (:Profitcenter_s)) AND  
+       (:ai_flag = 1 OR CLAIMS.CLAIM_RESPONSIBLE = :as_analysis) AND
+       (ACTEST_POC.DISCHARGE_DATE < :ad_start_date)  
+
+UNION
+
+SELECT NTC_TC_CONTRACT.VESSEL_NR,
+       VESSELS.VESSEL_REF_NR ,
+       VESSELS.VESSEL_NAME,
+       'TC',
+       null,
+       '',
+       (SELECT USERS.FIRST_NAME+' '+USERS.LAST_NAME USERNAME 
+										  FROM TRANS_LOG_MAIN_A,USERS
+										WHERE  NTC_PAYMENT.PAYMENT_ID = TRANS_LOG_MAIN_A.PAYMENT_ID 
+                                                 AND NTC_PAYMENT.TRANS_TO_CODA = 1
+								             AND TRANS_LOG_MAIN_A.TRANS_TYPE = ~"TCCODARec~"
+                                                 AND F41_LINEDESR = 'TC Hire Receivable'
+										    AND TRANS_LOG_MAIN_A.TRANS_USER = USERS.USERID),
+       NTC_TC_CONTRACT.CHART_NR,
+       CHART.CHART_N_1,
+       CHART.NOM_ACC_NR,
+       null, 
+       '',  
+       convert(decimal(12, 2),NTC_PAYMENT.PAYMENT_BALANCE * isnull(NTC_PAYMENT.EX_RATE_USD / 100, (select CONVERT(decimal(12, 6), EXRATE_USD/100) from LATEST_EXCHANGE_RATE where CURR_CODE = NTC_TC_CONTRACT.CURR_CODE))) as OUT_AMOUNT_USD,
+       VESSELS.PC_NR,
+       null,
+       NTC_PAYMENT.EST_DUE_DATE as DISCH_DATE,
+       NTC_TC_CONTRACT.TC_HIRE_CP_DATE,
+       NTC_TC_CONTRACT.OFFICE_NR,
+       0,
+       null,
+       convert(decimal(12, 2),(NTC_PAYMENT.PAYMENT_BALANCE + (select ISNULL(SUM(PS1.SETTLE_AMOUNT), 0) from NTC_PAYMENT_SETTLED_AMOUNT PS1 where PS1.PAYMENT_ID = NTC_PAYMENT.PAYMENT_ID)) * 
+       isnull(NTC_PAYMENT.EX_RATE_USD / 100, (select CONVERT(decimal(12, 6), EXRATE_USD/100) from LATEST_EXCHANGE_RATE where CURR_CODE = NTC_TC_CONTRACT.CURR_CODE))) AS ORIGINAL_AMOUNT_IN_USD, 
+       0,
+       null,
+       0,
+       null,
+       null,
+       null,
+       null,
+       NTC_TC_CONTRACT.[COMMENTS]
+  FROM CHART,
+       NTC_PAYMENT,
+       NTC_TC_CONTRACT,
+       VESSELS
+ WHERE NTC_TC_CONTRACT.CONTRACT_ID = NTC_PAYMENT.CONTRACT_ID AND
+       NTC_TC_CONTRACT.CHART_NR = CHART.CHART_NR AND
+       VESSELS.VESSEL_NR = NTC_TC_CONTRACT.VESSEL_NR AND
+       NTC_TC_CONTRACT.TC_HIRE_IN = 0 AND
+       NTC_PAYMENT.PAYMENT_BALANCE <> 0 AND
+	   VESSELS.PC_NR in (:Profitcenter_s) AND
+       (:ai_flag = 1 OR dbo.FN_GET_PAYMENT_LASTSENTUSER(PAYMENT_ID) = :as_analysis) AND
+       NTC_PAYMENT.EST_DUE_DATE < :ad_start_date
+" filter="out_amount_usd > 1"arguments=(("ad_start_date", date),("Profitcenter_s", numberlist),("as_analysis", string),("ai_flag", number))  sort="disch_date A " )
+text(band=header alignment="2" text="Vessel " border="0" color="33554432" x="1905" y="635" height="423" width="1164" html.valueishtml="0"  name=claims_vessel_nr_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="1" text="OUTSTANDING FREIGHTS" border="0" color="33554432" x="6588" y="26" height="476" width="5080" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-11" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Created By" border="0" color="33554432" x="12461" y="635" height="423" width="1719" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Amount USD" border="0" color="33554432" x="14948" y="635" height="423" width="2010" html.valueishtml="0"  name=claims_claim_amount_usd_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="0" text="Acct No" border="0" color="0" x="10900" y="635" height="423" width="1243" html.valueishtml="0"  name=chart_nom_acc_nr_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Voyage" border="0" color="33554432" x="4339" y="635" height="423" width="1164" html.valueishtml="0"  name=claims_voyage_nr_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="C/P Date" border="0" color="33554432" x="5662" y="661" height="423" width="1402" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Charterer" border="0" color="33554432" x="8175" y="635" height="423" width="1402" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="1" text="Discharge Date" border="0" color="33554432" x="17197" y="635" height="423" width="2354" html.valueishtml="0"  name=claims_discharge_date_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+line(band=header x1="0" y1="1164" x2="19526" y2="1164"  name=l_1 visible="1" pen.style="0" pen.width="52" pen.color="33554432"  background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="1031" y="26" height="502" width="3042" format="[general]" html.valueishtml="0"  name=vessels_vessel_name visible="1" edit.limit=50 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="158" y="26" height="502" width="1190" format="[general]" html.valueishtml="0"  name=claims_vessel_nr visible="0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="158" y="26" height="502" width="1190" format="[general]" html.valueishtml="0"  name=vessels_vessel_ref_nr visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="33554432" x="12117" y="26" height="502" width="2487" format="[general]" html.valueishtml="0"  name=claims_created_by visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="33554432" x="10795" y="26" height="502" width="1243" format="[general]" html.valueishtml="0"  name=chart_nom_acc_nr visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="33554432" x="14684" y="26" height="502" width="2540" format="#,##0.00" html.valueishtml="0"  name=out_amount_usd visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=16 alignment="2" tabsequence=32766 border="0" color="33554432" x="17303" y="26" height="502" width="2248" format="dd-mm-yy" html.valueishtml="0"  name=disch_date visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="33554432" x="5556" y="26" height="502" width="1481" format="dd-mm-yy" html.valueishtml="0"  name=claims_cp_date visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="33554432" x="4206" y="26" height="502" width="1322" format="[general]" html.valueishtml="0"  name=claims_voyage_nr visible="1" edit.limit=7 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="33554432" x="7090" y="26" height="502" width="3704" format="[general]" html.valueishtml="0"  name=chart_chart_n_1 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+line(band=summary x1="14684" y1="106" x2="17224" y2="106"  name=l_2 visible="1" pen.style="0" pen.width="52" pen.color="33554432"  background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" )
+compute(band=summary alignment="1" expression="sum((out_amount_usd)  for all) "border="0" color="33554432" x="14710" y="212" height="502" width="2540" format="#,##0.00" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=footer alignment="0" expression="today()"border="0" color="33554432" x="291" y="53" height="476" width="1905" format="dd-mm-yy" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-11" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" nativepdf.customsize=0 nativepdf.customorientation=0 )
+export.xhtml()

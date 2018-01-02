@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_tc_periode_income.srs
+$PBExportComments$Structure used to pass parameters from TC periode to estimated income/expenses and reverse.
+global type s_tc_periode_income from structure
+	long		ll_periode_id
+	decimal { 0 }		ld_income
+	decimal { 0 }		ld_expenses
+	decimal { 0 }		ld_return
+end type
+

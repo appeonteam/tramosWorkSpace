@@ -1,0 +1,28 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tramos\\report\\infomaker_reports.pbl" "";
+@end;
+@begin Objects
+ "tramos\\report\\d_ex_tb_outstanding_frt_date.srd" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\d_sq_gr_outfrt_select_chart.srd" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\w_print_r_outstanding_bladings.srw" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\w_print_r_outstanding_freights.srw" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\r_broker.srd" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\d_sq_ff_selectedoffices.srd" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\r_outstanding_bladings.srd" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\w_print_r_charters_report.srw" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\w_print_r_idle_days.srw" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\r_outstanding_freight.srd" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\d_ex_tb_outstanding_frt_userdate.srd" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\w_chart_no_chartgroup.srw" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\r_idledays.srd" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\w_print_r_agents_used.srw" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\d_dddw_claims_responsible.srd" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\r_statoil_liftings.srd" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\d_chart_no_chartgroup_report.srd" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\r_agents_used.srd" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\w_print_r_brokers_report.srw" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\d_dddw_claims_responsible_frt.srd" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\d_sq_gr_outfrt_select_vessel.srd" "tramos\\report\\infomaker_reports.pbl";
+ "tramos\\report\\d_sq_gr_outfrt_select_office.srd" "tramos\\report\\infomaker_reports.pbl";
+@end;

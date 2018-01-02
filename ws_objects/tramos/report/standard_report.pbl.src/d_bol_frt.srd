@@ -1,0 +1,36 @@
+﻿$PBExportHeader$d_bol_frt.srd
+$PBExportComments$Used in report "Employment".
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=number updatewhereclause=yes name=frt dbname="compute_0001" )
+ column=(type=long updatewhereclause=yes name=bol_chart_nr dbname="BOL.CHART_NR" )
+ column=(type=long updatewhereclause=yes name=bol_vessel_nr dbname="BOL.VESSEL_NR" )
+ column=(type=char(7) updatewhereclause=yes name=bol_voyage_nr dbname="BOL.VOYAGE_NR" )
+ column=(type=number updatewhereclause=yes name=freight dbname="compute_0005" )
+ retrieve="SELECT DISTINCT IsNull( CLAIMS.CLAIM_AMOUNT_USD,0),
+		BOL.CHART_NR,
+		BOL.VESSEL_NR,
+		BOL.VOYAGE_NR,
+		(  SELECT IsNull(Sum(FREIGHT_RECEIVED.FREIGHT_RECEIVED),0)
+ 		   FROM FREIGHT_RECEIVED  
+		   WHERE ( ( FREIGHT_RECEIVED.CHART_NR = BOL.CHART_NR ) AND  
+        			 ( FREIGHT_RECEIVED.VESSEL_NR = BOL.VESSEL_NR ) AND  
+  			    ( FREIGHT_RECEIVED.VOYAGE_NR = BOL.VOYAGE_NR ) ) )
+ FROM BOL,   
+		CLAIMS
+WHERE ( CLAIMS.VESSEL_NR = BOL.VESSEL_NR) and  
+		( CLAIMS.VOYAGE_NR = BOL.VOYAGE_NR ) and  
+		( CLAIMS.CHART_NR = BOL.CHART_NR ) and  
+		( ( CLAIMS.VESSEL_NR = :vessel_nr ) AND  
+		( CLAIMS.VOYAGE_NR = :voyage_nr ) AND
+		( BOL.GRADE_NAME = :grade ) AND  
+		( BOL.L_D = 0 ) AND  
+		( CLAIMS.CLAIM_TYPE = ~"FRT~" ) )    
+" arguments=(("vessel_nr", number),("grade", string),("voyage_nr", string)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="4" height="64" width="411" format="[general]"  name=frt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=0 border="0" color="0" x="997" y="0" height="64" width="1161"  name=freight  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

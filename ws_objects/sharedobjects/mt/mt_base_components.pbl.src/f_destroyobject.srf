@@ -1,0 +1,11 @@
+﻿$PBExportHeader$f_destroyobject.srf
+global type f_destroyobject from function_object
+end type
+
+forward prototypes
+global subroutine f_destroyobject (nonvisualobject anv)
+end prototypes
+
+global subroutine f_destroyobject (nonvisualobject anv);f_DestroyObjects({anv})
+end subroutine
+

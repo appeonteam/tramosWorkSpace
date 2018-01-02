@@ -1,0 +1,34 @@
+HA$PBExportHeader$f_hoursafter.srf
+global type f_hoursafter from function_object
+end type
+
+forward prototypes
+global function decimal f_hoursafter (datetime adt1, datetime adt2)
+end prototypes
+
+global function decimal f_hoursafter (datetime adt1, datetime adt2);
+date ld1, ld2
+time lt1, lt2
+dec ldec
+long ll_days
+long ll_seconds
+
+if isnull(adt1) or isnull(adt2) then
+	setnull(ldec)
+	return ldec
+end if
+
+ld1 = date(adt1)
+ld2 = date(adt2)
+
+lt1 = time(adt1)
+lt2 = time(adt2)
+
+ll_days = DaysAfter(ld1, ld2)
+ll_seconds = SecondsAfter(lt1, lt2)
+
+ldec = ll_days * 24 + ll_seconds / 3600
+
+return ldec
+end function
+

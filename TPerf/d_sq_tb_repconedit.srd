@@ -1,0 +1,54 @@
+HA$PBExportHeader$d_sq_tb_repconedit.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=64 color="67108864" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes name=contype dbname="TPERF_REPCON.CONTYPE" initial="0" values="A//E, Full Spd:	0/A//E, Econ. Spd:	1/A//E, Adj. Spd:	2/A//E, Confined:	3/A//E, Bad Wx:	4/A//E, Stoppage:	5/Pumping:	13/Boiler:	14/Inerting:	15/Heat & Cool:	16/Misc:	17/ROB:	18/" )
+ column=(type=decimal(1) update=yes updatewhereclause=yes name=qty_hfo dbname="TPERF_REPCON.QTY_HFO" initial="0" )
+ column=(type=decimal(1) update=yes updatewhereclause=yes name=qty_do dbname="TPERF_REPCON.QTY_DO" initial="0" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=period dbname="TPERF_REPCON.PERIOD" initial="0" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=serial dbname="TPERF_REPCON.SERIAL" initial="0" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=rep_id dbname="TPERF_REPCON.REP_ID" )
+ column=(type=decimal(1) update=yes updatewhereclause=yes name=qty_lshfo dbname="TPERF_REPCON.QTY_LSHFO" initial="0" )
+ column=(type=decimal(1) update=yes updatewhereclause=yes name=qty_go dbname="TPERF_REPCON.QTY_GO" initial="0" )
+ retrieve="  SELECT TPERF_REPCON.CONTYPE,   
+         TPERF_REPCON.QTY_HFO,   
+         TPERF_REPCON.QTY_DO,   
+         TPERF_REPCON.PERIOD,   
+         TPERF_REPCON.SERIAL,   
+         TPERF_REPCON.REP_ID,   
+         TPERF_REPCON.QTY_LSHFO,   
+         TPERF_REPCON.QTY_GO  
+    FROM TPERF_REPCON, TPERF_REPORTS  
+   WHERE (TPERF_REPCON.REP_ID = TPERF_REPORTS.REP_ID ) and  
+         (TPERF_REPORTS.VOY_ID = :VoyID)      
+ORDER BY TPERF_REPCON.CONTYPE ASC   
+" update="TPERF_REPCON" updatewhere=0 updatekeyinplace=no arguments=(("VoyID", number)) )
+text(band=header alignment="2" text="Type" border="6" color="33554432" x="0" y="0" height="56" width="526" html.valueishtml="0"  name=contype_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Period" border="6" color="33554432" x="539" y="0" height="56" width="165" html.valueishtml="0"  name=period_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="HSFO" border="6" color="33554432" x="718" y="0" height="56" width="174" html.valueishtml="0"  name=qty_hfo_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="LSFO" border="6" color="33554432" x="905" y="0" height="56" width="174" html.valueishtml="0"  name=qty_lshfo_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="DO" border="6" color="33554432" x="1093" y="0" height="56" width="174" html.valueishtml="0"  name=qty_do_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="GO" border="6" color="33554432" x="1280" y="0" height="56" width="174" html.valueishtml="0"  name=qty_go_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="" border="6" color="33554432" x="1467" y="0" height="56" width="233" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="33554432" x="5" y="4" height="60" width="521" format="[general]" html.valueishtml="0"  name=contype visible="1" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=20 border="0" color="33554432" x="544" y="4" height="60" width="146" format="0.00" html.valueishtml="0"  name=period visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=60 border="0" color="33554432" x="1275" y="4" height="60" width="151" format="0.0" html.valueishtml="0"  name=qty_go visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=30 border="0" color="33554432" x="722" y="4" height="60" width="151" format="0.0" html.valueishtml="0"  name=qty_hfo visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=40 border="0" color="33554432" x="901" y="4" height="60" width="155" format="0.0" html.valueishtml="0"  name=qty_lshfo visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=50 border="0" color="33554432" x="1088" y="4" height="60" width="155" format="0.0" html.valueishtml="0"  name=qty_do visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="33554432" x="1481" y="4" height="60" width="55" format="[general]" html.valueishtml="0"  name=rep_id visible="0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="33554432" x="1568" y="4" height="60" width="73" format="[general]" html.valueishtml="0"  name=serial visible="0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

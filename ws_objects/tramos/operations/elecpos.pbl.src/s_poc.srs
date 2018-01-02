@@ -1,0 +1,19 @@
+﻿$PBExportHeader$s_poc.srs
+global type s_poc from structure
+	integer		vessel_nr
+	string		voyage_nr
+	string		port_code
+	integer		pcn
+	string		previous_voyage_nr
+	string		previous_port_code
+	integer		previous_pcn
+	string		purpose
+	datetime		arrival_date
+	long		cal_cerp_id
+	long		cal_calc_id
+	long		chart_nr
+	long		agent_nr
+	integer		show_vp
+	integer		claim_nr
+end type
+

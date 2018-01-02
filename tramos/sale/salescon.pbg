@@ -1,0 +1,19 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tramos\\sale\\salescon.pbl" "";
+@end;
+@begin Objects
+ "tramos\\sale\\w_keycodes.srw" "tramos\\sale\\salescon.pbl";
+ "tramos\\sale\\w_template.srw" "tramos\\sale\\salescon.pbl";
+ "tramos\\sale\\d_template_edit.srd" "tramos\\sale\\salescon.pbl";
+ "tramos\\sale\\w_target_keyc_select.srw" "tramos\\sale\\salescon.pbl";
+ "tramos\\sale\\w_delete_target_date.srw" "tramos\\sale\\salescon.pbl";
+ "tramos\\sale\\w_action_keyc_select.srw" "tramos\\sale\\salescon.pbl";
+ "tramos\\sale\\d_keycode_list3.srd" "tramos\\sale\\salescon.pbl";
+ "tramos\\sale\\w_delete_targetlist.srw" "tramos\\sale\\salescon.pbl";
+ "tramos\\sale\\w_chart_keyc_select.srw" "tramos\\sale\\salescon.pbl";
+ "tramos\\sale\\d_chart_list.srd" "tramos\\sale\\salescon.pbl";
+ "tramos\\sale\\d_target_list.srd" "tramos\\sale\\salescon.pbl";
+ "tramos\\sale\\d_actions_list.srd" "tramos\\sale\\salescon.pbl";
+ "tramos\\sale\\w_chartgroup.srw" "tramos\\sale\\salescon.pbl";
+@end;

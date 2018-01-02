@@ -1,0 +1,6 @@
+﻿$PBExportHeader$s_companyemailtype.srs
+global type s_companyemailtype from structure
+	long		li_pcgroup
+	long		li_emailtype
+end type
+

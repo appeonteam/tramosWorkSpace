@@ -1,0 +1,12 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tramos\\googlemaps\\googlemaps.pbl" "";
+@end;
+@begin Objects
+ "tramos\\googlemaps\\d_sq_tb_abcports.srd" "tramos\\googlemaps\\googlemaps.pbl";
+ "tramos\\googlemaps\\u_googlemap_activex.sru" "tramos\\googlemaps\\googlemaps.pbl";
+ "tramos\\googlemaps\\d_sq_tb_selectvsl.srd" "tramos\\googlemaps\\googlemaps.pbl";
+ "tramos\\googlemaps\\n_distance.sru" "tramos\\googlemaps\\googlemaps.pbl";
+ "tramos\\googlemaps\\d_sq_tb_reporthistory.srd" "tramos\\googlemaps\\googlemaps.pbl";
+ "tramos\\googlemaps\\w_vesselpos.srw" "tramos\\googlemaps\\googlemaps.pbl";
+@end;

@@ -1,0 +1,18 @@
+﻿$PBExportHeader$d_non_port_expense_types.srd
+$PBExportComments$Used with f_select_from_list
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes identity=yes name=exp_type_id dbname="NTC_EXP_TYPE.EXP_TYPE_ID" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=type_desc dbname="NTC_EXP_TYPE.TYPE_DESC" )
+ column=(type=number updatewhereclause=yes name=final_hire dbname="NTC_EXP_TYPE.FINAL_HIRE" values="	1/	0" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"NTC_EXP_TYPE~" ) COLUMN(NAME=~"NTC_EXP_TYPE.EXP_TYPE_ID~") COLUMN(NAME=~"NTC_EXP_TYPE.TYPE_DESC~") COLUMN(NAME=~"NTC_EXP_TYPE.FINAL_HIRE~")WHERE(    EXP1 =~"NTC_EXP_TYPE.NON_PORT_EXP~"   OP =~"=~"    EXP2 =~"1~" ) ) " update="NTC_EXP_TYPE" updatewhere=1 updatekeyinplace=no  sort="type_desc A " )
+text(band=header alignment="0" text="Description" border="0" color="0" x="14" y="12" height="56" width="1161"  name=type_desc_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="0" height="60" width="1161" format="[general]"  name=type_desc edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Final Hire" border="0" color="0" x="1184" y="12" height="56" width="242"  name=t_final_hire  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1271" y="0" height="60" width="69" format="[general]"  name=final_hire checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

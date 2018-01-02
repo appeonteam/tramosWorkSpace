@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_expand_text.srs
+$PBExportComments$Structure used for w_expand_text
+global type s_expand_text from structure
+    string text
+    string name
+end type
+

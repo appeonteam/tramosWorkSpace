@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_hire_month_and_days.srs
+$PBExportComments$Structure used in hire statement window
+global type s_hire_month_and_days from structure
+    boolean dayormonth
+    decimal {4} count
+end type
+

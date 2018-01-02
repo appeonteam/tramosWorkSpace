@@ -1,0 +1,15 @@
+﻿$PBExportHeader$d_vas_profitcenters.srd
+$PBExportComments$This datastore is used to build the header in vas reports "Profit Center Analysis". No arguments
+release 5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=69 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=81 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=pc_nr dbname="PROFIT_C.PC_NR" )
+ column=(type=char(35) update=yes updatewhereclause=yes name=pc_name dbname="PROFIT_C.PC_NAME" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"PROFIT_C~" ) COLUMN(NAME=~"PROFIT_C.PC_NR~") COLUMN(NAME=~"PROFIT_C.PC_NAME~")) ORDER(NAME=~"PROFIT_C.PC_NR~" ASC=yes ) " update="PROFIT_C" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Pc Nr"border="0" color="0" x="5" y="4" height="57" width="275"  name=pc_nr_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Pc Name"border="0" color="0" x="284" y="4" height="57" width="823"  name=pc_name_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=10 border="0" color="0" x="5" y="4" height="69" width="275" format="[general]"  name=pc_nr edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="284" y="4" height="69" width="823" format="[general]"  name=pc_name edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

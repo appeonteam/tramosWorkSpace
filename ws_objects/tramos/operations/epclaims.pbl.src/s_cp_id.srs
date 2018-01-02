@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_cp_id.srs
+global type s_cp_id from structure
+	long		cp_id[]
+	long		broker
+	long		pool
+end type
+

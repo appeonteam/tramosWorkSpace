@@ -1,0 +1,28 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "sharedobjects\\mt\\mt_constants.pbl" "";
+@end;
+@begin Objects
+ "sharedobjects\\mt\\c#dwdatatype.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#email.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#dwband.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#dwedit.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#dwobject.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#basecontrol.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#consumptiontype.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#connectivity.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#datatype.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#color.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#profile.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#severity.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#pcgroup.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#usergroup.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#empty.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#string.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#return.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#dwrowselect.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#windowmessage.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#windowposition.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#calculationstatus.sru" "sharedobjects\\mt\\mt_constants.pbl";
+ "sharedobjects\\mt\\c#decimal.sru" "sharedobjects\\mt\\mt_constants.pbl";
+@end;

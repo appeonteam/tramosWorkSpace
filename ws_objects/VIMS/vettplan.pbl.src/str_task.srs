@@ -1,0 +1,9 @@
+﻿$PBExportHeader$str_task.srs
+global type str_task from structure
+	string		name
+	long		color
+	date		fromdate
+	date		todate
+	long		statcolor
+end type
+

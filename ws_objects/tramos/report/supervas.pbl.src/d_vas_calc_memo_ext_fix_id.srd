@@ -1,0 +1,21 @@
+﻿$PBExportHeader$d_vas_calc_memo_ext_fix_id.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=136 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=cal_calc_cal_calc_fix_id dbname="CAL_CALC.CAL_CALC_FIX_ID" )
+ retrieve="  SELECT CAL_CALC.CAL_CALC_FIX_ID  
+    FROM CAL_CALC,   
+         VOYAGES  
+   WHERE ( VOYAGES.CAL_CALC_ID = CAL_CALC.CAL_CALC_ID ) and  
+         ( ( VOYAGES.VESSEL_NR = :ai_vessel_nr ) AND  
+         ( VOYAGES.VOYAGE_NR = :as_voyage_nr )   
+         )    
+" arguments=(("ai_vessel_nr", number),("as_voyage_nr", string)) )
+text(band=header alignment="2" text="Cal Calc
+Cal Calc Fix Id" border="0" color="0" x="5" y="4" height="128" width="389"  name=cal_calc_cal_calc_fix_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="329" format="[general]"  name=cal_calc_cal_calc_fix_id edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

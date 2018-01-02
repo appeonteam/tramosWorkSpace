@@ -1,0 +1,13 @@
+﻿$PBExportHeader$d_auto_finish_disbursement.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=agent_nr dbname="DISBURSEMENTS.AGENT_NR" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"DISBURSEMENTS~" ) COLUMN(NAME=~"DISBURSEMENTS.AGENT_NR~")WHERE(    EXP1 =~"DISBURSEMENTS.VESSEL_NR~"   OP =~"=~"    EXP2 =~":vessel~"    LOGIC =~"And~" ) WHERE(    EXP1 =~"DISBURSEMENTS.VOYAGE_NR~"   OP =~"=~"    EXP2 =~":voyage~"    LOGIC =~"And~" ) WHERE(    EXP1 =~"DISBURSEMENTS.PORT_CODE~"   OP =~"=~"    EXP2 =~":portcode~"    LOGIC =~"And~" ) WHERE(    EXP1 =~"DISBURSEMENTS.PCN~"   OP =~"=~"    EXP2 =~":pcn~"    LOGIC =~"And~" ) WHERE(    EXP1 =~"DISBURSEMENTS.AGENT_NR~"   OP =~"<>~"    EXP2 =~":agent~"    LOGIC =~"and~" ) WHERE(    EXP1 =~"DISBURSEMENTS.DISB_FINISH_DT~"   OP =~"is~"    EXP2 =~"NULL~" ) ) ARG(NAME = ~"vessel~" TYPE = number)  ARG(NAME = ~"voyage~" TYPE = string)  ARG(NAME = ~"portcode~" TYPE = string)  ARG(NAME = ~"pcn~" TYPE = number)  ARG(NAME = ~"agent~" TYPE = number) " arguments=(("vessel", number),("voyage", string),("portcode", string),("pcn", number),("agent", number)) )
+text(band=header alignment="2" text="Agent Nr" border="0" color="0" x="5" y="4" height="64" width="329"  name=agent_nr_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="329" format="[general]"  name=agent_nr edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

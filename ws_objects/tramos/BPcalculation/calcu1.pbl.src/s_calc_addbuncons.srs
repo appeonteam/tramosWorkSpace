@@ -1,0 +1,11 @@
+﻿$PBExportHeader$s_calc_addbuncons.srs
+global type s_calc_addbuncons from structure
+	long		al_vessel_nr
+	long		al_calc_id
+	long		al_carg_id
+	datawindow		adw_addbuncons
+	decimal { 3 }		ad_total_addbuncons
+	integer		ai_locked
+	boolean		ab_modified
+end type
+

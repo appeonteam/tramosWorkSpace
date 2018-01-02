@@ -1,0 +1,17 @@
+﻿$PBExportHeader$d_ccs_actions_pr_target.srd
+$PBExportComments$List all actions selected for a give target.
+release 5;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=57 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=57 color="536870912" )
+table(column=(type=datetime update=yes updatewhereclause=yes name=ccs_acts_plan_d dbname="CCS_ACTS.CCS_ACTS_PLAN_D" )
+ column=(type=char(32766) update=yes updatewhereclause=yes name=ccs_acts_desc dbname="CCS_ACTS.CCS_ACTS_DESC" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=ccs_acts_pk dbname="CCS_ACTS.CCS_ACTS_PK" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=ccs_targ__pk dbname="CCS_ACTS.CCS_TARG__PK" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_ACTS~" ) COLUMN(NAME=~"CCS_ACTS.CCS_ACTS_PLAN_D~") COLUMN(NAME=~"CCS_ACTS.CCS_ACTS_DESC~") COLUMN(NAME=~"CCS_ACTS.CCS_ACTS_PK~") COLUMN(NAME=~"CCS_ACTS.CCS_TARG__PK~")WHERE( EXP1 =~"CCS_ACTS.CCS_TARG__PK~" OP =~"=~" EXP2 =~":ccs_target_pk~" ) ) ORDER(NAME=~"CCS_ACTS.CCS_ACTS_PLAN_D~" ASC=no) ARG(NAME = ~"ccs_target_pk~" TYPE = number) " update="CCS_ACTS" updatewhere=1 updatekeyinplace=yes arguments=(("ccs_target_pk", number)) )
+text(band=header alignment="2" text="Date Planned"border="0" color="0" x="14" y="4" height="57" width="325"  name=ccs_acts_plan_d_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Description"border="0" color="0" x="385" y="4" height="57" width="289"  name=ccs_acts_desc_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="4" height="65" width="348" format="dd-mm-yy"  name=ccs_acts_plan_d  tag="Action Planned for Date" editmask.mask="dd-mm-yy" editmask.focusrectangle=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="385" y="4" height="65" width="1180" format="[general]"  name=ccs_acts_desc  tag="Action Description" edit.limit=32000 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

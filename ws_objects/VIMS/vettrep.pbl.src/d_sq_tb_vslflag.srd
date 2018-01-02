@@ -1,0 +1,61 @@
+﻿$PBExportHeader$d_sq_tb_vslflag.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=476 color="536870912" )
+summary(height=164 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=160 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=numinsp dbname="NUMINSP" )
+ column=(type=long updatewhereclause=yes name=numitem dbname="NUMITEM" )
+ column=(type=long updatewhereclause=yes name=low dbname="LOW" )
+ column=(type=long updatewhereclause=yes name=med dbname="MED" )
+ column=(type=long updatewhereclause=yes name=hi dbname="HI" )
+ column=(type=char(50) updatewhereclause=yes name=country_catname dbname="COUNTRY.CATNAME" )
+ retrieve="SELECT Count(Distinct INSP_ID) as NUMINSP,
+		 Count(ANS) as NUMITEM, 
+       Sum(Case RISK When 0 then 1 Else 0 End) as LOW,
+       Sum(Case RISK When 1 then 1 Else 0 End) as MED,
+       Sum(Case RISK When 2 then 1 Else 0 End) as HI,
+       COUNTRY_NAME as CATNAME
+    FROM VETT_MASTER,   
+         COUNTRY  
+   WHERE ( VETT_MASTER.VSLFLAG = COUNTRY.COUNTRY_ID )   
+GROUP BY COUNTRY_ID   
+ORDER BY COUNTRY_NAME" )
+data(null null null null null null ) 
+text(band=header alignment="2" text="Vessel Flag" border="0" color="33554432" x="1115" y="232" height="72" width="974" html.valueishtml="0"  name=t_1 visible="1"  font.face="Verdana" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+compute(band=header alignment="0" expression="Max( avgobs )"border="0" color="33554432" x="859" y="252" height="64" width="215" format="[GENERAL]" html.valueishtml="0"  name=maxobs visible="0"  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="0" expression="3200"border="0" color="33554432" x="603" y="252" height="64" width="215" format="[GENERAL]" html.valueishtml="0"  name=maxwid visible="0"  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Risk:" border="0" color="33554432" x="2688" y="300" height="52" width="187" html.valueishtml="0"  name=t_5 visible="1"  font.face="Verdana" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Average observations per Inspection" border="0" color="33554432" x="987" y="352" height="52" width="1243" html.valueishtml="0"  name=t_7 visible="1"  font.face="Verdana" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="14" y1="444" x2="3232" y2="444"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="0" )
+text(band=header alignment="2" text="Low" border="2" color="33554432" x="2971" y="364" height="52" width="219" html.valueishtml="0"  name=t_3 visible="1"  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="65280~t8454016" )
+text(band=header alignment="2" text="Medium" border="2" color="33554432" x="2971" y="300" height="52" width="219" html.valueishtml="0"  name=t_4 visible="1"  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="65535~t4259839" )
+text(band=header alignment="2" text="High" border="2" color="33554432" x="2971" y="236" height="52" width="219" html.valueishtml="0"  name=t_6 visible="1"  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="255~t8421631" )
+rectangle(band=detail x="494~tmaxwid * 0.8  *  (avghi+avgmed) / maxobs + 10" y="68" height="64" width="69~t maxwid * 0.8  *  avglow / maxobs "  name=r_4 visible="1" brush.hatch="6" brush.color="65280~trgb(128,255,128)" pen.style="0" pen.width="5" pen.color="65280~trgb(128,255,128)"  background.mode="2" background.color="33554432" )
+compute(band=detail alignment="0" expression=" numitem / numinsp "border="0" color="33554432" x="91~t maxwid * 0.8  *  avgobs / maxobs + 30" y="72" height="52" width="137" format="0.0" html.valueishtml="0"  name=avgobs visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+rectangle(band=detail x="325~t maxwid * 0.8  *  avghi / maxobs + 10" y="68" height="68" width="69~t maxwid * 0.8  *  avgmed / maxobs "  name=r_2 visible="1" brush.hatch="6" brush.color="65535~trgb(255,255,64)" pen.style="0" pen.width="5" pen.color="65535~trgb(255,255,64)"  background.mode="2" background.color="33554432" )
+rectangle(band=detail x="14" y="68" height="68" width="69~t maxwid * 0.8  *  avghi / maxobs "  name=r_3 visible="1" brush.hatch="6" brush.color="255~trgb(255,128,128)" pen.style="0" pen.width="5" pen.color="16711935~trgb(255,128,128)"  background.mode="2" background.color="33554432" )
+compute(band=detail alignment="0" expression="WordCap( country_catname )"border="0" color="33554432" x="14" y="4" height="52" width="777" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Verdana" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="2" expression="hi / numinsp "border="0" color="255" x="905~t(maxwid * 0.8  *  avghi / maxobs - 128) / 2 + 10" y="80" height="48" width="128" format="0.0" html.valueishtml="0"  name=avghi visible="1~tIf (avghi > 0, 1, 0)"  font.face="Arial" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="2" expression="med / numinsp "border="0" color="32896" x="750~t maxwid * 0.8  *  avghi / maxobs + 10 + ( maxwid * 0.8  *  avgmed / maxobs - 128) /2" y="80" height="48" width="128" format="0.0" html.valueishtml="0"  name=avgmed visible="1~tIf (avgmed > 0, 1, 0)"  font.face="Arial" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="2" expression=" low / numinsp "border="0" color="32768" x="590~tmaxwid * 0.8  *  (avghi+avgmed) / maxobs + 10 + ( maxwid * 0.8  *  avglow / maxobs - 128) / 2" y="80" height="48" width="128" format="0.0" html.valueishtml="0"  name=avglow visible="1~tIf (avglow > 0, 1, 0)"  font.face="Arial" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=summary alignment="0" text="Overall" border="0" color="33554432" x="14" y="24" height="52" width="215" html.valueishtml="0"  name=t_2 visible="1"  font.face="Verdana" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+rectangle(band=summary x="384~t maxwid * 0.8  *  (allavghi+allavgmed) / maxobs + 10" y="88" height="64" width="69~t maxwid * 0.8  *  allavglow / maxobs "  name=r_1 visible="1" brush.hatch="6" brush.color="65280~trgb(96,192,96)" pen.style="0" pen.width="5" pen.color="32768~trgb(96,192,96)"  background.mode="2" background.color="33554432" )
+compute(band=summary alignment="0" expression="Sum( numitem ) / Sum( numinsp )"border="0" color="33554432" x="101~t maxwid * 0.8  *  avgtotal / maxobs + 30" y="92" height="56" width="151" format="0.0" html.valueishtml="0"  name=avgtotal visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+rectangle(band=summary x="279~t maxwid * 0.8  *  allavghi / maxobs + 10" y="88" height="64" width="69~t maxwid * 0.8  *  allavgmed / maxobs "  name=r_5 visible="1" brush.hatch="6" brush.color="65535~trgb(192,192,48)" pen.style="0" pen.width="5" pen.color="32896~trgb(192,192,48)"  background.mode="2" background.color="33554432" )
+rectangle(band=summary x="14" y="88" height="64" width="69~t maxwid * 0.8  *  allavghi / maxobs "  name=r_6 visible="1" brush.hatch="6" brush.color="128~trgb(192,96,96)" pen.style="0" pen.width="5" pen.color="128~trgb(192,96,96)"  background.mode="2" background.color="33554432" )
+compute(band=summary alignment="2" expression="Sum(hi ) / sum( numinsp )"border="0" color="255~t8421631" x="859~t(maxwid * 0.8  *  allavghi / maxobs - 128) / 2 + 10" y="96" height="52" width="128" format="0.0" html.valueishtml="0"  name=allavghi visible="1~tIf (allavghi > 0, 1, 0)"  font.face="Arial" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="2" expression="Sum(med ) / sum( numinsp )"border="0" color="65535" x="690~t maxwid * 0.8  *  allavghi / maxobs + 10 + ( maxwid * 0.8  *  allavgmed / maxobs - 128) /2" y="96" height="52" width="128" format="0.0" html.valueishtml="0"  name=allavgmed visible="1~tIf (allavgmed > 0, 1, 0)"  font.face="Arial" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="2" expression="Sum( low ) / sum( numinsp )"border="0" color="32768" x="503~tmaxwid * 0.8  *  (allavghi+allavgmed) / maxobs + 10 + ( maxwid * 0.8  *  allavglow / maxobs - 128) / 2" y="96" height="52" width="128" format="0.0" html.valueishtml="0"  name=allavglow visible="1~tIf (allavglow > 0, 1, 0)"  font.face="Arial" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

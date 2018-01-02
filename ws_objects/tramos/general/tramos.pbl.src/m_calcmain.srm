@@ -1,0 +1,4791 @@
+﻿$PBExportHeader$m_calcmain.srm
+$PBExportComments$Main menu for the calculation system
+forward
+global type m_calcmain from m_sysmain
+end type
+type m_open from menu within m_menutop2
+end type
+type m_new from menu within m_menutop2
+end type
+type m_-2 from menu within m_menutop2
+end type
+type m_save from menu within m_menutop2
+end type
+type m_close from menu within m_menutop2
+end type
+type m_saveas from menu within m_menutop2
+end type
+type m_-3 from menu within m_menutop2
+end type
+type m_createloadloadcalculation from menu within m_menutop2
+end type
+type m_calc129 from menu within m_menutop2
+end type
+type m_move from menu within m_menutop2
+end type
+type m_copy from menu within m_menutop2
+end type
+type m_-4 from menu within m_menutop2
+end type
+type m_delete from menu within m_menutop2
+end type
+type m_edit5- from menu within m_menutop2
+end type
+type m_status from menu within m_menutop2
+end type
+type m_ballastvoyage from menu within m_menutop2
+end type
+type m_edit6- from menu within m_menutop2
+end type
+type m_wizard from menu within m_menutop2
+end type
+type m_edit7- from menu within m_menutop2
+end type
+type m_refresh from menu within m_menutop2
+end type
+type m_edit8- from menu within m_menutop2
+end type
+type m_unlockcalculation from menu within m_menutop2
+end type
+type m_dischports from menu within m_menutop2
+end type
+type m_loadports from menu within m_menutop2
+end type
+type m_summary from menu within m_menutop2
+end type
+type m_menutop2 from m_sysmain`m_menutop2 within m_calcmain
+m_open m_open
+m_new m_new
+m_-2 m_-2
+m_save m_save
+m_close m_close
+m_saveas m_saveas
+m_-3 m_-3
+m_createloadloadcalculation m_createloadloadcalculation
+m_calc129 m_calc129
+m_move m_move
+m_copy m_copy
+m_-4 m_-4
+m_delete m_delete
+m_edit5- m_edit5-
+m_status m_status
+m_ballastvoyage m_ballastvoyage
+m_edit6- m_edit6-
+m_wizard m_wizard
+m_edit7- m_edit7-
+m_refresh m_refresh
+m_edit8- m_edit8-
+m_unlockcalculation m_unlockcalculation
+m_dischports m_dischports
+m_loadports m_loadports
+m_summary m_summary
+end type
+type m_cp from menu within m_menutop3
+end type
+type m_sensitivity from menu within m_menutop3
+end type
+type m_combinecalculations from menu within m_menutop3
+end type
+type m_claims from menu within m_menutop3
+end type
+type m_sendcalctoweeklyfixture from menu within m_menutop3
+end type
+type m_go3- from menu within m_menutop3
+end type
+type m_fixture from menu within m_menutop3
+end type
+type m_go2- from menu within m_menutop3
+end type
+type m_print from menu within m_menutop3
+end type
+type m_go4- from menu within m_menutop3
+end type
+type m_distancefinder from menu within m_menutop3
+end type
+type m_simpledistancefinder from menu within m_menutop3
+end type
+type m_vesselpositionmap from menu within m_menutop3
+end type
+type m_findunctad from menu within m_menutop3
+end type
+type m_findatobviacportcode from menu within m_menutop3
+end type
+type m_portexpenses from menu within m_menutop3
+end type
+type m_blueboard from menu within m_menutop3
+end type
+type m_0 from menu within m_menutop3
+end type
+type m_2 from menu within m_menutop3
+end type
+type m_fixturelist from menu within m_2
+end type
+type m_11 from menu within m_2
+end type
+type m_12 from menu within m_2
+end type
+type m_13 from menu within m_2
+end type
+type m_14 from menu within m_2
+end type
+type m_20 from menu within m_2
+end type
+type m_15 from menu within m_2
+end type
+type m_weeklyfixturereport from menu within m_2
+end type
+type m_17 from menu within m_2
+end type
+type m_18 from menu within m_2
+end type
+type m_failedreasonreport from menu within m_2
+end type
+type m_21 from menu within m_2
+end type
+type m_19 from menu within m_2
+end type
+type m_22 from menu within m_2
+end type
+type m_23 from menu within m_2
+end type
+type m_24 from menu within m_2
+end type
+type m_25 from menu within m_2
+end type
+type m_27 from menu within m_2
+end type
+type m_2 from menu within m_menutop3
+m_fixturelist m_fixturelist
+m_11 m_11
+m_12 m_12
+m_13 m_13
+m_14 m_14
+m_20 m_20
+m_15 m_15
+m_weeklyfixturereport m_weeklyfixturereport
+m_17 m_17
+m_18 m_18
+m_failedreasonreport m_failedreasonreport
+m_21 m_21
+m_19 m_19
+m_22 m_22
+m_23 m_23
+m_24 m_24
+m_25 m_25
+m_27 m_27
+end type
+type m_3 from menu within m_menutop3
+end type
+type m_4 from menu within m_3
+end type
+type m_6 from menu within m_3
+end type
+type m_7 from menu within m_3
+end type
+type m_8 from menu within m_3
+end type
+type m_3 from menu within m_menutop3
+m_4 m_4
+m_6 m_6
+m_7 m_7
+m_8 m_8
+end type
+type m_menutop3 from m_sysmain`m_menutop3 within m_calcmain
+m_cp m_cp
+m_sensitivity m_sensitivity
+m_combinecalculations m_combinecalculations
+m_claims m_claims
+m_sendcalctoweeklyfixture m_sendcalctoweeklyfixture
+m_go3- m_go3-
+m_fixture m_fixture
+m_go2- m_go2-
+m_print m_print
+m_go4- m_go4-
+m_distancefinder m_distancefinder
+m_simpledistancefinder m_simpledistancefinder
+m_vesselpositionmap m_vesselpositionmap
+m_findunctad m_findunctad
+m_findatobviacportcode m_findatobviacportcode
+m_portexpenses m_portexpenses
+m_blueboard m_blueboard
+m_0 m_0
+m_2 m_2
+m_3 m_3
+end type
+type m_portofcall from menu within m_menutop4
+end type
+type m_menutop4 from m_sysmain`m_menutop4 within m_calcmain
+m_portofcall m_portofcall
+end type
+end forward
+
+global type m_calcmain from m_sysmain
+end type
+global m_calcmain m_calcmain
+
+type variables
+n_weekly_fixture_report iuo_wf
+
+// Used in calculation to hold reference to current selected calculation when linking to operation.
+datawindow idw_current
+string is_vessel, is_calculation
+end variables
+
+forward prototypes
+public subroutine mf_link (string as_link_to)
+public subroutine mf_setlink (ref datawindow adw_link, string as_vessel_fieldname, string as_calculation_fieldname, boolean ab_enabled)
+public subroutine documentation ()
+end prototypes
+
+public subroutine mf_link (string as_link_to);integer li_vessel, li_pcn
+long ll_calculationid
+string ls_voyage, ls_portcode
+Long ll_row
+u_jump_poc luo_jump_poc
+if not isValid(idw_current) then return
+
+ll_Row = idw_current.GetRow()
+
+If ll_Row > 0 Then
+	li_vessel = idw_current.GetItemNumber(ll_row, is_vessel)
+	if li_vessel = 0 or isnull(li_vessel) then
+		messagebox("Info","you can only link to Port of Call for APM vessels.")
+		return
+	end if
+	ll_calculationid =  idw_current.GetItemNumber(ll_row, is_calculation)
+	IF isnull( ll_calculationid )THEN
+		messagebox("Info","No voyage is created for the Working/Template calculation.")
+		return		
+	END IF
+	SELECT VOYAGE_NR 
+	INTO :ls_voyage
+	FROM VOYAGES
+	WHERE CAL_CALC_ID IN( SELECT CAL_CALC_ID
+	FROM CAL_CALC
+	WHERE CAL_CALC_FIX_ID = :ll_calculationid
+	AND CAL_CALC_STATUS = 6)
+	;
+	IF SQLCA.SQLCODE = 100 THEN
+		messagebox("Info","No voyage is created for this calculation yet.")
+	ELSE
+		IF as_link_to = "POC" THEN
+			 SELECT POC.PORT_CODE, POC.PCN
+			 INTO :ls_portcode ,:li_pcn
+			 FROM POC , PROCEED 
+			 WHERE PROCEED.VESSEL_NR = POC.VESSEL_NR
+			 AND   PROCEED.VOYAGE_NR = POC.VOYAGE_NR 
+			 AND   PROCEED.PORT_CODE = POC.PORT_CODE
+			 AND   PROCEED.PCN = POC.PCN 
+			 AND   POC.VESSEL_NR = :li_vessel
+			 AND   POC.VOYAGE_NR = :ls_voyage
+			 ORDER BY PROCEED.PROC_DATE;
+			IF SQLCA.SQLCODE = 100 THEN
+				messagebox("Info","No Port of Call is created for this calculation yet.")
+			ELSE
+				luo_jump_poc = CREATE u_jump_poc
+				luo_jump_poc.of_open_poc(li_vessel, ls_voyage, ls_portcode, li_pcn)
+				DESTROY luo_jump_poc		
+			END IF			
+		END IF
+	END IF
+End if
+Return
+
+
+
+end subroutine
+
+public subroutine mf_setlink (ref datawindow adw_link, string as_vessel_fieldname, string as_calculation_fieldname, boolean ab_enabled);idw_current = adw_link
+is_vessel = as_vessel_fieldname
+is_calculation = as_calculation_fieldname
+if ab_enabled then 
+//	m_menutop4.m_calculated.enabled = True
+//	m_menutop4.m_estimated.enabled = True
+	m_menutop4.enabled = True
+else
+//	m_menutop4.m_calculated.enabled = False
+//	m_menutop4.m_estimated.enabled = False
+	m_menutop4.enabled = False
+end if
+return
+end subroutine
+
+public subroutine documentation ();/********************************************************************
+   m_calcmain
+   <OBJECT>	Changed tramos menu icon images </OBJECT>
+   <USAGE>					</USAGE>
+   <ALSO>					</ALSO>
+   <HISTORY>
+		Date      	CR-Ref		Author		Comments
+		25/04/2013	CR3158		WWA048		Changed tramos menu icon images.
+		01/08/2013	CR3279		WWA048		Remove Tramos Mail and related features.
+		27/05/2014	CR3222		CCY018		Set Tramos Help shortcut key to F1.
+		05/06/14  	CR3222		AZX004		Change help context.
+		26/08/14  	CR3781		CCY018		Remove ellipsis (...) in the menu bar text and the window title match with the text of a menu item .
+		12/09/14  	CR3773		XSZ004		Change icon absolute path to reference path
+		28/10/14		CR3851		CCY018		Change access rights to blueboard functionality. 
+		04/04/16		CR4258		AGl027		Remove the Consumption menu item.
+		08/09/16		CR3928		KSH092		Remove the Go > Fixture > Default Port menu item.
+	</HISTORY>
+********************************************************************/
+
+
+end subroutine
+
+on m_calcmain.create
+m_calcmain=this
+call super::create
+this.text = "m_calcmain"
+end on
+
+on m_calcmain.destroy
+call super::destroy
+end on
+
+type m_file from m_sysmain`m_file within m_calcmain
+end type
+
+on m_file.create
+call super::create
+this.checked = true
+end on
+
+on m_file.destroy
+call super::destroy
+end on
+
+type m_calc from m_sysmain`m_calc within m_file
+end type
+
+on m_calc.create
+call super::create
+this.enabled = false
+this.checked = true
+end on
+
+on m_calc.destroy
+call super::destroy
+end on
+
+type m_tramos from m_sysmain`m_tramos within m_file
+end type
+
+on m_tramos.create
+call super::create
+end on
+
+on m_tramos.destroy
+call super::destroy
+end on
+
+type m_sale from m_sysmain`m_sale within m_file
+end type
+
+on m_sale::clicked;call m_sysmain`m_sale::clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : w_tramos_main
+
+ Object     : menu, system & menues, Sales
+
+ Event	 : clicked
+
+ Scope     : lokal
+
+ ************************************************************************************
+
+ Author    :Teit Aunt 
+
+ Date       : 12-7-1996
+
+ Description : change the menu to the Sales menu
+
+ Arguments : 
+
+ Returns   :   
+
+ Variables : 
+
+ Other : 
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+---------------------------------------------------------
+15-7-1996	1.0 			TA		Initial version
+  
+************************************************************************************/
+/* Change the menu to the Sales menu */
+
+//w_tramos_main.ChangeMenu(m_salesmain)
+
+end on
+
+on m_sale.create
+call super::create
+end on
+
+on m_sale.destroy
+call super::destroy
+end on
+
+type m_tchire from m_sysmain`m_tchire within m_file
+end type
+
+on m_tchire.create
+call super::create
+end on
+
+on m_tchire.destroy
+call super::destroy
+end on
+
+type m_vettinginspectionmgmtsystem from m_sysmain`m_vettinginspectionmgmtsystem within m_file
+end type
+
+on m_vettinginspectionmgmtsystem.create
+call super::create
+end on
+
+on m_vettinginspectionmgmtsystem.destroy
+call super::destroy
+end on
+
+type m___1 from m_sysmain`m___1 within m_file
+end type
+
+on m___1.create
+call super::create
+end on
+
+on m___1.destroy
+call super::destroy
+end on
+
+type m_changerequest from m_sysmain`m_changerequest within m_file
+end type
+
+on m_changerequest.create
+call super::create
+end on
+
+on m_changerequest.destroy
+call super::destroy
+end on
+
+type m___2 from m_sysmain`m___2 within m_file
+end type
+
+on m___2.create
+call super::create
+end on
+
+on m___2.destroy
+call super::destroy
+end on
+
+type m_changepassword from m_sysmain`m_changepassword within m_file
+end type
+
+on m_changepassword.create
+call super::create
+end on
+
+on m_changepassword.destroy
+call super::destroy
+end on
+
+type m_systemoptions_new from m_sysmain`m_systemoptions_new within m_file
+end type
+
+on m_systemoptions_new.create
+call super::create
+end on
+
+on m_systemoptions_new.destroy
+call super::destroy
+end on
+
+type m_useroptions from m_sysmain`m_useroptions within m_file
+end type
+
+on m_useroptions.create
+call super::create
+end on
+
+on m_useroptions.destroy
+call super::destroy
+end on
+
+type mline_234 from m_sysmain`mline_234 within m_file
+end type
+
+on mline_234.create
+call super::create
+end on
+
+on mline_234.destroy
+call super::destroy
+end on
+
+type m_debug from m_sysmain`m_debug within m_file
+end type
+
+on m_debug.create
+call super::create
+end on
+
+on m_debug.destroy
+call super::destroy
+end on
+
+type m_captureerrormessages from m_sysmain`m_captureerrormessages within m_debug
+end type
+
+on m_captureerrormessages.create
+call super::create
+end on
+
+on m_captureerrormessages.destroy
+call super::destroy
+end on
+
+type m_sqlpreview from m_sysmain`m_sqlpreview within m_debug
+end type
+
+on m_sqlpreview.create
+call super::create
+end on
+
+on m_sqlpreview.destroy
+call super::destroy
+end on
+
+type m_transactionpreview from m_sysmain`m_transactionpreview within m_debug
+end type
+
+on m_transactionpreview.create
+call super::create
+end on
+
+on m_transactionpreview.destroy
+call super::destroy
+end on
+
+type m_datastorespy from m_sysmain`m_datastorespy within m_debug
+end type
+
+on m_datastorespy.create
+call super::create
+end on
+
+on m_datastorespy.destroy
+call super::destroy
+end on
+
+type m_on from m_sysmain`m_on within m_datastorespy
+end type
+
+on m_on.create
+call super::create
+end on
+
+on m_on.destroy
+call super::destroy
+end on
+
+type m_multipledatastores from m_sysmain`m_multipledatastores within m_datastorespy
+end type
+
+on m_multipledatastores.create
+call super::create
+end on
+
+on m_multipledatastores.destroy
+call super::destroy
+end on
+
+type m___3 from m_sysmain`m___3 within m_file
+end type
+
+on m___3.create
+call super::create
+end on
+
+on m___3.destroy
+call super::destroy
+end on
+
+type m_exit from m_sysmain`m_exit within m_file
+end type
+
+on m_exit.create
+call super::create
+end on
+
+on m_exit.destroy
+call super::destroy
+end on
+
+type m_menutop2 from m_sysmain`m_menutop2 within m_calcmain
+m_open m_open
+m_new m_new
+m_-2 m_-2
+m_save m_save
+m_close m_close
+m_saveas m_saveas
+m_-3 m_-3
+m_createloadloadcalculation m_createloadloadcalculation
+m_calc129 m_calc129
+m_move m_move
+m_copy m_copy
+m_-4 m_-4
+m_delete m_delete
+m_edit5- m_edit5-
+m_status m_status
+m_ballastvoyage m_ballastvoyage
+m_edit6- m_edit6-
+m_wizard m_wizard
+m_edit7- m_edit7-
+m_refresh m_refresh
+m_edit8- m_edit8-
+m_unlockcalculation m_unlockcalculation
+m_dischports m_dischports
+m_loadports m_loadports
+m_summary m_summary
+end type
+
+on m_menutop2.create
+call super::create
+this.visible = true
+this.text = "&Edit"
+this.m_open=create m_open
+this.m_new=create m_new
+this.m_-2=create m_-2
+this.m_save=create m_save
+this.m_close=create m_close
+this.m_saveas=create m_saveas
+this.m_-3=create m_-3
+this.m_createloadloadcalculation=create m_createloadloadcalculation
+this.m_calc129=create m_calc129
+this.m_move=create m_move
+this.m_copy=create m_copy
+this.m_-4=create m_-4
+this.m_delete=create m_delete
+this.m_edit5-=create m_edit5-
+this.m_status=create m_status
+this.m_ballastvoyage=create m_ballastvoyage
+this.m_edit6-=create m_edit6-
+this.m_wizard=create m_wizard
+this.m_edit7-=create m_edit7-
+this.m_refresh=create m_refresh
+this.m_edit8-=create m_edit8-
+this.m_unlockcalculation=create m_unlockcalculation
+this.m_dischports=create m_dischports
+this.m_loadports=create m_loadports
+this.m_summary=create m_summary
+this.Item[UpperBound(this.Item)+1]=this.m_open
+this.Item[UpperBound(this.Item)+1]=this.m_new
+this.Item[UpperBound(this.Item)+1]=this.m_-2
+this.Item[UpperBound(this.Item)+1]=this.m_save
+this.Item[UpperBound(this.Item)+1]=this.m_close
+this.Item[UpperBound(this.Item)+1]=this.m_saveas
+this.Item[UpperBound(this.Item)+1]=this.m_-3
+this.Item[UpperBound(this.Item)+1]=this.m_createloadloadcalculation
+this.Item[UpperBound(this.Item)+1]=this.m_calc129
+this.Item[UpperBound(this.Item)+1]=this.m_move
+this.Item[UpperBound(this.Item)+1]=this.m_copy
+this.Item[UpperBound(this.Item)+1]=this.m_-4
+this.Item[UpperBound(this.Item)+1]=this.m_delete
+this.Item[UpperBound(this.Item)+1]=this.m_edit5-
+this.Item[UpperBound(this.Item)+1]=this.m_status
+this.Item[UpperBound(this.Item)+1]=this.m_ballastvoyage
+this.Item[UpperBound(this.Item)+1]=this.m_edit6-
+this.Item[UpperBound(this.Item)+1]=this.m_wizard
+this.Item[UpperBound(this.Item)+1]=this.m_edit7-
+this.Item[UpperBound(this.Item)+1]=this.m_refresh
+this.Item[UpperBound(this.Item)+1]=this.m_edit8-
+this.Item[UpperBound(this.Item)+1]=this.m_unlockcalculation
+this.Item[UpperBound(this.Item)+1]=this.m_dischports
+this.Item[UpperBound(this.Item)+1]=this.m_loadports
+this.Item[UpperBound(this.Item)+1]=this.m_summary
+end on
+
+on m_menutop2.destroy
+call super::destroy
+destroy(this.m_open)
+destroy(this.m_new)
+destroy(this.m_-2)
+destroy(this.m_save)
+destroy(this.m_close)
+destroy(this.m_saveas)
+destroy(this.m_-3)
+destroy(this.m_createloadloadcalculation)
+destroy(this.m_calc129)
+destroy(this.m_move)
+destroy(this.m_copy)
+destroy(this.m_-4)
+destroy(this.m_delete)
+destroy(this.m_edit5-)
+destroy(this.m_status)
+destroy(this.m_ballastvoyage)
+destroy(this.m_edit6-)
+destroy(this.m_wizard)
+destroy(this.m_edit7-)
+destroy(this.m_refresh)
+destroy(this.m_edit8-)
+destroy(this.m_unlockcalculation)
+destroy(this.m_dischports)
+destroy(this.m_loadports)
+destroy(this.m_summary)
+end on
+
+event m_menutop2::clicked;call super::clicked;//mf_link("POC")
+end event
+
+type m_menutop3 from m_sysmain`m_menutop3 within m_calcmain
+m_cp m_cp
+m_sensitivity m_sensitivity
+m_combinecalculations m_combinecalculations
+m_claims m_claims
+m_sendcalctoweeklyfixture m_sendcalctoweeklyfixture
+m_go3- m_go3-
+m_fixture m_fixture
+m_go2- m_go2-
+m_print m_print
+m_go4- m_go4-
+m_distancefinder m_distancefinder
+m_simpledistancefinder m_simpledistancefinder
+m_vesselpositionmap m_vesselpositionmap
+m_findunctad m_findunctad
+m_findatobviacportcode m_findatobviacportcode
+m_portexpenses m_portexpenses
+m_blueboard m_blueboard
+m_0 m_0
+m_2 m_2
+m_3 m_3
+end type
+
+on m_menutop3.create
+call super::create
+this.visible = true
+this.text = "&Go"
+this.m_cp=create m_cp
+this.m_sensitivity=create m_sensitivity
+this.m_combinecalculations=create m_combinecalculations
+this.m_claims=create m_claims
+this.m_sendcalctoweeklyfixture=create m_sendcalctoweeklyfixture
+this.m_go3-=create m_go3-
+this.m_fixture=create m_fixture
+this.m_go2-=create m_go2-
+this.m_print=create m_print
+this.m_go4-=create m_go4-
+this.m_distancefinder=create m_distancefinder
+this.m_simpledistancefinder=create m_simpledistancefinder
+this.m_vesselpositionmap=create m_vesselpositionmap
+this.m_findunctad=create m_findunctad
+this.m_findatobviacportcode=create m_findatobviacportcode
+this.m_portexpenses=create m_portexpenses
+this.m_blueboard=create m_blueboard
+this.m_0=create m_0
+this.m_2=create m_2
+this.m_3=create m_3
+this.Item[UpperBound(this.Item)+1]=this.m_cp
+this.Item[UpperBound(this.Item)+1]=this.m_sensitivity
+this.Item[UpperBound(this.Item)+1]=this.m_combinecalculations
+this.Item[UpperBound(this.Item)+1]=this.m_claims
+this.Item[UpperBound(this.Item)+1]=this.m_sendcalctoweeklyfixture
+this.Item[UpperBound(this.Item)+1]=this.m_go3-
+this.Item[UpperBound(this.Item)+1]=this.m_fixture
+this.Item[UpperBound(this.Item)+1]=this.m_go2-
+this.Item[UpperBound(this.Item)+1]=this.m_print
+this.Item[UpperBound(this.Item)+1]=this.m_go4-
+this.Item[UpperBound(this.Item)+1]=this.m_distancefinder
+this.Item[UpperBound(this.Item)+1]=this.m_simpledistancefinder
+this.Item[UpperBound(this.Item)+1]=this.m_vesselpositionmap
+this.Item[UpperBound(this.Item)+1]=this.m_findunctad
+this.Item[UpperBound(this.Item)+1]=this.m_findatobviacportcode
+this.Item[UpperBound(this.Item)+1]=this.m_portexpenses
+this.Item[UpperBound(this.Item)+1]=this.m_blueboard
+this.Item[UpperBound(this.Item)+1]=this.m_0
+this.Item[UpperBound(this.Item)+1]=this.m_2
+this.Item[UpperBound(this.Item)+1]=this.m_3
+end on
+
+on m_menutop3.destroy
+call super::destroy
+destroy(this.m_cp)
+destroy(this.m_sensitivity)
+destroy(this.m_combinecalculations)
+destroy(this.m_claims)
+destroy(this.m_sendcalctoweeklyfixture)
+destroy(this.m_go3-)
+destroy(this.m_fixture)
+destroy(this.m_go2-)
+destroy(this.m_print)
+destroy(this.m_go4-)
+destroy(this.m_distancefinder)
+destroy(this.m_simpledistancefinder)
+destroy(this.m_vesselpositionmap)
+destroy(this.m_findunctad)
+destroy(this.m_findatobviacportcode)
+destroy(this.m_portexpenses)
+destroy(this.m_blueboard)
+destroy(this.m_0)
+destroy(this.m_2)
+destroy(this.m_3)
+end on
+
+type m_menutop4 from m_sysmain`m_menutop4 within m_calcmain
+m_portofcall m_portofcall
+end type
+
+on m_menutop4.create
+call super::create
+this.visible = true
+this.text = "&Links"
+this.enabled = false
+this.m_portofcall=create m_portofcall
+this.Item[UpperBound(this.Item)+1]=this.m_portofcall
+end on
+
+on m_menutop4.destroy
+call super::destroy
+destroy(this.m_portofcall)
+end on
+
+type m_menutop5 from m_sysmain`m_menutop5 within m_calcmain
+end type
+
+on m_menutop5.create
+call super::create
+end on
+
+on m_menutop5.destroy
+call super::destroy
+end on
+
+type m_menutop6 from m_sysmain`m_menutop6 within m_calcmain
+end type
+
+on m_menutop6.create
+call super::create
+end on
+
+on m_menutop6.destroy
+call super::destroy
+end on
+
+type m_systemtabels from m_sysmain`m_systemtabels within m_calcmain
+end type
+
+on m_systemtabels.create
+call super::create
+end on
+
+on m_systemtabels.destroy
+call super::destroy
+end on
+
+type m_general from m_sysmain`m_general within m_systemtabels
+end type
+
+on m_general.create
+call super::create
+end on
+
+on m_general.destroy
+call super::destroy
+end on
+
+type m__agents from m_sysmain`m__agents within m_general
+end type
+
+on m__agents.create
+call super::create
+this.enabled = false
+end on
+
+on m__agents.destroy
+call super::destroy
+end on
+
+type m_area from m_sysmain`m_area within m_general
+end type
+
+on m_area.create
+call super::create
+end on
+
+on m_area.destroy
+call super::destroy
+end on
+
+type m_berth from m_sysmain`m_berth within m_general
+end type
+
+on m_berth.create
+call super::create
+end on
+
+on m_berth.destroy
+call super::destroy
+end on
+
+type m__brokers from m_sysmain`m__brokers within m_general
+end type
+
+on m__brokers.create
+call super::create
+end on
+
+on m__brokers.destroy
+call super::destroy
+end on
+
+type m_calculationbunkeradditionals from m_sysmain`m_calculationbunkeradditionals within m_general
+end type
+
+on m_calculationbunkeradditionals.create
+call super::create
+end on
+
+on m_calculationbunkeradditionals.destroy
+call super::destroy
+end on
+
+type m__charterers from m_sysmain`m__charterers within m_general
+end type
+
+on m__charterers.create
+call super::create
+end on
+
+on m__charterers.destroy
+call super::destroy
+end on
+
+type m_charterergroup23 from m_sysmain`m_charterergroup23 within m_general
+end type
+
+on m_charterergroup23.create
+call super::create
+end on
+
+on m_charterergroup23.destroy
+call super::destroy
+end on
+
+type m_claimstatus from m_sysmain`m_claimstatus within m_general
+end type
+
+on m_claimstatus.create
+call super::create
+end on
+
+on m_claimstatus.destroy
+call super::destroy
+end on
+
+type m__claimtypes from m_sysmain`m__claimtypes within m_general
+end type
+
+on m__claimtypes.create
+call super::create
+end on
+
+on m__claimtypes.destroy
+call super::destroy
+end on
+
+type m_commercialsegment from m_sysmain`m_commercialsegment within m_general
+end type
+
+on m_commercialsegment.create
+call super::create
+end on
+
+on m_commercialsegment.destroy
+call super::destroy
+end on
+
+type m_companies from m_sysmain`m_companies within m_general
+end type
+
+on m_companies.create
+call super::create
+this.toolbaritemname = "images\distlstl.ico"
+this.toolbaritemtext = "Companies"
+this.toolbaritemorder = 35
+end on
+
+on m_companies.destroy
+call super::destroy
+end on
+
+type m_competitorvessels from m_sysmain`m_competitorvessels within m_general
+end type
+
+on m_competitorvessels.create
+call super::create
+end on
+
+on m_competitorvessels.destroy
+call super::destroy
+end on
+
+type m_consumptionzone from m_sysmain`m_consumptionzone within m_general
+end type
+
+on m_consumptionzone.create
+call super::create
+end on
+
+on m_consumptionzone.destroy
+call super::destroy
+end on
+
+type m_country from m_sysmain`m_country within m_general
+end type
+
+on m_country.create
+call super::create
+end on
+
+on m_country.destroy
+call super::destroy
+end on
+
+type m_flatrates from m_sysmain`m_flatrates within m_general
+end type
+
+on m_flatrates.create
+call super::create
+end on
+
+on m_flatrates.destroy
+call super::destroy
+end on
+
+type m__grades from m_sysmain`m__grades within m_general
+end type
+
+on m__grades.create
+call super::create
+this.enabled = false
+end on
+
+on m__grades.destroy
+call super::destroy
+end on
+
+type m__gradegroups from m_sysmain`m__gradegroups within m_general
+end type
+
+on m__gradegroups.create
+call super::create
+end on
+
+on m__gradegroups.destroy
+call super::destroy
+end on
+
+type m_loaddischtypes from m_sysmain`m_loaddischtypes within m_general
+end type
+
+on m_loaddischtypes.create
+call super::create
+end on
+
+on m_loaddischtypes.destroy
+call super::destroy
+end on
+
+type m__offices from m_sysmain`m__offices within m_general
+end type
+
+on m__offices.create
+call super::create
+this.enabled = false
+end on
+
+on m__offices.destroy
+call super::destroy
+end on
+
+type m_departments from m_sysmain`m_departments within m_general
+end type
+
+on m_departments.create
+call super::create
+end on
+
+on m_departments.destroy
+call super::destroy
+end on
+
+type m_performingagents from m_sysmain`m_performingagents within m_general
+end type
+
+on m_performingagents.create
+call super::create
+end on
+
+on m_performingagents.destroy
+call super::destroy
+end on
+
+type m__ports from m_sysmain`m__ports within m_general
+end type
+
+on m__ports.create
+call super::create
+end on
+
+on m__ports.destroy
+call super::destroy
+end on
+
+type m__profitcenters from m_sysmain`m__profitcenters within m_general
+end type
+
+on m__profitcenters.create
+call super::create
+end on
+
+on m__profitcenters.destroy
+call super::destroy
+end on
+
+type m_profitcentersgroup from m_sysmain`m_profitcentersgroup within m_general
+end type
+
+on m_profitcentersgroup.create
+call super::create
+end on
+
+on m_profitcentersgroup.destroy
+call super::destroy
+end on
+
+type m__purpose from m_sysmain`m__purpose within m_general
+end type
+
+on m__purpose.create
+call super::create
+end on
+
+on m__purpose.destroy
+call super::destroy
+end on
+
+type m_shiptype from m_sysmain`m_shiptype within m_general
+end type
+
+on m_shiptype.create
+call super::create
+end on
+
+on m_shiptype.destroy
+call super::destroy
+end on
+
+type m__vessels from m_sysmain`m__vessels within m_general
+end type
+
+on m__vessels.create
+call super::create
+end on
+
+on m__vessels.destroy
+call super::destroy
+end on
+
+type m_tcowners from m_sysmain`m_tcowners within m_general
+end type
+
+on m_tcowners.create
+call super::create
+end on
+
+on m_tcowners.destroy
+call super::destroy
+end on
+
+type m_updateclarkson from m_sysmain`m_updateclarkson within m_general
+end type
+
+on m_updateclarkson.create
+call super::create
+end on
+
+on m_updateclarkson.destroy
+call super::destroy
+end on
+
+type m_vessels from m_sysmain`m_vessels within m_general
+end type
+
+on m_vessels.create
+call super::create
+end on
+
+on m_vessels.destroy
+call super::destroy
+end on
+
+type m_vesselsnewbuildings from m_sysmain`m_vesselsnewbuildings within m_general
+end type
+
+on m_vesselsnewbuildings.create
+call super::create
+end on
+
+on m_vesselsnewbuildings.destroy
+call super::destroy
+end on
+
+type m_yards from m_sysmain`m_yards within m_general
+end type
+
+on m_yards.create
+call super::create
+end on
+
+on m_yards.destroy
+call super::destroy
+end on
+
+type m_sep_0 from m_sysmain`m_sep_0 within m_systemtabels
+end type
+
+on m_sep_0.create
+call super::create
+end on
+
+on m_sep_0.destroy
+call super::destroy
+end on
+
+type m_financetable from m_sysmain`m_financetable within m_systemtabels
+end type
+
+on m_financetable.create
+call super::create
+end on
+
+on m_financetable.destroy
+call super::destroy
+end on
+
+type m_bankaccounts from m_sysmain`m_bankaccounts within m_financetable
+end type
+
+on m_bankaccounts.create
+call super::create
+end on
+
+on m_bankaccounts.destroy
+call super::destroy
+end on
+
+type m__currency from m_sysmain`m__currency within m_financetable
+end type
+
+on m__currency.create
+call super::create
+this.enabled = false
+end on
+
+on m__currency.destroy
+call super::destroy
+end on
+
+type m_tcexpensetypes from m_sysmain`m_tcexpensetypes within m_financetable
+end type
+
+on m_tcexpensetypes.create
+call super::create
+end on
+
+on m_tcexpensetypes.destroy
+call super::destroy
+end on
+
+type m_transactiondefaults from m_sysmain`m_transactiondefaults within m_financetable
+end type
+
+on m_transactiondefaults.create
+call super::create
+end on
+
+on m_transactiondefaults.destroy
+call super::destroy
+end on
+
+type m_updatefinresponsibleoperator from m_sysmain`m_updatefinresponsibleoperator within m_financetable
+end type
+
+on m_updatefinresponsibleoperator.create
+call super::create
+end on
+
+on m_updatefinresponsibleoperator.destroy
+call super::destroy
+end on
+
+type m__vouchers from m_sysmain`m__vouchers within m_financetable
+end type
+
+on m__vouchers.create
+call super::create
+end on
+
+on m__vouchers.destroy
+call super::destroy
+end on
+
+type m__vouchergroups from m_sysmain`m__vouchergroups within m_financetable
+end type
+
+on m__vouchergroups.create
+call super::create
+end on
+
+on m__vouchergroups.destroy
+call super::destroy
+end on
+
+type m_sep_1 from m_sysmain`m_sep_1 within m_systemtabels
+end type
+
+on m_sep_1.create
+call super::create
+end on
+
+on m_sep_1.destroy
+call super::destroy
+end on
+
+type m_pool from m_sysmain`m_pool within m_systemtabels
+end type
+
+on m_pool.create
+call super::create
+end on
+
+on m_pool.destroy
+call super::destroy
+end on
+
+type m_poolregistration from m_sysmain`m_poolregistration within m_pool
+end type
+
+on m_poolregistration.create
+call super::create
+end on
+
+on m_poolregistration.destroy
+call super::destroy
+end on
+
+type m_1 from m_sysmain`m_1 within m_pool
+end type
+
+on m_1.create
+call super::create
+end on
+
+on m_1.destroy
+call super::destroy
+end on
+
+type m_updatewebpoolpartner from m_sysmain`m_updatewebpoolpartner within m_pool
+end type
+
+on m_updatewebpoolpartner.create
+call super::create
+end on
+
+on m_updatewebpoolpartner.destroy
+call super::destroy
+end on
+
+type m_sep_5 from m_sysmain`m_sep_5 within m_systemtabels
+end type
+
+on m_sep_5.create
+call super::create
+end on
+
+on m_sep_5.destroy
+call super::destroy
+end on
+
+type m_administratortable from m_sysmain`m_administratortable within m_systemtabels
+end type
+
+on m_administratortable.create
+call super::create
+end on
+
+on m_administratortable.destroy
+call super::destroy
+end on
+
+type m__systemadministration from m_sysmain`m__systemadministration within m_administratortable
+end type
+
+on m__systemadministration.create
+call super::create
+end on
+
+on m__systemadministration.destroy
+call super::destroy
+end on
+
+type m_usergroups from m_sysmain`m_usergroups within m_administratortable
+end type
+
+on m_usergroups.create
+call super::create
+end on
+
+on m_usergroups.destroy
+call super::destroy
+end on
+
+type m_userlistmanagement from m_sysmain`m_userlistmanagement within m_administratortable
+end type
+
+on m_userlistmanagement.create
+call super::create
+end on
+
+on m_userlistmanagement.destroy
+call super::destroy
+end on
+
+type m_sep_3 from m_sysmain`m_sep_3 within m_administratortable
+end type
+
+on m_sep_3.create
+call super::create
+end on
+
+on m_sep_3.destroy
+call super::destroy
+end on
+
+type m_advancedrpgroups from m_sysmain`m_advancedrpgroups within m_administratortable
+end type
+
+on m_advancedrpgroups.create
+call super::create
+end on
+
+on m_advancedrpgroups.destroy
+call super::destroy
+end on
+
+type m_atobviacfeedcontrol from m_sysmain`m_atobviacfeedcontrol within m_administratortable
+end type
+
+on m_atobviacfeedcontrol.create
+call super::create
+end on
+
+on m_atobviacfeedcontrol.destroy
+call super::destroy
+end on
+
+type m_hideadvancedrp from m_sysmain`m_hideadvancedrp within m_administratortable
+end type
+
+on m_hideadvancedrp.create
+call super::create
+end on
+
+on m_hideadvancedrp.destroy
+call super::destroy
+end on
+
+type m_localatobviacdistance from m_sysmain`m_localatobviacdistance within m_administratortable
+end type
+
+on m_localatobviacdistance.create
+call super::create
+end on
+
+on m_localatobviacdistance.destroy
+call super::destroy
+end on
+
+type m_smtp from m_sysmain`m_smtp within m_administratortable
+end type
+
+on m_smtp.create
+call super::create
+end on
+
+on m_smtp.destroy
+call super::destroy
+end on
+
+type m_smtpmailservice from m_sysmain`m_smtpmailservice within m_administratortable
+end type
+
+on m_smtpmailservice.create
+call super::create
+end on
+
+on m_smtpmailservice.destroy
+call super::destroy
+end on
+
+type m_sep_systeminterface from m_sysmain`m_sep_systeminterface within m_administratortable
+end type
+
+on m_sep_systeminterface.create
+call super::create
+end on
+
+on m_sep_systeminterface.destroy
+call super::destroy
+end on
+
+type m_systeminterfaces from m_sysmain`m_systeminterfaces within m_administratortable
+end type
+
+on m_systeminterfaces.create
+call super::create
+end on
+
+on m_systeminterfaces.destroy
+call super::destroy
+end on
+
+type m_appmonitor from m_sysmain`m_appmonitor within m_administratortable
+end type
+
+on m_appmonitor.create
+call super::create
+end on
+
+on m_appmonitor.destroy
+call super::destroy
+end on
+
+type m_sep_transreason from m_sysmain`m_sep_transreason within m_administratortable
+end type
+
+on m_sep_transreason.create
+call super::create
+end on
+
+on m_sep_transreason.destroy
+call super::destroy
+end on
+
+type m_transactionadjustmentreasons from m_sysmain`m_transactionadjustmentreasons within m_administratortable
+end type
+
+on m_transactionadjustmentreasons.create
+call super::create
+end on
+
+on m_transactionadjustmentreasons.destroy
+call super::destroy
+end on
+
+type m_writeoff from m_sysmain`m_writeoff within m_administratortable
+end type
+
+on m_writeoff.create
+call super::create
+end on
+
+on m_writeoff.destroy
+call super::destroy
+end on
+
+type m_sep_voyagetype from m_sysmain`m_sep_voyagetype within m_administratortable
+end type
+
+on m_sep_voyagetype.create
+call super::create
+end on
+
+on m_sep_voyagetype.destroy
+call super::destroy
+end on
+
+type m_voyagetype from m_sysmain`m_voyagetype within m_administratortable
+end type
+
+on m_voyagetype.create
+call super::create
+end on
+
+on m_voyagetype.destroy
+call super::destroy
+end on
+
+type m_sep_contracttypes from m_sysmain`m_sep_contracttypes within m_administratortable
+end type
+
+on m_sep_contracttypes.create
+call super::create
+end on
+
+on m_sep_contracttypes.destroy
+call super::destroy
+end on
+
+type m_contracttype from m_sysmain`m_contracttype within m_administratortable
+end type
+
+on m_contracttype.create
+call super::create
+end on
+
+on m_contracttype.destroy
+call super::destroy
+end on
+
+type m_sep_businessunit from m_sysmain`m_sep_businessunit within m_administratortable
+end type
+
+on m_sep_businessunit.create
+call super::create
+end on
+
+on m_sep_businessunit.destroy
+call super::destroy
+end on
+
+type m_businessunit from m_sysmain`m_businessunit within m_administratortable
+end type
+
+on m_businessunit.create
+call super::create
+end on
+
+on m_businessunit.destroy
+call super::destroy
+end on
+
+type m_sep_changerequestconfig from m_sysmain`m_sep_changerequestconfig within m_administratortable
+end type
+
+on m_sep_changerequestconfig.create
+call super::create
+end on
+
+on m_sep_changerequestconfig.destroy
+call super::destroy
+end on
+
+type m_chmmapping from m_sysmain`m_chmmapping within m_administratortable
+end type
+
+on m_chmmapping.create
+call super::create
+end on
+
+on m_chmmapping.destroy
+call super::destroy
+end on
+
+type m_sep_chmmapping from m_sysmain`m_sep_chmmapping within m_administratortable
+end type
+
+on m_sep_chmmapping.create
+call super::create
+end on
+
+on m_sep_chmmapping.destroy
+call super::destroy
+end on
+
+type m_changerequestconfig from m_sysmain`m_changerequestconfig within m_administratortable
+end type
+
+on m_changerequestconfig.create
+call super::create
+end on
+
+on m_changerequestconfig.destroy
+call super::destroy
+end on
+
+type m_type from m_sysmain`m_type within m_changerequestconfig
+end type
+
+on m_type.create
+call super::create
+end on
+
+on m_type.destroy
+call super::destroy
+end on
+
+type m_nextstatus from m_sysmain`m_nextstatus within m_changerequestconfig
+end type
+
+on m_nextstatus.create
+call super::create
+end on
+
+on m_nextstatus.destroy
+call super::destroy
+end on
+
+type m_severity from m_sysmain`m_severity within m_changerequestconfig
+end type
+
+on m_severity.create
+call super::create
+end on
+
+on m_severity.destroy
+call super::destroy
+end on
+
+type m_creqstatus from m_sysmain`m_creqstatus within m_changerequestconfig
+end type
+
+on m_creqstatus.create
+call super::create
+end on
+
+on m_creqstatus.destroy
+call super::destroy
+end on
+
+type m_modulesubmodule from m_sysmain`m_modulesubmodule within m_changerequestconfig
+end type
+
+on m_modulesubmodule.create
+call super::create
+end on
+
+on m_modulesubmodule.destroy
+call super::destroy
+end on
+
+type m_consultants from m_sysmain`m_consultants within m_changerequestconfig
+end type
+
+on m_consultants.create
+call super::create
+end on
+
+on m_consultants.destroy
+call super::destroy
+end on
+
+type m_project from m_sysmain`m_project within m_changerequestconfig
+end type
+
+on m_project.create
+call super::create
+end on
+
+on m_project.destroy
+call super::destroy
+end on
+
+type m_sep_2 from m_sysmain`m_sep_2 within m_systemtabels
+end type
+
+on m_sep_2.create
+call super::create
+end on
+
+on m_sep_2.destroy
+call super::destroy
+end on
+
+type m_systemreports from m_sysmain`m_systemreports within m_systemtabels
+end type
+
+on m_systemreports.create
+call super::create
+end on
+
+on m_systemreports.destroy
+call super::destroy
+end on
+
+type m_vesselsbycommsegment from m_sysmain`m_vesselsbycommsegment within m_systemreports
+end type
+
+on m_vesselsbycommsegment.create
+call super::create
+end on
+
+on m_vesselsbycommsegment.destroy
+call super::destroy
+end on
+
+type m_competitorvesselsbycommsegment from m_sysmain`m_competitorvesselsbycommsegment within m_systemreports
+end type
+
+on m_competitorvesselsbycommsegment.create
+call super::create
+end on
+
+on m_competitorvesselsbycommsegment.destroy
+call super::destroy
+end on
+
+type m_charterersgroup from m_sysmain`m_charterersgroup within m_systemreports
+end type
+
+on m_charterersgroup.create
+call super::create
+end on
+
+on m_charterersgroup.destroy
+call super::destroy
+end on
+
+type m_sep_systemreports from m_sysmain`m_sep_systemreports within m_systemtabels
+end type
+
+on m_sep_systemreports.create
+call super::create
+end on
+
+on m_sep_systemreports.destroy
+call super::destroy
+end on
+
+type m_refreshcachedtables from m_sysmain`m_refreshcachedtables within m_systemtabels
+end type
+
+on m_refreshcachedtables.create
+call super::create
+end on
+
+on m_refreshcachedtables.destroy
+call super::destroy
+end on
+
+type m_window from m_sysmain`m_window within m_calcmain
+end type
+
+on m_window.create
+call super::create
+end on
+
+on m_window.destroy
+call super::destroy
+end on
+
+type m_tilevertical from m_sysmain`m_tilevertical within m_window
+end type
+
+on m_tilevertical.create
+call super::create
+end on
+
+on m_tilevertical.destroy
+call super::destroy
+end on
+
+type m_help from m_sysmain`m_help within m_calcmain
+end type
+
+on m_help.create
+call super::create
+end on
+
+on m_help.destroy
+call super::destroy
+end on
+
+type m_helpindex from m_sysmain`m_helpindex within m_help
+end type
+
+on m_helpindex::clicked;call m_sysmain`m_helpindex::clicked;//ShowHelp ("C:\TRAMOS\CALC.HLP", Index!)
+end on
+
+on m_helpindex.create
+call super::create
+end on
+
+on m_helpindex.destroy
+call super::destroy
+end on
+
+type m_tramoshelp from m_sysmain`m_tramoshelp within m_help
+end type
+
+on m_tramoshelp.create
+call super::create
+end on
+
+on m_tramoshelp.destroy
+call super::destroy
+end on
+
+type m___6 from m_sysmain`m___6 within m_help
+end type
+
+on m___6.create
+call super::create
+end on
+
+on m___6.destroy
+call super::destroy
+end on
+
+type m_about from m_sysmain`m_about within m_help
+end type
+
+on m_about.create
+call super::create
+end on
+
+on m_about.destroy
+call super::destroy
+end on
+
+type m_open from menu within m_menutop2
+end type
+
+event clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : w_tramos_main
+
+ Object     : menu, edit, open
+
+ Event	 : clicked
+
+ Scope     : lokal
+
+ ************************************************************************************
+
+ Author    :Teit Aunt 
+
+ Date       : 12-7-1996
+
+ Description : opens a calculation or template
+
+ Arguments : 
+
+ Returns   :   
+
+ Variables : 
+
+ Other : 
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+---------------------------------------------------------
+15-7-1996	1.0 			TA		Initial version
+  
+************************************************************************************/
+/* Open a calculation or template */
+
+// If Manager is open, then triggerevent openitem, else open Manager-window
+
+Window lw_tmp
+
+lw_tmp = w_tramos_main.GetActiveSheet()
+If IsValid(lw_tmp) Then
+	If lw_tmp.classname() = "w_calc_manager" Then 
+		mf_triggerevent("ue_openitem")
+		Return
+	End if
+End if
+
+mf_opensheet(w_calc_manager)
+
+
+end event
+
+on m_open.create
+call super::create
+this.text = "&Open~tAlt+O"
+this.shortcut = 591
+this.toolbaritemname = "open!"
+this.toolbaritemdownname = "images\opendown.ico"
+this.toolbaritemtext = "Open"
+this.toolbaritemorder = 10
+this.toolbaritemspace = 2
+this.menuimage = "Open!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_open.destroy
+call super::destroy
+end on
+
+type m_new from menu within m_menutop2
+end type
+
+event clicked;IF uo_global.ii_access_level = -1 THEN
+	this.Enabled = FALSE
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+ELSE
+	mf_triggerevent("ue_newitem")
+END IF
+
+/* If the current window is manager, open a new calculation */
+
+/* If the current window is cargo, open a new cargo */
+
+/* If the current window is  certeparti, open a new certeparti window */
+
+
+
+end event
+
+on m_new.create
+call super::create
+this.text = "&New~tAlt+N"
+this.enabled = false
+this.shortcut = 590
+this.toolbaritemname = "insert!"
+this.toolbaritemtext = "New"
+this.toolbaritemorder = 13
+this.toolbaritemspace = 2
+this.menuimage = "insert!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_new.destroy
+call super::destroy
+end on
+
+type m_-2 from menu within m_menutop2
+end type
+
+on m_-2.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-2.destroy
+call super::destroy
+end on
+
+type m_save from menu within m_menutop2
+end type
+
+event clicked;IF uo_global.ii_access_level = -1 THEN
+	this.Enabled = FALSE
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+ELSE
+	mf_triggerevent("ue_saveitem")
+END IF
+
+
+
+end event
+
+on m_save.create
+call super::create
+this.text = "Sa&ve~tAlt+V"
+this.enabled = false
+this.shortcut = 598
+this.toolbaritemname = "images\save.ico"
+this.toolbaritemdownname = "images\save.ico"
+this.toolbaritemtext = "Save"
+this.toolbaritemorder = 11
+this.menuimage = "images\save.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_save.destroy
+call super::destroy
+end on
+
+type m_close from menu within m_menutop2
+end type
+
+on clicked;mf_triggerevent("ue_closeitem")
+end on
+
+on m_close.create
+call super::create
+this.text = "&Close"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_close.destroy
+call super::destroy
+end on
+
+type m_saveas from menu within m_menutop2
+end type
+
+event clicked;IF uo_global.ii_access_level = -1 THEN
+	this.Enabled = FALSE
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+ELSE
+	mf_triggerevent("ue_saveasitem")
+END IF
+end event
+
+on m_saveas.create
+call super::create
+this.text = "Save &As"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_saveas.destroy
+call super::destroy
+end on
+
+type m_-3 from menu within m_menutop2
+end type
+
+on m_-3.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-3.destroy
+call super::destroy
+end on
+
+type m_createloadloadcalculation from menu within m_menutop2
+end type
+
+event clicked;IF uo_global.ii_access_level = -1 THEN
+	this.Enabled = FALSE
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+ELSE
+	n_object_usage_log use_log
+	use_log.uf_log_object(this.text)
+	mf_triggerevent("ue_create_loadload_calculation")
+END IF
+end event
+
+on m_createloadloadcalculation.create
+call super::create
+this.text = "Create &LoadLoad Calculation"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_createloadloadcalculation.destroy
+call super::destroy
+end on
+
+type m_calc129 from menu within m_menutop2
+end type
+
+on m_calc129.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_calc129.destroy
+call super::destroy
+end on
+
+type m_move from menu within m_menutop2
+end type
+
+event clicked;
+IF uo_global.ii_access_level = -1 THEN
+	this.Enabled = FALSE
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+ELSE
+	n_object_usage_log use_log
+	use_log.uf_log_object(this.text)
+	mf_triggerevent("ue_moveitem")
+END IF
+end event
+
+on m_move.create
+call super::create
+this.text = "&Move Cargo to"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_move.destroy
+call super::destroy
+end on
+
+type m_copy from menu within m_menutop2
+end type
+
+event clicked;
+IF uo_global.ii_access_level = -1 THEN
+	this.Enabled = FALSE
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+ELSE
+	n_object_usage_log use_log
+	use_log.uf_log_object(this.text)
+	mf_triggerevent("ue_copyitem")
+END IF
+end event
+
+on m_copy.create
+call super::create
+this.text = "Co&py Cargo to"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_copy.destroy
+call super::destroy
+end on
+
+type m_-4 from menu within m_menutop2
+end type
+
+on m_-4.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-4.destroy
+call super::destroy
+end on
+
+type m_delete from menu within m_menutop2
+end type
+
+event clicked;IF uo_global.ii_access_level = -1 THEN
+	this.Enabled = FALSE
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+ELSE
+	mf_triggerevent("ue_deleteitem")
+END IF
+
+end event
+
+on m_delete.create
+call super::create
+this.text = "&Delete~tAlt+D"
+this.shortcut = 580
+this.toolbaritemname = "images\delete.ico"
+this.toolbaritemtext = "Delete"
+this.toolbaritemorder = 14
+this.menuimage = "images\delete.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_delete.destroy
+call super::destroy
+end on
+
+type m_edit5- from menu within m_menutop2
+end type
+
+on m_edit5-.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_edit5-.destroy
+call super::destroy
+end on
+
+type m_status from menu within m_menutop2
+end type
+
+event clicked;IF uo_global.ii_access_level = -1 THEN
+	this.Enabled = FALSE
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+ELSE
+	mf_triggerevent("ue_statusitem")
+END IF
+
+end event
+
+on m_status.create
+call super::create
+this.text = "S&tatus"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_status.destroy
+call super::destroy
+end on
+
+type m_ballastvoyage from menu within m_menutop2
+end type
+
+event clicked;IF uo_global.ii_access_level = -1 THEN
+	this.Enabled = FALSE
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+ELSE
+	n_object_usage_log use_log
+	use_log.uf_log_object(this.text)
+	mf_triggerevent("ue_ballastvoyageitem")
+END IF
+end event
+
+on m_ballastvoyage.create
+call super::create
+this.visible = false
+this.text = "Ballast &Voyage"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_ballastvoyage.destroy
+call super::destroy
+end on
+
+type m_edit6- from menu within m_menutop2
+end type
+
+on m_edit6-.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_edit6-.destroy
+call super::destroy
+end on
+
+type m_wizard from menu within m_menutop2
+end type
+
+event clicked;IF uo_global.ii_access_level = -1 THEN
+	this.Enabled = FALSE
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+ELSE
+	n_object_usage_log use_log
+	use_log.uf_log_object(this.text)
+	mf_triggerevent("ue_wizarditem")
+END IF
+end event
+
+on m_wizard.create
+call super::create
+this.text = "&Wizard"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_wizard.destroy
+call super::destroy
+end on
+
+type m_edit7- from menu within m_menutop2
+end type
+
+on m_edit7-.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_edit7-.destroy
+call super::destroy
+end on
+
+type m_refresh from menu within m_menutop2
+end type
+
+on clicked;mf_triggerevent("ue_refresh")
+end on
+
+on m_refresh.create
+call super::create
+this.text = "&Refresh"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_refresh.destroy
+call super::destroy
+end on
+
+type m_edit8- from menu within m_menutop2
+end type
+
+on m_edit8-.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_edit8-.destroy
+call super::destroy
+end on
+
+type m_unlockcalculation from menu within m_menutop2
+end type
+
+event clicked;IF uo_global.ii_access_level = -1 THEN
+	this.Enabled = FALSE
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+ELSE
+	mf_triggerevent("ue_unlockcalculationitem")
+END IF
+end event
+
+on m_unlockcalculation.create
+call super::create
+this.text = "&Unlock Calculation"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_unlockcalculation.destroy
+call super::destroy
+end on
+
+type m_dischports from menu within m_menutop2
+end type
+
+on clicked;mf_triggerevent("ue_dischports")
+end on
+
+on m_dischports.create
+call super::create
+this.visible = false
+this.text = "Dischports~tCtrl+D"
+this.shortcut = 324
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_dischports.destroy
+call super::destroy
+end on
+
+type m_loadports from menu within m_menutop2
+end type
+
+on clicked;mf_triggerevent("ue_loadports")
+end on
+
+on m_loadports.create
+call super::create
+this.visible = false
+this.text = "Loadports~tCtrl+L"
+this.shortcut = 332
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_loadports.destroy
+call super::destroy
+end on
+
+type m_summary from menu within m_menutop2
+end type
+
+on clicked;mf_triggerevent("ue_summary")
+end on
+
+on m_summary.create
+call super::create
+this.visible = false
+this.text = "Summary~tCtrl+S"
+this.shortcut = 339
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_summary.destroy
+call super::destroy
+end on
+
+type m_cp from menu within m_menutop3
+end type
+
+on clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : w_tramos_main
+
+ Object     : menu, go, C/P
+
+ Event	 : clicked
+
+ Scope     : lokal
+
+ ************************************************************************************
+
+ Author    :Teit Aunt 
+
+ Date       : 12-7-1996
+
+ Description : Opens the C/P  window.
+
+ Arguments : 
+
+ Returns   :   
+
+ Variables : 
+
+ Other : 
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+---------------------------------------------------------
+15-7-1996	1.0 			TA		Initial version
+30-7-96		1.1			TA		Opens CP that belongs to the calculation
+  
+************************************************************************************/
+/* Opens the C/P_list window */
+
+//mf_openSheet(w_calc_cp_list)
+
+mf_triggerevent("ue_cpitem")
+
+end on
+
+on m_cp.create
+call super::create
+this.text = "&C/P"
+this.enabled = false
+this.toolbaritemname = "images\cp.ico"
+this.toolbaritemtext = "C/P"
+this.toolbaritemorder = 22
+this.toolbaritemspace = 2
+this.menuimage = "images\cp.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_cp.destroy
+call super::destroy
+end on
+
+type m_sensitivity from menu within m_menutop3
+end type
+
+event clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     : m_sensitivity
+  
+ Event	 :  clicked
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    :Teit Aunt 
+   
+ Date       : 12-8-96
+
+ Description : 
+
+ Arguments : 
+
+ Returns   :   
+
+ Variables : 
+
+ Other : 
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+---------------------------------------------------------
+12-8-96		1.0 			TA		Initial version
+  
+************************************************************************************/
+/* Opens the sensitivity window */
+
+//Open(w_calc_sensitivity)
+n_object_usage_log use_log
+use_log.uf_log_object(this.text)
+	
+mf_triggerevent("ue_sensitivityitem")
+end event
+
+on m_sensitivity.create
+call super::create
+this.text = "&Sensitivity"
+this.enabled = false
+this.toolbaritemname = "images\sensi.ico"
+this.toolbaritemtext = "Sensitivity"
+this.toolbaritemorder = 23
+this.menuimage = "images\sensi.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sensitivity.destroy
+call super::destroy
+end on
+
+type m_combinecalculations from menu within m_menutop3
+end type
+
+event clicked;if uo_global.ii_access_level = -1 then
+	this.enabled = false
+	messagebox("Infomation","As an external user you do not have access to this functionality.")
+else
+	mf_opensheet(w_combine_calculations)
+end if
+end event
+
+on m_combinecalculations.create
+call super::create
+this.text = "Co&mbine Calculations"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_combinecalculations.destroy
+call super::destroy
+end on
+
+type m_claims from menu within m_menutop3
+end type
+
+event clicked;IF uo_global.ii_access_level = -1 THEN
+	this.Enabled = FALSE
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+ELSE
+	n_object_usage_log use_log
+	use_log.uf_log_object(this.text)
+	mf_triggerevent("ue_claims_item")
+END IF
+
+end event
+
+on m_claims.create
+call super::create
+this.text = "C&laims"
+this.enabled = false
+this.microhelp = "Claims"
+this.toolbaritemname = "images\claims.ico"
+this.toolbaritemtext = "Claims"
+this.toolbaritemorder = 24
+this.toolbaritemspace = 2
+this.menuimage = "images\claims.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_claims.destroy
+call super::destroy
+end on
+
+type m_sendcalctoweeklyfixture from menu within m_menutop3
+end type
+
+on m_sendcalctoweeklyfixture.create
+call super::create
+this.text = "Send Calc to &Weekly Fixture"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sendcalctoweeklyfixture.destroy
+call super::destroy
+end on
+
+event clicked;double				 				ld_calc_id, ld_fix_id
+Integer 								li_vessel, li_status
+long 									ll_row
+window 								lw_activesheet
+w_calc_manager 					lw_manager
+w_calc_calculation 				lw_calculation
+w_atobviac_calc_calculation	lw_atobviac_calculation 
+datawindow							ldw
+
+/* first find out if function called from Calculation Manager or Claculation Summary */
+lw_activesheet = w_tramos_main.GetActiveSheet()
+if IsValid(lw_activesheet) then
+	// There is an active sheet, so get its type and assign it to the right 
+	// window variable;
+	if ClassName(lw_activesheet) = "w_calc_manager" then
+		lw_manager = lw_activesheet
+		ldw = lw_manager.dw_manager
+		ll_row = ldw.getrow()
+		if ll_row > 0 then
+			ld_calc_id = ldw.getItemNumber(ll_row, "cal_calc_cal_calc_id")
+		else
+			MessageBox("Error", "No Calculation data available!")
+			return
+		end if
+	elseif ClassName(lw_activesheet) = "w_calc_calculation" then
+		lw_calculation = lw_activesheet
+		if m_calcmain.m_menutop2.m_save.enabled then
+			MessageBox("Information", "Please save Calculation before Transfer")
+			return
+		end if
+		ldw = lw_calculation.uo_calculation.uo_calc_summary.dw_calc_summary
+		ll_row = ldw.getrow()
+		if ll_row > 0 then
+			ld_calc_id = ldw.getItemNumber(ll_row, "cal_calc_id")
+		else
+			MessageBox("Error", "No Calculation data available!")
+			return
+		end if
+	elseif ClassName(lw_activesheet) = "w_atobviac_calc_calculation" then
+		lw_atobviac_calculation = lw_activesheet
+		if m_calcmain.m_menutop2.m_save.enabled then
+			MessageBox("Information", "Please save Calculation before Transfer")
+			return
+		end if
+		ldw = lw_atobviac_calculation.uo_calculation.uo_calc_summary.dw_calc_summary
+		ll_row = ldw.getrow()
+		if ll_row > 0 then
+			ld_calc_id = ldw.getItemNumber(ll_row, "cal_calc_id")
+		else
+			MessageBox("Error", "No Calculation data available!")
+			return
+		end if
+	else
+		MessageBox("Information", "You are only allowed to transfer from Manager or Calculation windows")
+		return
+	end if
+end if
+
+/* if here validation OK and transfer can go on */
+SELECT CAL_CALC.CAL_CALC_STATUS, CAL_CALC.CAL_CALC_FIX_ID, CAL_CALC.CAL_CALC_VESSEL_ID  
+INTO :li_status, :ld_fix_id, :li_vessel  
+FROM CAL_CALC  
+WHERE CAL_CALC.CAL_CALC_ID = :ld_calc_id   ;
+Commit;
+
+IF li_status = 5 OR li_status = 6 THEN
+	SELECT CAL_CALC.CAL_CALC_ID  
+	INTO :ld_calc_id  
+	FROM CAL_CALC  
+	WHERE CAL_CALC.CAL_CALC_FIX_ID = :ld_fix_id AND CAL_CALC.CAL_CALC_STATUS = 4  ;
+	Commit;
+ELSEIF NOT(li_status = 2) AND NOT(li_status = 4) THEN
+	MessageBox("Warning","You must select a Calcule with status Working, Fixtured, Calculated or Estimated.")
+	Return
+END IF	
+
+iuo_wf = CREATE n_weekly_fixture_report
+
+iuo_wf.of_report_fixture(li_vessel,ld_calc_id,1)
+
+Destroy iuo_wf
+
+end event
+
+type m_go3- from menu within m_menutop3
+end type
+
+on m_go3-.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_go3-.destroy
+call super::destroy
+end on
+
+type m_fixture from menu within m_menutop3
+end type
+
+event clicked;/* External APM users no access to fixture calculations */
+IF uo_global.ii_access_level = -1 THEN
+	this.Enabled = FALSE
+	MessageBox("Infomation","As an external APM user you do not have access to this functionality.")
+	return
+END IF
+
+/* Only charterers can fixture claculations */	
+if uo_global.ii_user_profile <> 1 then   
+	MessageBox("Information", "Only Charterer profile can fixture calculation")
+	return
+end if
+
+
+mf_triggerevent("ue_fixtureitem")
+
+end event
+
+on m_fixture.create
+call super::create
+this.text = "&Do Fixture"
+this.enabled = false
+this.toolbaritemname = "images\fixture.ico"
+this.toolbaritemtext = "Fixture"
+this.toolbaritemorder = 24
+this.toolbaritemspace = 2
+this.menuimage = "images\fixture.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_fixture.destroy
+call super::destroy
+end on
+
+type m_go2- from menu within m_menutop3
+end type
+
+on m_go2-.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_go2-.destroy
+call super::destroy
+end on
+
+type m_print from menu within m_menutop3
+end type
+
+event clicked;n_object_usage_log use_log
+use_log.uf_log_object(this.text)
+mf_triggerevent("ue_printitem")
+end event
+
+on m_print.create
+call super::create
+this.text = "&Print"
+this.enabled = false
+this.toolbaritemname = "images\print.ico"
+this.toolbaritemtext = "Print"
+this.toolbaritemorder = 31
+this.toolbaritemspace = 2
+this.menuimage = "images\print.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_print.destroy
+call super::destroy
+end on
+
+type m_go4- from menu within m_menutop3
+end type
+
+on m_go4-.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_go4-.destroy
+call super::destroy
+end on
+
+type m_distancefinder from menu within m_menutop3
+end type
+
+event clicked;choose case uo_global.ii_access_level 
+	case -1, -3   /* External APM and External Other no access */
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+	Return
+end choose
+
+mf_opensheet(w_atobviac_distance_finder)
+end event
+
+on m_distancefinder.create
+call super::create
+this.text = "Advanced &Distance Finder"
+this.toolbaritemname = "images\passer2.ico"
+this.toolbaritemtext = "Advanced distance finder"
+this.toolbaritemorder = 28
+this.toolbaritemspace = 2
+this.menuimage = "images\passer2.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_distancefinder.destroy
+call super::destroy
+end on
+
+type m_simpledistancefinder from menu within m_menutop3
+end type
+
+event clicked;choose case uo_global.ii_access_level 
+	case -1, -3   /* External APM and External Other no access */
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+	Return
+end choose
+
+mf_opensheet(w_atobviac_distance_finder_simple)
+end event
+
+on m_simpledistancefinder.create
+call super::create
+this.text = "Simple Distance Finder"
+this.toolbaritemname = "images\passer.ico"
+this.toolbaritemtext = "Simple distance finder"
+this.toolbaritemorder = 29
+this.menuimage = "images\passer.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_simpledistancefinder.destroy
+call super::destroy
+end on
+
+type m_vesselpositionmap from menu within m_menutop3
+end type
+
+on m_vesselpositionmap.create
+call super::create
+this.text = "Vessel Position Map"
+this.microhelp = "Vessel Position Map"
+this.toolbaritemname = "images\gmappos.ico"
+this.toolbaritemorder = 30
+this.menuimage = "images\gmappos.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_vesselpositionmap.destroy
+call super::destroy
+end on
+
+event clicked;Open(w_VesselPos)
+end event
+
+type m_findunctad from menu within m_menutop3
+end type
+
+event clicked;
+n_object_usage_log use_log
+use_log.uf_log_object(this.text)
+
+mf_openSheet(w_calc_find_unctad)
+end event
+
+on m_findunctad.create
+call super::create
+this.text = "Find UNC&TAD"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_findunctad.destroy
+call super::destroy
+end on
+
+type m_findatobviacportcode from menu within m_menutop3
+end type
+
+event clicked;OpenSheet(w_atobviac_find_portcode, w_tramos_main, 7, Original!)
+end event
+
+on m_findatobviacportcode.create
+call super::create
+this.text = "Find AtoBviaC Portcode"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_findatobviacportcode.destroy
+call super::destroy
+end on
+
+type m_portexpenses from menu within m_menutop3
+end type
+
+event clicked;s_calc_port_expenses lstr_parm
+string ls_vesselname
+long ll_row, ll_carg_id
+integer li_vessel
+datawindow ldw
+window activesheet
+GraphicObject which_control
+
+/* If no vessel selected vessel_type = 1 */
+
+activesheet = w_tramos_main.GetActiveSheet()
+
+IF IsValid(activesheet) THEN
+	CHOOSE CASE ClassName(activesheet)
+		CASE "w_calc_manager"
+			w_calc_manager lw_manager
+			lw_manager = activesheet
+			ll_row = lw_manager.dw_manager.GetRow()
+			IF ll_row > 0 then
+				ls_vesselname = lw_manager.dw_manager.GetItemString(ll_row, "vessel")
+				SELECT CAL_VEST_TYPE_ID 
+					INTO :lstr_parm.shiptype[1]
+					FROM VESSELS
+					WHERE VESSEL_NAME = :ls_vesselname;
+			END IF				
+		CASE "w_calc_calculation" 
+			w_calc_calculation lw_calculation
+			lw_calculation = activesheet
+			which_control = GetFocus()
+			CHOOSE CASE TypeOf(which_control)
+				CASE Datawindow!
+					IF which_control.ClassName() = "dw_loadports" OR which_control.ClassName() = "dw_dischports" THEN
+						ldw = which_control
+						ldw.AcceptText()
+						ll_row = ldw.getrow()
+						IF ll_row > 0 then
+							lstr_parm.portcode = ldw.getItemString(ll_row, "port_code")
+							lstr_parm.purpose = ldw.getItemString(ll_row, "purpose_code")
+							ll_row = lw_calculation.uo_calculation.uo_calc_summary.dw_calc_summary.getrow()
+							IF ll_row > 0 then
+								li_vessel = lw_calculation.uo_calculation.uo_calc_summary.dw_calc_summary.getItemNumber(ll_row,"cal_calc_vessel_id")
+									SELECT CAL_VEST_TYPE_ID 
+										INTO :lstr_parm.shiptype[1]
+										FROM VESSELS
+										WHERE VESSEL_NR = :li_vessel;
+							END IF
+						END IF	
+					ELSE
+						ll_row = lw_calculation.uo_calculation.uo_calc_summary.dw_calc_summary.getrow()
+						IF ll_row > 0 then
+							li_vessel = lw_calculation.uo_calculation.uo_calc_summary.dw_calc_summary.getItemNumber(ll_row,"cal_calc_vessel_id")
+								SELECT CAL_VEST_TYPE_ID 
+									INTO :lstr_parm.shiptype[1]
+									FROM VESSELS
+									WHERE VESSEL_NR = :li_vessel;
+						END IF
+					END IF
+			END CHOOSE
+		CASE "w_atobviac_calc_calculation" 
+			w_atobviac_calc_calculation lw_abc_calculation
+			lw_abc_calculation = activesheet
+			which_control = GetFocus()
+			CHOOSE CASE TypeOf(which_control)
+				CASE Datawindow!
+					IF which_control.ClassName() = "dw_loadports" OR which_control.ClassName() = "dw_dischports" THEN
+						ldw = which_control
+						ldw.AcceptText()
+						ll_row = ldw.getrow()
+						IF ll_row > 0 then
+							lstr_parm.portcode = ldw.getItemString(ll_row, "port_code")
+							lstr_parm.purpose = ldw.getItemString(ll_row, "purpose_code")
+							ll_row = lw_abc_calculation.uo_calculation.uo_calc_summary.dw_calc_summary.getrow()
+							IF ll_row > 0 then
+								li_vessel = lw_abc_calculation.uo_calculation.uo_calc_summary.dw_calc_summary.getItemNumber(ll_row,"cal_calc_vessel_id")
+									SELECT CAL_VEST_TYPE_ID 
+										INTO :lstr_parm.shiptype[1]
+										FROM VESSELS
+										WHERE VESSEL_NR = :li_vessel;
+							END IF
+						END IF	
+					ELSE
+						ll_row = lw_abc_calculation.uo_calculation.uo_calc_summary.dw_calc_summary.getrow()
+						IF ll_row > 0 then
+							li_vessel = lw_abc_calculation.uo_calculation.uo_calc_summary.dw_calc_summary.getItemNumber(ll_row,"cal_calc_vessel_id")
+								SELECT CAL_VEST_TYPE_ID 
+									INTO :lstr_parm.shiptype[1]
+									FROM VESSELS
+									WHERE VESSEL_NR = :li_vessel;
+						END IF
+					END IF
+			END CHOOSE
+	END CHOOSE
+END IF
+
+IF UpperBound(lstr_parm.shiptype) = 0 THEN
+	lstr_parm.shiptype[1] = 1
+END IF
+
+lstr_parm.years = 2
+
+n_object_usage_log use_log
+use_log.uf_log_object(this.text)
+
+openwithparm(w_calc_port_expenses, lstr_parm)
+
+
+end event
+
+on m_portexpenses.create
+call super::create
+this.text = "Port Expenses~tF5"
+this.shortcut = 116
+this.toolbaritemname = "formatdollar!"
+this.toolbaritemtext = "Port Expenses (F5)"
+this.toolbaritemorder = 31
+this.toolbaritemspace = 2
+this.menuimage = "formatdollar!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_portexpenses.destroy
+call super::destroy
+end on
+
+type m_blueboard from menu within m_menutop3
+end type
+
+event clicked;n_object_usage_log use_log
+
+/* Administrator and Charterers and  Operations */
+if uo_global.ii_access_level = c#usergroup.#ADMINISTRATOR or &
+	((uo_global.ii_user_profile = 1 or uo_global.ii_user_profile = 2) and (uo_global.ii_access_level = c#usergroup.#USER or uo_global.ii_access_level = c#usergroup.#SUPERUSER))  &
+then
+	use_log.uf_log_object("Menu " + this.text)
+	open(w_Blueboard)
+else
+	this.Enabled = false
+	MessageBox("Infomation","Only Administrator and Charterer and Operator profile has access to this functionality.")
+end if
+
+end event
+
+on m_blueboard.create
+call super::create
+this.text = "Blueboard"
+this.toolbaritemname = "images\blueboard.ico"
+this.toolbaritemtext = "Blueboard"
+this.toolbaritemorder = 36
+this.menuimage = "images\blueboard.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_blueboard.destroy
+call super::destroy
+end on
+
+type m_0 from menu within m_menutop3
+end type
+
+on m_0.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_2 from menu within m_menutop3
+m_fixturelist m_fixturelist
+m_11 m_11
+m_12 m_12
+m_13 m_13
+m_14 m_14
+m_20 m_20
+m_15 m_15
+m_weeklyfixturereport m_weeklyfixturereport
+m_17 m_17
+m_18 m_18
+m_failedreasonreport m_failedreasonreport
+m_21 m_21
+m_19 m_19
+m_22 m_22
+m_23 m_23
+m_24 m_24
+m_25 m_25
+m_27 m_27
+end type
+
+on m_2.create
+call super::create
+this.text = "&Fixture"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_fixturelist=create m_fixturelist
+this.m_11=create m_11
+this.m_12=create m_12
+this.m_13=create m_13
+this.m_14=create m_14
+this.m_20=create m_20
+this.m_15=create m_15
+this.m_weeklyfixturereport=create m_weeklyfixturereport
+this.m_17=create m_17
+this.m_18=create m_18
+this.m_failedreasonreport=create m_failedreasonreport
+this.m_21=create m_21
+this.m_19=create m_19
+this.m_22=create m_22
+this.m_23=create m_23
+this.m_24=create m_24
+this.m_25=create m_25
+this.m_27=create m_27
+this.Item[UpperBound(this.Item)+1]=this.m_fixturelist
+this.Item[UpperBound(this.Item)+1]=this.m_11
+this.Item[UpperBound(this.Item)+1]=this.m_12
+this.Item[UpperBound(this.Item)+1]=this.m_13
+this.Item[UpperBound(this.Item)+1]=this.m_14
+this.Item[UpperBound(this.Item)+1]=this.m_20
+this.Item[UpperBound(this.Item)+1]=this.m_15
+this.Item[UpperBound(this.Item)+1]=this.m_weeklyfixturereport
+this.Item[UpperBound(this.Item)+1]=this.m_17
+this.Item[UpperBound(this.Item)+1]=this.m_18
+this.Item[UpperBound(this.Item)+1]=this.m_failedreasonreport
+this.Item[UpperBound(this.Item)+1]=this.m_21
+this.Item[UpperBound(this.Item)+1]=this.m_19
+this.Item[UpperBound(this.Item)+1]=this.m_22
+this.Item[UpperBound(this.Item)+1]=this.m_23
+this.Item[UpperBound(this.Item)+1]=this.m_24
+this.Item[UpperBound(this.Item)+1]=this.m_25
+this.Item[UpperBound(this.Item)+1]=this.m_27
+end on
+
+on m_2.destroy
+call super::destroy
+destroy(this.m_fixturelist)
+destroy(this.m_11)
+destroy(this.m_12)
+destroy(this.m_13)
+destroy(this.m_14)
+destroy(this.m_20)
+destroy(this.m_15)
+destroy(this.m_weeklyfixturereport)
+destroy(this.m_17)
+destroy(this.m_18)
+destroy(this.m_failedreasonreport)
+destroy(this.m_21)
+destroy(this.m_19)
+destroy(this.m_22)
+destroy(this.m_23)
+destroy(this.m_24)
+destroy(this.m_25)
+destroy(this.m_27)
+end on
+
+event clicked;if uo_global.ii_access_level = -1 then
+	//MessageBox("Infomation","As an external user you do not have access to this functionality.")
+	m_menutop3.m_2.enabled=false
+	return
+end if
+end event
+
+type m_fixturelist from menu within m_2
+end type
+
+event clicked;if uo_global.ii_access_level = -1 then
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+	return
+end if
+
+open(w_fixture_list)
+end event
+
+on m_fixturelist.create
+call super::create
+this.text = "Fixture/Cargo List"
+this.toolbaritemname = "images\fixture_list.ico"
+this.toolbaritemtext = "Fixture/Cargo List"
+this.toolbaritemorder = 32
+this.menuimage = "images\fixture_list.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_fixturelist.destroy
+call super::destroy
+end on
+
+type m_11 from menu within m_2
+end type
+
+event clicked;mf_opensheet(w_trade_list)
+end event
+
+on m_11.create
+call super::create
+this.text = "Fixture Trade"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_11.destroy
+call super::destroy
+end on
+
+type m_12 from menu within m_2
+end type
+
+event clicked;mf_opensheet(w_flatrate)
+end event
+
+on m_12.create
+call super::create
+this.text = "Fixture Flatrate"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_12.destroy
+call super::destroy
+end on
+
+type m_13 from menu within m_2
+end type
+
+on m_13.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_13.destroy
+call super::destroy
+end on
+
+type m_14 from menu within m_2
+end type
+
+event clicked;if uo_global.ii_access_level = -1 then
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+	return
+end if
+mf_opensheet(w_daily_report)
+end event
+
+on m_14.create
+call super::create
+this.text = "Daily Report"
+this.toolbaritemname = "images\daily_report.ico"
+this.toolbaritemtext = "Daily Report"
+this.toolbaritemorder = 33
+this.menuimage = "images\daily_report.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_14.destroy
+call super::destroy
+end on
+
+type m_20 from menu within m_2
+end type
+
+event clicked;mf_opensheet(w_daily_report_comment)
+end event
+
+on m_20.create
+call super::create
+this.text = "Daily Report Comments"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_20.destroy
+call super::destroy
+end on
+
+type m_15 from menu within m_2
+end type
+
+event clicked;n_object_usage_log use_log
+use_log.uf_log_object(this.text)
+mf_opensheet(w_rg_main)
+end event
+
+on m_15.create
+call super::create
+this.text = "Report Generator"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_15.destroy
+call super::destroy
+end on
+
+type m_weeklyfixturereport from menu within m_2
+end type
+
+on m_weeklyfixturereport.create
+call super::create
+this.text = "Weekly Fixture Report"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_weeklyfixturereport.destroy
+call super::destroy
+end on
+
+event clicked;mf_opensheet(w_weeklyfixturereport)
+end event
+
+type m_17 from menu within m_2
+end type
+
+event clicked;mf_opensheet(w_marketassessment)
+end event
+
+on m_17.create
+call super::create
+this.visible = false
+this.text = "Market Assessment"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_17.destroy
+call super::destroy
+end on
+
+type m_18 from menu within m_2
+end type
+
+event clicked;mf_opensheet(w_marketchart)
+end event
+
+on m_18.create
+call super::create
+this.visible = false
+this.text = "Market Chart"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_18.destroy
+call super::destroy
+end on
+
+type m_failedreasonreport from menu within m_2
+end type
+
+event clicked;w_report_by_date_fromto w_mywin
+
+OpenSheet(w_mywin, w_tramos_main, 7, Original!)
+
+w_mywin.wf_initwindow( 2200, 3800, "d_sq_tb_rpt_reason_failed", "Failed Reason Report", true, true )
+
+end event
+
+on m_failedreasonreport.create
+call super::create
+this.text = "Failed Reason Report"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_failedreasonreport.destroy
+call super::destroy
+end on
+
+type m_21 from menu within m_2
+end type
+
+on m_21.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_21.destroy
+call super::destroy
+end on
+
+type m_19 from menu within m_2
+end type
+
+event clicked;mf_opensheet(w_bunker)
+end event
+
+on m_19.create
+call super::create
+this.text = "Bunker Prices"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_19.destroy
+call super::destroy
+end on
+
+type m_22 from menu within m_2
+end type
+
+event clicked;mf_opensheet(w_f_status)
+end event
+
+on m_22.create
+call super::create
+this.text = "Fixture Status"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_22.destroy
+call super::destroy
+end on
+
+type m_23 from menu within m_2
+end type
+
+event clicked;mf_opensheet(w_f_cargo)
+end event
+
+on m_23.create
+call super::create
+this.text = "Cargo Types"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_23.destroy
+call super::destroy
+end on
+
+type m_24 from menu within m_2
+end type
+
+event clicked;mf_opensheet(w_admin)
+end event
+
+on m_24.create
+call super::create
+this.text = "Admin"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_24.destroy
+call super::destroy
+end on
+
+type m_25 from menu within m_2
+end type
+
+on m_25.create
+call super::create
+this.text = "-"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_25.destroy
+call super::destroy
+end on
+
+type m_27 from menu within m_2
+end type
+
+event clicked;mf_opensheet(w_next_open_report)
+end event
+
+on m_27.create
+call super::create
+this.text = "Next Open Report"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_27.destroy
+call super::destroy
+end on
+
+type m_3 from menu within m_menutop3
+m_4 m_4
+m_6 m_6
+m_7 m_7
+m_8 m_8
+end type
+
+on m_3.create
+call super::create
+this.text = "&Position"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_4=create m_4
+this.m_6=create m_6
+this.m_7=create m_7
+this.m_8=create m_8
+this.Item[UpperBound(this.Item)+1]=this.m_4
+this.Item[UpperBound(this.Item)+1]=this.m_6
+this.Item[UpperBound(this.Item)+1]=this.m_7
+this.Item[UpperBound(this.Item)+1]=this.m_8
+end on
+
+on m_3.destroy
+call super::destroy
+destroy(this.m_4)
+destroy(this.m_6)
+destroy(this.m_7)
+destroy(this.m_8)
+end on
+
+event clicked;if uo_global.ii_access_level = -1 then
+	m_menutop3.m_3.enabled=false
+	return
+end if
+end event
+
+type m_4 from menu within m_3
+end type
+
+event clicked;if uo_global.ii_access_level = -1 then
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+	return
+end if
+open(w_position_list)
+end event
+
+on m_4.create
+call super::create
+this.text = "Position List"
+this.toolbaritemname = "images\position_list.ico"
+this.toolbaritemtext = "Position List"
+this.toolbaritemorder = 31
+this.toolbaritemspace = 2
+this.menuimage = "images\position_list.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_4.destroy
+call super::destroy
+end on
+
+type m_6 from menu within m_3
+end type
+
+event clicked;if uo_global.ii_access_level = -1 then
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+	return
+end if
+mf_opensheet(w_position_status)
+end event
+
+on m_6.create
+call super::create
+this.text = "Edit Status"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_6.destroy
+call super::destroy
+end on
+
+type m_7 from menu within m_3
+end type
+
+on m_7.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_7.destroy
+call super::destroy
+end on
+
+type m_8 from menu within m_3
+end type
+
+event clicked;if uo_global.ii_access_level = -1 then
+	MessageBox("Infomation","As an external user you do not have access to this functionality.")
+	return
+end if
+mf_opensheet(w_mailinglist)
+end event
+
+on m_8.create
+call super::create
+this.text = "Postion Mailinglist"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_8.destroy
+call super::destroy
+end on
+
+type m_portofcall from menu within m_menutop4
+end type
+
+on m_portofcall.create
+call super::create
+this.text = "Port of Call~tF3"
+this.shortcut = 114
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_portofcall.destroy
+call super::destroy
+end on
+
+event clicked;mf_link("POC")
+
+end event
+
+type m_systemoptions from m_sysmain`m_systemoptions_new within m_file
+end type
+
+on m_systemoptions.create
+call super::create
+end on
+
+on m_systemoptions.destroy
+call super::destroy
+end on
+

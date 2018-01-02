@@ -1,0 +1,40 @@
+﻿$PBExportHeader$f_write2log.srf
+global type f_write2log from function_object
+end type
+
+forward prototypes
+global subroutine f_write2log (string as_logitem)
+end prototypes
+
+global subroutine f_write2log (string as_logitem);Integer li_FileNum
+String ls_Temp
+
+// If logging is disabled, then exit
+If g_Obj.Logging = False then Return
+
+// Ensure logging folder exists
+ls_Temp = "Logs"
+If Not DirectoryExists(ls_Temp) then 
+	If CreateDirectory(ls_Temp) < 0 then Return
+End If
+
+// Create filename
+If g_Obj.Is_VM = False then 
+	ls_Temp += "\vims" + String(Day(Today()), "00") + "_" + g_Obj.UserID
+Else
+	ls_Temp += "\vm" + String(Day(Today()), "00")
+End If
+ls_Temp += ".log"
+
+// Open file in append mode, exit if error
+li_FileNum = FileOpen(ls_Temp, LineMode!, Write!, LockWrite!, Append!)
+If li_FileNum = -1 then Return
+
+// Append timestamp and message to file. Close file
+FileWriteEx(li_FileNum, String(Now(), "hh:mm:ss.f") + ": " + as_LogItem)
+FileClose(li_FileNum)
+
+// If spy window is open, append text
+If IsValid(w_Log) then w_Log.mle_Log.Text += as_LogItem + "~r~n"
+end subroutine
+

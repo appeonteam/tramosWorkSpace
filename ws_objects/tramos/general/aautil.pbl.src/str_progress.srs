@@ -1,0 +1,14 @@
+﻿$PBExportHeader$str_progress.srs
+$PBExportComments$Used to pass parameters to w_progress
+global type str_progress from structure
+    window cancel_window
+    string cancel_event
+    string title
+    boolean b_show_time
+    boolean b_show_hour
+    boolean b_show_ms
+    decimal {2} d_min_pct_before_remaining
+    integer i_no_text_lines
+    boolean b_no_auto_yield
+end type
+

@@ -1,0 +1,18 @@
+﻿$PBExportHeader$d_payment_settle_share_member.srd
+$PBExportComments$Used when generating CODA transactions
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=160 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=108 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=nom_acc_nr dbname="TCOWNERS.NOM_ACC_NR" )
+ column=(type=decimal(8) updatewhereclause=yes name=percent_share dbname="NTC_SHARE_MEMBER.PERCENT_SHARE" )
+ column=(type=number updatewhereclause=yes name=apm_company dbname="NTC_SHARE_MEMBER.APM_COMPANY" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"NTC_SHARE_MEMBER~" )  TABLE(NAME=~"TCOWNERS~" ) COLUMN(NAME=~"TCOWNERS.NOM_ACC_NR~") COLUMN(NAME=~"NTC_SHARE_MEMBER.PERCENT_SHARE~") COLUMN(NAME=~"NTC_SHARE_MEMBER.APM_COMPANY~")    JOIN (LEFT=~"TCOWNERS.TCOWNER_NR~"    OP =~"=~"RIGHT=~"NTC_SHARE_MEMBER.TCOWNER_NR~" )WHERE(    EXP1 =~"NTC_SHARE_MEMBER.CONTRACT_ID~"   OP =~"=~"    EXP2 =~":contract_id~" ) ) ORDER(NAME=~"NTC_SHARE_MEMBER.APM_COMPANY~" ASC=yes ) ARG(NAME = ~"contract_id~" TYPE = number) " arguments=(("contract_id", number)) )
+text(band=header alignment="0" text="Used when settling payments and generating CODA transactions" border="0" color="0" x="32" y="36" height="80" width="2258"  name=t_1  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="18" y="16" height="76" width="576" format="[general]"  name=nom_acc_nr edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="613" y="20" height="76" width="329" format="[general]"  name=percent_share edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1129" y="16" height="76" width="329" format="[general]"  name=apm_company edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

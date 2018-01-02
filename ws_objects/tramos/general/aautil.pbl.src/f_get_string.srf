@@ -1,0 +1,55 @@
+﻿$PBExportHeader$f_get_string.srf
+$PBExportComments$Opens window w_get_string which prompts the user to enter a string variable. The function passes the current window title, the string length and the string character case to window w_get_string.
+global type f_get_string from function_object
+end type
+
+forward prototypes
+global function string f_get_string (string as_title, integer ai_max_len, string as_char_case, string as_current_value, boolean ab_ismandatory)
+end prototypes
+
+global function string f_get_string (string as_title, integer ai_max_len, string as_char_case, string as_current_value, boolean ab_ismandatory);///////////////////////////////////////////////////////////////////////////
+//
+// Function:	f_get_string
+//
+//	Purpose:
+//
+//		This function's primary purpose is to prompt the user for a string.
+//		The function is passed a window title, a numeric value
+//		representing the length of the string the function will be
+//		prompting for, the character case (Upper, Lower, or Any case) and
+//		the current value.
+//	   This function will open window w_get_string.
+//
+// Scope:		public
+//
+// Parameters:
+//					as_title			  : string
+//					ai_max_len 		  : integer
+//					as_char_case	  : string
+//					as_current_value : string
+//					ab_ismandatory   : boolean
+//
+// Returns : string
+//
+//	DATE		CR 	 NAME		 REVISION
+// ----		------------------------------------------------------------
+// Powersoft Corporation	 INITIAL VERSION
+
+// 27/03/2012 M5-10 LGX001  allow return empty string when setting ab_ismandatory = true    
+//
+//////////////////////////////////////////////////////////////////////
+
+str_parms parm
+
+parm.string_arg[1] = as_title 
+parm.integer_arg[1] = ai_max_len
+parm.string_arg[2]  = as_char_case 
+parm.string_arg[3]  = as_current_value
+parm.boolean_ismandatory = ab_ismandatory
+
+openwithparm( w_get_string,parm )
+
+return message.stringparm
+
+end function
+

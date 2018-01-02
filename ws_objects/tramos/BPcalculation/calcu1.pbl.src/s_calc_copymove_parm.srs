@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_calc_copymove_parm.srs
+$PBExportComments$Used when a cargo is copied and/or moved
+global type s_calc_copymove_parm from structure
+	integer		i_function_code
+	long		l_cargo
+	long		l_from_calc
+	string		s_filter_create_user
+end type
+

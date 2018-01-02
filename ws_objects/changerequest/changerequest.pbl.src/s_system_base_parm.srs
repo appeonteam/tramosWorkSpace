@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_system_base_parm.srs
+$PBExportComments$Use for w_system_base
+global type s_system_base_parm from structure
+	string		mandatorycol
+	boolean		duplicatecheck
+	boolean		casesensitive
+end type
+

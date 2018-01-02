@@ -1,0 +1,25 @@
+﻿$PBExportHeader$s_consumption.srs
+global type s_consumption from structure
+	decimal { 4 }		hfo
+	decimal { 4 }		dma
+	decimal { 4 }		go
+	decimal { 4 }		lshfo
+	decimal { 2 }		hours
+	decimal { 4 }		hfo_price
+	decimal { 4 }		do_price
+	decimal { 4 }		go_price
+	decimal { 4 }		lshfo_price
+	decimal { 4 }		dept_hfo
+	decimal { 4 }		dept_do
+	decimal { 4 }		dept_go
+	decimal { 4 }		dept_lshfo
+	decimal { 4 }		dept_hfo_rest
+	decimal { 4 }		dept_hfo_weighted_price
+	decimal { 4 }		dept_do_rest
+	decimal { 4 }		dept_do_weighted_price
+	decimal { 4 }		dept_go_rest
+	decimal { 4 }		dept_go_weighted_price
+	decimal { 4 }		dept_lshfo_rest
+	decimal { 4 }		dept_lshfo_weighted_price
+end type
+

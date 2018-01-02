@@ -1,0 +1,49 @@
+HA$PBExportHeader$f_addsysalert.srf
+global type f_addsysalert from function_object
+end type
+
+forward prototypes
+global subroutine f_addsysalert (integer ai_errtype, string as_repfile, integer ai_errinfo, string as_extinfo)
+end prototypes
+
+global subroutine f_addsysalert (integer ai_errtype, string as_repfile, integer ai_errinfo, string as_extinfo);n_datastore lds_alerts
+long ll_row
+transaction ErrTrans
+
+ErrTrans = Create Transaction
+
+ErrTrans.DBMS = SQLCA.DBMS 
+ErrTrans.Database = SQLCA.Database
+ErrTrans.LogPass = SQLCA.LogPass
+ErrTrans.ServerName = SQLCA.ServerName
+ErrTrans.LogID = SQLCA.LogId
+ErrTrans.LogPass = SQLCA.LogPass
+ErrTrans.AutoCommit = False
+ErrTrans.DBParm = SQLCA.DBParm
+
+Connect using ErrTrans;
+
+lds_alerts = CREATE n_datastore
+
+lds_alerts.dataobject = "d_sq_tb_table_syserr"
+lds_alerts.setTransObject(ErrTrans)
+
+ll_row = lds_alerts.insertrow(0)
+
+lds_alerts.setitem( ll_row, "Err_Type", ai_ErrType)
+lds_alerts.setitem( ll_row, "Generated", Datetime(today(),Now()) )
+lds_alerts.setitem( ll_row, "RepFile", left(as_RepFile,12))
+lds_alerts.setitem( ll_row, "Err_Info", ai_ErrInfo)
+lds_alerts.setitem( ll_row, "Ack", 0)
+lds_alerts.setitem( ll_row, "Ext_Info", as_ExtInfo)
+lds_alerts.setitem( ll_row, "Username", g_userinfo.Firstname + ' ' + g_userinfo.lastname)
+
+if lds_alerts.update()=1 then
+	commit using ErrTrans;
+else
+	Messagebox ("SysErr", "Could not create System Error. Please contact System Administrator with this information:~n~r~n~r" + lds_alerts.sqlerrortext)
+end if
+
+disconnect using ErrTrans;
+end subroutine
+

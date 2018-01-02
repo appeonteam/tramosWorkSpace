@@ -1,0 +1,31 @@
+﻿$PBExportHeader$f_timedifference.srf
+$PBExportComments$Calculates elapsed time between two datetime variables in minutes
+global type f_timedifference from function_object
+end type
+
+forward prototypes
+global function long f_timedifference (datetime startdatetime, datetime enddatetime)
+end prototypes
+
+global function long f_timedifference (datetime startdatetime, datetime enddatetime);/* Calculates elapsed minutes between two datetime variables */
+
+Int hours, minutes
+LONG rc
+
+/* Hours */
+hours = Int(SecondsAfter(Time(Hour(Time(startdatetime)),Minute(Time(startdatetime)),0,0), Time(Hour(Time(enddatetime)), Minute(Time(enddatetime)),0,0)) / 3600) + &
+DaysAfter(Date(startdatetime), Date(enddatetime)) * 24
+
+/* Minutes */
+minutes = Int(Mod(SecondsAfter(Time(Hour(Time(startdatetime)), Minute(Time(startdatetime)), 0, 0), Time(Hour(Time(enddatetime)), Minute(Time(enddatetime)), 0, 0)) , 3600) / 60)
+
+IF minutes < 0 THEN
+	minutes += 60  
+END IF
+
+rc = hours * 60 + minutes
+
+RETURN rc
+
+end function
+

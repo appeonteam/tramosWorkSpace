@@ -1,0 +1,11 @@
+﻿$PBExportHeader$s_settings.srs
+global type s_settings from structure
+	integer		i_debug		descriptor "comment" = "1=no detailed logging, just updates; 2=detailed logging and updates; 3=only logging, no updates"
+	boolean		b_log_append
+	integer		i_mode		descriptor "comment" = "0='normal' 1='test' "
+	string		s_subjectprefix		descriptor "comment" = "used only in event of i_mode=1 (test)"
+	string		s_security
+	string		s_monitorid
+	string		s_logname
+end type
+

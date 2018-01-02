@@ -1,0 +1,42 @@
+﻿$PBExportHeader$d_sq_tb_tcout_vas_brokercom_pct.srd
+release 11.5;
+datawindow(units=0 timer_interval=0 color=1073741824 brushmode=0 transparency=0 gradient.angle=0 gradient.color=8421504 gradient.focus=0 gradient.repetition.count=0 gradient.repetition.length=100 gradient.repetition.mode=0 gradient.scale=100 gradient.spread=100 gradient.transparency=0 picture.blur=0 picture.clip.bottom=0 picture.clip.left=0 picture.clip.right=0 picture.clip.top=0 picture.mode=0 picture.scale.x=100 picture.scale.y=100 picture.transparency=0 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.background=no print.preview.background=no print.preview.outline=yes hidegrayline=no showbackcoloronxp=no picture.file="" )
+header(height=64 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+summary(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+footer(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+detail(height=76 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+table(column=(type=decimal(13) updatewhereclause=yes name=broker_comm dbname="BROKER_COMM" )
+ retrieve="SELECT isnull(SUM(BROKER_COMM2),0) AS BROKER_COMM 
+FROM (SELECT isnull(SUM( DAYS * COMM )/ SUM(DAYS),0) as BROKER_COMM2 
+FROM 
+(SELECT ISNULL(DATEDIFF(DD, 
+									case when NTC_TC_CONTRACT.DELIVERY < :voyage_start then :voyage_start else NTC_TC_CONTRACT.DELIVERY end , 
+									case when MAX(NTC_TC_PERIOD.PERIODE_END) > :voyage_end then :voyage_end else MAX(NTC_TC_PERIOD.PERIODE_END) end AS REDELIVERY),1) AS DAYS,
+	NTC_CONT_BROKER_COMM.BROKER_NR, 
+	ISNULL(NTC_CONT_BROKER_COMM.BROKER_COMM,0) as COMM
+FROM NTC_CONT_BROKER_COMM, NTC_TC_CONTRACT, NTC_TC_PERIOD   
+WHERE NTC_CONT_BROKER_COMM.CONTRACT_ID = NTC_TC_CONTRACT.CONTRACT_ID 
+AND NTC_TC_PERIOD.CONTRACT_ID = NTC_TC_CONTRACT.CONTRACT_ID
+AND NTC_CONT_BROKER_COMM.CONTRACT_ID in ( :contractID )
+AND NTC_CONT_BROKER_COMM.AMOUNT_PER_DAY_OR_PERCENT = :per_day_or_percent 
+GROUP BY NTC_CONT_BROKER_COMM.CONTRACT_ID,
+	NTC_TC_CONTRACT.DELIVERY,
+	NTC_CONT_BROKER_COMM.BROKER_NR, 
+	NTC_CONT_BROKER_COMM.BROKER_COMM) TEMP_BROKER
+GROUP BY BROKER_NR) TEMP_BROKER2
+
+
+" arguments=(("contractID", numberlist),("per_day_or_percent", number),("voyage_start", datetime),("voyage_end", datetime)) )
+text(band=header alignment="2" text="Broker Comm" border="0" color="33554432" x="5" y="4" height="56" width="357" html.valueishtml="0"  name=broker_comm_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="33554432" x="5" y="4" height="68" width="562" format="[general]" html.valueishtml="0"  name=broker_comm visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

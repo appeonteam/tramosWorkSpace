@@ -1,0 +1,29 @@
+﻿$PBExportHeader$d_calc_misc_claim_frttype_adr_comm.srd
+$PBExportComments$Used to get adress commission on claims type gross freight (NOT FRT) in calc (u_fix_calc_est)
+release 5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=85 color="536870912" )
+summary(height=73 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=85 color="536870912" )
+table(column=(type=decimal(4) updatewhereclause=yes name=adr_com dbname="adr_com" )
+ column=(type=decimal(4) updatewhereclause=yes name=amount dbname="amount" )
+ retrieve="  SELECT DISTINCT adr_com = IsNull(CAL_CARG.CAL_CARG_ADR_COMMISION,0),   
+         amount = sum(CAL_CLMI.CAL_CLMI_AMOUNT)  
+    FROM CAL_CARG,   
+         CAL_CLMI,   
+         CLAIM_TYPES  
+   WHERE ( CAL_CLMI.CAL_CARG_ID = CAL_CARG.CAL_CARG_ID ) and  
+         ( CLAIM_TYPES.CLAIM_TYPE = CAL_CLMI.CLAIM_TYPE ) and  
+         ( ( CAL_CARG.CAL_CALC_ID = :a_cal_calc_id ) AND  
+         ( CAL_CLMI.CAL_CLMI_ADDRESS_COMMISION = 1 ) AND  
+         ( CLAIM_TYPES.CLAIM_GROSS_FRT = 1 ) )   
+GROUP BY CAL_CARG.CAL_CARG_ADR_COMMISION   
+" arguments=(("a_cal_calc_id", number)) )
+text(band=header alignment="2" text="Cal Clmi Amount"border="0" color="0" x="65" y="20" height="57" width="353"  name=cal_clmi_cal_clmi_amount_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Address Commision Percent"border="0" color="0" x="773" y="20" height="57" width="622"  name=cal_clmi_cal_clmi_address_commision_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Adr. comm"border="0" color="0" x="1966" y="28" height="57" width="238"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="amount  *  (   adr_com   / 100 )  "border="0" color="0" x="1962" y="4" height="57" width="348" format="[general]"  name=adress_comm  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="46" y="12" height="57" width="380" format="[general]"  name=amount edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="769" y="12" height="57" width="366" format="[general]"  name=adr_com edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="sum(amount  *  (   adr_com   / 100 )   for all)"border="0" color="0" x="1962" y="4" height="61" width="348" format="[general]"  name=sum_adr_com  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

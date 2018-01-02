@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_hire_statement.srs
+$PBExportComments$Structure used in hire statement window
+global type s_hire_statement from structure
+    datetime payment_date
+    decimal {2} amount
+end type
+

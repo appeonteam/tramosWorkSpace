@@ -1,0 +1,23 @@
+﻿$PBExportHeader$s_heat_dev.srs
+$PBExportComments$Data for a heating or deviation claim
+global type s_heat_dev from structure
+	string		s_claim_type
+	double		d_hfo_ton
+	double		d_hfo_price
+	double		d_do_ton
+	double		d_do_price
+	double		d_go_ton
+	double		d_go_price
+	double		d_lshfo_ton
+	double		d_lshfo_price
+	integer		i_hea_dev_hours
+	double		d_hea_dev_price_day
+	integer		i_addrs_comm_bunker
+	integer		i_broker_comm_bunker
+	integer		i_addrs_comm_hours
+	integer		i_broker_comm_hours
+	integer		i_gross_freight_yes
+	integer		broker_commission
+	integer		pool_manager_commission
+end type
+

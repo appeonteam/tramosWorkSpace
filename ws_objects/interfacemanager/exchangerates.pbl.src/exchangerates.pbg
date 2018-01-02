@@ -1,0 +1,11 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "exchangerates.pbl" "";
+@end;
+@begin Objects 
+ "d_sq_gr_latestcurrencycodes.srd" "exchangerates.pbl";
+ "d_sq_tb_currcodes.srd" "exchangerates.pbl";
+ "d_sq_tb_import_exrates.srd" "exchangerates.pbl";
+ "n_exchangerates.sru" "exchangerates.pbl";
+ "w_import_exrate.srw" "exchangerates.pbl";
+@end;

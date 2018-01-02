@@ -1,0 +1,42 @@
+﻿$PBExportHeader$f_getweeknumber.srf
+global type f_getweeknumber from function_object
+end type
+
+forward prototypes
+global function integer f_getweeknumber (date ad_date, ref integer ad_year)
+end prototypes
+
+global function integer f_getweeknumber (date ad_date, ref integer ad_year);// Function calculates and returns the week number of ad_date according to ISO format.
+// Also returns the week year in ad_Year (which may not necessarily be the same as the year of ad_date).
+
+
+Integer li_PrevYear, li_Day, li_Week
+
+// Get day of week and convert to ISO standard (Monday = 1)
+li_Day = DayNumber(ad_date) - 1
+If li_Day = 0 then li_Day = 7
+
+// Get to the closest Thursday
+Do While li_Day <> 4 
+	If li_Day < 4 then   // Mon, Tue, Wed
+		 ad_Date = RelativeDate(ad_Date, 1)
+		 li_Day ++
+	Else		 // Fri, Sat, Sun
+		 ad_Date = RelativeDate(ad_Date, -1)
+		 li_Day --
+	End If
+Loop
+
+ad_Year = Year(ad_Date)
+
+// Count weeks backwards until the previous year
+Do
+	li_week ++
+  ad_Date = RelativeDate(ad_Date, -7)
+  li_PrevYear = Year(ad_date)
+Loop Until ad_Year > li_PrevYear
+
+Return li_Week
+
+end function
+

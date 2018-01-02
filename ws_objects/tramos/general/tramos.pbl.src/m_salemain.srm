@@ -1,0 +1,3075 @@
+﻿$PBExportHeader$m_salemain.srm
+$PBExportComments$Menu for the CCS subsystem
+forward
+global type m_salemain from m_sysmain
+end type
+type m_hotlist from menu within m_menutop2
+end type
+type m_-2 from menu within m_menutop2
+end type
+type m_targets from menu within m_menutop2
+end type
+type m_actionstatus from menu within m_menutop2
+end type
+type m_-3 from menu within m_menutop2
+end type
+type m_contactpersons from menu within m_menutop2
+end type
+type m_charterers from menu within m_menutop2
+end type
+type m_brokers from menu within m_menutop2
+end type
+type m_-4 from menu within m_menutop2
+end type
+type m_texttemplates from menu within m_menutop2
+end type
+type m_keycodes from menu within m_menutop2
+end type
+type m_targetsdelete from menu within m_menutop2
+end type
+type m_carterergroup from menu within m_menutop2
+end type
+type m_menutop2 from m_sysmain`m_menutop2 within m_salemain
+m_hotlist m_hotlist
+m_-2 m_-2
+m_targets m_targets
+m_actionstatus m_actionstatus
+m_-3 m_-3
+m_contactpersons m_contactpersons
+m_charterers m_charterers
+m_brokers m_brokers
+m_-4 m_-4
+m_texttemplates m_texttemplates
+m_keycodes m_keycodes
+m_targetsdelete m_targetsdelete
+m_carterergroup m_carterergroup
+end type
+type m_targetsprojects from menu within m_menutop3
+end type
+type m_calender from menu within m_menutop3
+end type
+type m_rep_charterers from menu within m_menutop3
+end type
+type m_gifts from menu within m_menutop3
+end type
+type m_makefile from menu within m_menutop3
+end type
+type m_menutop3 from m_sysmain`m_menutop3 within m_salemain
+m_targetsprojects m_targetsprojects
+m_calender m_calender
+m_rep_charterers m_rep_charterers
+m_gifts m_gifts
+m_makefile m_makefile
+end type
+type m_- from menu within m_systemtabels
+end type
+type m_datawarehouse from menu within m_systemtabels
+end type
+type m_systemtabels from m_sysmain`m_systemtabels within m_salemain
+m_- m_-
+m_datawarehouse m_datawarehouse
+end type
+end forward
+
+global type m_salemain from m_sysmain
+end type
+global m_salemain m_salemain
+
+forward prototypes
+public subroutine documentation ()
+end prototypes
+
+public subroutine documentation ();/********************************************************************
+   ObjectName: m_salemain
+	
+	<OBJECT>
+		Sale tramos menu
+	<USAGE> </USAGE>
+   <ALSO> </ALSO>
+   <HISTORY>
+   	Date         CR-Ref       Author        Comments
+		01/08/2013   CR3279		  WWA048			 Remove Tramos Mail and related features.
+   </HISTORY>
+	05/06/14		CR3222	AZX004		Change help context.
+	26/08/14		CR3781	CCY018		Remove ellipsis (...) in the menu bar text.
+********************************************************************/
+
+end subroutine
+
+on m_salemain.create
+m_salemain=this
+call super::create
+end on
+
+on m_salemain.destroy
+call super::destroy
+end on
+
+type m_file from m_sysmain`m_file within m_salemain
+end type
+
+on m_file.create
+call super::create
+end on
+
+on m_file.destroy
+call super::destroy
+end on
+
+type m_calc from m_sysmain`m_calc within m_file
+end type
+
+on m_calc.create
+call super::create
+end on
+
+on m_calc.destroy
+call super::destroy
+end on
+
+type m_tramos from m_sysmain`m_tramos within m_file
+end type
+
+on m_tramos.create
+call super::create
+end on
+
+on m_tramos.destroy
+call super::destroy
+end on
+
+type m_sale from m_sysmain`m_sale within m_file
+end type
+
+on m_sale.create
+call super::create
+this.enabled = false
+this.checked = true
+this.toolbaritemdown = true
+end on
+
+on m_sale.destroy
+call super::destroy
+end on
+
+type m_tchire from m_sysmain`m_tchire within m_file
+end type
+
+on m_tchire.create
+call super::create
+end on
+
+on m_tchire.destroy
+call super::destroy
+end on
+
+type m_vettinginspectionmgmtsystem from m_sysmain`m_vettinginspectionmgmtsystem within m_file
+end type
+
+on m_vettinginspectionmgmtsystem.create
+call super::create
+end on
+
+on m_vettinginspectionmgmtsystem.destroy
+call super::destroy
+end on
+
+type m___1 from m_sysmain`m___1 within m_file
+end type
+
+on m___1.create
+call super::create
+end on
+
+on m___1.destroy
+call super::destroy
+end on
+
+type m_changerequest from m_sysmain`m_changerequest within m_file
+end type
+
+on m_changerequest.create
+call super::create
+end on
+
+on m_changerequest.destroy
+call super::destroy
+end on
+
+type m___2 from m_sysmain`m___2 within m_file
+end type
+
+on m___2.create
+call super::create
+end on
+
+on m___2.destroy
+call super::destroy
+end on
+
+type m_changepassword from m_sysmain`m_changepassword within m_file
+end type
+
+on m_changepassword.create
+call super::create
+end on
+
+on m_changepassword.destroy
+call super::destroy
+end on
+
+type m_systemoptions_new from m_sysmain`m_systemoptions_new within m_file
+end type
+
+on m_systemoptions_new.create
+call super::create
+end on
+
+on m_systemoptions_new.destroy
+call super::destroy
+end on
+
+type m_useroptions from m_sysmain`m_useroptions within m_file
+end type
+
+on m_useroptions.create
+call super::create
+end on
+
+on m_useroptions.destroy
+call super::destroy
+end on
+
+type mline_234 from m_sysmain`mline_234 within m_file
+end type
+
+on mline_234.create
+call super::create
+end on
+
+on mline_234.destroy
+call super::destroy
+end on
+
+type m_debug from m_sysmain`m_debug within m_file
+end type
+
+on m_debug.create
+call super::create
+end on
+
+on m_debug.destroy
+call super::destroy
+end on
+
+type m_captureerrormessages from m_sysmain`m_captureerrormessages within m_debug
+end type
+
+on m_captureerrormessages.create
+call super::create
+end on
+
+on m_captureerrormessages.destroy
+call super::destroy
+end on
+
+type m_sqlpreview from m_sysmain`m_sqlpreview within m_debug
+end type
+
+on m_sqlpreview.create
+call super::create
+end on
+
+on m_sqlpreview.destroy
+call super::destroy
+end on
+
+type m_transactionpreview from m_sysmain`m_transactionpreview within m_debug
+end type
+
+on m_transactionpreview.create
+call super::create
+end on
+
+on m_transactionpreview.destroy
+call super::destroy
+end on
+
+type m_datastorespy from m_sysmain`m_datastorespy within m_debug
+end type
+
+on m_datastorespy.create
+call super::create
+end on
+
+on m_datastorespy.destroy
+call super::destroy
+end on
+
+type m_on from m_sysmain`m_on within m_datastorespy
+end type
+
+on m_on.create
+call super::create
+end on
+
+on m_on.destroy
+call super::destroy
+end on
+
+type m_multipledatastores from m_sysmain`m_multipledatastores within m_datastorespy
+end type
+
+on m_multipledatastores.create
+call super::create
+end on
+
+on m_multipledatastores.destroy
+call super::destroy
+end on
+
+type m___3 from m_sysmain`m___3 within m_file
+end type
+
+on m___3.create
+call super::create
+end on
+
+on m___3.destroy
+call super::destroy
+end on
+
+type m_exit from m_sysmain`m_exit within m_file
+end type
+
+on m_exit.create
+call super::create
+end on
+
+on m_exit.destroy
+call super::destroy
+end on
+
+type m_menutop2 from m_sysmain`m_menutop2 within m_salemain
+m_hotlist m_hotlist
+m_-2 m_-2
+m_targets m_targets
+m_actionstatus m_actionstatus
+m_-3 m_-3
+m_contactpersons m_contactpersons
+m_charterers m_charterers
+m_brokers m_brokers
+m_-4 m_-4
+m_texttemplates m_texttemplates
+m_keycodes m_keycodes
+m_targetsdelete m_targetsdelete
+m_carterergroup m_carterergroup
+end type
+
+on m_menutop2.create
+call super::create
+this.visible = true
+this.text = "&Application Topics"
+this.m_hotlist=create m_hotlist
+this.m_-2=create m_-2
+this.m_targets=create m_targets
+this.m_actionstatus=create m_actionstatus
+this.m_-3=create m_-3
+this.m_contactpersons=create m_contactpersons
+this.m_charterers=create m_charterers
+this.m_brokers=create m_brokers
+this.m_-4=create m_-4
+this.m_texttemplates=create m_texttemplates
+this.m_keycodes=create m_keycodes
+this.m_targetsdelete=create m_targetsdelete
+this.m_carterergroup=create m_carterergroup
+this.Item[UpperBound(this.Item)+1]=this.m_hotlist
+this.Item[UpperBound(this.Item)+1]=this.m_-2
+this.Item[UpperBound(this.Item)+1]=this.m_targets
+this.Item[UpperBound(this.Item)+1]=this.m_actionstatus
+this.Item[UpperBound(this.Item)+1]=this.m_-3
+this.Item[UpperBound(this.Item)+1]=this.m_contactpersons
+this.Item[UpperBound(this.Item)+1]=this.m_charterers
+this.Item[UpperBound(this.Item)+1]=this.m_brokers
+this.Item[UpperBound(this.Item)+1]=this.m_-4
+this.Item[UpperBound(this.Item)+1]=this.m_texttemplates
+this.Item[UpperBound(this.Item)+1]=this.m_keycodes
+this.Item[UpperBound(this.Item)+1]=this.m_targetsdelete
+this.Item[UpperBound(this.Item)+1]=this.m_carterergroup
+end on
+
+on m_menutop2.destroy
+call super::destroy
+destroy(this.m_hotlist)
+destroy(this.m_-2)
+destroy(this.m_targets)
+destroy(this.m_actionstatus)
+destroy(this.m_-3)
+destroy(this.m_contactpersons)
+destroy(this.m_charterers)
+destroy(this.m_brokers)
+destroy(this.m_-4)
+destroy(this.m_texttemplates)
+destroy(this.m_keycodes)
+destroy(this.m_targetsdelete)
+destroy(this.m_carterergroup)
+end on
+
+type m_menutop3 from m_sysmain`m_menutop3 within m_salemain
+m_targetsprojects m_targetsprojects
+m_calender m_calender
+m_rep_charterers m_rep_charterers
+m_gifts m_gifts
+m_makefile m_makefile
+end type
+
+on m_menutop3::clicked;call m_sysmain`m_menutop3::clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     : 
+  
+ Event	 : 
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       : 01-07-96
+
+ Description : {Short description}
+
+ Arguments : {description/none}
+
+ Returns   : {description/none}  
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+{ 19-07-96	1.0 		JH	Initial version}
+  
+************************************************************************************/
+
+
+
+
+//opensheet(w_sale, w_sysframe,0,original!)
+end on
+
+on m_menutop3.create
+call super::create
+this.visible = true
+this.text = "&Reports"
+this.m_targetsprojects=create m_targetsprojects
+this.m_calender=create m_calender
+this.m_rep_charterers=create m_rep_charterers
+this.m_gifts=create m_gifts
+this.m_makefile=create m_makefile
+this.Item[UpperBound(this.Item)+1]=this.m_targetsprojects
+this.Item[UpperBound(this.Item)+1]=this.m_calender
+this.Item[UpperBound(this.Item)+1]=this.m_rep_charterers
+this.Item[UpperBound(this.Item)+1]=this.m_gifts
+this.Item[UpperBound(this.Item)+1]=this.m_makefile
+end on
+
+on m_menutop3.destroy
+call super::destroy
+destroy(this.m_targetsprojects)
+destroy(this.m_calender)
+destroy(this.m_rep_charterers)
+destroy(this.m_gifts)
+destroy(this.m_makefile)
+end on
+
+type m_menutop4 from m_sysmain`m_menutop4 within m_salemain
+end type
+
+on m_menutop4.create
+call super::create
+end on
+
+on m_menutop4.destroy
+call super::destroy
+end on
+
+type m_menutop5 from m_sysmain`m_menutop5 within m_salemain
+end type
+
+on m_menutop5.create
+call super::create
+end on
+
+on m_menutop5.destroy
+call super::destroy
+end on
+
+type m_menutop6 from m_sysmain`m_menutop6 within m_salemain
+end type
+
+on m_menutop6.create
+call super::create
+end on
+
+on m_menutop6.destroy
+call super::destroy
+end on
+
+type m_systemtabels from m_sysmain`m_systemtabels within m_salemain
+m_- m_-
+m_datawarehouse m_datawarehouse
+end type
+
+on m_systemtabels.create
+call super::create
+this.m_-=create m_-
+this.m_datawarehouse=create m_datawarehouse
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_datawarehouse
+end on
+
+on m_systemtabels.destroy
+call super::destroy
+destroy(this.m_-)
+destroy(this.m_datawarehouse)
+end on
+
+type m_general from m_sysmain`m_general within m_systemtabels
+end type
+
+on m_general.create
+call super::create
+end on
+
+on m_general.destroy
+call super::destroy
+end on
+
+type m__agents from m_sysmain`m__agents within m_general
+end type
+
+on m__agents.create
+call super::create
+end on
+
+on m__agents.destroy
+call super::destroy
+end on
+
+type m_area from m_sysmain`m_area within m_general
+end type
+
+on m_area.create
+call super::create
+end on
+
+on m_area.destroy
+call super::destroy
+end on
+
+type m_berth from m_sysmain`m_berth within m_general
+end type
+
+on m_berth.create
+call super::create
+end on
+
+on m_berth.destroy
+call super::destroy
+end on
+
+type m__brokers from m_sysmain`m__brokers within m_general
+end type
+
+on m__brokers.create
+call super::create
+end on
+
+on m__brokers.destroy
+call super::destroy
+end on
+
+type m__charterers from m_sysmain`m__charterers within m_general
+end type
+
+on m__charterers.create
+call super::create
+end on
+
+on m__charterers.destroy
+call super::destroy
+end on
+
+type m_charterergroup23 from m_sysmain`m_charterergroup23 within m_general
+end type
+
+on m_charterergroup23.create
+call super::create
+end on
+
+on m_charterergroup23.destroy
+call super::destroy
+end on
+
+type m_claimstatus from m_sysmain`m_claimstatus within m_general
+end type
+
+on m_claimstatus.create
+call super::create
+end on
+
+on m_claimstatus.destroy
+call super::destroy
+end on
+
+type m__claimtypes from m_sysmain`m__claimtypes within m_general
+end type
+
+on m__claimtypes.create
+call super::create
+end on
+
+on m__claimtypes.destroy
+call super::destroy
+end on
+
+type m_commercialsegment from m_sysmain`m_commercialsegment within m_general
+end type
+
+on m_commercialsegment.create
+call super::create
+end on
+
+on m_commercialsegment.destroy
+call super::destroy
+end on
+
+type m_companies from m_sysmain`m_companies within m_general
+end type
+
+on m_companies.create
+call super::create
+end on
+
+on m_companies.destroy
+call super::destroy
+end on
+
+type m_competitorvessels from m_sysmain`m_competitorvessels within m_general
+end type
+
+on m_competitorvessels.create
+call super::create
+end on
+
+on m_competitorvessels.destroy
+call super::destroy
+end on
+
+type m_consumptionzone from m_sysmain`m_consumptionzone within m_general
+end type
+
+on m_consumptionzone.create
+call super::create
+end on
+
+on m_consumptionzone.destroy
+call super::destroy
+end on
+
+type m_country from m_sysmain`m_country within m_general
+end type
+
+on m_country.create
+call super::create
+end on
+
+on m_country.destroy
+call super::destroy
+end on
+
+type m_flatrates from m_sysmain`m_flatrates within m_general
+end type
+
+on m_flatrates.create
+call super::create
+end on
+
+on m_flatrates.destroy
+call super::destroy
+end on
+
+type m__grades from m_sysmain`m__grades within m_general
+end type
+
+on m__grades.create
+call super::create
+end on
+
+on m__grades.destroy
+call super::destroy
+end on
+
+type m__gradegroups from m_sysmain`m__gradegroups within m_general
+end type
+
+on m__gradegroups.create
+call super::create
+end on
+
+on m__gradegroups.destroy
+call super::destroy
+end on
+
+type m_loaddischtypes from m_sysmain`m_loaddischtypes within m_general
+end type
+
+on m_loaddischtypes.create
+call super::create
+end on
+
+on m_loaddischtypes.destroy
+call super::destroy
+end on
+
+type m__offices from m_sysmain`m__offices within m_general
+end type
+
+on m__offices.create
+call super::create
+end on
+
+on m__offices.destroy
+call super::destroy
+end on
+
+type m_departments from m_sysmain`m_departments within m_general
+end type
+
+on m_departments.create
+call super::create
+end on
+
+on m_departments.destroy
+call super::destroy
+end on
+
+type m_performingagents from m_sysmain`m_performingagents within m_general
+end type
+
+on m_performingagents.create
+call super::create
+end on
+
+on m_performingagents.destroy
+call super::destroy
+end on
+
+type m__ports from m_sysmain`m__ports within m_general
+end type
+
+on m__ports.create
+call super::create
+end on
+
+on m__ports.destroy
+call super::destroy
+end on
+
+type m__profitcenters from m_sysmain`m__profitcenters within m_general
+end type
+
+on m__profitcenters.create
+call super::create
+end on
+
+on m__profitcenters.destroy
+call super::destroy
+end on
+
+type m_profitcentersgroup from m_sysmain`m_profitcentersgroup within m_general
+end type
+
+on m_profitcentersgroup.create
+call super::create
+end on
+
+on m_profitcentersgroup.destroy
+call super::destroy
+end on
+
+type m__purpose from m_sysmain`m__purpose within m_general
+end type
+
+on m__purpose.create
+call super::create
+end on
+
+on m__purpose.destroy
+call super::destroy
+end on
+
+type m_shiptype from m_sysmain`m_shiptype within m_general
+end type
+
+on m_shiptype.create
+call super::create
+end on
+
+on m_shiptype.destroy
+call super::destroy
+end on
+
+type m__vessels from m_sysmain`m__vessels within m_general
+end type
+
+on m__vessels.create
+call super::create
+end on
+
+on m__vessels.destroy
+call super::destroy
+end on
+
+type m_tcowners from m_sysmain`m_tcowners within m_general
+end type
+
+on m_tcowners.create
+call super::create
+end on
+
+on m_tcowners.destroy
+call super::destroy
+end on
+
+type m_updateclarkson from m_sysmain`m_updateclarkson within m_general
+end type
+
+on m_updateclarkson.create
+call super::create
+end on
+
+on m_updateclarkson.destroy
+call super::destroy
+end on
+
+type m_vessels from m_sysmain`m_vessels within m_general
+end type
+
+on m_vessels.create
+call super::create
+end on
+
+on m_vessels.destroy
+call super::destroy
+end on
+
+type m_vesselsnewbuildings from m_sysmain`m_vesselsnewbuildings within m_general
+end type
+
+on m_vesselsnewbuildings.create
+call super::create
+end on
+
+on m_vesselsnewbuildings.destroy
+call super::destroy
+end on
+
+type m_yards from m_sysmain`m_yards within m_general
+end type
+
+on m_yards.create
+call super::create
+end on
+
+on m_yards.destroy
+call super::destroy
+end on
+
+type m_sep_0 from m_sysmain`m_sep_0 within m_systemtabels
+end type
+
+on m_sep_0.create
+call super::create
+end on
+
+on m_sep_0.destroy
+call super::destroy
+end on
+
+type m_financetable from m_sysmain`m_financetable within m_systemtabels
+end type
+
+on m_financetable.create
+call super::create
+end on
+
+on m_financetable.destroy
+call super::destroy
+end on
+
+type m_bankaccounts from m_sysmain`m_bankaccounts within m_financetable
+end type
+
+on m_bankaccounts.create
+call super::create
+end on
+
+on m_bankaccounts.destroy
+call super::destroy
+end on
+
+type m__currency from m_sysmain`m__currency within m_financetable
+end type
+
+on m__currency.create
+call super::create
+end on
+
+on m__currency.destroy
+call super::destroy
+end on
+
+type m_tcexpensetypes from m_sysmain`m_tcexpensetypes within m_financetable
+end type
+
+on m_tcexpensetypes.create
+call super::create
+end on
+
+on m_tcexpensetypes.destroy
+call super::destroy
+end on
+
+type m_transactiondefaults from m_sysmain`m_transactiondefaults within m_financetable
+end type
+
+on m_transactiondefaults.create
+call super::create
+end on
+
+on m_transactiondefaults.destroy
+call super::destroy
+end on
+
+type m_updatefinresponsibleoperator from m_sysmain`m_updatefinresponsibleoperator within m_financetable
+end type
+
+on m_updatefinresponsibleoperator.create
+call super::create
+end on
+
+on m_updatefinresponsibleoperator.destroy
+call super::destroy
+end on
+
+type m__vouchers from m_sysmain`m__vouchers within m_financetable
+end type
+
+on m__vouchers.create
+call super::create
+end on
+
+on m__vouchers.destroy
+call super::destroy
+end on
+
+type m__vouchergroups from m_sysmain`m__vouchergroups within m_financetable
+end type
+
+on m__vouchergroups.create
+call super::create
+end on
+
+on m__vouchergroups.destroy
+call super::destroy
+end on
+
+type m_sep_1 from m_sysmain`m_sep_1 within m_systemtabels
+end type
+
+on m_sep_1.create
+call super::create
+end on
+
+on m_sep_1.destroy
+call super::destroy
+end on
+
+type m_pool from m_sysmain`m_pool within m_systemtabels
+end type
+
+on m_pool.create
+call super::create
+end on
+
+on m_pool.destroy
+call super::destroy
+end on
+
+type m_poolregistration from m_sysmain`m_poolregistration within m_pool
+end type
+
+on m_poolregistration.create
+call super::create
+end on
+
+on m_poolregistration.destroy
+call super::destroy
+end on
+
+type m_1 from m_sysmain`m_1 within m_pool
+end type
+
+on m_1.create
+call super::create
+end on
+
+on m_1.destroy
+call super::destroy
+end on
+
+type m_updatewebpoolpartner from m_sysmain`m_updatewebpoolpartner within m_pool
+end type
+
+on m_updatewebpoolpartner.create
+call super::create
+end on
+
+on m_updatewebpoolpartner.destroy
+call super::destroy
+end on
+
+type m_sep_5 from m_sysmain`m_sep_5 within m_systemtabels
+end type
+
+on m_sep_5.create
+call super::create
+end on
+
+on m_sep_5.destroy
+call super::destroy
+end on
+
+type m_administratortable from m_sysmain`m_administratortable within m_systemtabels
+end type
+
+on m_administratortable.create
+call super::create
+end on
+
+on m_administratortable.destroy
+call super::destroy
+end on
+
+type m__systemadministration from m_sysmain`m__systemadministration within m_administratortable
+end type
+
+on m__systemadministration.create
+call super::create
+end on
+
+on m__systemadministration.destroy
+call super::destroy
+end on
+
+type m_usergroups from m_sysmain`m_usergroups within m_administratortable
+end type
+
+on m_usergroups.create
+call super::create
+end on
+
+on m_usergroups.destroy
+call super::destroy
+end on
+
+type m_userlistmanagement from m_sysmain`m_userlistmanagement within m_administratortable
+end type
+
+on m_userlistmanagement.create
+call super::create
+end on
+
+on m_userlistmanagement.destroy
+call super::destroy
+end on
+
+type m_sep_3 from m_sysmain`m_sep_3 within m_administratortable
+end type
+
+on m_sep_3.create
+call super::create
+end on
+
+on m_sep_3.destroy
+call super::destroy
+end on
+
+type m_advancedrpgroups from m_sysmain`m_advancedrpgroups within m_administratortable
+end type
+
+on m_advancedrpgroups.create
+call super::create
+end on
+
+on m_advancedrpgroups.destroy
+call super::destroy
+end on
+
+type m_atobviacfeedcontrol from m_sysmain`m_atobviacfeedcontrol within m_administratortable
+end type
+
+on m_atobviacfeedcontrol.create
+call super::create
+end on
+
+on m_atobviacfeedcontrol.destroy
+call super::destroy
+end on
+
+type m_hideadvancedrp from m_sysmain`m_hideadvancedrp within m_administratortable
+end type
+
+on m_hideadvancedrp.create
+call super::create
+end on
+
+on m_hideadvancedrp.destroy
+call super::destroy
+end on
+
+type m_localatobviacdistance from m_sysmain`m_localatobviacdistance within m_administratortable
+end type
+
+on m_localatobviacdistance.create
+call super::create
+end on
+
+on m_localatobviacdistance.destroy
+call super::destroy
+end on
+
+type m_smtp from m_sysmain`m_smtp within m_administratortable
+end type
+
+on m_smtp.create
+call super::create
+end on
+
+on m_smtp.destroy
+call super::destroy
+end on
+
+type m_smtpmailservice from m_sysmain`m_smtpmailservice within m_administratortable
+end type
+
+on m_smtpmailservice.create
+call super::create
+end on
+
+on m_smtpmailservice.destroy
+call super::destroy
+end on
+
+type m_sep_systeminterface from m_sysmain`m_sep_systeminterface within m_administratortable
+end type
+
+on m_sep_systeminterface.create
+call super::create
+end on
+
+on m_sep_systeminterface.destroy
+call super::destroy
+end on
+
+type m_systeminterfaces from m_sysmain`m_systeminterfaces within m_administratortable
+end type
+
+on m_systeminterfaces.create
+call super::create
+end on
+
+on m_systeminterfaces.destroy
+call super::destroy
+end on
+
+type m_sep_transreason from m_sysmain`m_sep_transreason within m_administratortable
+end type
+
+on m_sep_transreason.create
+call super::create
+end on
+
+on m_sep_transreason.destroy
+call super::destroy
+end on
+
+type m_transactionadjustmentreasons from m_sysmain`m_transactionadjustmentreasons within m_administratortable
+end type
+
+on m_transactionadjustmentreasons.create
+call super::create
+end on
+
+on m_transactionadjustmentreasons.destroy
+call super::destroy
+end on
+
+type m_writeoff from m_sysmain`m_writeoff within m_administratortable
+end type
+
+on m_writeoff.create
+call super::create
+end on
+
+on m_writeoff.destroy
+call super::destroy
+end on
+
+type m_sep_voyagetype from m_sysmain`m_sep_voyagetype within m_administratortable
+end type
+
+on m_sep_voyagetype.create
+call super::create
+end on
+
+on m_sep_voyagetype.destroy
+call super::destroy
+end on
+
+type m_voyagetype from m_sysmain`m_voyagetype within m_administratortable
+end type
+
+on m_voyagetype.create
+call super::create
+end on
+
+on m_voyagetype.destroy
+call super::destroy
+end on
+
+type m_sep_contracttypes from m_sysmain`m_sep_contracttypes within m_administratortable
+end type
+
+on m_sep_contracttypes.create
+call super::create
+end on
+
+on m_sep_contracttypes.destroy
+call super::destroy
+end on
+
+type m_contracttype from m_sysmain`m_contracttype within m_administratortable
+end type
+
+on m_contracttype.create
+call super::create
+end on
+
+on m_contracttype.destroy
+call super::destroy
+end on
+
+type m_sep_businessunit from m_sysmain`m_sep_businessunit within m_administratortable
+end type
+
+on m_sep_businessunit.create
+call super::create
+end on
+
+on m_sep_businessunit.destroy
+call super::destroy
+end on
+
+type m_businessunit from m_sysmain`m_businessunit within m_administratortable
+end type
+
+on m_businessunit.create
+call super::create
+end on
+
+on m_businessunit.destroy
+call super::destroy
+end on
+
+type m_sep_changerequestconfig from m_sysmain`m_sep_changerequestconfig within m_administratortable
+end type
+
+on m_sep_changerequestconfig.create
+call super::create
+end on
+
+on m_sep_changerequestconfig.destroy
+call super::destroy
+end on
+
+type m_chmmapping from m_sysmain`m_chmmapping within m_administratortable
+end type
+
+on m_chmmapping.create
+call super::create
+end on
+
+on m_chmmapping.destroy
+call super::destroy
+end on
+
+type m_sep_chmmapping from m_sysmain`m_sep_chmmapping within m_administratortable
+end type
+
+on m_sep_chmmapping.create
+call super::create
+end on
+
+on m_sep_chmmapping.destroy
+call super::destroy
+end on
+
+type m_changerequestconfig from m_sysmain`m_changerequestconfig within m_administratortable
+end type
+
+on m_changerequestconfig.create
+call super::create
+end on
+
+on m_changerequestconfig.destroy
+call super::destroy
+end on
+
+type m_type from m_sysmain`m_type within m_changerequestconfig
+end type
+
+on m_type.create
+call super::create
+end on
+
+on m_type.destroy
+call super::destroy
+end on
+
+type m_nextstatus from m_sysmain`m_nextstatus within m_changerequestconfig
+end type
+
+on m_nextstatus.create
+call super::create
+end on
+
+on m_nextstatus.destroy
+call super::destroy
+end on
+
+type m_severity from m_sysmain`m_severity within m_changerequestconfig
+end type
+
+on m_severity.create
+call super::create
+end on
+
+on m_severity.destroy
+call super::destroy
+end on
+
+type m_creqstatus from m_sysmain`m_creqstatus within m_changerequestconfig
+end type
+
+on m_creqstatus.create
+call super::create
+end on
+
+on m_creqstatus.destroy
+call super::destroy
+end on
+
+type m_modulesubmodule from m_sysmain`m_modulesubmodule within m_changerequestconfig
+end type
+
+on m_modulesubmodule.create
+call super::create
+end on
+
+on m_modulesubmodule.destroy
+call super::destroy
+end on
+
+type m_consultants from m_sysmain`m_consultants within m_changerequestconfig
+end type
+
+on m_consultants.create
+call super::create
+end on
+
+on m_consultants.destroy
+call super::destroy
+end on
+
+type m_project from m_sysmain`m_project within m_changerequestconfig
+end type
+
+on m_project.create
+call super::create
+end on
+
+on m_project.destroy
+call super::destroy
+end on
+
+type m_sep_2 from m_sysmain`m_sep_2 within m_systemtabels
+end type
+
+on m_sep_2.create
+call super::create
+end on
+
+on m_sep_2.destroy
+call super::destroy
+end on
+
+type m_systemreports from m_sysmain`m_systemreports within m_systemtabels
+end type
+
+on m_systemreports.create
+call super::create
+end on
+
+on m_systemreports.destroy
+call super::destroy
+end on
+
+type m_vesselsbycommsegment from m_sysmain`m_vesselsbycommsegment within m_systemreports
+end type
+
+on m_vesselsbycommsegment.create
+call super::create
+end on
+
+on m_vesselsbycommsegment.destroy
+call super::destroy
+end on
+
+type m_competitorvesselsbycommsegment from m_sysmain`m_competitorvesselsbycommsegment within m_systemreports
+end type
+
+on m_competitorvesselsbycommsegment.create
+call super::create
+end on
+
+on m_competitorvesselsbycommsegment.destroy
+call super::destroy
+end on
+
+type m_charterersgroup from m_sysmain`m_charterersgroup within m_systemreports
+end type
+
+on m_charterersgroup.create
+call super::create
+end on
+
+on m_charterersgroup.destroy
+call super::destroy
+end on
+
+type m_sep_systemreports from m_sysmain`m_sep_systemreports within m_systemtabels
+end type
+
+on m_sep_systemreports.create
+call super::create
+end on
+
+on m_sep_systemreports.destroy
+call super::destroy
+end on
+
+type m_refreshcachedtables from m_sysmain`m_refreshcachedtables within m_systemtabels
+end type
+
+on m_refreshcachedtables.create
+call super::create
+end on
+
+on m_refreshcachedtables.destroy
+call super::destroy
+end on
+
+type m_window from m_sysmain`m_window within m_salemain
+end type
+
+on m_window.create
+call super::create
+end on
+
+on m_window.destroy
+call super::destroy
+end on
+
+type m_tilevertical from m_sysmain`m_tilevertical within m_window
+end type
+
+on m_tilevertical.create
+call super::create
+end on
+
+on m_tilevertical.destroy
+call super::destroy
+end on
+
+type m_help from m_sysmain`m_help within m_salemain
+end type
+
+on m_help.create
+call super::create
+end on
+
+on m_help.destroy
+call super::destroy
+end on
+
+type m_helpindex from m_sysmain`m_helpindex within m_help
+end type
+
+on m_helpindex.create
+call super::create
+end on
+
+on m_helpindex.destroy
+call super::destroy
+end on
+
+type m_tramoshelp from m_sysmain`m_tramoshelp within m_help
+end type
+
+on m_tramoshelp.create
+call super::create
+end on
+
+on m_tramoshelp.destroy
+call super::destroy
+end on
+
+type m___6 from m_sysmain`m___6 within m_help
+end type
+
+on m___6.create
+call super::create
+end on
+
+on m___6.destroy
+call super::destroy
+end on
+
+type m_about from m_sysmain`m_about within m_help
+end type
+
+on m_about.create
+call super::create
+end on
+
+on m_about.destroy
+call super::destroy
+end on
+
+type m_hotlist from menu within m_menutop2
+end type
+
+event clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     :m_salesmain.m_hotlist
+  
+ Event	 : Clicked
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       : 27-08-96
+
+ Description : {Short description}
+
+ Arguments : {description/none}
+
+ Returns   : {description/none}  
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+27-08-96		1.0	 		JH		Initial version
+  
+************************************************************************************/
+
+s_list lstr_parametre
+
+/* Initialize the structure:
+ The datawindow holding the list of all action_status*/
+lstr_parametre.list_window = "d_hotlist"
+
+/* The detail window to be call when editing a selected action , Not needed*/
+//lstr_parametre.edit_window = "w_action_detail"
+
+/* No detail datawindow to be initialized at run time*/
+SetNull(lstr_parametre.edit_datawindow)
+
+/* Key column name*/
+lstr_parametre.column[0] = "ccs_acts_ccs_acts_pk"
+
+/* 1st column name to be shown in list*/
+lstr_parametre.column[1] = "ccs_acts_ccs_acts_sts_d"
+
+/* 2nd column name to be shown in list*/
+lstr_parametre.column[2] = "ccs_acts_ccs_acts_sts_desc"
+
+/* 3rd column name to be shown in list */
+lstr_parametre.column[3] = "ccs_targ_userid"
+
+/* 1st column header name*/
+lstr_parametre.column_name[1] = "Date"
+
+/* 2nd column header name*/
+lstr_parametre.column_name[2] = "Description"
+
+/* 3nd column header name*/
+lstr_parametre.column_name[3] = "Sales Person"
+
+/* Title of Window to open*/ 
+lstr_parametre.window_title = "Hot List"
+
+OpenSheetWithParm(w_hotlist, lstr_parametre, w_tramos_main, 7, Original!)
+
+
+end event
+
+on m_hotlist.create
+call super::create
+this.text = "Hot &List"
+this.microhelp = "View Hotlist"
+this.toolbaritemname = "cursor!"
+this.toolbaritemtext = "Hot List"
+this.toolbaritemorder = 6
+this.toolbaritemspace = 2
+this.menuimage = "cursor!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_hotlist.destroy
+call super::destroy
+end on
+
+type m_-2 from menu within m_menutop2
+end type
+
+on m_-2.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-2.destroy
+call super::destroy
+end on
+
+type m_targets from menu within m_menutop2
+end type
+
+on clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     :m_salesmain.m_targets 
+  
+ Event	 : Clicked
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       : 20-08-96
+
+ Description : {Short description}
+
+ Arguments : {description/none}
+
+ Returns   : {description/none}  
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+20-08-96		1.0	 		JH		Initial version
+  
+************************************************************************************/
+
+
+
+
+
+
+
+
+s_list lstr_parametre
+
+/* Initialize the structure:
+ The datawindow holding the list of all targets*/
+lstr_parametre.list_window = "d_ccs_target_list"
+
+/* The detail window to be call when editing a selected target*/
+//lstr_parametre.edit_window = "w_target_detail"
+
+/* No detail datawindow to be initialized at run time*/
+SetNull(lstr_parametre.edit_datawindow)
+
+/* Key column name*/
+lstr_parametre.column[0] = "ccs_targ__pk"
+
+/* 1st column name to be shown in list*/
+lstr_parametre.column[1] = "userid"
+
+/* 2nd column name to be shown in list*/
+lstr_parametre.column[2] = "ccs_targ_desc"
+
+/* 1st column header name*/
+lstr_parametre.column_name[1] = "Sales Person"
+
+/* 2nd column header name*/
+lstr_parametre.column_name[2] = "Description"
+
+/* Title of Window to open*/ 
+lstr_parametre.window_title = "Targets"
+
+OpenSheetWithParm(w_targetlist, lstr_parametre, w_tramos_main, 7, Original!)
+
+
+end on
+
+on m_targets.create
+call super::create
+this.text = "&Targets"
+this.microhelp = "Open Targets"
+this.toolbaritemname = "custom072!"
+this.toolbaritemtext = "Targets"
+this.toolbaritemorder = 7
+this.menuimage = "custom072!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_targets.destroy
+call super::destroy
+end on
+
+type m_actionstatus from menu within m_menutop2
+end type
+
+event clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     :m_salesmain.m_action_status 
+  
+ Event	 : Clicked
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       : 21-08-96
+
+ Description : {Short description}
+
+ Arguments : {description/none}
+
+ Returns   : {description/none}  
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+21-08-96		1.0	 		JH		Initial version
+  
+************************************************************************************/
+
+s_list lstr_parametre
+
+/* Initialize the structure:
+ The datawindow holding the list of all targets*/
+lstr_parametre.list_window = "d_ccs_action_list"
+
+/* The detail window to be call when editing a selected target*/
+lstr_parametre.edit_window = "w_action_detail"
+
+/* No detail datawindow to be initialized at run time*/
+SetNull(lstr_parametre.edit_datawindow)
+
+/* Key column name*/
+lstr_parametre.column[0] = "ccs_acts_pk"
+
+/* 1st column name to be shown in list*/
+lstr_parametre.column[1] = "ccs_acts_plan_d"
+
+/* 2nd column name to be shown in list*/
+lstr_parametre.column[2] = "ccs_acts_desc"
+
+/* 1st column header name*/
+lstr_parametre.column_name[1] = "Date Planned"
+
+/* 2nd column header name*/
+lstr_parametre.column_name[2] = "Description"
+
+/* Title of Window to open*/ 
+lstr_parametre.window_title = "Actions/Status"
+
+OpenSheetWithParm(w_actionlist, lstr_parametre, w_tramos_main, 7, Original!)
+
+
+end event
+
+on m_actionstatus.create
+call super::create
+this.text = "&Actions/Status"
+this.microhelp = "Open Actions "
+this.toolbaritemname = "custom038!"
+this.toolbaritemtext = "Actions/Status"
+this.toolbaritemorder = 8
+this.menuimage = "Custom038!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_actionstatus.destroy
+call super::destroy
+end on
+
+type m_-3 from menu within m_menutop2
+end type
+
+on m_-3.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-3.destroy
+call super::destroy
+end on
+
+type m_contactpersons from menu within m_menutop2
+end type
+
+on clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     :m_salesmain.m_contactpersons 
+  
+ Event	 : Clicked!
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       : 02-08-96
+
+ Description : Opens list of all contact persons to let the user modify one
+
+ Arguments : {description/none}
+
+ Returns   : {description/none}  
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+02-08-96 		1.0	 		JH		Initial version
+  
+************************************************************************************/
+
+
+s_list lstr_parametre
+
+/* Initialize the structure:
+ The datawindow holding the list of all charterers*/
+lstr_parametre.list_window = "d_cont_list_all"
+
+/* The detail window to be call when editing a selected charterer*/
+lstr_parametre.edit_window = "w_cont"
+
+/* No detail datawindow to be initialized at run time*/
+SetNull(lstr_parametre.edit_datawindow)
+
+/* Key column name*/
+lstr_parametre.column[0] = "ccs_cont_pk"
+
+/* 1st column name to be shown in list*/
+lstr_parametre.column[1] = "ccs_cont_name"
+
+/* 2nd column name to be shown in list*/
+lstr_parametre.column[2] = "userid"
+
+/* 1st column header name*/
+lstr_parametre.column_name[1] = "Name"
+
+/* 2nd column header name*/
+lstr_parametre.column_name[2] = "APM Contact"
+
+/* Title of Window to open*/ 
+lstr_parametre.window_title = "Contact Persons"
+
+OpenSheetWithParm(w_contlist, lstr_parametre, w_tramos_main, 7, Original!)
+
+
+end on
+
+on m_contactpersons.create
+call super::create
+this.text = "&Contact Persons"
+this.microhelp = "Open List of Contact Persons"
+this.toolbaritemname = "custom076!"
+this.toolbaritemtext = "Contacts"
+this.toolbaritemorder = 9
+this.toolbaritemspace = 1
+this.menuimage = "custom076!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_contactpersons.destroy
+call super::destroy
+end on
+
+type m_charterers from menu within m_menutop2
+end type
+
+event clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     : m_salemain.m_charterers
+  
+ Event	 : Clicked
+
+ Scope     : Local
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       : 16-07-96
+
+ Description : Opens w_ccs_chartlist with list of charterers that can be modified. Salesview.
+
+ Arguments : {description/none}
+
+ Returns   : {description/none}  
+
+ Variables : A s_list used to send in Message.PowerObjectParm
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+ 16-07-96		1.0	 		JH		Initial version
+  
+************************************************************************************/
+
+s_list lstr_parametre
+
+// Initialize the structure:
+// The datawindow holding the list of all charterers
+lstr_parametre.list_window = "dw_charterer_list"
+
+// The detail window to be call when editing a selected charterer
+lstr_parametre.edit_window = "w_ccs_chart"
+
+// No detail datawindow to be initialized at run time
+SetNull(lstr_parametre.edit_datawindow)
+
+// Key column name
+lstr_parametre.column[0] = "chart_nr"
+
+// 1st column name to be shown in list
+lstr_parametre.column[1] = "chart_sn"
+
+// 2nd column name to be shown in list
+lstr_parametre.column[2] = "chart_n_1"
+
+// 1st column header name
+lstr_parametre.column_name[1] = "Short Name"
+
+// 2nd column header name
+lstr_parametre.column_name[2] = "Long Name"
+
+// Title of Window to open 
+lstr_parametre.window_title = "Charterers List"
+
+OpenSheetWithParm(w_ccs_chartlist, lstr_parametre, w_tramos_main, 7, Original!)
+
+
+
+
+end event
+
+on m_charterers.create
+call super::create
+this.text = "C&harterers List"
+this.microhelp = "Open Charteres"
+this.toolbaritemname = "custom046!"
+this.toolbaritemtext = "Charterers"
+this.toolbaritemorder = 10
+this.menuimage = "custom046!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_charterers.destroy
+call super::destroy
+end on
+
+type m_brokers from menu within m_menutop2
+end type
+
+event clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     :m_salesmain.m_brokers 
+  
+ Event	 : Clicked
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       : 26-07-96
+
+ Description : Opens the Brokers List window in salesview.  
+
+ Arguments : {description/none}
+
+ Returns   : {description/none}  
+
+ Variables :  A s_list used to send in Message.PowerObjectParm
+
+ Other : Brokers can not be edited from the salessystem, but a list of contact persons for a chosen broker can be uptained.
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+26-07-96		1.0 			JH		Initial version
+  
+************************************************************************************/
+
+s_list lstr_parametre
+
+// Initialize the structure:
+// The datawindow holding the list of all charterers
+lstr_parametre.list_window = "dw_broker_list"
+
+// The detail window to be call when editing a selected charterer
+lstr_parametre.edit_window ="w_contacts"  
+ 
+// No detail datawindow to be initialized at run time
+SetNull(lstr_parametre.edit_datawindow)
+
+// Key column name
+lstr_parametre.column[0] = "broker_nr"
+
+// 1st column name to be shown in list
+lstr_parametre.column[1] = "broker_sn"
+
+// 2nd column name to be shown in list
+lstr_parametre.column[2] = "broker_name"
+
+// 1st column header name
+lstr_parametre.column_name[1] = "Short Name"
+
+// 2nd column header name
+lstr_parametre.column_name[2] = "Full Name"
+
+// Title of Window to open 
+lstr_parametre.window_title = "Brokers List"
+
+OpenSheetWithParm(w_ccs_brokerlist, lstr_parametre, w_tramos_main, 7, Original!)
+
+end event
+
+on m_brokers.create
+call super::create
+this.text = "&Brokers List"
+this.microhelp = "Open List of Brokers"
+this.toolbaritemname = "picture!"
+this.toolbaritemtext = "Brokers"
+this.toolbaritemorder = 11
+this.menuimage = "picture!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_brokers.destroy
+call super::destroy
+end on
+
+type m_-4 from menu within m_menutop2
+end type
+
+on m_-4.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-4.destroy
+call super::destroy
+end on
+
+type m_texttemplates from menu within m_menutop2
+end type
+
+on clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     :m_salesmain.m_texttemplates
+  
+ Event	 : Clicked
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       :28-08-96
+
+ Description : Opens the window TEXTTEMPLATES
+
+ Arguments :  {description/none}  
+
+ Returns   : {description/none}  
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+28-08-96		1.0 			JH		Initial version
+  
+************************************************************************************/
+
+//MessageBox("FY FY FY SKAMME", "Jeannet, det er absolut ikke pænt at lægge menuen ind, når w_template ikke er lagt ind!!!! OMGANG !!!")
+
+OpenSheet(w_template, w_tramos_main, 7, Original!)
+end on
+
+on m_texttemplates.create
+call super::create
+this.text = "Te&xt Templates"
+this.microhelp = "Open to Edit Text Templates"
+this.toolbaritemname = "custom092!"
+this.toolbaritemtext = "Text Templates"
+this.toolbaritemorder = 13
+this.toolbaritemspace = 1
+this.menuimage = "custom092!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_texttemplates.destroy
+call super::destroy
+end on
+
+type m_keycodes from menu within m_menutop2
+end type
+
+on clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     :m_salesmain.m_ 
+  
+ Event	 : Clicked
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       : 01-07-96
+
+ Description : {Short description}
+
+ Arguments : {description/none}
+
+ Returns   : {description/none}  
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+{ 19-07-96	1.0 		JH	Initial version}
+  
+************************************************************************************/
+
+
+//MessageBox("FY FY FY FY", "IGEN ??? DOBBELTOMGANG")
+
+//mf_opensheet(window)
+mf_opensheet(w_keycodes)
+end on
+
+on m_keycodes.create
+call super::create
+this.text = "&Key Codes"
+this.microhelp = "Open Keycodes"
+this.toolbaritemname = "custom016!"
+this.toolbaritemtext = "Key Codes"
+this.toolbaritemorder = 14
+this.menuimage = "custom016!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_keycodes.destroy
+call super::destroy
+end on
+
+type m_targetsdelete from menu within m_menutop2
+end type
+
+event clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     :m_salesmain.m_targetsdelete 
+  
+ Event	 : Clicked
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       : 28-08-96
+
+ Description : {Short description}
+
+ Arguments : {description/none}
+
+ Returns   : {description/none}  
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE				VERSION 		NAME			DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+28-08-96				1.0	 	JH				Initial version
+03-03-97  						BHO			Only administrators and supervisors 
+													will have permission to this
+													functionality.
+************************************************************************************/
+
+/* Do the user have access to this functionality*/
+if uo_global.ii_access_level < 2 then
+		/*Inform user and return*/
+		messagebox("Notice","You do not have access to this functionality!")
+		return
+/*end if*/
+end if
+
+s_list lstr_parametre
+
+/* Initialize the structure:
+ The datawindow holding the list of all targets*/
+lstr_parametre.list_window = "d_ccs_target_list"
+
+/* The detail window to be call when editing a selected target is not needed*/
+//lstr_parametre.edit_window = "w_target_detail"
+
+/* No detail datawindow to be initialized at run time*/
+SetNull(lstr_parametre.edit_datawindow)
+
+/* Key column name*/
+lstr_parametre.column[0] = "ccs_targ__pk"
+
+/* 1st column name to be shown in list*/
+lstr_parametre.column[1] = "userid"
+
+/* 2nd column name to be shown in list*/
+lstr_parametre.column[2] = "ccs_targ_desc"
+
+/* 1st column header name*/
+lstr_parametre.column_name[1] = "Sales Person"
+
+/* 2nd column header name*/
+lstr_parametre.column_name[2] = "Description"
+
+/* Title of Window to open*/ 
+lstr_parametre.window_title = "Delete Targets"
+
+OpenSheetWithParm(w_delete_targetlist, lstr_parametre, w_tramos_main, 7, Original!)
+
+
+end event
+
+on m_targetsdelete.create
+call super::create
+this.text = "&Delete Targets"
+this.microhelp = "Open to Delete Targets"
+this.toolbaritemname = "custom094!"
+this.toolbaritemtext = "Delete Targets"
+this.toolbaritemorder = 15
+this.menuimage = "custom094!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_targetsdelete.destroy
+call super::destroy
+end on
+
+type m_carterergroup from menu within m_menutop2
+end type
+
+event clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     : m_salemain.m_charterergroup
+  
+ Event	 : Clicked
+
+ Scope     : Local
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       : 04-09-96
+
+ Description : Opens w_chartgroup with list of charterer groups to let user edit them.
+
+ Arguments : {description/none}
+
+ Returns   : {description/none}  
+
+ Variables : A s_list used to send in Message.PowerObjectParm
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+ 04-09-96		1.0	 		JH		Initial version
+  
+************************************************************************************/
+
+s_list lstr_parametre
+
+// Initialize the structure:
+/* The datawindow holding the list of all charterer groups */
+lstr_parametre.list_window = "d_chgp_list"
+
+/* No detail window to be call when editing a selected charterer group */
+// lstr_parametre.edit_window = 
+
+/* No detail datawindow to be initialized at run time*/
+SetNull(lstr_parametre.edit_datawindow)
+
+/* Key column name */
+lstr_parametre.column[0] = "ccs_chgp_pk"
+
+/* 1st column name to be shown in list */
+lstr_parametre.column[1] = "ccs_chgp_name"
+
+/* No 2nd column name to be shown in list */
+// lstr_parametre.column[2] = 
+
+/* 1st column header name */
+lstr_parametre.column_name[1] = "Name"
+
+/*No 2nd column header name */
+//lstr_parametre.column_name[2] = "full name"
+
+/* Title of Window to open*/ 
+lstr_parametre.window_title = "Charterer Group"
+
+OpenSheetWithParm(w_chartgroup, lstr_parametre, w_tramos_main, 7, Original!)
+
+
+
+
+end event
+
+on m_carterergroup.create
+call super::create
+this.text = "Charterer &Group"
+this.microhelp = "Open Charterer Group"
+this.toolbaritemname = "custom047!"
+this.toolbaritemtext = "Charterer Group"
+this.toolbaritemorder = 16
+this.menuimage = "custom047!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_carterergroup.destroy
+call super::destroy
+end on
+
+type m_targetsprojects from menu within m_menutop3
+end type
+
+event clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     :m_salesmain.m_ 
+  
+ Event	 : Clicked
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       : 01-07-96
+
+ Description : {Short description}
+
+ Arguments : {description/none}
+
+ Returns   : {description/none}  
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+{ 19-07-96	1.0 		JH	Initial version}
+  
+************************************************************************************/
+Open(w_print_target)
+end event
+
+on m_targetsprojects.create
+call super::create
+this.text = "&Targets/Projects"
+this.microhelp = "Target/Project Reports"
+this.toolbaritemname = "custom056!"
+this.toolbaritemtext = "Target/Project Report"
+this.toolbaritemorder = 17
+this.toolbaritemspace = 1
+this.menuimage = "custom056!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_targetsprojects.destroy
+call super::destroy
+end on
+
+type m_calender from menu within m_menutop3
+end type
+
+event clicked;/************************************************************************************
+ Arthur Andersen PowerBuilder Development
+ Window  : 
+ Object     :m_salesmain.m_calender
+ Event	 : Clicked
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       :20-09-96
+
+ Description : {Short description}
+
+ Arguments : {description/none}
+
+ Returns   : {description/none}  
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+20-09-96		1.0	 		JH		Initial version
+  
+************************************************************************************/
+Open(w_print_calender)
+end event
+
+on m_calender.create
+call super::create
+this.text = "&Calendar"
+this.microhelp = "Calendar"
+this.toolbaritemname = "custom063!"
+this.toolbaritemtext = "Calendar Report"
+this.toolbaritemorder = 18
+this.menuimage = "custom063!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_calender.destroy
+call super::destroy
+end on
+
+type m_rep_charterers from menu within m_menutop3
+end type
+
+event clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     :m_salesmain.m_rep_charterers
+  
+ Event	 : Clicked
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       : 24-09-96
+
+ Description : {Short description}
+
+ Arguments : {description/none}
+
+ Returns   : {description/none}  
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+24-09-96		1.0	 		JH		Initial version
+  
+************************************************************************************/
+Open(w_print_charterer)
+end event
+
+on m_rep_charterers.create
+call super::create
+this.text = "C&harterers"
+this.microhelp = "Charterer Report"
+this.toolbaritemname = "custom059!"
+this.toolbaritemtext = "Charterer Report"
+this.toolbaritemorder = 19
+this.menuimage = "Custom059!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_rep_charterers.destroy
+call super::destroy
+end on
+
+type m_gifts from menu within m_menutop3
+end type
+
+event clicked;/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     :m_salesmain.m_ 
+  
+ Event	 : Clicked
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       : 01-07-96
+
+ Description : {Short description}
+
+ Arguments : {description/none}
+
+ Returns   : {description/none}  
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+{ 19-07-96	1.0 		JH	Initial version}
+  
+************************************************************************************/
+Open(w_print_gifts)
+end event
+
+on m_gifts.create
+call super::create
+this.text = "&Gifts"
+this.toolbaritemname = "move!"
+this.toolbaritemtext = "Gift Reports"
+this.toolbaritemorder = 20
+this.menuimage = "move!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_gifts.destroy
+call super::destroy
+end on
+
+type m_makefile from menu within m_menutop3
+end type
+
+on clicked;open(w_select_window)
+end on
+
+on m_makefile.create
+call super::create
+this.text = "&Make File"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_makefile.destroy
+call super::destroy
+end on
+
+type m_- from menu within m_systemtabels
+end type
+
+on m_-.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_datawarehouse from menu within m_systemtabels
+end type
+
+on clicked;opensheet(w_warehouse_errors,w_tramos_main,7,Original!)
+end on
+
+on m_datawarehouse.create
+call super::create
+this.text = "Recreate Datawarehouse"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_datawarehouse.destroy
+call super::destroy
+end on
+
+type m_systemoptions from m_sysmain`m_systemoptions_new within m_file
+end type
+
+on m_systemoptions.create
+call super::create
+end on
+
+on m_systemoptions.destroy
+call super::destroy
+end on
+

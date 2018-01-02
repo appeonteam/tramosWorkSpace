@@ -1,0 +1,16 @@
+﻿$PBExportHeader$f_inspduedatecolor.srf
+global type f_inspduedatecolor from function_object
+end type
+
+forward prototypes
+global function long f_inspduedatecolor (datetime adt_duedate, long al_rowbackcolor)
+end prototypes
+
+global function long f_inspduedatecolor (datetime adt_duedate, long al_rowbackcolor);
+If f_AddMonths(adt_DueDate, g_Obj.DueYellow) <= datetime(today()) then al_RowBackColor = 65535
+If f_AddMonths(adt_DueDate, g_Obj.DueRed) <= datetime(today()) then al_RowBackColor = 8421631
+
+Return al_RowBackColor
+
+end function
+

@@ -1,0 +1,14 @@
+﻿$PBExportHeader$s_settle_payment.srs
+$PBExportComments$Used to transfer parameters when settling payments (payment_id, settle_amount)
+global type s_settle_payment from structure
+	long		payment_id
+	decimal { 2 }		settle_amount
+	boolean		transfer
+	boolean		postcoda
+	boolean		partpaid
+	decimal { 2 }		receive_amount
+	datetime		receive_date
+	datetime		duedate		descriptor "comment" = "Payment duedate"
+	integer		li_settle
+end type
+

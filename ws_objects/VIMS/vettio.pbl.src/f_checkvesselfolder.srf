@@ -1,0 +1,38 @@
+﻿$PBExportHeader$f_checkvesselfolder.srf
+global type f_checkvesselfolder from function_object
+end type
+
+forward prototypes
+global function integer f_checkvesselfolder (string as_commfolder)
+end prototypes
+
+global function integer f_checkvesselfolder (string as_commfolder);
+// This function ensures that communication folders are created if they don't exist
+
+Integer li_Ret
+
+If Not DirectoryExists(as_CommFolder) then   
+	li_Ret =	CreateDirectory(as_CommFolder)
+	If li_Ret < 0 then Return -1
+End If
+
+If Not DirectoryExists(as_CommFolder + "VIMS\") then
+  li_Ret =	CreateDirectory(as_CommFolder + "VIMS\")
+	If li_Ret < 0 then Return -1
+End If
+
+If Not DirectoryExists(as_CommFolder + "VIMS\Out\") then
+	li_Ret = CreateDirectory(as_CommFolder + "VIMS\Out\")
+	If li_Ret < 0 then Return -1
+End If
+
+If Left(as_Commfolder, 2) = "E:" then
+	If Not DirectoryExists(as_CommFolder + "VIMS\In\") then
+		li_Ret = CreateDirectory(as_CommFolder + "VIMS\In\")
+		If li_Ret < 0 then Return -1
+	End If	
+End If
+
+Return 0
+end function
+

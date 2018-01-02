@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_keyc_target_list.srd
+$PBExportComments$Datawindow used in window w_keyc_target_select.
+release 4;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=57 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=57 color="536870912" )
+table(column=(type=char(10) name=ccs_keyc_ccs_keyc_code dbname="CCS_KEYC.CCS_KEYC_CODE" )
+ column=(type=char(35) name=ccs_keyc_ccs_keyc_desc dbname="CCS_KEYC.CCS_KEYC_DESC" )
+ column=(type=decimal(0) name=ccs_targ_ccs_targ__pk dbname="CCS_TARG.CCS_TARG__PK" )
+ column=(type=decimal(0) name=ccs_keyc_ccs_keyc_pk dbname="CCS_KEYC.CCS_KEYC_PK" )
+ column=(type=decimal(0) update=yes key=yes name=target_keycodes_ccs_targ__pk dbname="TARGET_KEYCODES.CCS_TARG__PK" )
+ column=(type=decimal(0) update=yes key=yes name=target_keycodes_ccs_keyc_pk dbname="TARGET_KEYCODES.CCS_KEYC_PK" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_KEYC~" ) TABLE(NAME=~"CCS_TARG~" ) TABLE(NAME=~"TARGET_KEYCODES~" ) COLUMN(NAME=~"CCS_KEYC.CCS_KEYC_CODE~") COLUMN(NAME=~"CCS_KEYC.CCS_KEYC_DESC~") COLUMN(NAME=~"CCS_TARG.CCS_TARG__PK~") COLUMN(NAME=~"CCS_KEYC.CCS_KEYC_PK~") COLUMN(NAME=~"TARGET_KEYCODES.CCS_TARG__PK~") COLUMN(NAME=~"TARGET_KEYCODES.CCS_KEYC_PK~") JOIN (LEFT=~"CCS_TARG.CCS_TARG__PK~" OP =~"=~"RIGHT=~"TARGET_KEYCODES.CCS_TARG__PK~" ) JOIN (LEFT=~"CCS_KEYC.CCS_KEYC_PK~" OP =~"=~"RIGHT=~"TARGET_KEYCODES.CCS_KEYC_PK~" )WHERE( EXP1 =~"TARGET_KEYCODES.CCS_TARG__PK~" OP =~"=~" EXP2 =~":ccs_targ_pk~" ) ) ARG(NAME = ~"ccs_targ_pk~" TYPE = number) " update="TARGET_KEYCODES" updatewhere=1 updatekeyinplace=yes arguments=(("ccs_targ_pk", number)) )
+text(band=header alignment="2" text="Key Code"border="0" color="0" x="5" y="4" height="57" width="238"  name=chart_sn_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Description"border="0" color="0" x="275" y="4" height="57" width="289"  name=chart_n_1_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="4" height="57" width="238" format="[general]"  name=ccs_keyc_ccs_keyc_code edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="275" y="4" height="57" width="805" format="[general]"  name=ccs_keyc_ccs_keyc_desc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )

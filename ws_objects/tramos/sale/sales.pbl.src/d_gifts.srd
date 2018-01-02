@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_gifts.srd
+$PBExportComments$This datawindow lets the user edit a contact persons list of gifts.
+release 5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=57 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=73 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes key=yes name=ccs_gift_pk dbname="CCS_GIFT.CCS_GIFT_PK" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=ccs_cont_pk dbname="CCS_GIFT.CCS_CONT_PK" )
+ column=(type=datetime update=yes updatewhereclause=yes name=ccs_gift_d dbname="CCS_GIFT.CCS_GIFT_D" )
+ column=(type=char(35) update=yes updatewhereclause=yes name=ccs_gift_oca dbname="CCS_GIFT.CCS_GIFT_OCA" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=ccs_gift_desc dbname="CCS_GIFT.CCS_GIFT_DESC" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_GIFT~" ) COLUMN(NAME=~"CCS_GIFT.CCS_GIFT_PK~") COLUMN(NAME=~"CCS_GIFT.CCS_CONT_PK~") COLUMN(NAME=~"CCS_GIFT.CCS_GIFT_D~") COLUMN(NAME=~"CCS_GIFT.CCS_GIFT_OCA~") COLUMN(NAME=~"CCS_GIFT.CCS_GIFT_DESC~")WHERE( EXP1 =~"CCS_GIFT.CCS_CONT_PK~" OP =~"=~" EXP2 =~":cont_nr~" ) ) ORDER(NAME=~"CCS_GIFT.CCS_GIFT_D~" ASC=no) ARG(NAME = ~"cont_nr~" TYPE = number) " update="CCS_GIFT" updatewhere=1 updatekeyinplace=yes arguments=(("cont_nr", number)) )
+text(band=header alignment="0" text="Date"border="0" color="0" x="19" y="4" height="57" width="110"  name=ccs_gift_d_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Occasion"border="0" color="0" x="257" y="4" height="57" width="229"  name=ccs_gift_oca_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Description"border="0" color="0" x="1098" y="4" height="57" width="289"  name=ccs_gift_desc_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="0" color="0" x="19" y="4" height="65" width="202" format="dd-mm-yy [time]"  name=ccs_gift_d  tag="Gift given on Date" editmask.mask="dd-mm-yy" editmask.focusrectangle=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="0" color="0" x="257" y="4" height="65" width="823" format="[general]"  name=ccs_gift_oca  tag="Gift Occation" edit.limit=35 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="0" color="0" x="1098" y="4" height="65" width="1116" format="[general]"  name=ccs_gift_desc  tag="Gift Description" edit.limit=50 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

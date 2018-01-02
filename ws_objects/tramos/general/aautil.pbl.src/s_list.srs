@@ -1,0 +1,16 @@
+﻿$PBExportHeader$s_list.srs
+$PBExportComments$Structure for w_list and w_list_detail
+global type s_list from structure
+    string list_window
+    string column[0 TO 3]
+    string column_name[3]
+    string window_title
+    string edit_window
+    string edit_datawindow
+    string edit_window_title
+    string edit_key_text
+    long edit_key_number
+    long additional_numbers[]
+    string return_value
+end type
+

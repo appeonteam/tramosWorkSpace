@@ -1,0 +1,58 @@
+﻿$PBExportHeader$s_electronic_a_b_cms.srs
+$PBExportComments$This holds data for CMS transaktions.
+global type s_electronic_a_b_cms from structure
+	string		a_acctyr
+	string		a_picno
+	string		a_batch
+	string		a_apmacc
+	string		a_currcd
+	decimal {2}	a_exrate
+	string		a_cocode
+	string		a_pport
+	string		a_contr
+	string		a_dept
+	string		a_desc
+	string		a_suffix
+	decimal {2}	a_amount
+	string		a_invno
+	string		a_invdat
+	string		a_suppcd
+	string		a_paydat
+	decimal {2}	a_vat
+	string		b_acctyr[]
+	string		b_picno[]
+	string		b_pport[]
+	decimal {2}	b_qty[]
+	string		b_apmacc[]
+	string		b_actyr[]
+	string		b_actmo[]
+	string		b_pt[]
+	string		b_vesacc[]
+	string		b_desc1[]
+	string		b_line[]
+	string		b_cat[]
+	string		b_aport[]
+	string		b_currcd[]
+	string		b_exrate[]
+	string		b_contr[]
+	string		b_cocode[]
+	string		b_part[]
+	string		b_qty2[]
+	string		b_desc2[]
+	string		b_desc[]
+	string		b_amount[]
+	string		b_orderno[]
+	string		cms_type
+	string		cms_expect_date
+	string		cms_cust_nr
+	string		cms_inv_nr
+	string		cms_inv_date
+	string		cms_vessel_name
+	string		cms_reference
+	string		cms_bank_acc
+	string		cms_currency
+	string		cms_amount
+	string		cms_inc_pay_code
+	string		cms_signer
+end type
+

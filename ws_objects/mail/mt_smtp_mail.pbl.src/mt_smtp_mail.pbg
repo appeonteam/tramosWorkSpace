@@ -1,0 +1,16 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "mt_smtp_mail.pbl" "";
+@end;
+@begin Objects 
+ "smtp_mail_service.sra" "mt_smtp_mail.pbl";
+ "d_sq_tb_outgoing_attachments.srd" "mt_smtp_mail.pbl";
+ "d_sq_tb_outgoing_mails.srd" "mt_smtp_mail.pbl";
+ "d_sq_tb_outgoing_receivers.srd" "mt_smtp_mail.pbl";
+ "p_smtp_mail_service.srj" "mt_smtp_mail.pbl";
+ "s_settings.srs" "mt_smtp_mail.pbl";
+ "mt_n_smtp.sru" "mt_smtp_mail.pbl";
+ "mt_n_smtp_send.sru" "mt_smtp_mail.pbl";
+ "mt_n_winsock.sru" "mt_smtp_mail.pbl";
+ "w_smtp_timer.srw" "mt_smtp_mail.pbl";
+@end;

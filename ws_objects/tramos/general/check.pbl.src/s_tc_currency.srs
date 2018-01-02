@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_tc_currency.srs
+$PBExportComments$This structure is used in uf_check_tc_currency in the userobject u_check_functions.
+global type s_tc_currency from structure
+	datetime		tc_period_start
+	datetime		tc_period_end
+	datetime		cp_date
+	string		currency
+end type
+

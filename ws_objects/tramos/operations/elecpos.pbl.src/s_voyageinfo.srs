@@ -1,0 +1,20 @@
+﻿$PBExportHeader$s_voyageinfo.srs
+global type s_voyageinfo from structure
+	datetime		trans_date
+	string		userid
+	string		status
+	string		vessel_ref_nr
+	string		voyage_nr
+	datetime		start_date
+	long		voyage_type
+	string		voyage_axcode
+	string		voyage_status
+	datetime		file_date
+	string		file_user
+	string		file_name
+	string		company_code
+	string		old_voyage_nr
+	long		voyagecount
+	s_voyageinfo_claim		str_claims[]
+end type
+

@@ -1,0 +1,6 @@
+HA$PBExportHeader$struct_spdcontable.srs
+global type struct_spdcontable from structure
+	real		Speed
+	real		Consumption
+end type
+

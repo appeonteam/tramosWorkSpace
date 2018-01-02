@@ -1,0 +1,16 @@
+﻿$PBExportHeader$s_command_line.srs
+global type s_command_line from structure
+	string		as_server		descriptor "comment" = "Database server name"
+	string		as_database		descriptor "comment" = "Database name"
+	string		as_mode		descriptor "comment" = "Application running mode"
+	string		as_inputfolder		descriptor "comment" = "Input files folder"
+	string		as_inputfile		descriptor "comment" = "Input file name"
+	string		as_folder_log		descriptor "comment" = "Log file folder"
+	string		as_folder_expired		descriptor "comment" = "Expired file folder"
+	string		as_folder_failed		descriptor "comment" = "Failed resolving XML file"
+	string		as_folder_rejected		descriptor "comment" = "Rejected XML file"
+	string		as_folder_succeeded		descriptor "comment" = "Succeeded XML file folder"
+	string		as_sender		descriptor "comment" = "Sender email address"
+	string		as_receiver		descriptor "comment" = "Receiver email address"
+end type
+

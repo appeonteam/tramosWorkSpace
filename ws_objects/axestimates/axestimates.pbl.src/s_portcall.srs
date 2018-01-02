@@ -1,0 +1,14 @@
+﻿$PBExportHeader$s_portcall.srs
+$PBExportComments$Port call data.  Used as an array structure inside the s_voyageestimate structure
+global type s_portcall from structure
+	string		s_portcode		descriptor "comment" = "Tramos/Maersk Port Code"
+	integer		i_pcn		descriptor "comment" = "pcn number used to validate purpose/type of port."
+	datetime		dtm_procdate		descriptor "comment" = "* not used here *"
+	decimal { 4 }		d_atobviacdistance		descriptor "comment" = "distance between last port and this"
+	datetime		dtm_portarrival		descriptor "comment" = "actual/calculated arrival date of this port"
+	string		s_source		descriptor "comment" = "detail of how data was generated that is outputted into log file"
+	decimal { 4 }		d_expenses		descriptor "comment" = "placeholder for port expense"
+	integer		i_errorcode		descriptor "comment" = "* not used yet *"
+	string		s_errormessage		descriptor "comment" = "* not used yet *"
+end type
+

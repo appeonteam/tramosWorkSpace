@@ -1,0 +1,16 @@
+﻿$PBExportHeader$d_ccs_chart_list.srd
+$PBExportComments$List of all chartereres specially for use with the sales system.
+release 4;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=57 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=57 color="536870912" )
+table(column=(type=char(10) name=chart_sn dbname="CHART.CHART_SN" )
+ column=(type=char(70) name=chart_n_1 dbname="CHART.CHART_N_1" )
+ column=(type=number name=chart_nr dbname="CHART.CHART_NR" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CHART~" ) COLUMN(NAME=~"CHART.CHART_SN~") COLUMN(NAME=~"CHART.CHART_N_1~") COLUMN(NAME=~"CHART.CHART_NR~")) ORDER(NAME=~"CHART.CHART_SN~" ASC=yes ) " )
+text(band=header alignment="2" text="Shortname"border="0" color="0" x="10" y="4" height="57" width="279"  name=chart_sn_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Name"border="0" color="0" x="366" y="4" height="57" width="142"  name=chart_n_1_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="4" height="65" width="302" format="[general]"  name=chart_sn  tag=" " edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="366" y="4" height="65" width="988" format="[general]"  name=chart_n_1  tag=" " edit.limit=70 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

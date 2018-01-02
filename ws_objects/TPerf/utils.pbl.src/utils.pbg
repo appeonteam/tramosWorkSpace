@@ -1,0 +1,10 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "utils.pbl" "";
+@end;
+@begin Objects 
+ "f_datastore_spy.srf" "utils.pbl";
+ "f_datetime2long.srf" "utils.pbl";
+ "f_long2datetime.srf" "utils.pbl";
+ "w_datastore_spy.srw" "utils.pbl";
+@end;

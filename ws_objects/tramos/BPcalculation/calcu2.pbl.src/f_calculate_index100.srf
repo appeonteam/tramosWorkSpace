@@ -1,0 +1,23 @@
+﻿$PBExportHeader$f_calculate_index100.srf
+$PBExportComments$Calculates TC/Month index 100 from TC/Month value and TC-index registred for vessel.~r~nUsed from calculation result window, scheduler and print calculation
+global type f_calculate_index100 from function_object
+end type
+
+forward prototypes
+global function decimal f_calculate_index100 (decimal ad_tcmonth, integer ai_vessel_nr)
+end prototypes
+
+global function decimal f_calculate_index100 (decimal ad_tcmonth, integer ai_vessel_nr);/* Calculates TC/Month index 100 from TC/Month value and TC-index
+	registred for vessel.
+	
+	Used from calculation result window, scheduler and print calculation */
+	
+decimal ld_index
+
+SELECT ISNULL(VESSEL_TC_INDEX, 100) INTO :ld_index FROM VESSELS WHERE VESSEL_NR = :ai_vessel_nr;
+
+if ld_index = 0 then ld_index = 100
+
+return ( ad_tcmonth / ld_index ) * 100 
+end function
+

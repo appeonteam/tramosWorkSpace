@@ -1,0 +1,11 @@
+﻿$PBExportHeader$dw_port_name_list.srd
+$PBExportComments$This datawindow lists ports by their name instead of by their code.
+release 4;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=1 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=73 color="536870912" )
+table(column=(type=char(35) name=port_n dbname="PORTS.PORT_N" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"PORTS~" ) COLUMN(NAME=~"PORTS.PORT_N~")) ORDER(NAME=~"PORTS.PORT_N~" ASC=yes ) " )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="4" height="57" width="823" format="[general]"  name=port_n edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

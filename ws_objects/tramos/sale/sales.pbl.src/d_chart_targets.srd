@@ -1,0 +1,17 @@
+﻿$PBExportHeader$d_chart_targets.srd
+$PBExportComments$This Datawindow displays the targets on a selected charterer.
+release 5;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=61 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=73 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=ccs_targ_userid dbname="CCS_TARG.USERID" initial=" " )
+ column=(type=char(32766) updatewhereclause=yes name=ccs_targ_ccs_targ_desc dbname="CCS_TARG.CCS_TARG_DESC" initial=" " )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=charterers_targets_ccs_targ__pk dbname="CHARTERERS_TARGETS.CCS_TARG__PK" initial=" " )
+ column=(type=number update=yes updatewhereclause=yes key=yes name=charterers_targets_chart_nr dbname="CHARTERERS_TARGETS.CHART_NR" initial=" " )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_TARG~" ) TABLE(NAME=~"CHART~" ) TABLE(NAME=~"CHARTERERS_TARGETS~" ) COLUMN(NAME=~"CCS_TARG.USERID~") COLUMN(NAME=~"CCS_TARG.CCS_TARG_DESC~") COLUMN(NAME=~"CHARTERERS_TARGETS.CCS_TARG__PK~") COLUMN(NAME=~"CHARTERERS_TARGETS.CHART_NR~") JOIN (LEFT=~"CHART.CHART_NR~" OP =~"=~"RIGHT=~"CHARTERERS_TARGETS.CHART_NR~" ) JOIN (LEFT=~"CCS_TARG.CCS_TARG__PK~" OP =~"=~"RIGHT=~"CHARTERERS_TARGETS.CCS_TARG__PK~" )WHERE( EXP1 =~"CHARTERERS_TARGETS.CHART_NR~" OP =~"=~" EXP2 =~":chart_nr~" ) ) ARG(NAME = ~"chart_nr~" TYPE = number) " update="CHARTERERS_TARGETS" updatewhere=1 updatekeyinplace=yes arguments=(("chart_nr", number)) )
+text(band=header alignment="0" text="Description"border="0" color="0" x="19" y="0" height="57" width="289"  name=ccs_targ_ccs_targ_desc_t  font.face="Arial             " font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="4" height="65" width="1642" format="[general]"  name=ccs_targ_ccs_targ_desc  tag="Description of the target" edit.limit=3 edit.case=any edit.autoselect=yes  font.face="Arial             " font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Sales Person"border="0" color="0" x="1660" y="0" height="57" width="334"  name=ccs_targ_userid_t  font.face="Arial             " font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1770" y="4" height="65" width="183" format="[general]"  name=ccs_targ_userid  tag=" " edit.limit=20 edit.case=any edit.autoselect=yes  font.face="Arial             " font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

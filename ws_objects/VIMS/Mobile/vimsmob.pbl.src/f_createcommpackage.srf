@@ -1,0 +1,42 @@
+﻿$PBExportHeader$f_createcommpackage.srf
+global type f_createcommpackage from function_object
+end type
+
+forward prototypes
+global subroutine f_createcommpackage (string as_id, string as_msg)
+end prototypes
+
+global subroutine f_createcommpackage (string as_id, string as_msg);Integer li_File, li_Check, li_Loop
+String ls_Data, ls_Path, ls_Time
+
+If g_Obj.Install > 0 then Return    // Return if not vessel installation
+
+ls_Path = g_DB.is_Export
+
+If Not DirectoryExists(ls_Path) then Return  // Check path exists
+
+ls_Time = String(Today(), "yyyy-MM-dd") + " " + String(Now(), "hh:mm:ss")  // Get time into string
+
+// Open file
+li_File = FileOpen(ls_Path + "commpkg" + String(g_Obj.VesselIMO) + Char(Integer(Rand(26) + 64)) + ".vpkg", TextMode!, Write!, LockReadWrite!, Replace!, EncodingUTF8!)
+If (li_File <= 0) then Return
+
+ls_Data = "V01;" + as_ID + ";" + g_Obj.AppVer + ";" + String(g_Obj.DBVer) + ";" + as_msg + ";" + ls_Time
+
+li_Check = 1046  // Init checksum & write header
+For li_Loop = 1 to 4
+	FileWriteEx(li_File, CharA(255))
+Next
+li_Loop = FileWriteEx(li_File, CharA(26))
+
+For li_Loop = 1 to Len(ls_data)  // Write data
+	FileWriteEx(li_File, CharA(255 - AscA(Mid(ls_data,li_Loop,1))))
+	li_Check += 255 - AscA(Mid(ls_data,li_Loop,1))
+Next
+
+li_Loop = FileWriteEx(li_File, CharA(Mod(li_Check, 256)))   // Write checksum
+
+li_Loop = FileClose(li_File)   // Close file
+
+end subroutine
+

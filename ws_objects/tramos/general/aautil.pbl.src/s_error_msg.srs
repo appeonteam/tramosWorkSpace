@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_error_msg.srs
+$PBExportComments$Structor for passing error information
+global type s_error_msg from structure
+    string s_title
+    string s_msg
+end type
+

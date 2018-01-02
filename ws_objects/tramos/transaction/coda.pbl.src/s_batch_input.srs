@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_batch_input.srs
+$PBExportComments$Used with window 'w_batch_input' to get information entered by user for expenses settled via batch
+global type s_batch_input from structure
+	string		voucher_no
+	string		control_no
+	date		docdate
+end type
+

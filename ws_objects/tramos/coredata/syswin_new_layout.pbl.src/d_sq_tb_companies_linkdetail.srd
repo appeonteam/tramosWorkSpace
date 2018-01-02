@@ -1,0 +1,115 @@
+﻿$PBExportHeader$d_sq_tb_companies_linkdetail.srd
+$PBExportComments$Used in n_company_contacts_interface - Chartering company - mapping details
+release 11.5;
+datawindow(units=0 timer_interval=0 color=32304364 brushmode=0 transparency=0 gradient.angle=0 gradient.color=8421504 gradient.focus=0 gradient.repetition.count=0 gradient.repetition.length=100 gradient.repetition.mode=0 gradient.scale=100 gradient.spread=100 gradient.transparency=0 picture.blur=0 picture.clip.bottom=0 picture.clip.left=0 picture.clip.right=0 picture.clip.top=0 picture.mode=0 picture.scale.x=100 picture.scale.y=100 picture.transparency=0 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.background=no print.preview.background=no print.preview.outline=yes hidegrayline=no showbackcoloronxp=no picture.file="" )
+header(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+summary(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+footer(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+detail(height=328 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+table(column=(type=char(6) updatewhereclause=yes name=link_table dbname="LINK_TABLE" )
+ column=(type=long updatewhereclause=yes name=link_id dbname="AGENTS.LINK_ID" )
+ column=(type=char(12) updatewhereclause=yes name=agents_link_sn dbname="AGENTS.LINK_SN" )
+ column=(type=char(70) updatewhereclause=yes name=agents_link_name dbname="AGENTS.LINK_NAME" )
+ column=(type=long updatewhereclause=yes name=country_id dbname="AGENTS.COUNTRY_ID" )
+ column=(type=char(35) updatewhereclause=yes name=agents_add1 dbname="AGENTS.ADD1" )
+ column=(type=char(35) updatewhereclause=yes name=agents_add2 dbname="AGENTS.ADD2" )
+ column=(type=char(35) updatewhereclause=yes name=agents_add3 dbname="AGENTS.ADD3" )
+ column=(type=char(35) updatewhereclause=yes name=agents_add4 dbname="AGENTS.ADD4" )
+ column=(type=char(15) updatewhereclause=yes name=agents_phone dbname="AGENTS.PHONE" )
+ column=(type=char(50) updatewhereclause=yes name=country_country_name dbname="COUNTRY.COUNTRY_NAME" )
+ column=(type=number updatewhereclause=yes name=agents_active dbname="AGENTS.ACTIVE" values="	1/	0" )
+ retrieve="  SELECT distinct 
+		 ~"AGENT~" as LINK_TABLE,
+		 AGENTS.AGENT_NR AS LINK_ID,   
+         AGENTS.AGENT_SN AS LINK_SN,   
+         AGENTS.AGENT_N_1 AS LINK_NAME,   
+         AGENTS.COUNTRY_ID,
+		AGENTS.AGENT_A_1 AS ADD1,
+		 AGENTS.AGENT_A_2 AS ADD2,
+		 AGENTS.AGENT_A_3 AS ADD3,
+		 AGENTS.AGENT_A_4 AS ADD4,
+		AGENTS.AGENT_PH AS PHONE,
+		COUNTRY.COUNTRY_NAME,
+		AGENTS.AGENT_ACTIVE   AS ACTIVE
+ 
+    FROM AGENTS, COUNTRY   
+	WHERE COUNTRY.COUNTRY_ID =* AGENTS.COUNTRY_ID
+		AND  AGENTS.AGENT_NR = :companyid
+
+UNION
+
+  SELECT distinct 
+		 ~"CHART~" as LINK_TABLE,
+		 CHART.CHART_NR AS LINK_ID,   
+        CHART.CHART_SN AS LINK_SN,   
+         CHART.CHART_N_1 AS LINK_NAME,   
+         CHART.COUNTRY_ID,
+		CHART.CHART_A_1 AS ADD1,
+		 CHART.CHART_A_2 AS ADD2,
+		 CHART.CHART_A_3 AS ADD3,
+		 CHART.CHART_A_4 AS ADD4,
+		CHART.CHART_PH AS PHONE,
+		COUNTRY.COUNTRY_NAME,
+		CHART.CHART_ACTIVE  AS ACTIVE
+ 
+    FROM CHART, COUNTRY   
+	WHERE  COUNTRY.COUNTRY_ID =* CHART.COUNTRY_ID
+		AND   CHART.CHART_NR = :companyid
+
+UNION
+
+  SELECT distinct
+		 ~"BROKER~" as LINK_TABLE,
+		 BROKERS.BROKER_NR AS LINK_ID,   
+         BROKERS.BROKER_SN AS LINK_SN,   
+         BROKERS.BROKER_NAME AS LINK_NAME,   
+         BROKERS.COUNTRY_ID,
+		BROKERS.BROKER_A_1 AS ADD1,
+		 BROKERS.BROKER_A_2 AS ADD2,
+		 BROKERS.BROKER_A_3 AS ADD3,
+		 BROKERS.BROKER_A_4 AS ADD4,
+		BROKERS.BROKER_PH AS PHONE,
+		COUNTRY.COUNTRY_NAME,
+		BROKERS.BROKER_ACTIVE as ACTIVE
+ 
+    FROM BROKERS, COUNTRY   
+	WHERE COUNTRY.COUNTRY_ID =* BROKERS.COUNTRY_ID
+		AND   BROKERS.BROKER_NR = :companyid
+
+UNION
+
+  SELECT distinct
+		 ~"OWNER~" as LINK_TABLE,
+		 TCOWNERS.TCOWNER_NR AS LINK_ID,   
+         TCOWNERS.TCOWNER_SN AS LINK_SN,   
+         TCOWNERS.TCOWNER_N_1 AS LINK_NAME,   
+         TCOWNERS.COUNTRY_ID,
+		TCOWNERS.TCOWNER_A_1 AS ADD1,
+		 TCOWNERS.TCOWNER_A_2 AS ADD2,
+		 TCOWNERS.TCOWNER_A_3 AS ADD3,
+		 TCOWNERS.TCOWNER_A_4 AS ADD4,
+		TCOWNERS.TCOWNER_PH AS PHONE,
+		COUNTRY.COUNTRY_NAME,
+		TCOWNERS.TCOWNER_ACTIVE AS ACTIVE
+ 
+    FROM TCOWNERS, COUNTRY   
+	WHERE COUNTRY.COUNTRY_ID =* TCOWNERS.COUNTRY_ID
+		AND  TCOWNERS.TCOWNER_NR = :companyid
+" filter=" link_table =linktablefilter"arguments=(("companyid", number),("linktablefilter", string)) )
+text(band=detail alignment="0" text="Active" border="0" color="33554432" x="64" y="268" height="56" width="155" html.valueishtml="0"  name=t_1 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="224" y="268" height="56" width="91" format="[general]" html.valueishtml="0"  name=agents_active visible="1" checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=no  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=detail alignment="1" text="Country" border="0" color="33554432" x="14" y="188" height="56" width="192" html.valueishtml="0"  name=agent_nr_t visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=detail alignment="0" expression="~"Linked to ~" + link_table + ~" (Number: ~" + string(link_id) + ~")~""border="0" color="0" x="14" y="12" height="56" width="955" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="14" y="100" height="56" width="946" format="[general]" html.valueishtml="0"  name=agents_link_name visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="5" color="0" x="229" y="188" height="56" width="731" format="[general]" html.valueishtml="0"  name=country_country_name visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

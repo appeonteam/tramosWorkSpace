@@ -1,0 +1,34 @@
+﻿$PBExportHeader$f_atobviac_used.srf
+$PBExportComments$This function find out if AtoBviaC distance table is used or not
+global type f_atobviac_used from function_object
+end type
+
+forward prototypes
+global function boolean f_atobviac_used (integer ai_vessel, string as_voyage)
+end prototypes
+
+global function boolean f_atobviac_used (integer ai_vessel, string as_voyage);/* This function is a utility function that find out if the new distance table
+	AtoBviaC distance table is used 												 */
+long 		ll_calc_id
+integer	li_abc_used
+
+SELECT CAL_CALC_ID
+	INTO :ll_calc_id
+	FROM VOYAGES
+	WHERE VESSEL_NR = :ai_vessel
+	AND VOYAGE_NR = :as_voyage;
+	
+if isNUll(ll_calc_id) or ll_calc_id < 2 then
+	return false
+else
+	SELECT USE_ATOBVIAC_DISTANCE  
+		 INTO :li_abc_used  
+		 FROM CAL_CALC  
+		WHERE CAL_CALC_ID = :ll_calc_id  ;
+ 	
+	 if li_abc_used = 0 then	return false
+end if
+
+return true
+end function
+

@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_afc_del_freight_received.srs
+$PBExportComments$Instance struct. used in w_claims by cb_delete_afc_recieved
+global type s_afc_del_freight_received from structure
+	integer		data_to_del
+	decimal { 2 }		received
+	datetime		rec_date
+	decimal { 2 }		received_local_curr
+end type
+

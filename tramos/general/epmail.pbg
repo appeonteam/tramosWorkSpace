@@ -1,0 +1,10 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tramos\\general\\epmail.pbl" "";
+@end;
+@begin Objects
+ "tramos\\general\\dw_mail.srd" "tramos\\general\\epmail.pbl";
+ "tramos\\general\\d_sq_tb_dddw_users.srd" "tramos\\general\\epmail.pbl";
+ "tramos\\general\\dw_mail_list.srd" "tramos\\general\\epmail.pbl";
+ "tramos\\general\\w_mail_list.srw" "tramos\\general\\epmail.pbl";
+@end;

@@ -1,0 +1,25 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "msps_interface.pbl" "";
+@end;
+@begin Objects 
+ "msps_interface.sra" "msps_interface.pbl";
+ "d_sq_gr_arrival.srd" "msps_interface.pbl";
+ "d_sq_gr_canal.srd" "msps_interface.pbl";
+ "d_sq_gr_cargo_discharge.srd" "msps_interface.pbl";
+ "d_sq_gr_cargo_load.srd" "msps_interface.pbl";
+ "d_sq_gr_discharge.srd" "msps_interface.pbl";
+ "d_sq_gr_drift.srd" "msps_interface.pbl";
+ "d_sq_gr_heating.srd" "msps_interface.pbl";
+ "d_sq_gr_load.srd" "msps_interface.pbl";
+ "d_sq_gr_noon.srd" "msps_interface.pbl";
+ "d_sq_gr_noon_tank.srd" "msps_interface.pbl";
+ "d_sq_gr_report.srd" "msps_interface.pbl";
+ "d_sq_gr_terminal.srd" "msps_interface.pbl";
+ "p_msps_interface_exe.srj" "msps_interface.pbl";
+ "s_command_line.srs" "msps_interface.pbl";
+ "s_mspsdata.srs" "msps_interface.pbl";
+ "n_checksum.sru" "msps_interface.pbl";
+ "n_msps_interface.sru" "msps_interface.pbl";
+ "w_msps_interface.srw" "msps_interface.pbl";
+@end;

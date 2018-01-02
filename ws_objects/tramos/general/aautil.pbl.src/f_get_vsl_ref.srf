@@ -1,0 +1,19 @@
+﻿$PBExportHeader$f_get_vsl_ref.srf
+$PBExportComments$This function finds the vsl_ref_no for a given vsl_no (parameter vsl_no)
+global type f_get_vsl_ref from function_object
+end type
+
+forward prototypes
+global function string f_get_vsl_ref (integer as_vsl_no)
+end prototypes
+
+global function string f_get_vsl_ref (integer as_vsl_no);string ls_vsl_ref
+
+SELECT VESSELS.VESSEL_REF_NR  
+INTO :ls_vsl_ref  
+FROM VESSELS  
+WHERE VESSELS.VESSEL_NR = :as_vsl_no;
+
+return ls_vsl_ref
+end function
+

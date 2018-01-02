@@ -1,0 +1,13 @@
+﻿$PBExportHeader$s_group_deductions_parm.srs
+$PBExportComments$Structure used in w_group_deductions. Used with Laytime Statements
+global type s_group_deductions_parm from structure
+    integer vessel_nr
+    string voyage_nr
+    integer chart_nr
+    string port_code
+    integer pcn
+    integer reason_nr
+    boolean modify
+    long modify_rownr
+end type
+

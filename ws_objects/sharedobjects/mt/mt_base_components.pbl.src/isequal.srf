@@ -1,0 +1,28 @@
+﻿$PBExportHeader$isequal.srf
+global type isequal from function_object
+end type
+
+forward prototypes
+global function boolean isequal (string asLeft, string asRight, readonly boolean abIgnorecase)
+global function boolean isequal (string asLeft, string asRight, readonly boolean abIgnorecase, readonly boolean abTrimSpaces)
+global function boolean isequal (string asLeft, string asRight)
+end prototypes
+
+global function boolean isequal (string asLeft, string asRight, readonly boolean abIgnorecase);return IsEqual(asLeft, asRight, abIgnorecase, true)
+end function
+
+global function boolean isequal (string asLeft, string asRight, readonly boolean abIgnorecase, readonly boolean abTrimSpaces);if abIgnoreCase then
+	asLeft = Lower(asLeft)
+	asRight = Lower(asRight)
+end if
+if abTrimSpaces then
+	asLeft = Trim(asLeft)
+	asRight = Trim(asRight)
+end if
+
+return asLeft = asRight
+end function
+
+global function boolean isequal (string asLeft, string asRight);return IsEqual(asLeft, asRight, true)
+end function
+

@@ -1,0 +1,80 @@
+﻿$PBExportHeader$dw_delme_convert_oldtcoffservice.srd
+$PBExportComments$T/C off-hires entry
+release 7;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 HTMLDW=no print.documentname="CACAS Print" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=380 color="-1" )
+table(column=(type=datetime update=yes updatewhereclause=yes name=start_datetime dbname="TCHIREOFFHIRES.START_DATETIME" )
+ column=(type=datetime update=yes updatewhereclause=yes name=end_datetime dbname="TCHIREOFFHIRES.END_DATETIME" )
+ column=(type=number updatewhereclause=yes name=bunker_ton dbname="compute_0003" )
+ column=(type=number update=yes updatewhereclause=yes name=bunker_price dbname="TCHIREOFFHIRES.BUNKER_PRICE" )
+ column=(type=number updatewhereclause=yes name=diesel_ton dbname="compute_0005" )
+ column=(type=number update=yes updatewhereclause=yes name=diesel_price dbname="TCHIREOFFHIRES.DIESEL_PRICE" )
+ column=(type=number update=yes updatewhereclause=yes name=hours dbname="TCHIREOFFHIRES.HOURS" )
+ column=(type=long update=yes updatewhereclause=yes name=vessel_nr dbname="TCHIREOFFHIRES.VESSEL_NR" )
+ column=(type=datetime update=yes updatewhereclause=yes name=offhire_setoffdate dbname="TCHIREOFFHIRES.OFFHIRE_SETOFFDATE" )
+ column=(type=datetime update=yes updatewhereclause=yes name=tchire_cp_date dbname="TCHIREOFFHIRES.TCHIRE_CP_DATE" )
+ column=(type=decimal(4) updatewhereclause=yes name=gas_ton dbname="compute_0011" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=gas_price dbname="TCHIREOFFHIRES.GAS_PRICE" )
+ column=(type=long update=yes updatewhereclause=yes name=vas_expense dbname="TCHIREOFFHIRES.VAS_EXPENSE" values="No	0/Yes	1/" )
+ column=(type=long updatewhereclause=yes name=convertedflag dbname="compute_0014" )
+ column=(type=char(10) updatewhereclause=yes name=off_services_port_code dbname="OFF_SERVICES.PORT_CODE" )
+ column=(type=char(7) updatewhereclause=yes name=off_services_voyage_nr dbname="OFF_SERVICES.VOYAGE_NR" )
+ retrieve="  SELECT TCHIREOFFHIRES.START_DATETIME,   
+         TCHIREOFFHIRES.END_DATETIME,   
+         IsNull(TCHIREOFFHIRES.BUNKER_TON,0.00),   
+         TCHIREOFFHIRES.BUNKER_PRICE,   
+         IsNULL(TCHIREOFFHIRES.DIESEL_TON,0.00),   
+         TCHIREOFFHIRES.DIESEL_PRICE,   
+         TCHIREOFFHIRES.HOURS,   
+         TCHIREOFFHIRES.VESSEL_NR,   
+         TCHIREOFFHIRES.OFFHIRE_SETOFFDATE,   
+         TCHIREOFFHIRES.TCHIRE_CP_DATE,   
+         IsNull(TCHIREOFFHIRES.GAS_TON,0.00),   
+         TCHIREOFFHIRES.GAS_PRICE,   
+         TCHIREOFFHIRES.VAS_EXPENSE,   
+         0,   
+         OFF_SERVICES.PORT_CODE,   
+         OFF_SERVICES.VOYAGE_NR  
+    FROM TCHIREOFFHIRES,   
+         OFF_SERVICES  
+   WHERE ( TCHIREOFFHIRES.VESSEL_NR *= OFF_SERVICES.VESSEL_NR) and  
+         ( TCHIREOFFHIRES.START_DATETIME *= OFF_SERVICES.OFF_START) and  
+         ( TCHIREOFFHIRES.VESSEL_NR = :vessel_nr ) AND  
+         TCHIREOFFHIRES.TCHIRE_CP_DATE = :cpdate   
+ORDER BY TCHIREOFFHIRES.START_DATETIME ASC   
+" retrieve.asneeded=yes arguments=(("vessel_nr", number),("cpdate", datetime)) )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="1499" y="88" height="56" width="320" format="[general]"  name=convertedflag edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="1499" y="160" height="56" width="320" format="[general]"  name=vas_expense visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="1499" y="232" height="56" width="562" format="[general]"  name=off_services_port_code visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="1499" y="312" height="56" width="567" format="[general]"  name=off_services_voyage_nr visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+line(band=detail x1="0" y1="372" x2="1435" y2="372"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Commenced:" border="0" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="9" y="16" height="56" width="338"  name=start_datetime_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Hours (hh.mm):" border="0" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="9" y="84" height="56" width="393"  name=procent_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="2" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="430" y="84" height="56" width="283" format="#,##0.00"  name=hours edit.limit=6 edit.case=any edit.format="#,##0.00" edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="0" text="Set-off:" border="0" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="741" y="84" height="56" width="183"  name=t_1  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="F.O.:" border="0" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="9" y="152" height="56" width="105"  name=bunker_ton_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="D.O.:" border="0" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="9" y="224" height="56" width="110"  name=diesel_ton_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="G.O.:" border="0" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="9" y="300" height="56" width="114"  name=t_2  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="mt  á" border="0" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="439" y="300" height="56" width="128"  name=t_3  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="mt  á" border="0" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="439" y="224" height="56" width="128"  name=diesel_price_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="mt  á" border="0" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="439" y="152" height="56" width="128"  name=bunker_price_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="T/C curr." border="0" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="905" y="152" height="56" width="215"  name=currency_1  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="T/C curr." border="0" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="905" y="220" height="56" width="215"  name=currency_2  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="T/C curr." border="0" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="905" y="300" height="56" width="215"  name=currency_3  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="2" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="955" y="84" height="56" width="219" format="dd-mm-yy"  name=offhire_setoffdate editmask.mask="dd-mm-yy"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="2" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="581" y="152" height="56" width="306" format="#,##0.00"  name=bunker_price editmask.mask="#,##0.00"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="2" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="581" y="224" height="56" width="306" format="#,##0.00"  name=diesel_price editmask.mask="#,##0.00"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="2" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="585" y="300" height="56" width="302" format="#,##0.00"  name=gas_price editmask.mask="###,###.00"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Completed:" border="0" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="745" y="16" height="56" width="293"  name=end_datetime_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="366" y="16" height="56" width="347" format="dd-mm-yy hh:mm"  name=start_datetime edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="1056" y="16" height="56" width="347" format="dd-mm-yy hh:mm"  name=end_datetime edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="133" y="152" height="56" width="270" format="#,##0.00"  name=bunker_ton edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="137" y="228" height="56" width="265" format="#,##0.00"  name=diesel_ton edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="2" color="0" x="137" y="300" height="56" width="265" format="#,##0.00"  name=gas_ton edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+compute(band=detail alignment="1" expression="bunker_ton  *  bunker_price  "border="2" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="1143" y="152" height="56" width="288" format="#,##0.00"  name=compute_3  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+compute(band=detail alignment="1" expression="diesel_ton   *  diesel_price "border="2" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="1143" y="224" height="56" width="288" format="#,##0.00"  name=compute_1  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+compute(band=detail alignment="1" expression="gas_ton   *  gas_price "border="2" color="0~tif( convertedflag > 0,if(convertedflag = 1,RGB(255,0,0),RGB(0,255,0)),RGB(0,0,0))" x="1143" y="300" height="56" width="288" format="#,##0.00"  name=compute_2  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

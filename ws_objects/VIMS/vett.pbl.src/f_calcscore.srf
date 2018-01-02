@@ -1,0 +1,68 @@
+﻿$PBExportHeader$f_calcscore.srf
+global type f_calcscore from function_object
+end type
+
+forward prototypes
+global subroutine f_calcscore ()
+end prototypes
+
+global subroutine f_calcscore ();// Function to calculate all vessel's 18 month SIRE score and store it in the column VESSELS.VETT_SCORE
+
+Datastore lds_vsllist
+DateTime ldt_CutDate
+Integer li_Rows, li_Count
+Long ll_IMO
+Decimal ldec_Score
+String ls_Day
+
+// Exit if not Vetting dept
+If g_Obj.DeptID > 1 then Return
+
+// Exit if user is developer
+If g_Obj.Developer then Return
+
+// Check if date of last score update
+If f_Config("SCDT", ls_Day, 0) = 0 then
+	If Integer(ls_Day) = Day(Today()) then Return
+End If
+
+ldt_CutDate = f_AddMonths( DateTime(Today()), -18) 
+
+lds_vsllist = Create DataStore
+lds_vsllist.DataObject = "d_sq_tb_vsllist"
+lds_vsllist.SetTransObject(SQLCA)
+
+li_Rows = lds_vslList.Retrieve("")
+
+For li_Count = 1 to li_Rows
+	
+	// Get IMO Number
+	ll_IMO = lds_vsllist.GetItemNumber(li_Count, "IMO")
+	
+	// Get average score
+	Select Avg(VSLSCORE) Into :ldec_Score From VETT_INSP Inner Join VETT_INSPMODEL ON VETT_INSP.IM_ID = VETT_INSPMODEL.IM_ID Where (VETT_INSPMODEL.NAME like 'SIRE%') and (INSPDATE >= :ldt_CutDate) and (VESSELIMO = :ll_IMO) and (COMPLETED = 1);
+	
+	If SQLCA.Sqlcode <> 0 then 
+		Messagebox("DB Error", "Unable to calculate 18m SIRE score for vessel IMO " + String(ll_IMO) + ".~n~n" + sqlca.sqlerrtext, Exclamation!)
+		Rollback;
+	Else
+		ldec_Score = Round(ldec_Score, 2)  // Round to 2 decimals
+		
+		Update VESSELS Set VETT_SCORE = :ldec_Score Where IMO_NUMBER = :ll_IMO;  // Save score
+
+		If SQLCA.Sqlcode <> 0 then
+			Messagebox("DB Error", "Unable to update 18m SIRE score for vessel IMO " + String(ll_IMO) + ".~n~n" + sqlca.sqlerrtext, Exclamation!)			
+			Rollback;
+		Else
+			Commit;
+		End If
+	End If
+Next
+
+Destroy lds_vsllist
+
+ls_Day = String(Day(Today()))
+
+f_Config("SCDT", ls_Day, 1)
+end subroutine
+

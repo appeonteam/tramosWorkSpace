@@ -1,0 +1,17 @@
+﻿$PBExportHeader$f_destroyobjects.srf
+global type f_destroyobjects from function_object
+end type
+
+forward prototypes
+global subroutine f_destroyobjects (nonvisualobject anv[])
+end prototypes
+
+global subroutine f_destroyobjects (nonvisualobject anv[]);long llCount, i
+
+llCount = UpperBound(anv)
+for i = 1 to llCount
+	if IsValid(anv[i]) then destroy anv[i]
+	SetNull(anv[i])
+next
+end subroutine
+

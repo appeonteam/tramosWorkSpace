@@ -1,0 +1,164 @@
+﻿$PBExportHeader$m_selection_type.srm
+forward
+global type m_selection_type from m_selection
+end type
+type m_l1 from menu within m_selection_type
+end type
+type m_tconly from menu within m_selection_type
+end type
+type m_3ponly from menu within m_selection_type
+end type
+global type m_selection_type from m_selection
+m_l1 m_l1
+m_tconly m_tconly
+m_3ponly m_3ponly
+end type
+end forward
+
+global type m_selection_type from m_selection
+m_l1 m_l1
+m_tconly m_tconly
+m_3ponly m_3ponly
+end type
+global m_selection_type m_selection_type
+
+on m_selection_type.create
+m_selection_type=this
+call super::create
+this.m_l1=create m_l1
+this.m_tconly=create m_tconly
+this.m_3ponly=create m_3ponly
+this.Item[UpperBound(this.Item)+1]=this.m_l1
+this.Item[UpperBound(this.Item)+1]=this.m_tconly
+this.Item[UpperBound(this.Item)+1]=this.m_3ponly
+end on
+
+on m_selection_type.destroy
+call super::destroy
+destroy(this.m_l1)
+destroy(this.m_tconly)
+destroy(this.m_3ponly)
+end on
+
+type m_selectall from m_selection`m_selectall within m_selection_type
+end type
+
+on m_selectall.create
+call super::create
+end on
+
+on m_selectall.destroy
+call super::destroy
+end on
+
+type m_deselectall from m_selection`m_deselectall within m_selection_type
+end type
+
+on m_deselectall.create
+call super::create
+end on
+
+on m_deselectall.destroy
+call super::destroy
+end on
+
+type m_resp from m_selection`m_resp within m_selection_type
+end type
+
+on m_resp.create
+call super::create
+end on
+
+on m_resp.destroy
+call super::destroy
+end on
+
+type m_l1 from menu within m_selection_type
+end type
+
+on m_l1.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_l1.destroy
+call super::destroy
+end on
+
+type m_tconly from menu within m_selection_type
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_ContextMenuClick(100)
+end event
+
+on m_tconly.create
+call super::create
+this.text = "T/C Only"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tconly.destroy
+call super::destroy
+end on
+
+type m_3ponly from menu within m_selection_type
+end type
+
+on m_3ponly.create
+call super::create
+this.text = "3P Only"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_3ponly.destroy
+call super::destroy
+end on
+
+event clicked;
+Parentwindow.dynamic event ue_ContextMenuClick(110)
+end event
+

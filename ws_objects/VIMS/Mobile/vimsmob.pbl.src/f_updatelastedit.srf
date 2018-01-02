@@ -1,0 +1,24 @@
+﻿$PBExportHeader$f_updatelastedit.srf
+global type f_UpdateLastEdit from function_object
+end type
+
+forward prototypes
+global subroutine f_updatelastedit (long al_inspid)
+end prototypes
+
+global subroutine f_updatelastedit (long al_inspid);
+DateTime ldt_Now
+
+ldt_Now = DateTime(Today(), Now())
+
+Update VETT_INSP Set LASTEDIT = :ldt_Now Where INSP_ID = :al_InspID;
+
+If SQLCA.SQLCode <> 0 then
+	MessageBox("DB Error", "Could not update Inspection Timestamp.~n~n" + SQLCA.Sqlerrtext, Exclamation!)
+	Rollback;
+	Return
+End If
+
+Commit;
+end subroutine
+

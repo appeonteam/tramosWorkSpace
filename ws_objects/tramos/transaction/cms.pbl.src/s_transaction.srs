@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_transaction.srs
+$PBExportComments$Used in w_transaction_log to carray key and type of post to w_post window.
+global type s_transaction from structure
+	long		cms_rris_key
+	integer		cms_or_rris
+end type
+

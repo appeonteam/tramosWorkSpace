@@ -1,0 +1,6 @@
+﻿$PBExportHeader$s_cp_id_add_comm.srs
+global type s_cp_id_add_comm from structure
+	long		cp_id
+	decimal {4}		add_comm
+end type
+

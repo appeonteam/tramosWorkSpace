@@ -1,0 +1,23 @@
+﻿$PBExportHeader$d_sdef_list.srd
+$PBExportComments$This datawindow lists all support definions.
+release 4;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=69 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=81 color="536870912" )
+table(column=(type=decimal(0) update=yes key=yes name=ccs_sdef_pk dbname="CCS_SDEF.CCS_SDEF_PK" )
+ column=(type=decimal(0) name=ccs_targ__pk dbname="CCS_SDEF.CCS_TARG__PK" )
+ column=(type=number name=chart_nr dbname="CCS_SDEF.CHART_NR" )
+ column=(type=char(50) update=yes name=ccs_sdef_desc dbname="CCS_SDEF.CCS_SDEF_DESC" )
+ column=(type=number name=ccs_sdef_target_fig dbname="CCS_SDEF.CCS_SDEF_TARGET_FIG" )
+ column=(type=char(10) name=ccs_sdef_con_type dbname="CCS_SDEF.CCS_SDEF_CON_TYPE" )
+ column=(type=char(150) name=ccs_sdef_cal_cerp_id_list dbname="CCS_SDEF.CCS_SDEF_CAL_CERP_ID_LIST" )
+ column=(type=char(150) name=ccs_sdef_chart_nr_list dbname="CCS_SDEF.CCS_SDEF_CHART_NR_LIST" )
+ column=(type=char(150) name=ccs_sdef_chgp_list dbname="CCS_SDEF.CCS_SDEF_CHGP_LIST" )
+ column=(type=char(150) name=ccs_sdef_cerp_date_list dbname="CCS_SDEF.CCS_SDEF_CERP_DATE_LIST" )
+ column=(type=char(150) name=ccs_sdef_vv_no_list dbname="CCS_SDEF.CCS_SDEF_VV_NO_LIST" )
+ column=(type=char(150) name=ccs_sdef_form_list dbname="CCS_SDEF.CCS_SDEF_FORM_LIST" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_SDEF~" ) COLUMN(NAME=~"CCS_SDEF.CCS_SDEF_PK~") COLUMN(NAME=~"CCS_SDEF.CCS_TARG__PK~") COLUMN(NAME=~"CCS_SDEF.CHART_NR~") COLUMN(NAME=~"CCS_SDEF.CCS_SDEF_DESC~") COLUMN(NAME=~"CCS_SDEF.CCS_SDEF_TARGET_FIG~") COLUMN(NAME=~"CCS_SDEF.CCS_SDEF_CON_TYPE~") COLUMN(NAME=~"CCS_SDEF.CCS_SDEF_CAL_CERP_ID_LIST~") COLUMN(NAME=~"CCS_SDEF.CCS_SDEF_CHART_NR_LIST~") COLUMN(NAME=~"CCS_SDEF.CCS_SDEF_CHGP_LIST~") COLUMN(NAME=~"CCS_SDEF.CCS_SDEF_CERP_DATE_LIST~") COLUMN(NAME=~"CCS_SDEF.CCS_SDEF_VV_NO_LIST~") COLUMN(NAME=~"CCS_SDEF.CCS_SDEF_FORM_LIST~")) ORDER(NAME=~"CCS_SDEF.CCS_SDEF_DESC~" ASC=yes ) " update="CCS_SDEF" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="0" text="Copy Suport Definition"border="0" color="0" x="19" y="4" height="57" width="563"  name=ccs_sdef_desc_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="4" height="69" width="878" format="[general]"  name=ccs_sdef_desc edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

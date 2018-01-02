@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_voyageinfo_claim.srs
+global type s_voyageinfo_claim from structure
+	long		l_claim_trans_id_ref
+	long		l_cnote_trans_id_ref
+	integer		i_claim_nr
+	string		s_claim_type
+end type
+

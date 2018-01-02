@@ -1,0 +1,71 @@
+﻿$PBExportHeader$fdate.srf
+$PBExportComments$Function to convert date into string date
+global type fdate from function_object
+end type
+
+forward prototypes
+global function string fdate (date date)
+end prototypes
+
+global function string fdate (date date);int dd, mm, yy
+string f_date
+
+dd=day(date)
+mm=month(date)
+yy=Year(date)
+
+
+f_date=string(dd,"#")
+CHOOSE CASE dd
+	CASE 1
+		F_date = f_date + "st "
+	CASE 2
+		F_date = f_date + "nd "
+	CASE 3
+		F_date = f_date + "rd "
+	CASE 4 to 20
+		F_date = f_date + "th "
+	CASE 21
+		F_date = f_date + "st "
+	CASE 22
+		F_date = f_date + "nd "
+	CASE 23
+		F_date = f_date + "rd "
+	CASE 24 to 30
+		F_date = f_date + "th "
+	CASE 31
+		F_date = f_date + "st "
+END CHOOSE
+
+CHOOSE CASE mm
+	CASE 1
+		F_date = f_date + "January, "
+	CASE 2
+		F_date = f_date + "February, "
+	CASE 3
+		F_date = f_date + "March, "
+	CASE 4
+		F_date = f_date + "April, "
+	CASE 5
+		F_date = f_date + "May, "
+	CASE 6
+		F_date = f_date + "June, "
+	CASE 7
+		F_date = f_date + "July, "
+	CASE 8
+		F_date = f_date + "August, "
+	CASE 9
+		F_date = f_date + "September, "
+	CASE 10
+		F_date = f_date + "October, "
+	CASE 11
+		F_date = f_date + "November, "
+	CASE 12
+		F_date = f_date + "December, "
+END CHOOSE
+
+f_Date = f_date + String(yy,"####")
+
+Return(f_date)
+end function
+

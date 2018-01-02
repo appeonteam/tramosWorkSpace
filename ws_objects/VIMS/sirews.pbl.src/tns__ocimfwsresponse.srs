@@ -1,0 +1,9 @@
+﻿$PBExportHeader$tns__ocimfwsresponse.srs
+$PBExportComments$Proxy imported from Web service using Web Service Proxy Generator.
+global type tns__OcimfWsResponse from structure
+   long ResultCode
+   string ErrorMessage
+   string ErrorTicketNumber
+   string DataXml
+end type
+

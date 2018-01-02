@@ -1,0 +1,19 @@
+﻿$PBExportHeader$s_calc_claim.srs
+$PBExportComments$Used to return values from UserObject Functions for uo_claim_balance
+global type s_calc_claim from structure
+	long		dem_minutes
+	long		des_minutes
+	decimal { 6 }		dem_hours[]
+	decimal { 6 }		des_hours[]
+	decimal { 2 }		dem_rates[]
+	decimal { 2 }		des_rates[]
+	decimal { 2 }		dem_amount[]
+	decimal { 2 }		des_amount[]
+	decimal { 2 }		claim_amount
+	integer		return_code
+	decimal { 2 }		load_des
+	decimal { 2 }		load_dem
+	decimal { 2 }		disch_des
+	decimal { 2 }		disch_dem
+end type
+

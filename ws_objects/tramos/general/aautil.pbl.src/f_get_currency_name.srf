@@ -1,0 +1,19 @@
+﻿$PBExportHeader$f_get_currency_name.srf
+global type f_get_currency_name from function_object
+end type
+
+forward prototypes
+global function string f_get_currency_name (string as_curr_code)
+end prototypes
+
+global function string f_get_currency_name (string as_curr_code);string ls_name
+
+SELECT CURR_DESC 
+	INTO :ls_name 
+	FROM CURRENCY 
+	WHERE CURR_CODE = :as_curr_code;
+	
+return as_curr_code + " (" + ls_name + ")"
+
+end function
+

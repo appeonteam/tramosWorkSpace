@@ -1,0 +1,38 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "eptchire.pbl" "";
+@end;
+@begin Objects 
+ "d_expense_offhire_list.srd" "eptchire.pbl";
+ "d_hire_statement.srd" "eptchire.pbl";
+ "d_secondary_brokers.srd" "eptchire.pbl";
+ "d_setoffs.srd" "eptchire.pbl";
+ "dw_list_charterer.srd" "eptchire.pbl";
+ "dw_list_voyage.srd" "eptchire.pbl";
+ "dw_tchire.srd" "eptchire.pbl";
+ "dw_tchire_expense.srd" "eptchire.pbl";
+ "dw_tchire_expense_print.srd" "eptchire.pbl";
+ "dw_tchire_listview.srd" "eptchire.pbl";
+ "dw_tchire_offhire_insert.srd" "eptchire.pbl";
+ "dw_tchire_offhire_insert_print.srd" "eptchire.pbl";
+ "dw_tchire_offhire_view.srd" "eptchire.pbl";
+ "dw_tchire_tcperiod.srd" "eptchire.pbl";
+ "avg_hire.srf" "eptchire.pbl";
+ "daysinmonth.srf" "eptchire.pbl";
+ "months_and_days.srf" "eptchire.pbl";
+ "tc_hire.srf" "eptchire.pbl";
+ "s_expenses_offhires.srs" "eptchire.pbl";
+ "s_hire_average.srs" "eptchire.pbl";
+ "s_hire_month_and_days.srs" "eptchire.pbl";
+ "s_hire_statement.srs" "eptchire.pbl";
+ "s_hire_statement_offhire.srs" "eptchire.pbl";
+ "s_secondary_brokers.srs" "eptchire.pbl";
+ "s_select_voyage_chartererowner.srs" "eptchire.pbl";
+ "s_update_tccomm.srs" "eptchire.pbl";
+ "w_choose_secondary_brokers.srw" "eptchire.pbl";
+ "w_expenseoffhires.srw" "eptchire.pbl";
+ "w_print_hirestatement.srw" "eptchire.pbl";
+ "w_select_setoffdate.srw" "eptchire.pbl";
+ "w_select_voyage_charter_owner.srw" "eptchire.pbl";
+ "w_tchire.srw" "eptchire.pbl";
+@end;

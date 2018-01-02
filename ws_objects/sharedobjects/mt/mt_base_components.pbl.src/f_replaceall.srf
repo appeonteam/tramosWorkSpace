@@ -1,0 +1,55 @@
+﻿$PBExportHeader$f_replaceall.srf
+global type f_replaceall from function_object
+end type
+
+forward prototypes
+global function string replaceall (string asSource, string asFind, readonly string asReplace, readonly boolean abIgnoreCase)
+global function string f_replaceall (string assource, string asfind, readonly string asreplace)
+end prototypes
+
+global function string replaceall (string asSource, string asFind, readonly string asReplace, readonly boolean abIgnoreCase);string tmpSource
+long llFindLen, llReplaceLen, llPos
+
+//validate parameters
+if IsNull(asSource) or &
+	IsNull(asFind) or &
+	IsNull(asReplace) then
+	
+	SetNull(tmpSource)
+	return tmpSource
+end if
+
+// get length of strings
+llFindLen = Len(asFind)
+llReplaceLen = Len(asReplace)
+
+if abIgnoreCase then
+	tmpSource = Lower(asSource)
+	asFind = Lower(asFind)
+else
+	tmpSource = asSource
+end if
+
+// find first occurrence
+llPos = Pos(tmpSource, asFind)
+
+do while llPos > 0
+	// replace old with new
+	asSource = Replace(asSource, llPos, llFindLen, asReplace)
+
+	if abIgnoreCase then
+		tmpSource = Lower(asSource)
+	else
+		tmpSource = asSource
+	end if
+  
+	// find next occurrence
+	llPos = Pos(tmpSource, asFind, (llPos + llReplaceLen))
+loop
+
+return asSource
+end function
+
+global function string f_replaceall (string assource, string asfind, readonly string asreplace);return ReplaceAll(asSource, asFind, asReplace, true)
+end function
+

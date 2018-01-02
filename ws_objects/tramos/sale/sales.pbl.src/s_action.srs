@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_action.srs
+$PBExportComments$Structure used to send an action.
+global type s_action from structure
+    long action_key
+    long target_key
+    string action_description
+end type
+

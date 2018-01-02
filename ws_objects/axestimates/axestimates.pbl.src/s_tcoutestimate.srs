@@ -1,0 +1,31 @@
+﻿$PBExportHeader$s_tcoutestimate.srs
+global type s_tcoutestimate from structure
+	datetime		dtm_start		descriptor "comment" = "voyage start"
+	datetime		dtm_end		descriptor "comment" = "voyage end"
+	integer		i_vesselnr
+	long		l_contractid
+	integer		i_monthlyrate
+	string		s_activityperiod
+	integer		i_yyyy
+	integer		i_period		descriptor "comment" = "99"
+	string		s_typecode
+	datetime		dtm_cerpstart
+	s_tcoutperiod		str_hire[]		descriptor "comment" = "main period array"
+	string		s_key		descriptor "comment" = "key"
+	integer		i_inpool		descriptor "comment" = "1 yes, 0 no"
+	integer		i_bareboat		descriptor "comment" = "1 yes, 0 no"
+	string		s_currcode		descriptor "comment" = "usually USD, can be anything else"
+	decimal { 4 }		d_exchangerate
+	string		s_chartnomaccnr		descriptor "comment" = "charterer nominal account number"
+	string		s_tcownernomaccnr		descriptor "comment" = "tcowners nominal account number"
+	integer		i_localtime		descriptor "comment" = "1=local, 0=UTC"
+	string		s_errormessage		descriptor "comment" = "values returned from transaction object"
+	integer		i_errorcode		descriptor "comment" = "values returned from transaction object"
+	decimal { 8 }		d_addresscomm		descriptor "comment" = "address commission %"
+	s_tcoutsub		str_contractexp[]		descriptor "comment" = "contract expenses"
+	s_tcoutsub		str_brokercomm[]		descriptor "comment" = "broker commissions"
+	decimal { 8 }		d_actbrokercomm_amount		descriptor "comment" = "actual broker commission on voyage"
+	boolean		b_client
+	datetime		dt_firstarrival		descriptor "comment" = "first port arrival date "
+end type
+

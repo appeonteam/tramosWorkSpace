@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_port_parm.srs
+$PBExportComments$Parameters used in sensitivity of port and cargo data
+global type s_port_parm from structure
+    integer i_cargo_no[]
+    integer i_port_no
+    integer i_no_of_selected
+    integer i_cargo_number
+end type
+

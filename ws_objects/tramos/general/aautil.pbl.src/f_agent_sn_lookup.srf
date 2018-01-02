@@ -1,0 +1,22 @@
+﻿$PBExportHeader$f_agent_sn_lookup.srf
+$PBExportComments$Returns true if the given agent (shortname) exists. Otherwise false
+global type f_agent_sn_lookup from function_object
+end type
+
+forward prototypes
+global function boolean f_agent_sn_lookup (string agent_sn)
+end prototypes
+
+global function boolean f_agent_sn_lookup (string agent_sn);STRING ls_agent_sn
+SELECT AGENT_SN 
+INTO :ls_agent_sn
+FROM AGENTS
+WHERE AGENT_SN = :agent_sn;
+IF SQLCA.SQLCode < 0 OR SQLCA.SQLCode = 100 THEN 
+	Return (FALSE)
+ELSE
+	Return(TRUE)
+END IF
+
+end function
+

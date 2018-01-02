@@ -1,0 +1,24 @@
+﻿$PBExportHeader$f_chart_active.srf
+global type f_chart_active from function_object
+end type
+
+forward prototypes
+global function boolean f_chart_active (long al_chartnr)
+end prototypes
+
+global function boolean f_chart_active (long al_chartnr);/* This function checks if a charterer is active or not. User to validate in datawindows */
+integer	li_active
+
+SELECT CHART_ACTIVE
+	INTO :li_active
+	FROM CHART
+	WHERE CHART_NR = :al_chartnr ;
+
+if li_active = 1 then
+	return true
+else
+	return false
+end if
+
+end function
+

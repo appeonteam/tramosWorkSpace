@@ -1,0 +1,12 @@
+﻿$PBExportHeader$str_requested_att.srs
+global type str_requested_att from structure
+	long		l_file_id
+	string		s_modified_user_id
+	datetime		dtm_last_modified_date
+	string		s_file_path
+	string		s_file_name
+	long		l_file_size
+	integer		i_methodref		descriptor "comment" = "1 = write, 2 = read, 3 = delete"
+	long		l_row_id
+end type
+

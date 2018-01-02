@@ -1,0 +1,18 @@
+﻿$PBExportHeader$d_calc_weekly_report_ports_data.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(3) updatewhereclause=yes name=cal_caio_purpose_code dbname="CAL_CAIO.PURPOSE_CODE" )
+ column=(type=char(35) updatewhereclause=yes name=ports_port_n dbname="PORTS.PORT_N" )
+ column=(type=decimal(0) updatewhereclause=yes identity=yes name=cal_carg_cal_carg_id dbname="CAL_CARG.CAL_CARG_ID" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CAL_CAIO~" )  TABLE(NAME=~"CAL_CALC~" )  TABLE(NAME=~"CAL_CARG~" )  TABLE(NAME=~"PORTS~" ) COLUMN(NAME=~"CAL_CAIO.PURPOSE_CODE~") COLUMN(NAME=~"PORTS.PORT_N~") COLUMN(NAME=~"CAL_CARG.CAL_CARG_ID~")    JOIN (LEFT=~"CAL_CARG.CAL_CALC_ID~"    OP =~"=~"RIGHT=~"CAL_CALC.CAL_CALC_ID~" )    JOIN (LEFT=~"CAL_CARG.CAL_CARG_ID~"    OP =~"=~"RIGHT=~"CAL_CAIO.CAL_CARG_ID~" )    JOIN (LEFT=~"PORTS.PORT_CODE~"    OP =~"=~"RIGHT=~"CAL_CAIO.PORT_CODE~" )WHERE(    EXP1 =~"( CAL_CALC.CAL_CALC_ID~"   OP =~"=~"    EXP2 =~":calc_id )~"    LOGIC =~"and~" ) WHERE(    EXP1 =~"(CAL_CAIO.PURPOSE_CODE~"   OP =~"=~"    EXP2 =~"~~~"L~~~"~"    LOGIC =~"or~" ) WHERE(    EXP1 =~"CAL_CAIO.PURPOSE_CODE~"   OP =~"=~"    EXP2 =~"~~~"D~~~")~" ) ) ORDER(NAME=~"CAL_CARG.CAL_CARG_ID~" ASC=yes ) ARG(NAME = ~"calc_id~" TYPE = number) " arguments=(("calc_id", number)) )
+text(band=header alignment="2" text="Purpose Code" border="0" color="0" x="5" y="4" height="64" width="375"  name=cal_caio_purpose_code_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Port N" border="0" color="0" x="407" y="4" height="64" width="987"  name=ports_port_n_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="375" format="[general]"  name=cal_caio_purpose_code edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="402" y="4" height="76" width="987" format="[general]"  name=ports_port_n edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="1413" y="4" height="64" width="608"  name=cal_carg_cal_carg_id  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

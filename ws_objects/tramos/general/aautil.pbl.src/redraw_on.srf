@@ -1,0 +1,63 @@
+﻿$PBExportHeader$redraw_on.srf
+$PBExportComments$Nested redraw control
+global type redraw_on from function_object
+end type
+
+forward prototypes
+global function boolean redraw_on (window pw_window)
+end prototypes
+
+global function boolean redraw_on (window pw_window);/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+
+ Function : redraw_on
+  
+ Object     : 
+  
+ Event	 :  
+
+ Scope     : Global
+
+ ************************************************************************************
+
+ Author    : Martin Israelsen
+   
+ Date       : 1/1-96
+
+ Description : Enables nested redraw on/off commands, which otherwise is a problem
+		in powerbuilder. This function turns redraw on
+
+ Arguments : Window
+
+ Returns   : True if redraw is set to on
+
+ Variables :  None
+
+ Other : Will display an error messagebox if nested value is out-of-sync
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+1/1-96		1.0			MI		Initial version
+  
+************************************************************************************/
+
+
+If uo_global.ii_redraw > 0 Then 
+   uo_global.ii_redraw -- 
+Else
+	MessageBox("Warning", "redraw setting below zero")
+End if
+
+If uo_global.ii_redraw = 0 Then
+	pw_window.Setredraw(true)
+	return true
+Else
+	return false
+End if
+end function
+

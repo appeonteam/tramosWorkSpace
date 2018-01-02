@@ -1,0 +1,65 @@
+﻿$PBExportHeader$d_sq_ff_insphead.srd
+release 11;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no showbackcoloronxp=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=380 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=total dbname="TOTAL" )
+ column=(type=long updatewhereclause=yes name=valid dbname="VALID" )
+ column=(type=long updatewhereclause=yes name=totalopen dbname="TOTALOPEN" )
+ column=(type=long updatewhereclause=yes name=lrisk dbname="LRISK" )
+ column=(type=long updatewhereclause=yes name=mrisk dbname="MRISK" )
+ column=(type=long updatewhereclause=yes name=hrisk dbname="HRISK" )
+ column=(type=long updatewhereclause=yes name=vlrisk dbname="VLRISK" )
+ column=(type=long updatewhereclause=yes name=vmrisk dbname="VMRISK" )
+ column=(type=long updatewhereclause=yes name=vhrisk dbname="VHRISK" )
+ column=(type=long updatewhereclause=yes name=capcount dbname="CAPCOUNT" )
+ retrieve="  SELECT Sum(Case When ANS = 1 Then 1 Else 0 End) as TOTAL,   
+         Sum(Case When ANS = 1 and DEF = 1 Then 1 Else 0 End) as VALID,
+         Sum(Case When ANS = 1 and CLOSED = 0 Then 1 Else 0 End) as TOTALOPEN,
+			Sum(Case When DEF = 1 and RISK = 0 Then 1 Else 0 End) as LRISK,
+			Sum(Case When DEF = 1 and RISK = 1 Then 1 Else 0 End) as MRISK,
+			Sum(Case When DEF = 1 and RISK = 2 Then 1 Else 0 End) as HRISK,
+			Sum(Case When DEF = 1 and RISK = 0 and Upper(RESPTEXT) = 'VESSEL' Then 1 Else 0 End) as VLRISK,
+			Sum(Case When DEF = 1 and RISK = 1 and Upper(RESPTEXT) = 'VESSEL' Then 1 Else 0 End) as VMRISK,
+			Sum(Case When DEF = 1 and RISK = 2 and Upper(RESPTEXT) = 'VESSEL' Then 1 Else 0 End) as VHRISK,
+      Sum(IsNull(IS_CAP,0)) as CAPCOUNT
+    FROM VETT_ITEM LEFT OUTER JOIN VETT_RESP ON VETT_ITEM.RESP_ID = VETT_RESP.RESP_ID
+   WHERE VETT_ITEM.INSP_ID = :InspID    
+" arguments=(("InspID", number)) )
+text(band=detail alignment="0" text="Inspection Summary:" border="0" color="33554432" x="18" y="0" height="72" width="699" html.valueishtml="0"  name=t_12 visible="1"  slideup=allabove  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="1073741824" )
+rectangle(band=detail x="5" y="72" height="300" width="3301"  name=r_1 visible="1" brush.hatch="7" brush.color="570425344" pen.style="0" pen.width="5" pen.color="33554432"  background.mode="2" background.color="33554432" )
+text(band=detail alignment="0" text="High Risk:" border="0" color="33554432" x="1527" y="292" height="52" width="302" html.valueishtml="0"  name=t_20 visible="1"  slideup=allabove  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="0" text="Med Risk:" border="0" color="33554432" x="1527" y="224" height="52" width="302" html.valueishtml="0"  name=t_19 visible="1"  slideup=allabove  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="0" text="Low Risk:" border="0" color="33554432" x="1527" y="156" height="52" width="302" html.valueishtml="0"  name=t_16 visible="1"  slideup=allabove  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="0" text="By Vessel (Valid)" border="0" color="33554432" x="1490" y="88" height="52" width="466" html.valueishtml="0"  name=t_22 visible="1"  slideup=allabove  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="0" text="Low Risk:" border="0" color="33554432" x="2839" y="156" height="52" width="306" html.valueishtml="0"  name=t_21 visible="1"  slideup=allabove  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="0" text="Med Risk:" border="0" color="33554432" x="2839" y="224" height="52" width="306" html.valueishtml="0"  name=t_17 visible="1"  slideup=allabove  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="0" text="High Risk:" border="0" color="33554432" x="2839" y="292" height="52" width="265" html.valueishtml="0"  name=t_18 visible="1"  slideup=allabove  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="0" text="Total (Valid)" border="0" color="33554432" x="2807" y="88" height="52" width="338" html.valueishtml="0"  name=t_23 visible="1"  slideup=allabove  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="1073741824" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="16711680" x="1847" y="156" height="52" width="101" format="[general]" html.valueishtml="0"  name=vlrisk visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="16711680" x="3159" y="156" height="52" width="101" format="[general]" html.valueishtml="0"  name=lrisk visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="16711680" x="3159" y="224" height="52" width="101" format="[general]" html.valueishtml="0"  name=mrisk visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="16711680~tIf( hrisk = 0, 16711680, 255)" x="3159" y="292" height="52" width="101" format="[general]" html.valueishtml="0"  name=hrisk visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="16711680~tIf( vhrisk = 0, 16711680, 255)" x="1847" y="292" height="52" width="101" format="[general]" html.valueishtml="0"  name=vhrisk visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="16711680" x="1847" y="224" height="52" width="101" format="[general]" html.valueishtml="0"  name=vmrisk visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Total Obs:" border="0" color="33554432" x="137" y="88" height="52" width="320" html.valueishtml="0"  name=t_13 visible="1"  slideup=allabove  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="0" text="Valid Obs:" border="0" color="33554432" x="137" y="156" height="52" width="302" html.valueishtml="0"  name=t_15 visible="1"  slideup=allabove  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="16711680" x="480" y="156" height="52" width="101" format="[general]" html.valueishtml="0"  name=valid visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="16711680" x="480" y="88" height="52" width="101" format="[general]" html.valueishtml="0"  name=total visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="16711680" x="480" y="224" height="52" width="101" format="[general]" html.valueishtml="0"  name=totalopen visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="Total Open:" border="0" color="33554432" x="137" y="224" height="52" width="306" html.valueishtml="0"  name=t_14 visible="1"  slideup=allabove  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="16711680~tIf( capcount = 0, 16711680, 255)" x="480" y="292" height="52" width="101" format="[general]" html.valueishtml="0"  name=capcount visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="Total CAPs:" border="0" color="33554432" x="137" y="292" height="52" width="306" html.valueishtml="0"  name=t_1 visible="1"  slideup=allabove  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

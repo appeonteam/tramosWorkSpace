@@ -1,0 +1,846 @@
+﻿$PBExportHeader$m_mobile.srm
+forward
+global type m_mobile from menu
+end type
+type m_inspections from menu within m_mobile
+end type
+type m_browser from menu within m_inspections
+end type
+type m_inspectionreports from menu within m_inspections
+end type
+type m_searchinspections from menu within m_inspections
+end type
+type m_l1 from menu within m_inspections
+end type
+type m_exitvimsmobile from menu within m_inspections
+end type
+type m_inspections from menu within m_mobile
+m_browser m_browser
+m_inspectionreports m_inspectionreports
+m_searchinspections m_searchinspections
+m_l1 m_l1
+m_exitvimsmobile m_exitvimsmobile
+end type
+type m_sys from menu within m_mobile
+end type
+type m_password from menu within m_sys
+end type
+type m_default from menu within m_sys
+end type
+type m_updatevmic from menu within m_sys
+end type
+type m_inspectionmodels from menu within m_sys
+end type
+type m_configuration from menu within m_sys
+end type
+type m_showtoolbar from menu within m_sys
+end type
+type m_admin from menu within m_sys
+end type
+type m_updatedatabase from menu within m_admin
+end type
+type m_deletedatabase from menu within m_admin
+end type
+type m_admin from menu within m_sys
+m_updatedatabase m_updatedatabase
+m_deletedatabase m_deletedatabase
+end type
+type m_sys from menu within m_mobile
+m_password m_password
+m_default m_default
+m_updatevmic m_updatevmic
+m_inspectionmodels m_inspectionmodels
+m_configuration m_configuration
+m_showtoolbar m_showtoolbar
+m_admin m_admin
+end type
+type m_help from menu within m_mobile
+end type
+type m_contents from menu within m_help
+end type
+type m_about from menu within m_help
+end type
+type m_help from menu within m_mobile
+m_contents m_contents
+m_about m_about
+end type
+global type m_mobile from menu
+m_inspections m_inspections
+m_sys m_sys
+m_help m_help
+end type
+end forward
+
+global type m_mobile from menu
+m_inspections m_inspections
+m_sys m_sys
+m_help m_help
+end type
+global m_mobile m_mobile
+
+on m_mobile.create
+m_mobile=this
+call super::create
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_inspections=create m_inspections
+this.m_sys=create m_sys
+this.m_help=create m_help
+this.Item[UpperBound(this.Item)+1]=this.m_inspections
+this.Item[UpperBound(this.Item)+1]=this.m_sys
+this.Item[UpperBound(this.Item)+1]=this.m_help
+end on
+
+on m_mobile.destroy
+call super::destroy
+destroy(this.m_inspections)
+destroy(this.m_sys)
+destroy(this.m_help)
+end on
+
+type m_inspections from menu within m_mobile
+m_browser m_browser
+m_inspectionreports m_inspectionreports
+m_searchinspections m_searchinspections
+m_l1 m_l1
+m_exitvimsmobile m_exitvimsmobile
+end type
+
+on m_inspections.create
+call super::create
+this.text = "&Inspections"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_browser=create m_browser
+this.m_inspectionreports=create m_inspectionreports
+this.m_searchinspections=create m_searchinspections
+this.m_l1=create m_l1
+this.m_exitvimsmobile=create m_exitvimsmobile
+this.Item[UpperBound(this.Item)+1]=this.m_browser
+this.Item[UpperBound(this.Item)+1]=this.m_inspectionreports
+this.Item[UpperBound(this.Item)+1]=this.m_searchinspections
+this.Item[UpperBound(this.Item)+1]=this.m_l1
+this.Item[UpperBound(this.Item)+1]=this.m_exitvimsmobile
+end on
+
+on m_inspections.destroy
+call super::destroy
+destroy(this.m_browser)
+destroy(this.m_inspectionreports)
+destroy(this.m_searchinspections)
+destroy(this.m_l1)
+destroy(this.m_exitvimsmobile)
+end on
+
+type m_browser from menu within m_inspections
+end type
+
+on m_browser.create
+call super::create
+this.text = "Inspection &Browser"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Browse.ico"
+this.toolbaritemtext = "Browser"
+this.toolbaritemorder = 2
+this.menuimage = "J:\TramosWS\VIMS\images\vims\browse.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_browser.destroy
+call super::destroy
+end on
+
+event clicked;
+SetPointer(HourGlass!)
+
+Opensheet(w_browser, w_main, 0, Original!)
+end event
+
+type m_inspectionreports from menu within m_inspections
+end type
+
+on m_inspectionreports.create
+call super::create
+this.text = "&Report Generator"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Rep.ico"
+this.toolbaritemtext = "Reports"
+this.toolbaritemorder = 3
+this.menuimage = "J:\TramosWS\VIMS\images\vims\rep.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_inspectionreports.destroy
+call super::destroy
+end on
+
+event clicked;
+OpenSheet(w_Rep, w_Main, 0, Original!)
+end event
+
+type m_searchinspections from menu within m_inspections
+end type
+
+on m_searchinspections.create
+call super::create
+this.text = "&Search Inspections"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Bino.ico"
+this.toolbaritemtext = "Search"
+this.toolbaritemorder = 4
+this.menuimage = "J:\TramosWS\VIMS\images\vims\bino.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_searchinspections.destroy
+call super::destroy
+end on
+
+event clicked;
+OpenSheet(w_search, w_main, 0 ,Original!)
+end event
+
+type m_l1 from menu within m_inspections
+end type
+
+on m_l1.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_l1.destroy
+call super::destroy
+end on
+
+type m_exitvimsmobile from menu within m_inspections
+end type
+
+on m_exitvimsmobile.create
+call super::create
+this.text = "E&xit VIMS Mobile"
+this.toolbaritemname = "exit!"
+this.toolbaritemtext = "Exit"
+this.toolbaritemorder = 10
+this.toolbaritemspace = 1
+this.menuimage = "Exit!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_exitvimsmobile.destroy
+call super::destroy
+end on
+
+event clicked;
+Close(w_Main)
+end event
+
+type m_sys from menu within m_mobile
+m_password m_password
+m_default m_default
+m_updatevmic m_updatevmic
+m_inspectionmodels m_inspectionmodels
+m_configuration m_configuration
+m_showtoolbar m_showtoolbar
+m_admin m_admin
+end type
+
+on m_sys.create
+call super::create
+this.text = "&System"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_password=create m_password
+this.m_default=create m_default
+this.m_updatevmic=create m_updatevmic
+this.m_inspectionmodels=create m_inspectionmodels
+this.m_configuration=create m_configuration
+this.m_showtoolbar=create m_showtoolbar
+this.m_admin=create m_admin
+this.Item[UpperBound(this.Item)+1]=this.m_password
+this.Item[UpperBound(this.Item)+1]=this.m_default
+this.Item[UpperBound(this.Item)+1]=this.m_updatevmic
+this.Item[UpperBound(this.Item)+1]=this.m_inspectionmodels
+this.Item[UpperBound(this.Item)+1]=this.m_configuration
+this.Item[UpperBound(this.Item)+1]=this.m_showtoolbar
+this.Item[UpperBound(this.Item)+1]=this.m_admin
+end on
+
+on m_sys.destroy
+call super::destroy
+destroy(this.m_password)
+destroy(this.m_default)
+destroy(this.m_updatevmic)
+destroy(this.m_inspectionmodels)
+destroy(this.m_configuration)
+destroy(this.m_showtoolbar)
+destroy(this.m_admin)
+end on
+
+type m_password from menu within m_sys
+end type
+
+on m_password.create
+call super::create
+this.text = "Change &Password"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Key.ico"
+this.toolbaritemtext = "Password"
+this.toolbaritemorder = 5
+this.toolbaritemspace = 1
+this.menuimage = "J:\TramosWS\VIMS\images\vims\key.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_password.destroy
+call super::destroy
+end on
+
+event clicked;
+Open(w_Password)
+end event
+
+type m_default from menu within m_sys
+end type
+
+on m_default.create
+call super::create
+this.text = "Default &Settings"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Admin.ico"
+this.toolbaritemtext = "Settings"
+this.toolbaritemorder = 6
+this.menuimage = "J:\TramosWS\VIMS\images\vims\admin.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_default.destroy
+call super::destroy
+end on
+
+event clicked;
+Open(w_Setting)
+end event
+
+type m_updatevmic from menu within m_sys
+end type
+
+on m_updatevmic.create
+call super::create
+this.text = "Update &VMIC"
+this.toolbaritemname = "update5!"
+this.toolbaritemtext = "VMIC"
+this.toolbaritemorder = 7
+this.menuimage = "Update5!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_updatevmic.destroy
+call super::destroy
+end on
+
+event clicked;
+g_Obj.Paramstring = "Edit"
+
+Open(w_VMIC)
+end event
+
+type m_inspectionmodels from menu within m_sys
+end type
+
+on m_inspectionmodels.create
+call super::create
+this.text = "Inspection &Models"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Model.ico"
+this.toolbaritemtext = "Models"
+this.toolbaritemorder = 8
+this.menuimage = "J:\TramosWS\VIMS\images\vims\model.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_inspectionmodels.destroy
+call super::destroy
+end on
+
+event clicked;
+OpenSheet(w_Model, w_Main, 0, Original!)
+end event
+
+type m_configuration from menu within m_sys
+end type
+
+event clicked;
+Open(w_Config)
+end event
+
+on m_configuration.create
+call super::create
+this.text = "System Configuration"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_configuration.destroy
+call super::destroy
+end on
+
+type m_showtoolbar from menu within m_sys
+end type
+
+on m_showtoolbar.create
+call super::create
+this.text = "Show &Toolbar"
+this.checked = true
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_showtoolbar.destroy
+call super::destroy
+end on
+
+event clicked;
+This.Checked = Not This.checked
+
+w_Main.Toolbarvisible = This.Checked
+end event
+
+type m_admin from menu within m_sys
+m_updatedatabase m_updatedatabase
+m_deletedatabase m_deletedatabase
+end type
+
+on m_admin.create
+call super::create
+this.text = "DB &Admin"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_updatedatabase=create m_updatedatabase
+this.m_deletedatabase=create m_deletedatabase
+this.Item[UpperBound(this.Item)+1]=this.m_updatedatabase
+this.Item[UpperBound(this.Item)+1]=this.m_deletedatabase
+end on
+
+on m_admin.destroy
+call super::destroy
+destroy(this.m_updatedatabase)
+destroy(this.m_deletedatabase)
+end on
+
+type m_updatedatabase from menu within m_admin
+end type
+
+event clicked;
+String ls_File, ls_Path
+
+If GetFileOpenName("Select database update package", ls_Path, ls_File) < 1 then Return
+
+ChangeDirectory(g_Obj.Appfolder)
+
+g_Obj.Paramstring = ls_Path
+f_Write2Log("DB Update Initiated: " + ls_Path)
+Open(w_db)
+
+end event
+
+on m_updatedatabase.create
+call super::create
+this.text = "&Update Database"
+this.menuimage = "DatabaseProfile5!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_updatedatabase.destroy
+call super::destroy
+end on
+
+type m_deletedatabase from menu within m_admin
+end type
+
+on m_deletedatabase.create
+call super::create
+this.text = "&Delete Database"
+this.menuimage = "StopSign!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_deletedatabase.destroy
+call super::destroy
+end on
+
+event clicked;
+Open(w_DeleteDB)
+end event
+
+type m_help from menu within m_mobile
+m_contents m_contents
+m_about m_about
+end type
+
+on m_help.create
+call super::create
+this.text = "&Help"
+this.shifttoright = true
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_contents=create m_contents
+this.m_about=create m_about
+this.Item[UpperBound(this.Item)+1]=this.m_contents
+this.Item[UpperBound(this.Item)+1]=this.m_about
+end on
+
+on m_help.destroy
+call super::destroy
+destroy(this.m_contents)
+destroy(this.m_about)
+end on
+
+type m_contents from menu within m_help
+end type
+
+on m_contents.create
+call super::create
+this.text = "&Contents"
+this.toolbaritemname = "help!"
+this.toolbaritemtext = "Help"
+this.toolbaritemorder = 9
+this.toolbaritemspace = 1
+this.menuimage = "Help!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_contents.destroy
+call super::destroy
+end on
+
+event clicked;
+If ShowHelp("vmhelp.chm", Index!) < 1 then MessageBox("No Help", "Unable to display help.", Exclamation!)
+
+
+end event
+
+type m_about from menu within m_help
+end type
+
+on m_about.create
+call super::create
+this.text = "&About"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_about.destroy
+call super::destroy
+end on
+
+event clicked;
+Open(w_About)
+end event
+

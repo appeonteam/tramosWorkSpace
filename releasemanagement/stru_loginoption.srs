@@ -1,0 +1,6 @@
+HA$PBExportHeader$stru_loginoption.srs
+global type stru_loginoption from structure
+	boolean		autologin
+	boolean		rememberpass
+end type
+

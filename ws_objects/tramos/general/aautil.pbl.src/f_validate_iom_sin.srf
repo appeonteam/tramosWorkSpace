@@ -1,0 +1,47 @@
+﻿$PBExportHeader$f_validate_iom_sin.srf
+$PBExportComments$Validate the size of the entry in the IOM/SIN field on the APM vessel detail window.
+global type f_validate_iom_sin from function_object
+end type
+
+forward prototypes
+global function boolean f_validate_iom_sin (string as_iom_sin_no)
+end prototypes
+
+global function boolean f_validate_iom_sin (string as_iom_sin_no);/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Author  : Teit Aunt 
+   
+ Date    : 18-12-97
+
+ Description : Validate the size of the entry in the IOM/SIN field on the APM vessel
+ 					detail window.
+
+ Arguments   : The IOM/SIN number as a string
+
+ Returns     : True if the number is valid, false if it isen't
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+---------------------------------------------------------
+18-12-97	1.0		TA		Initial version
+************************************************************************************/
+
+// Variables
+boolean lb_return
+integer li_iom_sin_no
+
+// Do it
+li_iom_sin_no = Integer(as_iom_sin_no)
+
+If (li_iom_sin_no < 1000) and (li_iom_sin_no > 0) then 
+	lb_return = true
+Else
+	lb_return = false
+End if
+
+Return(lb_return)
+end function
+

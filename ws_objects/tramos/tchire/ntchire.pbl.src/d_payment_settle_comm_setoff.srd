@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_payment_settle_comm_setoff.srd
+$PBExportComments$Used when generating CODA transactions
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=112 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=108 color="536870912" )
+table(column=(type=decimal(2) updatewhereclause=yes name=comm dbname="NTC_CONT_BROKER_COMM.BROKER_COMM" )
+ column=(type=char(20) updatewhereclause=yes name=nom_acc_nr dbname="BROKERS.NOM_ACC_NR" )
+ column=(type=long updatewhereclause=yes name=broker_nr dbname="NTC_CONT_BROKER_COMM.BROKER_NR" )
+ column=(type=number updatewhereclause=yes name=amount_per_day_or_percent dbname="NTC_CONT_BROKER_COMM.AMOUNT_PER_DAY_OR_PERCENT" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"NTC_CONT_BROKER_COMM~" )  TABLE(NAME=~"BROKERS~" ) COLUMN(NAME=~"NTC_CONT_BROKER_COMM.BROKER_COMM~") COLUMN(NAME=~"BROKERS.NOM_ACC_NR~") COLUMN(NAME=~"NTC_CONT_BROKER_COMM.BROKER_NR~") COLUMN(NAME=~"NTC_CONT_BROKER_COMM.AMOUNT_PER_DAY_OR_PERCENT~")    JOIN (LEFT=~"BROKERS.BROKER_NR~"    OP =~"=~"RIGHT=~"NTC_CONT_BROKER_COMM.BROKER_NR~" )WHERE(    EXP1 =~"NTC_CONT_BROKER_COMM.CONTRACT_ID~"   OP =~"=~"    EXP2 =~":contract_id~"    LOGIC =~"and~" ) WHERE(    EXP1 =~"NTC_CONT_BROKER_COMM.COMM_SET_OFF~"   OP =~"=~"    EXP2 =~"1~" ) ) ARG(NAME = ~"contract_id~" TYPE = number) " arguments=(("contract_id", number)) )
+text(band=header alignment="0" text="Used when settling payments and generating CODA transactions" border="0" color="0" x="27" y="20" height="80" width="2258"  name=t_1  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="18" y="16" height="76" width="329" format="[general]"  name=comm edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="654" y="16" height="76" width="576" format="[general]"  name=nom_acc_nr edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1381" y="28" height="64" width="448" format="[general]"  name=broker_nr edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=0 border="0" color="0" x="1966" y="24" height="64" width="215"  name=amount_per_day_or_percent  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,13 @@
+﻿$PBExportHeader$f_shutdown.srf
+global type f_shutdown from function_object
+end type
+
+forward prototypes
+global subroutine f_shutdown ()
+end prototypes
+
+global subroutine f_shutdown ();n_service_manager lnv_serviceMgr  
+
+lnv_serviceMgr.of_unloadAllServices()
+end subroutine
+

@@ -1,0 +1,42 @@
+HA$PBExportHeader$d_sq_crtb_hrbrcon.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=4 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no  crosstab.dynamic = yes grid.lines=1 grid.columnmove=no selected.mouse=no )
+header[1](height=0 color="536870912" )
+header[2](height=92 color="536870912" )
+summary(height=104 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" height.autosize=yes )
+table(column=(type=number updatewhereclause=yes name=consumption_type dbname="consumption_type" values="Main Engine:	10/Aux. Engines:	11/Pumping:	13/Boiler:	14/Inerting:	15/Heating//Cooling:	16/Miscellaneous:	17/" )
+ column=(type=decimal(0) updatewhereclause=yes name=val dbname="val" )
+ retrieve="  SELECT TPERF_HRBRCON.CONTYPE,   
+         CASE TPERF_HRBR.H_TYPE WHEN 0 THEN 'Loading' WHEN 1 THEN 'Discharge' WHEN 2 THEN 'Load/Disch.' WHEN 3 THEN 'Repair/Dock' WHEN 4 THEN 'Other' ELSE '<Error>' END,   
+         TPERF_HRBRCON.QTY_HFO +  TPERF_HRBRCON.QTY_LSHFO + TPERF_HRBRCON.QTY_DO + TPERF_HRBRCON.QTY_GO  
+    FROM TPERF_HRBR,   
+         TPERF_HRBRCON,   
+         TPERF_VOY  
+   WHERE ( TPERF_HRBRCON.H_ID = TPERF_HRBR.H_ID ) and  
+         ( TPERF_VOY.VOY_ID = TPERF_HRBR.VOY_ID ) and  
+         ( ( TPERF_VOY.VESSEL_ID = :VesselID ) AND  
+         ( TPERF_VOY.VOY_ID >= :MinVoyID ) AND  
+         ( TPERF_VOY.VOY_ID <= :MaxVoyID ) AND  
+         ( TPERF_HRBRCON.CONTYPE < 18 ) )    
+" arguments=(("VesselID", number),("MinVoyID", number),("MaxVoyID", number))  sort="consumption_type A " )
+text(band=header[2] alignment="0" text="Consumption Type" border="0" color="33554432" x="9" y="4" height="64" width="576" html.valueishtml="0"  name=consumption_type_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="2" text="@harbour_stay_type" border="0" color="33554432" x="594" y="4" height="64" width="581" html.valueishtml="0"  name=val_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="4" height="76" width="576" format="[general]" html.valueishtml="0"  name=consumption_type visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes edit.codetable=yes  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="16711680" x="594" y="4" height="76" width="581" format="0.0" html.valueishtml="0"  name=val visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes crosstab.repeat=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(val for all )"border="0" color="16711680" x="594" y="28" height="64" width="581" format="0.0" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="0" text="Total Average:" border="0" color="33554432" x="5" y="28" height="64" width="581" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=summary x1="5" y1="12" x2="3858" y2="12"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="1073741824" )
+ crosstab(band = foreground  crosstabonly = yes 
+ columns = "harbour_stay_type" rows = "consumption_type" values = "avg(  compute_0003  for crosstab )" sourcenames = "consumption_type, harbour_stay_type, compute_0003")htmltable(border="0" cellpadding="1" cellspacing="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_transcategory.srs
+$PBExportComments$Object to hold transaction data that can be generated.  1 APOST and multiple BPOSTS.
+global type s_transcategory from structure
+	string		s_name		descriptor "comment" = "reference name of POST.  Used in field 'f41_linedesr'"
+	string		s_debitcredit		descriptor "comment" = "stores whether the actual posting is DEBIT or CREDIT"
+	string		s_account		descriptor "comment" = "the account number this POST is assigned to"
+	decimal { 4 }		d_amount		descriptor "comment" = "value for post,"
+end type
+

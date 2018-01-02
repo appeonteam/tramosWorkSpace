@@ -1,0 +1,23 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "websiteinterface.pbl" "";
+@end;
+@begin Objects 
+ "websiteinterface.sra" "websiteinterface.pbl";
+ "d_sq_cm_fleet.srd" "websiteinterface.pbl";
+ "d_sq_tb_certificates.srd" "websiteinterface.pbl";
+ "d_sq_tb_fleetdetails.srd" "websiteinterface.pbl";
+ "d_sq_tb_newbuildings.srd" "websiteinterface.pbl";
+ "d_sq_tb_positions.srd" "websiteinterface.pbl";
+ "d_sq_tb_profitcentergroup.srd" "websiteinterface.pbl";
+ "d_sq_tb_specialfeatures.srd" "websiteinterface.pbl";
+ "d_sq_tb_tanks.srd" "websiteinterface.pbl";
+ "f_writeerrormessage.srf" "websiteinterface.pbl";
+ "p_websiteinterface.srj" "websiteinterface.pbl";
+ "ws_proxy_general.srj" "websiteinterface.pbl";
+ "ws_proxy_uploadfiles.srj" "websiteinterface.pbl";
+ "s_updateflags.srs" "websiteinterface.pbl";
+ "n_websiteinterface.sru" "websiteinterface.pbl";
+ "soapconnection.sru" "websiteinterface.pbl";
+ "soapexception.sru" "websiteinterface.pbl";
+@end;

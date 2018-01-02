@@ -1,0 +1,22 @@
+﻿$PBExportHeader$s_vessel_voyage_chart_claim.srs
+$PBExportComments$Structure incl. vessel_nr, voyage_nr, chart_nr, claim_nr
+global type s_vessel_voyage_chart_claim from structure
+	integer		vessel_nr
+	string		voyage_nr
+	string		s_vessel_ref_nr
+	integer		chart_nr
+	integer		claim_nr
+	integer		dem_des_sets
+	string		claim_type
+	string		claim_title
+	datetime		discharge_date
+	string		ax_invoice_nr
+	integer		send_to_ax_locked
+	long		claim_id
+	datetime		cp_date
+	string		status
+	string		ax_invoice_text
+	long		cal_cerp_id
+	integer		i_voyage_locked		descriptor "comment" = "voyage master still has transactions not acknowledged with 'Success'"
+end type
+

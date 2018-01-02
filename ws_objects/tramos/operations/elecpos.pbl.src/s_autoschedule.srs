@@ -1,0 +1,10 @@
+﻿$PBExportHeader$s_autoschedule.srs
+global type s_autoschedule from structure
+	long		vessel_nr
+	string		voyage_nr
+	string		port_code
+	integer		pcn
+	string		year
+	long		seconds_after
+end type
+

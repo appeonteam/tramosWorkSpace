@@ -1,0 +1,99 @@
+﻿$PBExportHeader$f_check_syntax_num.srf
+$PBExportComments$Returns True if syntax of list of numbers ok.
+global type f_check_syntax_num from function_object
+end type
+
+forward prototypes
+global function boolean f_check_syntax_num (string as_string, string as_valid_chars)
+end prototypes
+
+global function boolean f_check_syntax_num (string as_string, string as_valid_chars);/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : Global Function f_chech_syntax_num
+  
+ Object     : 
+  
+ Event	 : Open
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Kim Husson Kasperek
+   
+ Date       : 15-08-96
+
+ Description : Checks a list of numbers if it meets the given syntax (values and intervals), which is;
+				e.x.: "1,2,3,4-5,6"
+
+ Arguments : 	as_string			: The string of dates to be checked
+			as_valid_chars	: The chars to be accepted in the syntax-check
+
+ Returns   : True if the string of numbers is valid, otherwise False
+
+ Variables : 
+
+ Other : 
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+15-08-96		2.0			KHK		New version
+************************************************************************************/
+
+CHAR lc_ch
+STRING ls_tmpstr1, ls_tmpstr2, ls_resultstr
+INTEGER li_counter
+BOOLEAN lb_number, lb_komma, lb_interval, lb_interval_end, lb_start, lb_error
+
+ls_resultstr = ""
+ls_tmpstr2 = ""
+lb_number = FALSE
+lb_komma = FALSE
+lb_interval = FALSE
+lb_interval_end = TRUE
+lb_start = TRUE
+lb_error = FALSE
+
+IF LEN(as_string) > 0 THEN			// The string is NOT empty
+
+	ls_tmpstr1 = as_string + "@"		// The string to be checked in a working variable and add a stop-sign
+
+	FOR li_counter=1 to LEN(ls_tmpstr1)				// For all characters in the string DO
+		lc_ch = UPPER(MID(ls_tmpstr1,li_counter,1))		// Fetch the characters i the string one by one
+		IF POS(as_valid_chars,lc_ch) > 0 THEN
+			lb_number = TRUE
+			lb_komma = FALSE
+			lb_interval = FALSE
+		ELSEIF lc_ch = "," THEN
+			lb_error = lb_error OR lb_komma OR lb_interval OR lb_start
+			lb_number = FALSE
+			lb_komma = TRUE
+			lb_interval = FALSE
+			lb_interval_end = TRUE
+		ELSEIF lc_ch = "-" THEN
+			lb_error = lb_error OR lb_komma OR lb_interval OR NOT lb_interval_end OR lb_start
+			lb_number = FALSE
+			lb_komma = FALSE
+			lb_interval = TRUE
+			lb_interval_end = FALSE
+		ELSEIF lc_ch = "@" THEN
+			lb_error = lb_error OR lb_komma OR lb_interval
+			lb_number = FALSE
+			lb_komma = FALSE
+			lb_interval = FALSE
+			lb_interval_end = TRUE
+		ELSE
+			lb_error = TRUE
+		END IF
+		lb_start = FALSE
+	NEXT
+END IF
+
+Return not lb_error
+
+end function
+

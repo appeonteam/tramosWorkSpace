@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_poc_performing_agent.srs
+$PBExportComments$used in the windows of w_port_of_call
+global type s_poc_performing_agent from structure
+	long		l_agent_nr
+	string		s_agent_short_name
+	boolean		b_open_from_poc
+	long		l_pcgroupid
+end type
+

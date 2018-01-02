@@ -1,0 +1,11 @@
+﻿$PBExportHeader$s_opencalc_parm.srs
+$PBExportComments$Contains the parameters for opening a calculation wizard
+global type s_opencalc_parm from structure
+	long		l_calc_id
+	string		s_wizard
+	string		s_wizardfile
+	string		s_wizardtitle
+	boolean		b_compact
+	integer		i_defaultpage
+end type
+

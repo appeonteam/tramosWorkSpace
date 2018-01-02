@@ -1,0 +1,21 @@
+﻿$PBExportHeader$f_getmydocumentspath.srf
+global type f_getmydocumentspath from function_object
+end type
+
+forward prototypes
+global function string f_getmydocumentspath ()
+end prototypes
+
+global function string f_getmydocumentspath ();String ls_Path
+Long ll_Ret
+
+ls_Path = Space(260)
+ll_Ret = SHGetSpecialFolderPath(Handle(This), ls_Path, 5, False)
+
+ls_Path = Trim(ls_Path)
+
+If Right(ls_Path,1) <> "\" then ls_Path += "\"
+
+Return Trim(ls_Path)
+end function
+

@@ -1,0 +1,9 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tramos\\report\\imdyn.pbl" "";
+@end;
+@begin Objects
+ "tramos\\report\\d_sq_gr_reports_list.srd" "tramos\\report\\imdyn.pbl";
+ "tramos\\report\\w_infomaker_reports.srw" "tramos\\report\\imdyn.pbl";
+ "tramos\\report\\d_sq_gr_reports_detail.srd" "tramos\\report\\imdyn.pbl";
+@end;

@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_chart.srs
+$PBExportComments$Structure used to open w_articles.
+global type s_chart from structure
+    long chart_nr
+    string chart_sn
+end type
+

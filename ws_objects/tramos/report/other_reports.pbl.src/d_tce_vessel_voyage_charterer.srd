@@ -1,0 +1,15 @@
+﻿$PBExportHeader$d_tce_vessel_voyage_charterer.srd
+$PBExportComments$Used in Report TCE Voyage System
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=136 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(70) updatewhereclause=yes name=chart_chart_n_1 dbname="CHART.CHART_N_1" )
+ retrieve="PBSELECT( VERSION(400) DISTINCT ()TABLE(NAME=~"CAL_CERP~" )  TABLE(NAME=~"CAL_CARG~" )  TABLE(NAME=~"CHART~" ) COLUMN(NAME=~"CHART.CHART_N_1~")    JOIN (LEFT=~"CAL_CARG.CAL_CERP_ID~"    OP =~"=~"RIGHT=~"CAL_CERP.CAL_CERP_ID~" )    JOIN (LEFT=~"CHART.CHART_NR~"    OP =~"=~"RIGHT=~"CAL_CERP.CHART_NR~" )WHERE(    EXP1 =~"CAL_CARG.CAL_CALC_ID~"   OP =~"=~"    EXP2 =~":ai_cal_calc_id~" ) ) ARG(NAME = ~"ai_cal_calc_id~" TYPE = number) " arguments=(("ai_cal_calc_id", number)) )
+text(band=header alignment="2" text="Chart
+Chart N 1" border="0" color="0" x="5" y="4" height="128" width="987"  name=chart_chart_n_1_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="987" format="[general]"  name=chart_chart_n_1 edit.limit=70 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

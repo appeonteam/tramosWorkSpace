@@ -1,0 +1,22 @@
+﻿$PBExportHeader$f_refreshdropdown.srf
+global type f_refreshdropdown from function_object
+end type
+
+forward prototypes
+global function string f_refreshdropdown (datawindow adw, string adw_column, string child_column)
+end prototypes
+
+global function string f_refreshdropdown (datawindow adw, string adw_column, string child_column);datawindowchild	ldwc
+
+adw.settransobject(SQLCA)
+adw.reset()
+adw.insertrow(0)
+adw.getChild(adw_column, ldwc)
+ldwc.settransobject(SQLCA)
+ldwc.retrieve( )
+ldwc.insertrow(1)
+ldwc.setitem(1,child_column,"--New--")
+
+return ldwc.getitemstring(1,child_column)
+end function
+

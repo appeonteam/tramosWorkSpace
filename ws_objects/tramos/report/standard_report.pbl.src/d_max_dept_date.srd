@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_max_dept_date.srd
+$PBExportComments$Used in "Active/Finished Voyages".
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=compute_0001 dbname="compute_0001" )
+ retrieve="  SELECT Max(POC.PORT_DEPT_DT)
+    FROM POC  
+   WHERE ( POC.VESSEL_NR = :vessel_nr ) AND  
+         ( POC.VOYAGE_NR = :voyage_nr ) AND
+			( POC.PORT_DEPT_DT <> null)  
+            
+" arguments=(("vessel_nr", number),("voyage_nr", string)) )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="87" y="4" height="60" width="402" format="dd-mm-yy hh:mm"  name=compute_0001 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+
+sparse(names="compute_0001")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

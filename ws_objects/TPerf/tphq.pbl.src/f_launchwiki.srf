@@ -1,0 +1,17 @@
+﻿$PBExportHeader$f_launchwiki.srf
+global type f_LaunchWiki from function_object
+end type
+
+forward prototypes
+global subroutine f_launchwiki (string as_wikipage)
+end prototypes
+
+global subroutine f_launchwiki (string as_wikipage);
+Inet iinet_base
+
+GetContextService("Internet", iinet_base)
+
+iinet_base.HyperlinkToURL("http://apmteam.apmoller.net/sites/tankers/Wiki%20Pages/" + as_WikiPage)
+
+end subroutine
+

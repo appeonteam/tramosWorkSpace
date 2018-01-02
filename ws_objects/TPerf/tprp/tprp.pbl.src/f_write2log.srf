@@ -1,0 +1,20 @@
+﻿$PBExportHeader$f_write2log.srf
+global type f_Write2Log from function_object
+end type
+
+forward prototypes
+global subroutine f_write2log (string as_logitem)
+end prototypes
+
+global subroutine f_write2log (string as_logitem);Integer li_FileNum
+
+li_FileNum = FileOpen(g_AppFolder + "TPRP-Log.txt", LineMode!, Write!, LockWrite!, Append!)
+
+If li_FileNum = -1 then Return
+
+FileWriteEx(li_FileNum, String(Today(), "dd-MM-yy")+ " " + String(Now(), "hh:mm:ss.f") + ": " + as_LogItem)
+
+FileClose(li_FileNum)
+
+end subroutine
+

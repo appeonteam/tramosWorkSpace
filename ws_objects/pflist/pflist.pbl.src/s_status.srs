@@ -1,0 +1,10 @@
+﻿$PBExportHeader$s_status.srs
+$PBExportComments$used to pass data from w_fixture to reponse window w_f_confirm_status via n_fixture
+global type s_status from structure
+	long		l_id
+	integer		i_statusid
+	string		s_comment
+	integer		i_reasoncode
+	boolean		b_copytocargolist
+end type
+

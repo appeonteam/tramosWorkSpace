@@ -1,0 +1,90 @@
+﻿$PBExportHeader$f_getofficer.srf
+global type f_getofficer from function_object
+end type
+
+forward prototypes
+global function string f_getofficer (long al_extnum, integer ai_short)
+end prototypes
+
+global function string f_getofficer (long al_extnum, integer ai_short);// Function returns a string of selected officers determined by the negative number stored in al_extnum.
+// al_extnum should typically come from VETT_OBJ.EXTNUM
+// Set abool_short=true to get the short version
+
+String ls_Return, ls_Num
+
+If IsNull(al_ExtNum) or al_ExtNum = 0 then Return ""
+
+If al_ExtNum>0 then Return String(al_ExtNum)
+
+ls_Num = String(-al_ExtNum)
+ls_Return = ""
+
+Do
+	If ai_Short = 0 then
+		Choose Case Left(ls_Num,2)
+			Case "10"
+				ls_Return += "Master"	
+			Case "15"
+				ls_Return += "Chief Officer"
+			Case "20"
+				ls_Return += "Second Officer"
+			Case "25"
+				ls_Return += "Third Officer"
+			Case "50"
+				ls_Return += "Chief Engineer"
+			Case "55"
+				ls_Return += "2nd Engineer"
+			Case "60"
+				ls_Return += "3rd Engineer"
+			Case "65"
+				ls_Return += "4th Engineer"
+			Case "70"
+				ls_Return += "Maritime Officer"
+			Case "75"
+				ls_Return += "Gas Engineer"
+			Case "80"
+				ls_Return += "Electrical Engineer"
+			Case "85"
+				ls_Return += "Deck Department"
+			Case "90"
+				ls_Return += "Engine Department"				
+		End Choose
+	Else
+		Choose Case Left(ls_Num,2)
+			Case "10"
+				ls_Return += "CPT"	
+			Case "15"
+				ls_Return += "C/O"
+			Case "20"
+				ls_Return += "2/O"
+			Case "25"
+				ls_Return += "3/O"
+			Case "50"
+				ls_Return += "C/E"
+			Case "55"
+				ls_Return += "2/E"
+			Case "60"
+				ls_Return += "3/E"
+			Case "65"
+				ls_Return += "4/E"
+			Case "70"
+				ls_Return += "M/O"
+			Case "75"
+				ls_Return += "G/E"
+			Case "80"
+				ls_Return += "E/E"
+			Case "85"
+				ls_Return += "Deck"
+			Case "90" 
+				ls_Return += "Engine"
+		End Choose
+	End If
+	ls_Num = Right(ls_Num, Len(ls_Num)-2)
+	If ls_Num>"" then ls_Return += ", "
+Loop Until Len(ls_Num)=0
+
+Return ls_Return
+
+
+end function
+

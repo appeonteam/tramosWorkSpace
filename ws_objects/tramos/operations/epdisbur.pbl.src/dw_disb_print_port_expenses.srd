@@ -1,0 +1,157 @@
+﻿$PBExportHeader$dw_disb_print_port_expenses.srd
+$PBExportComments$This datawindow is the port expenses report.
+release 10.5;
+datawindow(units=3 timer_interval=0 color=1090519039 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 2 print.margin.left = 635 print.margin.right = 635 print.margin.top = 635 print.margin.bottom = 635 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=4577 color="536870912" )
+summary(height=1719 color="536870912" )
+footer(height=2513 color="536870912" )
+detail(height=555 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes name=agent_nr dbname="DISB_EXPENSES.AGENT_NR" dbalias=".AGENT_NR" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=port_code dbname="DISB_EXPENSES.PORT_CODE" dbalias=".PORT_CODE" )
+ column=(type=long update=yes updatewhereclause=yes name=vessel_nr dbname="DISB_EXPENSES.VESSEL_NR" dbalias=".VESSEL_NR" )
+ column=(type=char(7) update=yes updatewhereclause=yes name=voyage_nr dbname="DISB_EXPENSES.VOYAGE_NR" dbalias=".VOYAGE_NR" )
+ column=(type=long update=yes updatewhereclause=yes name=pcn dbname="DISB_EXPENSES.PCN" dbalias=".PCN" )
+ column=(type=long update=yes updatewhereclause=yes name=expenses_counter dbname="DISB_EXPENSES.EXPENSES_COUNTER" dbalias=".EXPENSES_COUNTER" )
+ column=(type=long update=yes updatewhereclause=yes name=voucher_nr dbname="DISB_EXPENSES.VOUCHER_NR" dbalias=".VOUCHER_NR" )
+ column=(type=number update=yes updatewhereclause=yes name=exp_amount_local dbname="DISB_EXPENSES.EXP_AMOUNT_LOCAL" dbalias=".EXP_AMOUNT_LOCAL" )
+ column=(type=number update=yes updatewhereclause=yes name=exp_amount_usd dbname="DISB_EXPENSES.EXP_AMOUNT_USD" dbalias=".EXP_AMOUNT_USD" )
+ column=(type=datetime update=yes updatewhereclause=yes name=expenses_date dbname="DISB_EXPENSES.EXPENSES_DATE" dbalias=".EXPENSES_DATE" )
+ column=(type=number update=yes updatewhereclause=yes name=settled dbname="DISB_EXPENSES.SETTLED" dbalias=".SETTLED" )
+ column=(type=char(50) updatewhereclause=yes name=vessels_vessel_name dbname="VESSELS.VESSEL_NAME" dbalias=".VESSEL_NAME" )
+ column=(type=char(35) updatewhereclause=yes name=agents_agent_n_1 dbname="AGENTS.AGENT_N_1" dbalias=".AGENT_N_1" )
+ column=(type=datetime updatewhereclause=yes name=disbursements_disb_arr_dt dbname="DISBURSEMENTS.DISB_ARR_DT" dbalias=".DISB_ARR_DT" )
+ column=(type=datetime updatewhereclause=yes name=disbursements_disb_dept_dt dbname="DISBURSEMENTS.DISB_DEPT_DT" dbalias=".DISB_DEPT_DT" )
+ column=(type=char(35) updatewhereclause=yes name=ports_port_n dbname="PORTS.PORT_N" dbalias=".PORT_N" )
+ column=(type=char(30) updatewhereclause=yes name=vouchers_vg_name dbname="VOUCHERS.VG_NAME" dbalias=".VG_NAME" )
+ column=(type=char(75) updatewhereclause=yes name=vouchers_voucher_name dbname="VOUCHERS.VOUCHER_NAME" dbalias=".VOUCHER_NAME" )
+ column=(type=char(3) updatewhereclause=yes name=disbursements_disbursement_currency dbname="DISBURSEMENTS.DISBURSEMENT_CURRENCY" dbalias=".DISBURSEMENT_CURRENCY" )
+ column=(type=long updatewhereclause=yes name=vessels_pc_nr dbname="VESSELS.PC_NR" dbalias=".PC_NR" )
+ column=(type=char(32) updatewhereclause=yes name=disb_expenses_disb_invoice_nr dbname="DISB_EXPENSES.DISB_INVOICE_NR" dbalias=".DISB_INVOICE_NR" )
+ column=(type=char(5) updatewhereclause=yes name=vessels_vessel_ref_nr dbname="VESSELS.VESSEL_REF_NR" dbalias=".VESSEL_REF_NR" )
+ retrieve="  SELECT DISB_EXPENSES.AGENT_NR,   
+         DISB_EXPENSES.PORT_CODE,   
+         DISB_EXPENSES.VESSEL_NR,   
+         DISB_EXPENSES.VOYAGE_NR,   
+         DISB_EXPENSES.PCN,   
+         DISB_EXPENSES.EXPENSES_COUNTER,   
+         DISB_EXPENSES.VOUCHER_NR,   
+         DISB_EXPENSES.EXP_AMOUNT_LOCAL,   
+         DISB_EXPENSES.EXP_AMOUNT_USD,   
+         DISB_EXPENSES.EXPENSES_DATE,   
+         DISB_EXPENSES.SETTLED,   
+         VESSELS.VESSEL_NAME,   
+         AGENTS.AGENT_N_1,   
+         DISBURSEMENTS.DISB_ARR_DT,   
+         DISBURSEMENTS.DISB_DEPT_DT,   
+         PORTS.PORT_N,   
+         VOUCHERS.VG_NAME,   
+         VOUCHERS.VOUCHER_NAME,   
+         DISBURSEMENTS.DISBURSEMENT_CURRENCY,   
+         VESSELS.PC_NR,
+			DISB_EXPENSES.DISB_INVOICE_NR,
+			VESSELS.VESSEL_REF_NR  
+    FROM DISB_EXPENSES,   
+         VESSELS,   
+         AGENTS,   
+         DISBURSEMENTS,   
+         PORTS,   
+         VOUCHERS  
+   WHERE ( DISB_EXPENSES.VESSEL_NR = VESSELS.VESSEL_NR ) and  
+         ( DISB_EXPENSES.AGENT_NR = AGENTS.AGENT_NR ) and  
+         ( AGENTS.AGENT_NR = DISBURSEMENTS.AGENT_NR ) and  
+         ( DISBURSEMENTS.AGENT_NR = DISB_EXPENSES.AGENT_NR ) and  
+         ( DISBURSEMENTS.PORT_CODE = DISB_EXPENSES.PORT_CODE ) and  
+         ( DISBURSEMENTS.VESSEL_NR = DISB_EXPENSES.VESSEL_NR ) and  
+         ( DISBURSEMENTS.VOYAGE_NR = DISB_EXPENSES.VOYAGE_NR ) and  
+         ( DISBURSEMENTS.PCN = DISB_EXPENSES.PCN ) and  
+         ( DISBURSEMENTS.PORT_CODE = PORTS.PORT_CODE ) and  
+         ( VOUCHERS.VOUCHER_NR = DISB_EXPENSES.VOUCHER_NR ) and  
+         ( ( DISB_EXPENSES.VESSEL_NR = :vessel_nr ) AND  
+         ( DISB_EXPENSES.VOYAGE_NR = :voyage_nr ) AND  
+         ( DISB_EXPENSES.PORT_CODE = :port_code ) AND  
+         ( DISB_EXPENSES.PCN = :pcn ) AND  
+         ( VOUCHERS.PORT_EXPENSE = 1 ))   
+ORDER BY DISB_EXPENSES.VOUCHER_NR ASC   
+" arguments=(("vessel_nr", number),("voyage_nr", string),("port_code", string),("pcn", number)) )
+group(level=1 header.height=582 trailer.height=926 by=("vouchers_vg_name" ) header.color="536870912" trailer.color="536870912" )
+rectangle(band=header x="317" y="132" height="978" width="15054"  name=r_1 visible="1" brush.hatch="6" brush.color="12632256" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="8421504" )
+text(band=header alignment="0" text="Port expenses" border="0" color="0" x="11509" y="317" height="608" width="3545" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-14" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=header alignment="0" text="Port expenses" border="0" color="0" x="343" y="1455" height="423" width="2381" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="1090519039" )
+text(band=header alignment="0" text="Port : " border="0" color="0" x="5027" y="1455" height="423" width="1005" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=header id=16 alignment="0" tabsequence=32766 border="0" color="0" x="6138" y="1455" height="423" width="5344" format="[general]" html.valueishtml="0"  name=ports_port_n visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="0" text="Vessel :" border="0" color="0" x="343" y="2222" height="370" width="1058" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=header id=12 alignment="0" tabsequence=32766 border="0" color="0" x="4603" y="2222" height="370" width="3333" format="[general]" html.valueishtml="0"  name=vessels_vessel_name visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="0" text="Arrival:" border="0" color="0" x="11456" y="2222" height="370" width="926" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=header id=14 alignment="0" tabsequence=32766 border="0" color="0" x="12911" y="2222" height="370" width="2090" format="dd-mmm-yyyy" html.valueishtml="0"  name=disbursements_disb_arr_dt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="0" text="Voyage:" border="0" color="0" x="343" y="2725" height="370" width="1084" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=header id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2540" y="2725" height="370" width="793" format="[general]" html.valueishtml="0"  name=voyage_nr visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="0" text="Departure:" border="0" color="0" x="11456" y="2725" height="370" width="1349" html.valueishtml="0"  name=t_7 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=header id=15 alignment="0" tabsequence=32766 border="0" color="0" x="12911" y="2725" height="370" width="2063" format="dd-mmm-yyyy" html.valueishtml="0"  name=disbursements_disb_dept_dt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="0" text="Agent:" border="0" color="0" x="343" y="3227" height="370" width="846" html.valueishtml="0"  name=t_8 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+rectangle(band=header x="317" y="3836" height="740" width="17912"  name=r_2 visible="1" brush.hatch="7" brush.color="553648127" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="-2147483648" )
+text(band=header alignment="0" text="Voucher" border="0" color="0" x="476" y="3995" height="423" width="1270" html.valueishtml="0"  name=t_9 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+line(band=header x1="1957" y1="3862" x2="1957" y2="4577"  name=l_1 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header alignment="0" text="Expense type" border="0" color="0" x="3148" y="3995" height="423" width="2116" html.valueishtml="0"  name=t_10 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+line(band=header x1="7276" y1="3862" x2="7276" y2="4630"  name=l_2 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header alignment="0" text="Amount local" border="0" color="0" x="8334" y="3995" height="423" width="2010" html.valueishtml="0"  name=t_11 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+line(band=header x1="11244" y1="3862" x2="11244" y2="4630"  name=l_3 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header alignment="0" text="Amount USD" border="0" color="0" x="12117" y="3995" height="423" width="2010" html.valueishtml="0"  name=t_12 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="0" text="text" border="0" color="0" x="2592" y="3280" height="370" width="3095" html.valueishtml="0"  name=agent_name visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=header alignment="0" expression="if ( vessels_pc_nr = 5 , ~"~", ~"MAERSK TANKERS~" )"border="0" color="0" x="396" y="211" height="423" width="6588" format="[GENERAL]" html.valueishtml="0"  name=toptext0 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127"  height.autosize=yes)
+compute(band=header alignment="0" expression="if ( vessels_pc_nr = 5 , ~"Bulk & Special Vessels Department~", ~"Crude, Product & Gas~" )"border="0" color="0" x="396" y="661" height="370" width="6588" format="[GENERAL]" html.valueishtml="0"  name=toptext visible="1"  slideup=directlyabove  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="15081" y1="3862" x2="15081" y2="4630"  name=l_18 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header alignment="0" text="Invoice Nr." border="0" color="0" x="15795" y="3995" height="423" width="2010" html.valueishtml="0"  name=t_20 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+rectangle(band=header.1 x="317" y="0" height="582" width="17912"  name=r_3 visible="1" brush.hatch="6" brush.color="12632256" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header.1 x1="1957" y1="0" x2="1957" y2="714"  name=l_4 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+column(band=header.1 id=17 alignment="0" tabsequence=32766 border="0" color="0" x="2196" y="106" height="423" width="4868" format="[general]" html.valueishtml="0"  name=vouchers_vg_name visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+line(band=header.1 x1="7276" y1="0" x2="7276" y2="741"  name=l_5 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header.1 x1="11244" y1="0" x2="11244" y2="714"  name=l_6 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+rectangle(band=detail x="317" y="0" height="582" width="17912"  name=r_4 visible="1" brush.hatch="7" brush.color="553648127" pen.style="0" pen.width="26" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text=")" border="0" color="0" x="8069" y="105" height="370" width="132" html.valueishtml="0"  name=t_13 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="635" y="79" height="423" width="899" format="[general]" html.valueishtml="0"  name=voucher_nr visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+line(band=detail x1="1957" y1="26" x2="1957" y2="555"  name=l_7 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="2196" y="79" height="423" width="4868" format="[general]" html.valueishtml="0"  name=vouchers_voucher_name visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+line(band=detail x1="7276" y1="26" x2="7276" y2="555"  name=l_8 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="8281" y="79" height="423" width="2831" format="#,##0.00" html.valueishtml="0"  name=exp_amount_local visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+line(band=detail x1="11244" y1="26" x2="11244" y2="555"  name=l_9 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="11747" y="79" height="423" width="3095" format="#,##0.00" html.valueishtml="0"  name=exp_amount_usd visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="0" text="(" border="0" color="0" x="7328" y="105" height="370" width="132" html.valueishtml="0"  name=t_14 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="7461" y="158" height="370" width="582" format="[general]" html.valueishtml="0"  name=disbursements_disbursement_currency visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="15292" y="79" height="423" width="2725" format="[general]" html.valueishtml="0"  name=disb_expenses_disb_invoice_nr visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+line(band=detail x1="15081" y1="26" x2="15081" y2="555"  name=l_17 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+rectangle(band=trailer.1 x="317" y="0" height="582" width="17912"  name=r_5 visible="1" brush.hatch="7" brush.color="553648127" pen.style="0" pen.width="26" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=trailer.1 x1="1957" y1="27" x2="1957" y2="556"  name=l_10 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+line(band=trailer.1 x1="7276" y1="27" x2="7276" y2="556"  name=l_11 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+compute(band=trailer.1 alignment="1" expression="sum(exp_amount_local for group 1)"border="0" color="0" x="8016" y="80" height="423" width="3095" format="#,##0.00" html.valueishtml="0"  name=subtotal_local visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+line(band=trailer.1 x1="11244" y1="27" x2="11244" y2="556"  name=l_12 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+compute(band=trailer.1 alignment="1" expression="sum(exp_amount_usd for group 1)"border="0" color="0" x="11747" y="80" height="423" width="3095" format="#,##0.00" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=trailer.1 alignment="0" text="Subtotal" border="0" color="0" x="2196" y="80" height="423" width="1428" html.valueishtml="0"  name=t_15 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+line(band=trailer.1 x1="15081" y1="27" x2="15081" y2="556"  name=l_19 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+rectangle(band=summary x="317" y="0" height="582" width="17912"  name=r_6 visible="1" brush.hatch="7" brush.color="553648127" pen.style="0" pen.width="26" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=summary x1="1957" y1="27" x2="1957" y2="556"  name=l_13 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+line(band=summary x1="7276" y1="27" x2="7276" y2="556"  name=l_14 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+compute(band=summary alignment="1" expression="sum(exp_amount_local for all)"border="0" color="0" x="7858" y="79" height="423" width="3095" format="#,##0.00" html.valueishtml="0"  name=total_local visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+line(band=summary x1="11244" y1="27" x2="11244" y2="556"  name=l_15 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+compute(band=summary alignment="1" expression="sum(exp_amount_usd for all)"border="0" color="0" x="11747" y="79" height="423" width="3095" format="#,##0.00" html.valueishtml="0"  name=total_usd visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=summary alignment="0" text="TOTAL" border="0" color="0" x="2196" y="79" height="423" width="1217" html.valueishtml="0"  name=t_16 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+line(band=summary x1="15081" y1="0" x2="15081" y2="529"  name=l_20 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="0" )
+text(band=footer alignment="0" text="Exchange rate:" border="0" color="0" x="1799" y="79" height="423" width="2381" html.valueishtml="0"  name=t_17 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="Date:" border="0" color="0" x="608" y="873" height="370" width="661" html.valueishtml="0"  name=t_18 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="0" expression="string(date(today()),~"dd/mm/yy~")"border="0" color="0" x="1799" y="873" height="370" width="2169" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=footer alignment="0" text="Initials:" border="0" color="0" x="608" y="1376" height="370" width="846" html.valueishtml="0"  name=t_19 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="" border="0" color="0" x="1799" y="1376" height="370" width="4021" html.valueishtml="0"  name=signer visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=footer x1="317" y1="1905" x2="15583" y2="1905"  name=l_16 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="1" background.color="553648127" )
+compute(band=footer alignment="2" expression="'Page ' + page() + ' of ' + pageCount()"border="0" color="0" x="5794" y="2116" height="370" width="3122" format="[general]" html.valueishtml="0"  name=compute_3 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="0" expression="(sum(exp_amount_local for group 1) / sum(exp_amount_usd for group 1)) * 100"border="0" color="0" x="4445" y="79" height="423" width="1270" format="#,##0.00" html.valueishtml="0"  name=ex_rate visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=header id=3 alignment="0" tabsequence=32766 border="0" color="0" x="2540" y="2222" height="370" width="1296" format="[general]" html.valueishtml="0"  name=vessel_nr visible="0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=header id=22 alignment="0" tabsequence=0 border="0" color="0" x="2540" y="2222" height="370" width="1296" html.valueishtml="0"  name=vessels_vessel_ref_nr visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()

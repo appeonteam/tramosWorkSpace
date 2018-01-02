@@ -1,0 +1,16 @@
+﻿$PBExportHeader$d_ccs_target_list.srd
+$PBExportComments$List of all targets.
+release 4;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=57 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=57 color="536870912" )
+table(column=(type=char(20) update=yes name=userid dbname="CCS_TARG.USERID" )
+ column=(type=char(32766) update=yes name=ccs_targ_desc dbname="CCS_TARG.CCS_TARG_DESC" )
+ column=(type=decimal(0) update=yes key=yes name=ccs_targ__pk dbname="CCS_TARG.CCS_TARG__PK" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_TARG~" ) COLUMN(NAME=~"CCS_TARG.USERID~") COLUMN(NAME=~"CCS_TARG.CCS_TARG_DESC~") COLUMN(NAME=~"CCS_TARG.CCS_TARG__PK~")) ORDER(NAME=~"CCS_TARG.USERID~" ASC=yes ) " update="CCS_TARG" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Salesperson"border="0" color="0" x="19" y="4" height="57" width="321"  name=userid_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Target Description"border="0" color="0" x="385" y="4" height="57" width="467"  name=ccs_targ_desc_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="4" height="65" width="110" format="[general]"  name=userid  tag=" " edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="385" y="4" height="65" width="1518" format="[general]"  name=ccs_targ_desc  tag="Description of the target" edit.limit=32000 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

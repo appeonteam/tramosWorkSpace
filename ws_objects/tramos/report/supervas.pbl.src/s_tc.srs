@@ -1,0 +1,14 @@
+﻿$PBExportHeader$s_tc.srs
+global type s_tc from structure
+	decimal {2}	d_misc_expenses
+	decimal {2}	d_broker_commission
+	decimal {2}	d_address_commission
+	decimal {2}	d_off_days
+	boolean		b_rateperday
+	decimal {2}	d_rate
+	decimal {2}	d_off_allowance
+	decimal {2}	d_freight
+	long		l_off_minutes
+	long		l_tc_minutes
+end type
+

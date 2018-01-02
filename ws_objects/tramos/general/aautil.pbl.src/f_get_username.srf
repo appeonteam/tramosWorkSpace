@@ -1,0 +1,23 @@
+﻿$PBExportHeader$f_get_username.srf
+$PBExportComments$Returns username for logged on user. Used in footer when printing calculations and scheduler.
+global type f_get_username from function_object
+end type
+
+forward prototypes
+global function string f_get_username ()
+end prototypes
+
+global function string f_get_username ();/* This function is used to get username for a logged on user.
+	
+	Function is user in footer vhen printing calculations
+	and sheduler
+*/
+
+string ls_name
+
+SELECT ISNULL(FIRST_NAME,"")+" "+ISNULL(LAST_NAME,"") INTO :ls_name FROM USERS WHERE USERID = :uo_global.is_userid;
+
+return ls_name
+
+end function
+

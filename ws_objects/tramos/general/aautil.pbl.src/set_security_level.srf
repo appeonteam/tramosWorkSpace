@@ -1,0 +1,60 @@
+﻿$PBExportHeader$set_security_level.srf
+$PBExportComments$Sets security level within a window
+global type set_security_level from function_object
+end type
+
+forward prototypes
+global subroutine set_security_level (window pi_parent, integer pi_security_level)
+end prototypes
+
+global subroutine set_security_level (window pi_parent, integer pi_security_level);/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+
+ Function : set_security_level
+  
+ Object     : 
+  
+ Event	 :  
+
+ Scope     : Global
+
+ ************************************************************************************
+
+ Author    : Martin Israelsen
+   
+ Date       : 1/1-96
+
+ Description : Sets the securitylevel for all securitybuttons in that window. 
+
+ Arguments : Window (window), securitylevel (Int)
+
+ Returns   : None
+
+ Variables :  None
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+1/1-96		1.0			MI		Initial version
+  
+************************************************************************************/
+
+Integer li_count
+
+// For all buttons in window, trigger an ue_setlevel event with security_level as parameter
+
+For li_count = 1 TO UpperBound(pi_parent.control[])
+	If  pi_parent.control[li_count].typeof() = commandbutton! then
+		pi_parent.control[li_count].Triggerevent("ue_setlevel",0,pi_security_level)
+	end if
+Next
+
+
+end subroutine
+

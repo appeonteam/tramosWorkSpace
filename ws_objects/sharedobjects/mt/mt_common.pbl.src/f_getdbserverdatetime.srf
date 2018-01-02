@@ -1,0 +1,16 @@
+﻿$PBExportHeader$f_getdbserverdatetime.srf
+global type f_getdbserverdatetime from function_object
+end type
+
+forward prototypes
+global function datetime f_getdbserverdatetime ()
+end prototypes
+
+global function datetime f_getdbserverdatetime ();datetime	ldt_current
+
+SELECT TOP 1 getdate() INTO :ldt_current FROM SYSTEM_OPTION;
+
+return ldt_current
+
+end function
+

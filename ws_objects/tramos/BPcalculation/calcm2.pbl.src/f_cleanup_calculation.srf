@@ -1,0 +1,135 @@
+﻿$PBExportHeader$f_cleanup_calculation.srf
+global type f_cleanup_calculation from function_object
+end type
+
+forward prototypes
+global function boolean f_cleanup_calculation (long al_calc_id)
+end prototypes
+
+global function boolean f_cleanup_calculation (long al_calc_id);String ls_tmp, ls_type
+Long ll_tmp, ll_cargo_id
+Integer li_cargo_count, li_count
+n_ds	 lds_cargo
+
+// First, delete all cargo-inouts
+
+// Search through the CAL_CARG tabel, and find all the ID's for cargos that
+// is linked to the AL_CALC_ID. The ID's will be fetched into the LL_CARGO_ID array
+lds_cargo = create n_ds
+lds_cargo.dataObject = "d_cleanup_cargo"
+lds_cargo.setTransObject(sqlca)
+
+li_cargo_count = lds_cargo.retrieve(al_calc_id)
+
+// Now, start deleting the cargos. Update the LS_TYPE to contain the word "Cargo"
+
+// Loop through all entries in the LL_CARGO_ID array. For each entry we
+// delete linkes expenses (CAL_PEXP), CARGO IN/OUT's (CAL_CAIO), 
+// Misc. claims (CAL_CLMI), Heating/Deviation (CAL_HEDV) and finally the
+// cargo itself.
+For li_count = 1 To li_cargo_count 
+	ll_cargo_id = lds_cargo.getItemNumber(li_count, "cal_carg_id")
+	
+	If SQLCA.SQLCode = 0 Then
+		DELETE FROM CAL_PEXP
+		WHERE CAL_CAIO_ID IN
+		(SELECT CAL_CAIO_ID 
+ 		FROM CAL_CAIO
+		WHERE CAL_CARG_ID = :ll_cargo_id);
+	End if
+
+	If SQLCA.SQLCode = 0 Then
+		DELETE FROM CAL_CAIO
+		WHERE CAL_CAIO.CAL_CARG_ID = :ll_cargo_id;
+	End if
+
+	If SQLCA.SQLCode = 0 Then
+		DELETE FROM CAL_CLMI
+		WHERE CAL_CARG_ID = :ll_cargo_id;
+	End if
+
+	If SQLCA.SQLCode = 0 Then
+		DELETE FROM CAL_HEDV
+		WHERE CAL_CARG_ID = :ll_cargo_id;
+	End if
+	 
+	If SQLCA.SQLCode = 0 Then
+		DELETE FROM CAL_LUMP
+		WHERE CAL_LUMP.CAL_CARG_ID = :ll_cargo_id;
+	End if
+	
+	If SQLCA.SQLCode = 0 Then
+		DELETE FROM CAL_ADDBUNCONS
+		WHERE CAL_ADDBUNCONS.CAL_CARG_ID = :ll_cargo_id;
+	End if
+
+	If SQLCA.SQLCode = 0 Then
+		DELETE FROM CAL_CARG
+		WHERE CAL_CARG.CAL_CARG_ID = :ll_cargo_id;
+	End if
+Next
+
+// If ok until now, then delete all Copied consumptions there might be
+IF SQLCA.SQLCode = 0 Then
+	DELETE FROM CAL_CCON
+	WHERE CAL_CALC_ID = :al_calc_id;
+End if
+
+// If ok until now, then delete the two rows in the ballast table
+If SQLCA.SQLCode = 0 Then
+	ls_type = "ballast"
+	DELETE FROM CAL_BALL
+	WHERE CAL_BALL.CAL_CALC_ID = :al_calc_id;
+End if
+
+// If ok until now, then delete the CAL_MERGED_ITINERARY
+If SQLCA.SQLCode = 0 Then
+	ls_type = "CAL_MERGED_ITINERARY"
+	DELETE FROM CAL_MERGED_ITINERARY
+	WHERE CAL_CALC_ID = :al_calc_id;
+End if
+
+// If ok until now, then delete the CAL_EXPANDED_ITINERARY
+If SQLCA.SQLCode = 0 Then
+	ls_type = "CAL_EXPANDED_ITINERARY"
+	DELETE FROM CAL_EXPANDED_ITINERARY
+	WHERE CAL_CALC_ID = :al_calc_id;
+End if
+
+// If ok until now, then delete the route
+If SQLCA.SQLCode = 0 Then
+	ls_type = "route"
+	DELETE FROM CAL_ROUTE
+	WHERE CAL_CALC_ID = :al_calc_id;
+End if
+
+// If ok until now, then delete the itinerary
+If SQLCA.SQLCode = 0 Then
+	ls_type = "itinerary"
+	DELETE FROM CAL_ITINERARY
+	WHERE CAL_CALC_ID = :al_calc_id;
+End if
+
+// And finally delete the calculation if everything is ok.
+If SQLCA.SQLCode = 0 Then
+	ls_type = "calculation"
+	DELETE FROM CAL_CALC
+	WHERE CAL_CALC.CAL_CALC_ID = :al_calc_id;
+End  if
+
+// COMMIT and return true if no database errors. Otherwise show a messagebox
+// with the database error and return false
+If SQLCA.SQLCode = 0 Then
+	COMMIT USING SQLCA;
+	Return(true)
+Else
+	ls_tmp = SQLCA.SQLErrText
+	ll_tmp = SQLCA.SQLCode
+
+	ROLLBACK USING SQLCA;
+	MessageBox("Error","Unable to delete "+ls_type+" (Code "+String(ll_tmp)+" " + ls_tmp+")")
+End if
+
+Return(false)
+end function
+

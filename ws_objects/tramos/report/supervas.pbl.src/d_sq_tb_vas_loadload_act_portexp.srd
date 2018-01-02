@@ -1,0 +1,52 @@
+﻿$PBExportHeader$d_sq_tb_vas_loadload_act_portexp.srd
+$PBExportComments$Used on LoadLoad VAS Report showing port expenses from operations (argument = calcID)
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=60 color="536870912" )
+table(column=(type=char(35) updatewhereclause=yes name=ports_port_n dbname="PORTS.PORT_N" dbalias=".PORT_N" )
+ column=(type=number updatewhereclause=yes name=compute_0002 dbname="compute_0002" )
+ retrieve="  SELECT PORTS.PORT_N,   
+         sum(DISB_EXPENSES.EXP_AMOUNT_USD)  
+    FROM VOYAGES,
+	DISBURSEMENTS,
+	DISB_EXPENSES,   
+         PORTS,   
+         VOUCHERS  
+   WHERE VOYAGES.VESSEL_NR = DISBURSEMENTS.VESSEL_NR and 
+         VOYAGES.VOYAGE_NR = DISBURSEMENTS.VOYAGE_NR and  
+	 DISBURSEMENTS.VESSEL_NR = DISB_EXPENSES.VESSEL_NR  and  
+         DISBURSEMENTS.VOYAGE_NR = DISB_EXPENSES.VOYAGE_NR and
+         DISBURSEMENTS.PORT_CODE = DISB_EXPENSES.PORT_CODE and
+         DISBURSEMENTS.PCN = DISB_EXPENSES.PCN and
+         DISBURSEMENTS.AGENT_NR = DISB_EXPENSES.AGENT_NR and
+	 DISB_EXPENSES.PORT_CODE = PORTS.PORT_CODE and 
+         DISB_EXPENSES.VOUCHER_NR = VOUCHERS.VOUCHER_NR and  
+         VOYAGES.CAL_CALC_ID = :calcid AND  
+         VOUCHERS.PORT_EXPENSE = 1 AND  
+		VOUCHERS.VAS_REPORT = 1 AND  
+         DISB_EXPENSES.PCN > 0    
+GROUP BY 
+	 DISB_EXPENSES.VESSEL_NR,  
+         DISB_EXPENSES.VOYAGE_NR,
+         DISB_EXPENSES.PORT_CODE,  
+  	 DISB_EXPENSES.PCN, 
+         PORTS.PORT_N,
+	DISBURSEMENTS.DISB_ARR_DT
+ORDER BY  	DISBURSEMENTS.DISB_ARR_DT
+
+" arguments=(("calcid", number)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="5" y="4" height="52" width="443" format="[general]" html.valueishtml="0"  name=ports_port_n visible="1" edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="33554432" x="462" y="4" height="52" width="224" format="#,##0" html.valueishtml="0"  name=compute_0002 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()

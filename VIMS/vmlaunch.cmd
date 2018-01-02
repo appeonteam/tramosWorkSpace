@@ -1,0 +1,1 @@
+@start /D"%programfiles%\VIMS Mobile\" vimsmob.exe

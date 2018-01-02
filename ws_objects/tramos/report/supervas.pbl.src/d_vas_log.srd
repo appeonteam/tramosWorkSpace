@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_vas_log.srd
+$PBExportComments$Used in w_vas_reports for log entries.
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="553648127"  height.autosize=yes)
+table(column=(type=char(50) updatewhereclause=yes name=function_name dbname="Function_name" )
+ column=(type=char(75) updatewhereclause=yes name=message dbname="Message" )
+ )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="192" y="4" height="60" width="1019" format="[general]"  name=function_name edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="1239" y="4" height="60" width="3232" format="[general]"  name=message height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression="cumulativeSum( 1 for all )"border="0" color="0" x="9" y="4" height="60" width="165" format="[general]"  name=row_no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="  No" border="6" color="0" x="5" y="8" height="56" width="169"  name=t_1  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+text(band=header alignment="0" text="  Function Name" border="6" color="0" x="192" y="8" height="56" width="1024"  name=function_name_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+text(band=header alignment="0" text="   Message" border="6" color="0" x="1234" y="8" height="56" width="3237"  name=message_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

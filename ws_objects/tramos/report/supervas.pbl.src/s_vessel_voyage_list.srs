@@ -1,0 +1,15 @@
+﻿$PBExportHeader$s_vessel_voyage_list.srs
+$PBExportComments$Structure used as parameter to u_control, and for filling in shared datastore.
+global type s_vessel_voyage_list from structure
+	integer		vessel_nr
+	string		voyage_nr
+	integer		voyage_type
+	decimal { 0 }		calc_id
+	integer		voyage_finished
+	integer		tcowner_nr
+	string		vessel_ref_nr
+	datetime		period_startdate
+	datetime		period_enddate
+	integer		demunforwarded		descriptor "comment" = "number of unforwarded demurrage claims inside voyage (used primarily in accruals)"
+end type
+

@@ -1,0 +1,8 @@
+﻿$PBExportHeader$ustruct_feedback.srs
+global type ustruct_feedback from structure
+	string		inspmodel
+	string		qtext
+	string		guidance
+	byte		RiskRating
+end type
+

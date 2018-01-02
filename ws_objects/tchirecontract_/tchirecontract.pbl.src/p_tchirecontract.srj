@@ -1,0 +1,22 @@
+﻿$PBExportHeader$p_tchirecontract.srj
+EXE:tchirecontract.exe,,0,1,1
+CMP:0,0,0,2,0,0,1
+COM:Sybase, Inc.
+DES:Sybase, Inc. Product File
+CPY:
+PRD:PowerBuilder Enterprise Series
+PVS:2.0.1.1
+PVN:2,0,1,1
+FVS:2.0.1.1
+FVN:2,0,1,1
+MAN:0,asInvoker,0
+PBD:tchirecontract.pbl,,1
+PBD:..\mail\mt_mail.pbl,,1
+PBD:..\sharedobjects\mt\mt_constants.pbl,,1
+PBD:..\sharedobjects\mt\mt_common.pbl,,1
+PBD:..\sharedobjects\mt\mt_base_components.pbl,,1
+PBD:..\sharedobjects\mt\mt_services.pbl,,1
+OBJ:C:\tramosWS\tchirecontract\tchirecontract.pbl,tchirecontract,a
+OBJ:C:\tramosWS\mail\mt_mail.pbl,mt_n_mail_datastore,u
+OBJ:C:\tramosWS\mail\mt_mail.pbl,mt_n_outgoingmail,u
+OBJ:C:\tramosWS\tchirecontract\tchirecontract.pbl,u_tchire_contract,u

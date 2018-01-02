@@ -1,0 +1,22 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "fixturedailyreports.pbl" "";
+@end;
+@begin Objects 
+ "d_daily_report_bunker.srd" "fixturedailyreports.pbl";
+ "d_daily_report_cargo.srd" "fixturedailyreports.pbl";
+ "d_daily_report_comment.srd" "fixturedailyreports.pbl";
+ "d_daily_report_comment_report.srd" "fixturedailyreports.pbl";
+ "d_daily_report_crude.srd" "fixturedailyreports.pbl";
+ "d_daily_report_crude_area.srd" "fixturedailyreports.pbl";
+ "d_daily_report_crude_cargo.srd" "fixturedailyreports.pbl";
+ "d_daily_report_crude_fixture_coa.srd" "fixturedailyreports.pbl";
+ "d_daily_report_crude_fixture_market.srd" "fixturedailyreports.pbl";
+ "d_daily_report_crude_fixture_market_curr.srd" "fixturedailyreports.pbl";
+ "d_daily_report_fixture_market.srd" "fixturedailyreports.pbl";
+ "d_daily_report_fixture_spot.srd" "fixturedailyreports.pbl";
+ "d_daily_report_interval.srd" "fixturedailyreports.pbl";
+ "d_daily_report_position.srd" "fixturedailyreports.pbl";
+ "d_daily_report_report.srd" "fixturedailyreports.pbl";
+ "d_daily_report_standard.srd" "fixturedailyreports.pbl";
+@end;

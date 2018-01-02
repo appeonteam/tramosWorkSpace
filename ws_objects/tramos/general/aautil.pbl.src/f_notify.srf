@@ -1,0 +1,55 @@
+﻿$PBExportHeader$f_notify.srf
+$PBExportComments$Function used to notify all windows about changes in system tables
+global type f_notify from function_object
+end type
+
+forward prototypes
+global subroutine f_notify (integer ai_table_code)
+end prototypes
+
+global subroutine f_notify (integer ai_table_code);/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     : 
+
+ Function : f_notify
+  
+ Event	 : 
+
+ Scope     : Global
+
+ ************************************************************************************
+
+ Author    : Martin Israelsen
+   
+ Date       : 29-8-96
+
+ Description : Notifies all datawindows about global table change
+
+ Arguments : ai_table_code, where  1=agents, 2=brokers, 3=vessel, 4=vessel consumption
+
+ Returns   : {description/none}  
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+  
+************************************************************************************/
+
+Window lw_tmp
+
+lw_tmp = w_tramos_main.GetFirstSheet()
+DO WHILE  IsValid(lw_tmp) 
+	lw_tmp.TriggerEvent("ue_global_change",ai_table_code,0)
+	lw_tmp = w_tramos_main.GetNextSheet( lw_tmp)
+Loop
+end subroutine
+

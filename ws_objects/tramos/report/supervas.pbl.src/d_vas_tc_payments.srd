@@ -1,0 +1,71 @@
+﻿$PBExportHeader$d_vas_tc_payments.srd
+release 10;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=ntc_payment_detail_periode_start dbname="NTC_PAYMENT_DETAIL.PERIODE_START" )
+ column=(type=datetime updatewhereclause=yes name=ntc_payment_detail_periode_end dbname="NTC_PAYMENT_DETAIL.PERIODE_END" )
+ column=(type=decimal(4) updatewhereclause=yes name=ntc_payment_detail_quantity dbname="NTC_PAYMENT_DETAIL.QUANTITY" )
+ column=(type=decimal(4) updatewhereclause=yes name=ntc_payment_detail_rate dbname="NTC_PAYMENT_DETAIL.RATE" )
+ column=(type=long updatewhereclause=yes name=ntc_payment_payment_status dbname="NTC_PAYMENT.PAYMENT_STATUS" )
+ column=(type=decimal(2) updatewhereclause=yes name=adr_comm_pct dbname="compute_0006" )
+ column=(type=decimal(0) updatewhereclause=yes identity=yes name=ntc_payment_payment_id dbname="NTC_PAYMENT.PAYMENT_ID" )
+ column=(type=decimal(6) updatewhereclause=yes name=ntc_payment_ex_rate_usd dbname="NTC_PAYMENT.EX_RATE_USD" )
+ column=(type=long updatewhereclause=yes name=ntc_payment_trans_to_coda dbname="NTC_PAYMENT.TRANS_TO_CODA" )
+ retrieve="  SELECT NTC_PAYMENT_DETAIL.PERIODE_START,   
+         NTC_PAYMENT_DETAIL.PERIODE_END,   
+         NTC_PAYMENT_DETAIL.QUANTITY,   
+         NTC_PAYMENT_DETAIL.RATE,   
+         NTC_PAYMENT.PAYMENT_STATUS,   
+         IsNUll(NTC_PAYMENT.ADR_COMM_PCT,0),
+  			NTC_PAYMENT.PAYMENT_ID,
+			NTC_PAYMENT.EX_RATE_USD,
+         NTC_PAYMENT.TRANS_TO_CODA   
+    FROM NTC_PAYMENT,   
+         NTC_PAYMENT_DETAIL  
+   WHERE ( NTC_PAYMENT_DETAIL.PAYMENT_ID = NTC_PAYMENT.PAYMENT_ID ) and  
+         ( ( NTC_PAYMENT.CONTRACT_ID in (:contract) ) AND  
+         ((Datepart(Year,NTC_PAYMENT_DETAIL.PERIODE_START) <= :year AND  
+         Datepart(Year,NTC_PAYMENT_DETAIL.PERIODE_END) = :year) OR  
+         (Datepart(Year,NTC_PAYMENT_DETAIL.PERIODE_START) = :year AND  
+         Datepart(Year,NTC_PAYMENT_DETAIL.PERIODE_END) >= :year) )) 
+ORDER BY NTC_PAYMENT.PAYMENT_ID ASC, 
+	NTC_PAYMENT_DETAIL.PERIODE_START DESC
+  
+" arguments=(("contract", numberlist),("year", number))  sort="ntc_payment_payment_id A ntc_payment_detail_periode_start D " )
+text(band=header alignment="2" text="Periode Start" border="0" color="0" x="5" y="4" height="64" width="370" html.valueishtml="0"  name=ntc_payment_detail_periode_start_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Periode End" border="0" color="0" x="411" y="4" height="64" width="357" html.valueishtml="0"  name=ntc_payment_detail_periode_end_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Days" border="0" color="0" x="795" y="4" height="64" width="325" html.valueishtml="0"  name=ntc_payment_detail_quantity_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Rate" border="0" color="0" x="1147" y="4" height="64" width="297" html.valueishtml="0"  name=ntc_payment_detail_rate_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Payment Status" border="0" color="0" x="1810" y="4" height="64" width="434" html.valueishtml="0"  name=ntc_payment_payment_status_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Adr.Comm" border="0" color="0" x="1513" y="4" height="64" width="283" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="TC hire Brutto Est" border="0" color="0" x="2263" y="4" height="64" width="475" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="TC hire Brutto Act" border="0" color="0" x="2761" y="4" height="64" width="475" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Hire x Rate used for Comm. calc." border="0" color="0" x="3250" y="4" height="64" width="882" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Payment ID" border="0" color="0" x="4160" y="8" height="64" width="311" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Ex rate from paymnet currency to USD" border="0" color="0" x="4562" y="8" height="64" width="1029" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="370" format="[shortdate] [time]" html.valueishtml="0"  name=ntc_payment_detail_periode_start visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="411" y="4" height="76" width="357" format="[shortdate] [time]" html.valueishtml="0"  name=ntc_payment_detail_periode_end visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="795" y="4" height="68" width="325" format="[general]" html.valueishtml="0"  name=ntc_payment_detail_quantity visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1152" y="4" height="64" width="297" format="[general]" html.valueishtml="0"  name=ntc_payment_detail_rate visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1815" y="4" height="68" width="434" format="[general]" html.valueishtml="0"  name=ntc_payment_payment_status visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" ( ntc_payment_detail_quantity  *  ntc_payment_detail_rate) - ( ntc_payment_detail_quantity  *  ntc_payment_detail_rate *  (adr_comm_pct/100) )  "border="0" color="0" x="2354" y="4" height="64" width="366" format="[GENERAL]" html.valueishtml="0"  name=tcbrutto_est visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="If(  ntc_payment_trans_to_coda  = 1,( ntc_payment_detail_quantity  *  ntc_payment_detail_rate) - ( ntc_payment_detail_quantity  *  ntc_payment_detail_rate *  (adr_comm_pct/100) ),0) "border="0" color="0" x="2843" y="4" height="64" width="370" format="[GENERAL]" html.valueishtml="0"  name=tcbrutto_act visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1481" y="4" height="64" width="283" format="[general]" html.valueishtml="0"  name=adr_comm_pct visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" ( ntc_payment_detail_quantity  *  ntc_payment_detail_rate )  "border="0" color="0" x="3255" y="8" height="64" width="581" format="[GENERAL]" html.valueishtml="0"  name=tchirenetto visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="4151" y="12" height="64" width="398" format="[general]" html.valueishtml="0"  name=ntc_payment_payment_id visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="4581" y="16" height="64" width="722" format="[general]" html.valueishtml="0"  name=ntc_payment_ex_rate_usd visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="5609" y="8" height="64" width="297" format="[general]" html.valueishtml="0"  name=ntc_payment_trans_to_coda visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,31 @@
+﻿$PBExportHeader$f_long2datetime.srf
+$PBExportComments$Converts seconds since 1-1-2000 to a datetime
+global type f_long2datetime from function_object
+end type
+
+forward prototypes
+global function datetime f_long2datetime (long al_seconds)
+end prototypes
+
+global function datetime f_long2datetime (long al_seconds);/* This function converts a long (seconds after 1. january 1990) 
+	variable to	datetime, and returns a datetime 
+*/
+
+datetime ldt_datetime 
+date ld_date
+time lt_time
+
+IF al_seconds = -1 THEN 
+	setNull(ldt_datetime)
+	RETURN ldt_datetime
+END IF
+
+
+ld_date = relativeDate(date(1990,01,01),long(al_seconds/86400))
+
+lt_time = relativeTime(time(0,0,0,0),long(mod(al_seconds,86400)))
+
+RETURN datetime(ld_date, lt_time)
+
+end function
+

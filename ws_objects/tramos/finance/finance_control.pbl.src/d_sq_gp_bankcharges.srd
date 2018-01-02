@@ -1,0 +1,124 @@
+﻿$PBExportHeader$d_sq_gp_bankcharges.srd
+$PBExportComments$Shows bank charges from claims and TC-out
+release 11;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no showbackcoloronxp=no )
+header(height=120 color="536870912" )
+summary(height=76 color="536870912" )
+footer(height=80 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=profit_c_pc_nr dbname="PROFIT_C.PC_NR" dbalias=".PC_NR" )
+ column=(type=char(35) updatewhereclause=yes name=profit_c_pc_name dbname="PROFIT_C.PC_NAME" dbalias=".PC_NAME" )
+ column=(type=char(6) updatewhereclause=yes name=claimtype dbname="CLAIMTYPE" )
+ column=(type=number updatewhereclause=yes name=compute_0004 dbname="compute_0004" )
+ retrieve="  SELECT PROFIT_C.PC_NR,
+	   PROFIT_C.PC_NAME,
+	   ~"FRT~" as CLAIMTYPE,
+         sum(FREIGHT_RECEIVED.FREIGHT_RECEIVED)  
+    FROM FREIGHT_RECEIVED,   
+         PROFIT_C,   
+         VESSELS,
+		USERS_PROFITCENTER  
+   WHERE VESSELS.PC_NR = PROFIT_C.PC_NR and
+		PROFIT_C.PC_NR = USERS_PROFITCENTER.PC_NR and  
+         FREIGHT_RECEIVED.VESSEL_NR = VESSELS.VESSEL_NR and  
+         FREIGHT_RECEIVED.FREIGHT_REC_DATE >= :startdate AND  
+         FREIGHT_RECEIVED.FREIGHT_REC_DATE < :enddate AND  
+         FREIGHT_RECEIVED.TRANS_CODE = ~"B~" AND
+		USERS_PROFITCENTER.USERID = :userid
+GROUP BY PROFIT_C.PC_NR   
+union
+SELECT PROFIT_C.PC_NR,
+	PROFIT_C.PC_NAME,
+	~"DEM~" as CLAIMTYPE,
+        sum(CLAIM_TRANSACTION.C_TRANS_AMOUNT_USD)  
+    FROM CLAIM_TRANSACTION,
+	CLAIMS,   
+         PROFIT_C,   
+         VESSELS,
+		USERS_PROFITCENTER  
+   WHERE CLAIM_TRANSACTION.VESSEL_NR = CLAIMS.VESSEL_NR AND
+	CLAIM_TRANSACTION.VOYAGE_NR = CLAIMS.VOYAGE_NR AND
+	CLAIM_TRANSACTION.CHART_NR = CLAIMS.CHART_NR AND
+	CLAIM_TRANSACTION.CLAIM_NR = CLAIMS.CLAIM_NR AND
+	VESSELS.PC_NR = PROFIT_C.PC_NR and  
+		PROFIT_C.PC_NR = USERS_PROFITCENTER.PC_NR and  
+        CLAIMS.VESSEL_NR = VESSELS.VESSEL_NR and  
+        CLAIM_TRANSACTION.C_TRANS_VAL_DATE >= :startdate AND  
+        CLAIM_TRANSACTION.C_TRANS_VAL_DATE < :enddate AND  
+        CLAIM_TRANSACTION.C_TRANS_CODE = ~"B~" AND
+		CLAIMS.CLAIM_TYPE = ~"DEM~"  AND 
+		USERS_PROFITCENTER.USERID = :userid
+GROUP BY PROFIT_C.PC_NR  
+UNION 
+SELECT PROFIT_C.PC_NR,
+	PROFIT_C.PC_NAME,
+	~"MISC~" as CLAIMTYPE,
+        sum(CLAIM_TRANSACTION.C_TRANS_AMOUNT_USD)  
+    FROM CLAIM_TRANSACTION,
+	CLAIMS,   
+         PROFIT_C,   
+         VESSELS,
+		USERS_PROFITCENTER  
+   WHERE CLAIM_TRANSACTION.VESSEL_NR = CLAIMS.VESSEL_NR AND
+	CLAIM_TRANSACTION.VOYAGE_NR = CLAIMS.VOYAGE_NR AND
+	CLAIM_TRANSACTION.CHART_NR = CLAIMS.CHART_NR AND
+	CLAIM_TRANSACTION.CLAIM_NR = CLAIMS.CLAIM_NR AND
+	VESSELS.PC_NR = PROFIT_C.PC_NR and  
+		PROFIT_C.PC_NR = USERS_PROFITCENTER.PC_NR and  
+        CLAIMS.VESSEL_NR = VESSELS.VESSEL_NR and  
+        CLAIM_TRANSACTION.C_TRANS_VAL_DATE >= :startdate AND  
+        CLAIM_TRANSACTION.C_TRANS_VAL_DATE < :enddate AND  
+        CLAIM_TRANSACTION.C_TRANS_CODE = ~"B~" AND
+		CLAIMS.CLAIM_TYPE NOT IN ( ~"FRT~", ~"DEM~")  AND
+		USERS_PROFITCENTER.USERID = :userid
+GROUP BY PROFIT_C.PC_NR   
+UNION
+  SELECT PROFIT_C.PC_NR,   
+         PROFIT_C.PC_NAME,   
+         ~"TC-OUT~",   
+         SUM(NTC_NON_PORT_EXP.AMOUNT  )
+    FROM NTC_NON_PORT_EXP,   
+         NTC_PAYMENT,   
+         NTC_TC_CONTRACT,   
+         PROFIT_C,   
+         VESSELS,
+		USERS_PROFITCENTER  
+   WHERE  NTC_PAYMENT.PAYMENT_ID = NTC_NON_PORT_EXP.PAYMENT_ID and  
+         NTC_TC_CONTRACT.CONTRACT_ID = NTC_PAYMENT.CONTRACT_ID and  
+         VESSELS.PC_NR = PROFIT_C.PC_NR  and  
+		PROFIT_C.PC_NR = USERS_PROFITCENTER.PC_NR and  
+         VESSELS.VESSEL_NR = NTC_TC_CONTRACT.VESSEL_NR  and  
+         NTC_PAYMENT.SETTLE_DATE >= :startdate  AND  
+         NTC_PAYMENT.SETTLE_DATE < :enddate  AND  
+         NTC_NON_PORT_EXP.INCOME = 0  AND  
+         NTC_NON_PORT_EXP.EXP_TYPE_ID = 16 AND
+		USERS_PROFITCENTER.USERID = :userid
+GROUP BY PROFIT_C.PC_NR   
+         
+
+
+
+" arguments=(("startdate", datetime),("enddate", datetime),("userid", string))  sort="profit_c_pc_name A " )
+group(level=1 header.height=64 trailer.height=0 by=("profit_c_pc_nr" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="Bank Charges for period " border="0" color="33554432" x="0" y="28" height="56" width="631" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="0" expression=" startdate "border="0" color="33554432" x="663" y="28" height="56" width="439" format="dd. mmm yyyy hh:mm" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="0" expression=" enddate "border="0" color="33554432" x="1253" y="28" height="56" width="439" format="dd. mmm yyyy hh:mm" html.valueishtml="0"  name=compute_3 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="to" border="0" color="33554432" x="1129" y="28" height="56" width="96" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="5" y1="100" x2="1701" y2="104"  name=l_2 visible="1" pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=header.1 id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="14" y="4" height="56" width="805" format="[general]" html.valueishtml="0"  name=profit_c_pc_name visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="133" y="4" height="64" width="206" format="[general]" html.valueishtml="0"  name=claimtype visible="1" edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="33554432" x="1106" y="4" height="64" width="576" format="#,##0.00" html.valueishtml="0"  name=compute_0004 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=summary x1="1102" y1="0" x2="1687" y2="0"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(compute_0004 for all)"border="0" color="33554432" x="1106" y="16" height="56" width="576" format="#,##0.00" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="0" expression="today()"border="0" color="33554432" x="32" y="8" height="64" width="375" format="dd/mm-yy hh:mm" html.valueishtml="0"  name=date_1 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

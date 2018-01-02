@@ -1,0 +1,14 @@
+﻿$PBExportHeader$f_getappversion.srf
+global type f_GetAppVersion from function_object
+end type
+
+forward prototypes
+global function string f_getappversion ()
+end prototypes
+
+global function string f_getappversion ();
+// This global function is required by DW d_sq_tb_inspio_header_mobileexp.  Do not remove!
+
+Return g_Obj.AppVer
+end function
+

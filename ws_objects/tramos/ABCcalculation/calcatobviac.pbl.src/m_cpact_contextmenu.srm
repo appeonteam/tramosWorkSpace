@@ -1,0 +1,439 @@
+﻿$PBExportHeader$m_cpact_contextmenu.srm
+forward
+global type m_cpact_contextmenu from menu
+end type
+type m_calculate from menu within m_cpact_contextmenu
+end type
+type m_copy from menu within m_cpact_contextmenu
+end type
+type m_1 from menu within m_cpact_contextmenu
+end type
+type m_minimize from menu within m_cpact_contextmenu
+end type
+type m_maximize from menu within m_cpact_contextmenu
+end type
+type m_tile from menu within m_cpact_contextmenu
+end type
+type m_0 from menu within m_cpact_contextmenu
+end type
+type m_addnewport from menu within m_cpact_contextmenu
+end type
+type m_deletecurrentport from menu within m_cpact_contextmenu
+end type
+type m_2 from menu within m_cpact_contextmenu
+end type
+type m_close from menu within m_cpact_contextmenu
+end type
+global type m_cpact_contextmenu from menu
+m_calculate m_calculate
+m_copy m_copy
+m_1 m_1
+m_minimize m_minimize
+m_maximize m_maximize
+m_tile m_tile
+m_0 m_0
+m_addnewport m_addnewport
+m_deletecurrentport m_deletecurrentport
+m_2 m_2
+m_close m_close
+end type
+end forward
+
+global type m_cpact_contextmenu from menu
+m_calculate m_calculate
+m_copy m_copy
+m_1 m_1
+m_minimize m_minimize
+m_maximize m_maximize
+m_tile m_tile
+m_0 m_0
+m_addnewport m_addnewport
+m_deletecurrentport m_deletecurrentport
+m_2 m_2
+m_close m_close
+end type
+global m_cpact_contextmenu m_cpact_contextmenu
+
+on m_cpact_contextmenu.create
+m_cpact_contextmenu=this
+call super::create
+this.text = "m_cpact_contextmenu"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_calculate=create m_calculate
+this.m_copy=create m_copy
+this.m_1=create m_1
+this.m_minimize=create m_minimize
+this.m_maximize=create m_maximize
+this.m_tile=create m_tile
+this.m_0=create m_0
+this.m_addnewport=create m_addnewport
+this.m_deletecurrentport=create m_deletecurrentport
+this.m_2=create m_2
+this.m_close=create m_close
+this.Item[UpperBound(this.Item)+1]=this.m_calculate
+this.Item[UpperBound(this.Item)+1]=this.m_copy
+this.Item[UpperBound(this.Item)+1]=this.m_1
+this.Item[UpperBound(this.Item)+1]=this.m_minimize
+this.Item[UpperBound(this.Item)+1]=this.m_maximize
+this.Item[UpperBound(this.Item)+1]=this.m_tile
+this.Item[UpperBound(this.Item)+1]=this.m_0
+this.Item[UpperBound(this.Item)+1]=this.m_addnewport
+this.Item[UpperBound(this.Item)+1]=this.m_deletecurrentport
+this.Item[UpperBound(this.Item)+1]=this.m_2
+this.Item[UpperBound(this.Item)+1]=this.m_close
+end on
+
+on m_cpact_contextmenu.destroy
+call super::destroy
+destroy(this.m_calculate)
+destroy(this.m_copy)
+destroy(this.m_1)
+destroy(this.m_minimize)
+destroy(this.m_maximize)
+destroy(this.m_tile)
+destroy(this.m_0)
+destroy(this.m_addnewport)
+destroy(this.m_deletecurrentport)
+destroy(this.m_2)
+destroy(this.m_close)
+end on
+
+type m_calculate from menu within m_cpact_contextmenu
+end type
+
+event clicked;parentwindow.dynamic event ue_contextmenuclick(3)
+end event
+
+on m_calculate.create
+call super::create
+this.text = "Calculate"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_calculate.destroy
+call super::destroy
+end on
+
+type m_copy from menu within m_cpact_contextmenu
+end type
+
+event clicked;parentwindow.dynamic event ue_contextmenuclick(4)
+end event
+
+on m_copy.create
+call super::create
+this.text = "Copy"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_copy.destroy
+call super::destroy
+end on
+
+type m_1 from menu within m_cpact_contextmenu
+end type
+
+on m_1.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_1.destroy
+call super::destroy
+end on
+
+type m_minimize from menu within m_cpact_contextmenu
+end type
+
+event clicked;parentwindow.dynamic event ue_contextmenuclick(1)
+
+
+end event
+
+on m_minimize.create
+call super::create
+this.text = "Minimize"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_minimize.destroy
+call super::destroy
+end on
+
+type m_maximize from menu within m_cpact_contextmenu
+end type
+
+event clicked;parentwindow.dynamic event ue_contextmenuclick(2)
+end event
+
+on m_maximize.create
+call super::create
+this.text = "Maximize"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_maximize.destroy
+call super::destroy
+end on
+
+type m_tile from menu within m_cpact_contextmenu
+end type
+
+event clicked;parentwindow.dynamic event ue_contextmenuclick(7)
+end event
+
+on m_tile.create
+call super::create
+this.text = "Tile"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tile.destroy
+call super::destroy
+end on
+
+type m_0 from menu within m_cpact_contextmenu
+end type
+
+on m_0.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_addnewport from menu within m_cpact_contextmenu
+end type
+
+event clicked;parentwindow.dynamic event ue_contextmenuclick(5)
+end event
+
+on m_addnewport.create
+call super::create
+this.text = "Add new Port"
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_addnewport.destroy
+call super::destroy
+end on
+
+type m_deletecurrentport from menu within m_cpact_contextmenu
+end type
+
+event clicked;parentwindow.dynamic event ue_contextmenuclick(9)
+end event
+
+on m_deletecurrentport.create
+call super::create
+this.text = "Delete selected Port"
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_deletecurrentport.destroy
+call super::destroy
+end on
+
+type m_2 from menu within m_cpact_contextmenu
+end type
+
+on m_2.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_2.destroy
+call super::destroy
+end on
+
+type m_close from menu within m_cpact_contextmenu
+end type
+
+event clicked;parentwindow.dynamic event ue_contextmenuclick(8)
+end event
+
+on m_close.create
+call super::create
+this.text = "Close Others/This"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_close.destroy
+call super::destroy
+end on
+

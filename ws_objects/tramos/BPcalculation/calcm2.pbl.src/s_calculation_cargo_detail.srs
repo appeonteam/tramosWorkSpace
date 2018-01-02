@@ -1,0 +1,67 @@
+﻿$PBExportHeader$s_calculation_cargo_detail.srs
+$PBExportComments$Contains the details of a cargo on the calculation incl. ports
+global type s_calculation_cargo_detail from structure
+	string		s_cargo_description
+	double		d_totalunits
+	integer		i_unit_type
+	integer		i_rate_type
+	double		d_wsrate
+	double		d_flatrate
+	double		d_lumpsum
+	double		d_unitrate
+	double		d_commission_percent_pool
+	double		d_commission_percent
+	double		d_adr_commission_percent
+	integer		i_adr_commission_on_lumpsum[]
+	double		d_add_lumpsum[]
+	double		d_add_days_at_port
+	double		d_add_days_ballasted
+	double		d_add_days_sea
+	double		d_add_days
+	double		d_add_days_idle
+	double		d_add_days_bunkering
+	double		d_add_fo
+	double		d_add_do
+	double		d_add_mgo
+	decimal{4}		d_add_lsfo
+	double		d_expenses
+	integer		i_reversible
+	integer		i_reversible_cp
+	integer		i_reversible_freight
+	long		l_cerp_id
+	s_calculation_cargo_inout		str_inouts[]
+	double		d_noticetime
+	double		d_local_gross_freight
+	double		d_local_total_costs
+	double		d_demurrage
+	double		d_despatch
+	double		d_local_net_result
+	double		d_adrs_comm
+	double		d_broker_comm
+	integer		i_add_days_laden_pcnt
+	integer		i_add_days_ballasted_pcnt
+	double		d_min_1
+	integer		i_overage_1
+	double		d_min_2
+	integer		i_overage_2
+	double		d_add_expenses
+	double		i_local_flatrate
+	double		d_deviation
+	double		d_heating
+	double		d_misc_claims
+	long		i_carg_id
+	double		d_claims_gross_freight
+	double		d_claims_misc_income
+	double		d_claims_adrs_comm
+	double		d_claims_broker_comm
+	double		d_add_income
+	double		d_add_days_laden_speed
+	double		d_add_days_ballasted_speed
+	integer		i_bro_commission_on_lumpsum[]
+	long		l_laden_cons_id
+	long		l_ballast_cons_id
+	long		l_idle_cons_id
+	long		l_various_cons_id
+	long		l_bunker_cons_id
+end type
+

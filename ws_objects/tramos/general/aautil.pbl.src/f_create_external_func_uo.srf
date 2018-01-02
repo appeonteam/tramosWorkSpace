@@ -1,0 +1,27 @@
+﻿$PBExportHeader$f_create_external_func_uo.srf
+$PBExportComments$New! function call made that will return a user object for making external calls for the correct platform
+global type f_create_external_func_uo from function_object
+end type
+
+forward prototypes
+global function u_external_function f_create_external_func_uo ()
+end prototypes
+
+global function u_external_function f_create_external_func_uo ();//Get the operating system type. This will be stored in a global variable. 
+//Examples will reference this to determine if they can peform certain
+//OS specific functions.
+environment le_environment
+
+u_external_function luo_ef
+
+GetEnvironment(le_environment)
+
+If le_environment.Win16 Then
+	luo_ef = create u_external_function_winapi
+Else
+	luo_ef = create u_external_function_win32
+End if
+
+return luo_ef
+end function
+

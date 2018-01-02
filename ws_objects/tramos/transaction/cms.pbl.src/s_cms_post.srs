@@ -1,0 +1,19 @@
+﻿$PBExportHeader$s_cms_post.srs
+$PBExportComments$Structure used in userobject u_electronic_file.
+global type s_cms_post from structure
+	string		rris_key
+	string		cms_type
+	string		trans_nr
+	string		expect_date
+	string		cust_nr
+	string		inv_nr
+	string		inv_date
+	string		vessel_name
+	string		reference
+	string		bank_acc
+	string		currency
+	string		amount
+	string		inc_pay_code
+	string		signer
+end type
+

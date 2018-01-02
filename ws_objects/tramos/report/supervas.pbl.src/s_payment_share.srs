@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_payment_share.srs
+$PBExportComments$Used in VAS (TC OUT) for broker comm
+global type s_payment_share from structure
+	double		paymentid[]
+	decimal { 4 }		share[]
+	decimal { 4 }		exrateusd[]
+end type
+

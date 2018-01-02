@@ -1,0 +1,21 @@
+﻿$PBExportHeader$s_frt_data.srs
+$PBExportComments$Used to receive data from calcule system for freight.
+global type s_frt_data from structure
+	decimal { 3 }		ws_pct
+	decimal { 2 }		ws_rate
+	decimal { 2 }		mts
+	decimal { 2 }		lumpsum
+	decimal { 2 }		addit_lump[]
+	boolean		adr_com_lump[]
+	decimal { 3 }		min_1
+	decimal { 2 }		over_1
+	decimal { 3 }		min_2
+	decimal { 2 }		over_2
+	long		calcaioid
+	decimal { 2 }		bunker_escalation
+	integer		freight_type
+	boolean		bro_com_lump[]
+	string		add_lump_comment[]
+	long		cargoid
+end type
+

@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_support.srs
+$PBExportComments$Structure to hold key and description of a support definition
+global type s_support from structure
+    long sdef_pk
+    string sdef_desc
+    boolean sdef_chart
+    long sdef_ownerid
+end type
+

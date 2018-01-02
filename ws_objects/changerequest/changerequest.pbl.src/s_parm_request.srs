@@ -1,0 +1,14 @@
+﻿$PBExportHeader$s_parm_request.srs
+global type s_parm_request from structure
+	string		operation		descriptor "comment" = "New, Modify"
+	long		request_id		descriptor "comment" = "CR"
+	string		bu_accessstatus		descriptor "comment" = "Business unit access status"
+	integer		bu_id		descriptor "comment" = "User's Business unit "
+	boolean		b_bu_dev		descriptor "comment" = "BU with <<DEV>> checked"
+	boolean		b_bu_bso		descriptor "comment" = "BU with <<BSO>> checked"
+	boolean		bu_controltimereg		descriptor "comment" = "Show Time Registration"
+	mt_n_datastore		ds_typestatus		descriptor "comment" = "Type access status and next status"
+	string		bu_accesstypes		descriptor "comment" = "Business unit can new's types"
+	integer		bu_changetype		descriptor "comment" = "Business unit can change type column"
+end type
+

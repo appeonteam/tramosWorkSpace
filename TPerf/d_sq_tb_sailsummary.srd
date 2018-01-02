@@ -1,0 +1,72 @@
+HA$PBExportHeader$d_sq_tb_sailsummary.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 9 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=248 color="536870912" )
+summary(height=100 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=tperf_saildata_type dbname="TPERF_SAILDATA.TYPE" )
+ column=(type=decimal(2) updatewhereclause=yes name=period dbname="compute_0002" )
+ column=(type=decimal(1) updatewhereclause=yes name=distance dbname="compute_0003" )
+ column=(type=decimal(1) updatewhereclause=yes name=tcons dbname="TCONS" )
+ column=(type=long updatewhereclause=yes name=tperf_voy_wrr_type dbname="TPERF_VOY.WRR_TYPE" )
+ retrieve="  SELECT TPERF_SAILDATA.TYPE,
+         SUM(TPERF_SAILDATA.PERIOD),   
+         SUM(TPERF_SAILDATA.DIST),   
+         CASE TPERF_VOY.WRR_TYPE WHEN 0 THEN SUM(TPERF_SAILDATA.MEHFO + TPERF_SAILDATA.MELSHFO + TPERF_SAILDATA.MEDO + TPERF_SAILDATA.MEGO + TPERF_REPCON.QTY_HFO + TPERF_REPCON.QTY_LSHFO + TPERF_REPCON.QTY_DO + TPERF_REPCON.QTY_GO) ELSE SUM(TPERF_SAILDATA.MEHFO + TPERF_SAILDATA.MELSHFO + TPERF_SAILDATA.MEDO + TPERF_SAILDATA.MEGO) END AS TCONS,   
+         TPERF_VOY.WRR_TYPE  
+    FROM TPERF_REPCON RIGHT OUTER JOIN TPERF_REPORTS ON TPERF_REPCON.REP_ID = TPERF_REPORTS.REP_ID,   
+         TPERF_SAILDATA,   
+         TPERF_VOY,   
+         VESSELS  
+   WHERE ( TPERF_SAILDATA.REP_ID = TPERF_REPORTS.REP_ID ) and  
+         ( TPERF_VOY.VESSEL_ID = VESSELS.VESSEL_ID ) and  
+         ( TPERF_VOY.VOY_ID = TPERF_REPORTS.VOY_ID ) and  
+         ( ( VESSELS.VESSEL_ID = :VesselID ) AND  
+         ( TPERF_VOY.VOY_ID >= :MinVoyID ) AND  
+         ( TPERF_VOY.VOY_ID <= :MaxVoyID ) AND  
+         ( TPERF_REPORTS.SERIAL >= :MinRepSerial ) AND  
+         ( TPERF_REPORTS.SERIAL <= :MaxRepSerial ) AND  
+         ( TPERF_REPCON.CONTYPE = TPERF_SAILDATA.TYPE) AND
+         ( TPERF_VOY.EXCLUDE = 0 ) )   
+GROUP BY TPERF_VOY.WRR_TYPE, TPERF_SAILDATA.TYPE  
+ORDER BY TPERF_SAILDATA.TYPE ASC   
+" arguments=(("VesselID", number),("MinVoyID", number),("MaxVoyID", number),("MinRepSerial", number),("MaxRepSerial", number)) )
+text(band=header alignment="0" text="Sailing Summary" border="0" color="33554432" x="9" y="8" height="80" width="718" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="Period" border="0" color="33554432" x="763" y="116" height="64" width="375" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="( Hours )" border="0" color="8421504" x="763" y="184" height="56" width="375" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="Distance" border="0" color="33554432" x="1211" y="116" height="64" width="375" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="Avg Speed" border="0" color="33554432" x="1673" y="116" height="64" width="411" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="Total" border="0" color="33554432" x="2121" y="116" height="64" width="411" html.valueishtml="0"  name=t_9 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="Daily Average" border="0" color="33554432" x="2537" y="116" height="64" width="471" html.valueishtml="0"  name=t_12 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="( Nautical Miles )" border="0" color="8421504" x="1179" y="184" height="56" width="439" html.valueishtml="0"  name=t_7 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="( Knots )" border="0" color="8421504" x="1659" y="188" height="56" width="439" html.valueishtml="0"  name=t_8 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="( Metric Tons )" border="0" color="8421504" x="2107" y="188" height="56" width="439" html.valueishtml="0"  name=t_10 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="( Metric Tons / Day )" border="0" color="8421504" x="2569" y="184" height="56" width="448" html.valueishtml="0"  name=t_11 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="0" text="( Consumption includes all types of oil )" border="0" color="0" x="672" y="20" height="56" width="1362" html.valueishtml="0"  name=t_15 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=header alignment="2" expression="if( tperf_voy_wrr_type = 0, 'M/E+A/E Consumption', 'M/E Consumption')"border="0" color="33554432" x="2135" y="36" height="64" width="864" format="[GENERAL]" html.valueishtml="0"  name=compute_6 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="0" text="~tcase(  tperf_saildata_type when 0 then 'Full Speed:' when 1 then 'Economical Speed:' when 2 then 'Adjusted Speed:' when 3 then 'Confined Waters:' when 4 then 'Bad Weather:' else '<Invalid Type>') " border="0" color="0" x="18" y="12" height="64" width="663" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="16711680" x="727" y="12" height="64" width="366" format="0.00" html.valueishtml="0"  name=period visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="16711680" x="1147" y="8" height="64" width="421" format="#,##0.0" html.valueishtml="0"  name=distance visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="Distance  /  Period "border="0" color="16711680" x="1742" y="8" height="64" width="215" format="0.00" html.valueishtml="0"  name=speed visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="tcons * 24 /  period "border="0" color="16711680" x="2592" y="8" height="64" width="297" format="0.0" html.valueishtml="0"  name=dailycons visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="16711680" x="2149" y="8" height="64" width="334" format="0.0" html.valueishtml="0"  name=tcons visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=summary x1="9" y1="4" x2="3049" y2="4"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="1073741824" )
+line(band=summary x1="9" y1="92" x2="3049" y2="92"  name=l_2 visible="1" pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="1073741824" )
+text(band=summary alignment="0" text="Overall:" border="0" color="33554432" x="18" y="20" height="64" width="663" html.valueishtml="0"  name=t_14 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=summary alignment="1" expression="sum(  period  for all )"border="0" color="16711680" x="727" y="20" height="64" width="366" format="0.00" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=summary alignment="1" expression="sum(   distance  for all )"border="0" color="16711680" x="1106" y="20" height="64" width="466" format="#,##0.0" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=summary alignment="1" expression=" compute_2 / compute_1 "border="0" color="16711680" x="1723" y="20" height="64" width="233" format="0.00" html.valueishtml="0"  name=compute_3 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=summary alignment="1" expression="sum(    tcons   for all )"border="0" color="16711680" x="2016" y="20" height="64" width="466" format="#,##0.0" html.valueishtml="0"  name=compute_4 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=summary alignment="1" expression=" compute_4 * 24 / compute_1 "border="0" color="16711680" x="2597" y="20" height="64" width="293" format="0.0" html.valueishtml="0"  name=compute_5 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

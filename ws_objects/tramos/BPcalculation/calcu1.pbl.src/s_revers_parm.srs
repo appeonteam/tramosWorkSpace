@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_revers_parm.srs
+$PBExportComments$Parametres for revers sensitivity calculation at cargo level
+global type s_revers_parm from structure
+    integer i_cargo_no
+    decimal {6} d_total_costs
+    decimal {6} d_total_units
+end type
+

@@ -1,0 +1,17 @@
+﻿$PBExportHeader$s_cargo_discharge.srs
+global type s_cargo_discharge from structure
+	integer		vessel_nr
+	string		voyage_nr
+	string		port_code
+	integer		pcn
+	integer		port_order
+	long		cerp_id[]
+	long		chart_nr
+	long		agent_nr
+	integer		jump_chartnr
+	decimal		max_temp
+	decimal		min_temp
+	decimal		diff_temp
+	integer		return_flag
+end type
+

@@ -1,0 +1,16 @@
+﻿$PBExportHeader$dw_purpose.srd
+$PBExportComments$Datawindow used for displaying/editing purposes
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=152 color="536870912" )
+table(column=(type=char(3) update=yes updatewhereclause=yes key=yes name=purpose_code dbname="PURPOSE.PURPOSE_CODE" )
+ column=(type=char(15) update=yes updatewhereclause=yes name=purpose_desc dbname="PURPOSE.PURPOSE_DESC" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"PURPOSE~" ) COLUMN(NAME=~"PURPOSE.PURPOSE_CODE~") COLUMN(NAME=~"PURPOSE.PURPOSE_DESC~")WHERE( EXP1 =~"PURPOSE.PURPOSE_CODE~" OP =~"=~" EXP2 =~":purpose_code~" ) ) ARG(NAME = ~"purpose_code~" TYPE = string) " update="PURPOSE" updatewhere=0 updatekeyinplace=yes arguments=(("purpose_code", string)) )
+text(band=detail alignment="0" text="Purpose Code :" border="0" color="0" x="18" y="4" height="56" width="389"  name=purpose_code_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="585" y="4" height="56" width="137" format="[general]"  name=purpose_code edit.limit=3 edit.case=upper edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16776960" )
+text(band=detail alignment="0" text="Purpose Description :" border="0" color="0" x="18" y="84" height="56" width="731"  name=purpose_desc_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="585" y="84" height="56" width="366" format="[general]"  name=purpose_desc edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

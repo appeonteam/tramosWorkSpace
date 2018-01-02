@@ -1,0 +1,30 @@
+﻿$PBExportHeader$f_checkinvalid.srf
+global type f_checkinvalid from function_object
+end type
+
+forward prototypes
+global function boolean f_checkinvalid (ref string as_string)
+end prototypes
+
+global function boolean f_checkinvalid (ref string as_string);// This function checks to see if there are any invalid characters that ASE won't accept
+
+Integer li_Count
+Boolean lbool_Error = False
+String ls_New = ""
+
+If IsNull(as_String) then Return False
+
+For li_Count = 1 to Len(as_String)
+	If Asc(Mid(as_String, li_Count, 1)) > 255 then 
+		ls_New += "_"
+		lbool_Error = True
+	Else 
+		ls_New += Mid(as_String, li_Count, 1)
+	End If
+Next
+
+If lbool_Error then as_String = ls_New
+
+Return lbool_Error
+end function
+

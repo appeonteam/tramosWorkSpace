@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_contact.srs
+$PBExportComments$Stucture to open w_cont.
+global type s_contact from structure
+    long cont_id
+    character chart_or_broker
+    long owner_id
+    string owner_short_name
+end type
+

@@ -1,0 +1,40 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "mt_common.pbl" "";
+@end;
+@begin Objects 
+ "d_dddw_pc.srd" "mt_common.pbl";
+ "d_ex_ff_commentpopup.srd" "mt_common.pbl";
+ "d_ex_ff_users.srd" "mt_common.pbl";
+ "d_ex_gr_dw_properties.srd" "mt_common.pbl";
+ "d_ex_tb_empty.srd" "mt_common.pbl";
+ "d_pc.srd" "mt_common.pbl";
+ "d_profit_center.srd" "mt_common.pbl";
+ "d_profit_center_name.srd" "mt_common.pbl";
+ "d_sq_ff_dddw_user_select.srd" "mt_common.pbl";
+ "f_datetime2long.srf" "mt_common.pbl";
+ "f_getdbserverdatetime.srf" "mt_common.pbl";
+ "f_long2datetime.srf" "mt_common.pbl";
+ "f_read_mail_body.srf" "mt_common.pbl";
+ "m_helpmain.srm" "mt_common.pbl";
+ "s_filter_multirow.srs" "mt_common.pbl";
+ "mt_n_activedirectoryfunctions.sru" "mt_common.pbl";
+ "mt_n_datefunctions.sru" "mt_common.pbl";
+ "mt_n_dddw_includecurrentvalue.sru" "mt_common.pbl";
+ "mt_n_filefunctions.sru" "mt_common.pbl";
+ "mt_n_numericalfunctions.sru" "mt_common.pbl";
+ "mt_n_stringfunctions.sru" "mt_common.pbl";
+ "n_cryptoapi.sru" "mt_common.pbl";
+ "n_dataexport.sru" "mt_common.pbl";
+ "n_dataprint.sru" "mt_common.pbl";
+ "n_dirattrib.sru" "mt_common.pbl";
+ "n_dw_filter_multirow.sru" "mt_common.pbl";
+ "n_exchangerate.sru" "mt_common.pbl";
+ "n_screengrab.sru" "mt_common.pbl";
+ "n_sendtomailclient.sru" "mt_common.pbl";
+ "n_versioninfo.sru" "mt_common.pbl";
+ "u_pc.sru" "mt_common.pbl";
+ "u_topbar_background.sru" "mt_common.pbl";
+ "u_user.sru" "mt_common.pbl";
+ "w_tramos_main.srw" "mt_common.pbl";
+@end;

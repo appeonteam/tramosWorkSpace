@@ -1,0 +1,13 @@
+﻿$PBExportHeader$f_dev_message.srf
+$PBExportComments$This function displays the message "This option will be available soon".
+global type f_dev_message from function_object
+end type
+
+forward prototypes
+global subroutine f_dev_message ()
+end prototypes
+
+global subroutine f_dev_message ();
+MessageBox("Message", " This Option will be available Soon" , Exclamation!)
+end subroutine
+

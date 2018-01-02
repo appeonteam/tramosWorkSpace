@@ -1,0 +1,47 @@
+﻿$PBExportHeader$s_tc_trans_fuel.srs
+$PBExportComments$This structure holds the variables that are passed to the fuel input price window.
+global type s_tc_trans_fuel from structure
+	boolean		sb_hfo
+	boolean		sb_do
+	boolean		sb_go
+	boolean		sb_lshfo
+	decimal { 4 }		sd_amount_hfo
+	decimal { 4 }		sd_amount_do
+	decimal { 4 }		sd_amount_go
+	decimal { 4 }		sd_amount_lshfo
+	decimal { 4 }		sd_price_hfo
+	decimal { 4 }		sd_price_do
+	decimal { 4 }		sd_price_go
+	decimal { 4 }		sd_price_lshfo
+	decimal { 4 }		sd_hfo_start
+	decimal { 4 }		sd_hfo_end
+	decimal { 4 }		sd_do_start
+	decimal { 4 }		sd_do_end
+	decimal { 4 }		sd_go_start
+	decimal { 4 }		sd_go_end
+	decimal { 4 }		sd_lshfo_start
+	decimal { 4 }		sd_lshfo_end
+	integer		si_vessel_nr
+	string		ss_voyage_nr
+	boolean		sb_tc_in
+	datetime		sdt_offservice_start
+	datetime		sdt_offservice_end
+	mt_n_datastore		ids_tc_contracts
+	integer		hfo_sel_in
+	integer		do_sel_in
+	integer		go_sel_in
+	integer		lshfo_sel_in
+	integer		hfo_sel_out
+	integer		do_sel_out
+	integer		go_sel_out
+	integer		lshfo_sel_out
+	decimal { 4 }		sd_price_hfo_out
+	decimal { 4 }		sd_price_do_out
+	decimal { 4 }		sd_price_go_out
+	decimal { 4 }		sd_price_lshfo_out
+	integer		si_returncode
+	integer		transfer_saved
+	integer		tcin_transfer
+	integer		tcout_transfer
+end type
+

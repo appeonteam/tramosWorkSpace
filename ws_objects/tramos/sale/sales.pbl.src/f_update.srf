@@ -1,0 +1,64 @@
+﻿$PBExportHeader$f_update.srf
+$PBExportComments$This function performs update() on a datawindow and checks return code.
+global type f_update from function_object
+end type
+
+forward prototypes
+global function boolean f_update (datawindow a_dw, window a_mdiframe)
+end prototypes
+
+global function boolean f_update (datawindow a_dw, window a_mdiframe);/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     : f_update(a_dw,a_mdiframe)
+  
+ Event	 : 
+
+ Scope     : Public
+
+ ************************************************************************************
+
+ Author    : Jeannette Holland
+   
+ Date       : 25-07-96
+
+ Description : This function performs update() on a datawindow; Commits if all is well else Rollback.
+
+ Arguments : A Datawindow a_dw which is the one to be updated. A Window a_mdiframe which is the mdi frame for
+			the application.
+
+ Returns   : none
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+24-07-96		1.0 			JH		Initial version
+  
+************************************************************************************/
+
+
+
+IF a_dw.Update() = 1 THEN
+// Update ok
+	COMMIT;
+		// display updated window
+		OpenWithParm(w_updated,0,a_mdiframe)
+		Return TRUE		
+
+ELSE
+// Update failed
+	ROLLBACK;
+
+	Return FALSE
+
+END IF
+end function
+

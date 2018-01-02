@@ -1,0 +1,1098 @@
+﻿$PBExportHeader$m_vett.srm
+forward
+global type m_vett from menu
+end type
+type m_vims from menu within m_vett
+end type
+type m_vesselsummary from menu within m_vims
+end type
+type m_inspectioninbox from menu within m_vims
+end type
+type m_searchinspection from menu within m_vims
+end type
+type m_inspectionreports from menu within m_vims
+end type
+type m_l3 from menu within m_vims
+end type
+type m_inspectionstatus from menu within m_vims
+end type
+type m_inspectionscheduler from menu within m_vims
+end type
+type m_line from menu within m_vims
+end type
+type m_companies from menu within m_vims
+end type
+type m_inspectionmodel from menu within m_vims
+end type
+type m_systemmessages from menu within m_vims
+end type
+type m_sentmail from menu within m_vims
+end type
+type m_redflagports from menu within m_vims
+end type
+type m_vimsadmin from menu within m_vims
+end type
+type m_l4 from menu within m_vims
+end type
+type m_checkincoming from menu within m_vims
+end type
+type m_backgroundstats from menu within m_vims
+end type
+type m_backgroundstatsyear from menu within m_backgroundstats
+end type
+type m_previousyear from menu within m_backgroundstatsyear
+end type
+type m_currentyear from menu within m_backgroundstatsyear
+end type
+type m_backgroundstatsyear from menu within m_backgroundstats
+m_previousyear m_previousyear
+m_currentyear m_currentyear
+end type
+type m_refreshbackgroundstats from menu within m_backgroundstats
+end type
+type m_backgroundstats from menu within m_vims
+m_backgroundstatsyear m_backgroundstatsyear
+m_refreshbackgroundstats m_refreshbackgroundstats
+end type
+type m_l2 from menu within m_vims
+end type
+type m_exitvims from menu within m_vims
+end type
+type m_vims from menu within m_vett
+m_vesselsummary m_vesselsummary
+m_inspectioninbox m_inspectioninbox
+m_searchinspection m_searchinspection
+m_inspectionreports m_inspectionreports
+m_l3 m_l3
+m_inspectionstatus m_inspectionstatus
+m_inspectionscheduler m_inspectionscheduler
+m_line m_line
+m_companies m_companies
+m_inspectionmodel m_inspectionmodel
+m_systemmessages m_systemmessages
+m_sentmail m_sentmail
+m_redflagports m_redflagports
+m_vimsadmin m_vimsadmin
+m_l4 m_l4
+m_checkincoming m_checkincoming
+m_backgroundstats m_backgroundstats
+m_l2 m_l2
+m_exitvims m_exitvims
+end type
+global type m_vett from menu
+m_vims m_vims
+end type
+end forward
+
+global type m_vett from menu
+m_vims m_vims
+end type
+global m_vett m_vett
+
+on m_vett.create
+m_vett=this
+call super::create
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_vims=create m_vims
+this.Item[UpperBound(this.Item)+1]=this.m_vims
+end on
+
+on m_vett.destroy
+call super::destroy
+destroy(this.m_vims)
+end on
+
+type m_vims from menu within m_vett
+m_vesselsummary m_vesselsummary
+m_inspectioninbox m_inspectioninbox
+m_searchinspection m_searchinspection
+m_inspectionreports m_inspectionreports
+m_l3 m_l3
+m_inspectionstatus m_inspectionstatus
+m_inspectionscheduler m_inspectionscheduler
+m_line m_line
+m_companies m_companies
+m_inspectionmodel m_inspectionmodel
+m_systemmessages m_systemmessages
+m_sentmail m_sentmail
+m_redflagports m_redflagports
+m_vimsadmin m_vimsadmin
+m_l4 m_l4
+m_checkincoming m_checkincoming
+m_backgroundstats m_backgroundstats
+m_l2 m_l2
+m_exitvims m_exitvims
+end type
+
+on m_vims.create
+call super::create
+this.text = "VIMS Menu"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_vesselsummary=create m_vesselsummary
+this.m_inspectioninbox=create m_inspectioninbox
+this.m_searchinspection=create m_searchinspection
+this.m_inspectionreports=create m_inspectionreports
+this.m_l3=create m_l3
+this.m_inspectionstatus=create m_inspectionstatus
+this.m_inspectionscheduler=create m_inspectionscheduler
+this.m_line=create m_line
+this.m_companies=create m_companies
+this.m_inspectionmodel=create m_inspectionmodel
+this.m_systemmessages=create m_systemmessages
+this.m_sentmail=create m_sentmail
+this.m_redflagports=create m_redflagports
+this.m_vimsadmin=create m_vimsadmin
+this.m_l4=create m_l4
+this.m_checkincoming=create m_checkincoming
+this.m_backgroundstats=create m_backgroundstats
+this.m_l2=create m_l2
+this.m_exitvims=create m_exitvims
+this.Item[UpperBound(this.Item)+1]=this.m_vesselsummary
+this.Item[UpperBound(this.Item)+1]=this.m_inspectioninbox
+this.Item[UpperBound(this.Item)+1]=this.m_searchinspection
+this.Item[UpperBound(this.Item)+1]=this.m_inspectionreports
+this.Item[UpperBound(this.Item)+1]=this.m_l3
+this.Item[UpperBound(this.Item)+1]=this.m_inspectionstatus
+this.Item[UpperBound(this.Item)+1]=this.m_inspectionscheduler
+this.Item[UpperBound(this.Item)+1]=this.m_line
+this.Item[UpperBound(this.Item)+1]=this.m_companies
+this.Item[UpperBound(this.Item)+1]=this.m_inspectionmodel
+this.Item[UpperBound(this.Item)+1]=this.m_systemmessages
+this.Item[UpperBound(this.Item)+1]=this.m_sentmail
+this.Item[UpperBound(this.Item)+1]=this.m_redflagports
+this.Item[UpperBound(this.Item)+1]=this.m_vimsadmin
+this.Item[UpperBound(this.Item)+1]=this.m_l4
+this.Item[UpperBound(this.Item)+1]=this.m_checkincoming
+this.Item[UpperBound(this.Item)+1]=this.m_backgroundstats
+this.Item[UpperBound(this.Item)+1]=this.m_l2
+this.Item[UpperBound(this.Item)+1]=this.m_exitvims
+end on
+
+on m_vims.destroy
+call super::destroy
+destroy(this.m_vesselsummary)
+destroy(this.m_inspectioninbox)
+destroy(this.m_searchinspection)
+destroy(this.m_inspectionreports)
+destroy(this.m_l3)
+destroy(this.m_inspectionstatus)
+destroy(this.m_inspectionscheduler)
+destroy(this.m_line)
+destroy(this.m_companies)
+destroy(this.m_inspectionmodel)
+destroy(this.m_systemmessages)
+destroy(this.m_sentmail)
+destroy(this.m_redflagports)
+destroy(this.m_vimsadmin)
+destroy(this.m_l4)
+destroy(this.m_checkincoming)
+destroy(this.m_backgroundstats)
+destroy(this.m_l2)
+destroy(this.m_exitvims)
+end on
+
+type m_vesselsummary from menu within m_vims
+end type
+
+on m_vesselsummary.create
+call super::create
+this.text = "Inspection Browser"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Browse.ico"
+this.toolbaritemtext = "Browser"
+this.toolbaritemorder = 1
+this.menuimage = "J:\TramosWS\VIMS\images\Vims\Browse.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_vesselsummary.destroy
+call super::destroy
+end on
+
+event clicked;
+SetPointer(HourGlass!)
+
+opensheet(w_insp, w_main, 0, Original!)
+end event
+
+type m_inspectioninbox from menu within m_vims
+end type
+
+event clicked;
+SetPointer(HourGlass!)
+OpenSheet(w_Inbox, w_Main, 0, Original!)
+end event
+
+on m_inspectioninbox.create
+call super::create
+this.text = "Inspection Inbox"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Inbox.ico"
+this.toolbaritemtext = "Inbox"
+this.toolbaritemorder = 2
+this.menuimage = "J:\TramosWS\VIMS\images\Vims\Inbox.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_inspectioninbox.destroy
+call super::destroy
+end on
+
+type m_searchinspection from menu within m_vims
+end type
+
+event clicked;SetPointer(HourGlass!)
+OpenSheet(w_Search, w_Main, 0, Original!)
+end event
+
+on m_searchinspection.create
+call super::create
+this.text = "Search Inspections"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Bino.ico"
+this.toolbaritemtext = "Search"
+this.toolbaritemorder = 4
+this.menuimage = "J:\TramosWS\VIMS\images\Vims\Bino.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_searchinspection.destroy
+call super::destroy
+end on
+
+type m_inspectionreports from menu within m_vims
+end type
+
+event clicked;
+SetPointer(HourGlass!)
+OpenSheet(w_Rep, w_Main, 0, Original!)
+end event
+
+on m_inspectionreports.create
+call super::create
+this.text = "Report Generator"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Rep.ico"
+this.toolbaritemtext = "Reports"
+this.toolbaritemorder = 3
+this.menuimage = "J:\TramosWS\VIMS\images\Vims\Rep.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_inspectionreports.destroy
+call super::destroy
+end on
+
+type m_l3 from menu within m_vims
+end type
+
+on m_l3.create
+call super::create
+this.text = "-"
+this.toolbaritemorder = 5
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_l3.destroy
+call super::destroy
+end on
+
+type m_inspectionstatus from menu within m_vims
+end type
+
+event clicked;
+SetPointer(HourGlass!)
+OpenSheet(w_Plan, w_Main, 0, Original!)
+end event
+
+on m_inspectionstatus.create
+call super::create
+this.text = "Inspection Planning"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Status.ico"
+this.toolbaritemtext = "Planning"
+this.toolbaritemorder = 6
+this.toolbaritemspace = 1
+this.menuimage = "J:\TramosWS\VIMS\images\Vims\Status.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_inspectionstatus.destroy
+call super::destroy
+end on
+
+type m_inspectionscheduler from menu within m_vims
+end type
+
+on m_inspectionscheduler.create
+call super::create
+this.text = "Task Scheduler"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Cal.ico"
+this.toolbaritemtext = "Scheduler"
+this.toolbaritemorder = 7
+this.menuimage = "J:\TramosWS\VIMS\images\Vims\Cal.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_inspectionscheduler.destroy
+call super::destroy
+end on
+
+event clicked;
+SetPointer(HourGlass!)
+
+OpenSheet(w_tasks, w_main, 0, Original!)
+end event
+
+type m_line from menu within m_vims
+event create ( )
+event destroy ( )
+end type
+
+on m_line.create
+call super::create
+this.text = "-"
+this.enabled = false
+this.toolbaritemtext = "Sep"
+this.toolbaritemorder = 8
+this.toolbaritemspace = 1
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_line.destroy
+call super::destroy
+end on
+
+type m_companies from menu within m_vims
+end type
+
+event clicked;
+SetPointer(HourGlass!)
+
+OpenSheet(w_Comp,w_Main, 0, Original!)
+end event
+
+on m_companies.create
+call super::create
+this.text = "Companies"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Comp.ico"
+this.toolbaritemtext = "Companies"
+this.toolbaritemorder = 9
+this.toolbaritemspace = 1
+this.menuimage = "J:\TramosWS\VIMS\images\Vims\Comp.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_companies.destroy
+call super::destroy
+end on
+
+type m_inspectionmodel from menu within m_vims
+end type
+
+on m_inspectionmodel.create
+call super::create
+this.text = "Inspection Models"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Model.ico"
+this.toolbaritemtext = "Models"
+this.toolbaritemorder = 10
+this.menuimage = "J:\TramosWS\VIMS\images\Vims\Model.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_inspectionmodel.destroy
+call super::destroy
+end on
+
+event clicked;
+//If g_obj.Access < 3 then
+//	MessageBox("Access Denied", "Only VIMS Superusers have access to this section.")
+//	Return
+//End If
+
+SetPointer(HourGlass!)
+
+opensheet(w_model, w_main, 0, Original!)
+end event
+
+type m_systemmessages from menu within m_vims
+end type
+
+on m_systemmessages.create
+call super::create
+this.text = "System Messages"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Msg.ico"
+this.toolbaritemtext = "Messages"
+this.toolbaritemorder = 11
+this.menuimage = "J:\TramosWS\VIMS\images\Vims\Msg.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_systemmessages.destroy
+call super::destroy
+end on
+
+event clicked;
+If (g_obj.Access < 2) or (g_Obj.DeptID > 1) then
+	MessageBox("Access Denied", "You do not have the appropriate access level to view System Messages.")
+	Return
+End If
+
+SetPointer(HourGlass!)
+opensheet(w_sysmsg, w_main, 0, Original!)
+end event
+
+type m_sentmail from menu within m_vims
+end type
+
+on m_sentmail.create
+call super::create
+this.text = "Sent Mail"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\VIMS\emailsent.ico"
+this.toolbaritemtext = "Sent Mail"
+this.toolbaritemorder = 12
+this.menuimage = "J:\TramosWS\VIMS\images\VIMS\emailsent.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sentmail.destroy
+call super::destroy
+end on
+
+event clicked;SetPointer(HourGlass!)
+
+opensheet(w_SentMail, w_main, 0, Original!)
+end event
+
+type m_redflagports from menu within m_vims
+end type
+
+on m_redflagports.create
+call super::create
+this.text = "Red Flag Ports"
+this.toolbaritemname = "j:\tramosws\vims\images\vims\flagred.png"
+this.toolbaritemtext = "Red Flag Ports"
+this.toolbaritemorder = 13
+this.menuimage = "J:\TramosWS\VIMS\images\vims\flagred.png"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_redflagports.destroy
+call super::destroy
+end on
+
+event clicked;
+OpenSheet(w_RedFlagPorts, w_Main, 0, Original!)
+end event
+
+type m_vimsadmin from menu within m_vims
+end type
+
+event clicked;
+If (g_obj.Access < 3) or (g_Obj.DeptID > 1) then
+	MessageBox("Access Denied", "You do not have the appropriate access level to enter the administration section.")
+	Return
+End If
+
+SetPointer(HourGlass!)
+opensheet(w_admin, w_main, 0, Original!)
+end event
+
+on m_vimsadmin.create
+call super::create
+this.text = "VIMS Admin"
+this.toolbaritemname = "J:\TramosWS\VIMS\images\Vims\Admin.ico"
+this.toolbaritemtext = "VIMS Admin"
+this.toolbaritemorder = 14
+this.menuimage = "J:\TramosWS\VIMS\images\Vims\Admin.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_vimsadmin.destroy
+call super::destroy
+end on
+
+type m_l4 from menu within m_vims
+end type
+
+on m_l4.create
+call super::create
+this.text = "-"
+this.toolbaritemorder = 14
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_l4.destroy
+call super::destroy
+end on
+
+type m_checkincoming from menu within m_vims
+end type
+
+event clicked;String ls_Path
+
+// Set path
+If SQLCA.Database = guo_Global.is_ProductionDB then ls_Path="R:\Down\CPHVIMS\Mail\" Else ls_Path="C:\VIMS_Incoming\"
+
+// Call w_Import
+OpenWithParm(w_Import, ls_Path)
+
+end event
+
+on m_checkincoming.create
+call super::create
+this.visible = false
+this.text = "Check Incoming"
+this.toolbaritemvisible = false
+this.toolbaritemname = "update5!"
+this.toolbaritemtext = "Check"
+this.toolbaritemorder = 15
+this.toolbaritemspace = 1
+this.menuimage = "Update5!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_checkincoming.destroy
+call super::destroy
+end on
+
+type m_backgroundstats from menu within m_vims
+m_backgroundstatsyear m_backgroundstatsyear
+m_refreshbackgroundstats m_refreshbackgroundstats
+end type
+
+on m_backgroundstats.create
+call super::create
+this.text = "Background Stats"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_backgroundstatsyear=create m_backgroundstatsyear
+this.m_refreshbackgroundstats=create m_refreshbackgroundstats
+this.Item[UpperBound(this.Item)+1]=this.m_backgroundstatsyear
+this.Item[UpperBound(this.Item)+1]=this.m_refreshbackgroundstats
+end on
+
+on m_backgroundstats.destroy
+call super::destroy
+destroy(this.m_backgroundstatsyear)
+destroy(this.m_refreshbackgroundstats)
+end on
+
+type m_backgroundstatsyear from menu within m_backgroundstats
+m_previousyear m_previousyear
+m_currentyear m_currentyear
+end type
+
+on m_backgroundstatsyear.create
+call super::create
+this.text = "Background Stats Year"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_previousyear=create m_previousyear
+this.m_currentyear=create m_currentyear
+this.Item[UpperBound(this.Item)+1]=this.m_previousyear
+this.Item[UpperBound(this.Item)+1]=this.m_currentyear
+end on
+
+on m_backgroundstatsyear.destroy
+call super::destroy
+destroy(this.m_previousyear)
+destroy(this.m_currentyear)
+end on
+
+type m_previousyear from menu within m_backgroundstatsyear
+end type
+
+event clicked;
+This.Checked = True
+m_CurrentYear.Checked = False
+
+w_Back.Post wf_Calc(Year(Today()) - 1)
+end event
+
+on m_previousyear.create
+call super::create
+this.text = "Previous Year"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_previousyear.destroy
+call super::destroy
+end on
+
+type m_currentyear from menu within m_backgroundstatsyear
+end type
+
+event clicked;
+This.Checked = True
+m_PreviousYear.Checked = False
+
+w_Back.Post wf_Calc(Year(Today()))
+end event
+
+on m_currentyear.create
+call super::create
+this.text = "Current Year"
+this.checked = true
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_currentyear.destroy
+call super::destroy
+end on
+
+type m_refreshbackgroundstats from menu within m_backgroundstats
+end type
+
+event clicked;
+If m_BackgroundStatsYear.m_PreviousYear.Checked then w_Back.Post wf_Calc(Year(Today()) - 1) Else w_Back.Post wf_Calc(Year(Today()))
+
+end event
+
+on m_refreshbackgroundstats.create
+call super::create
+this.text = "Re-calculate Background Stats"
+this.toolbaritemvisible = false
+this.toolbaritemtext = "Refresh"
+this.menuimage = "Compute!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_refreshbackgroundstats.destroy
+call super::destroy
+end on
+
+type m_l2 from menu within m_vims
+event create ( )
+event destroy ( )
+end type
+
+on m_l2.create
+call super::create
+this.text = "-"
+this.toolbaritemorder = 15
+this.toolbaritemspace = 5
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_l2.destroy
+call super::destroy
+end on
+
+type m_exitvims from menu within m_vims
+event create ( )
+event destroy ( )
+end type
+
+on m_exitvims.create
+call super::create
+this.text = "Exit VIMS"
+this.toolbaritemname = "exit!"
+this.toolbaritemtext = "Exit"
+this.toolbaritemorder = 17
+this.toolbaritemspace = 1
+this.menuimage = "Exit!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_exitvims.destroy
+call super::destroy
+end on
+
+event clicked;
+Close(w_Main)
+end event
+

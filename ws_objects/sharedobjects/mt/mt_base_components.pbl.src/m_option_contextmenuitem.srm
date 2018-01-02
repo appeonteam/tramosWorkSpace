@@ -1,0 +1,49 @@
+﻿$PBExportHeader$m_option_contextmenuitem.srm
+forward
+global type m_option_contextmenuitem from menu
+end type
+end forward
+
+global type m_option_contextmenuitem from menu
+end type
+global m_option_contextmenuitem m_option_contextmenuitem
+
+type variables
+public:
+powerobject ipo_parent
+
+end variables
+
+on m_option_contextmenuitem.create
+m_option_contextmenuitem=this
+call super::create
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_option_contextmenuitem.destroy
+call super::destroy
+end on
+
+event clicked;if this.tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+
+
+end event
+

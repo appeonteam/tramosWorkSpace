@@ -1,0 +1,19 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "salescon.pbl" "";
+@end;
+@begin Objects 
+ "d_actions_list.srd" "salescon.pbl";
+ "d_chart_list.srd" "salescon.pbl";
+ "d_keycode_list3.srd" "salescon.pbl";
+ "d_target_list.srd" "salescon.pbl";
+ "d_template_edit.srd" "salescon.pbl";
+ "w_action_keyc_select.srw" "salescon.pbl";
+ "w_chart_keyc_select.srw" "salescon.pbl";
+ "w_chartgroup.srw" "salescon.pbl";
+ "w_delete_target_date.srw" "salescon.pbl";
+ "w_delete_targetlist.srw" "salescon.pbl";
+ "w_keycodes.srw" "salescon.pbl";
+ "w_target_keyc_select.srw" "salescon.pbl";
+ "w_template.srw" "salescon.pbl";
+@end;

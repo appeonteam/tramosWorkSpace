@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_hire_average.srs
+$PBExportComments$Structure used in hire average function
+global type s_hire_average from structure
+    decimal {4} rate
+    long minutes
+    integer daysinmonth
+end type
+

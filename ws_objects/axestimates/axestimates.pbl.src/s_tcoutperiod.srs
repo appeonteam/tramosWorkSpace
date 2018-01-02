@@ -1,0 +1,19 @@
+﻿$PBExportHeader$s_tcoutperiod.srs
+$PBExportComments$general structure for dimensioned B-Post estimates (Hire, Misc. Income & Misc Exp.)
+global type s_tcoutperiod from structure
+	long		l_periodid		descriptor "comment" = "id of period"
+	datetime		dtm_start		descriptor "comment" = "period start datetime"
+	datetime		dtm_end		descriptor "comment" = "period end datetime"
+	decimal { 8 }		d_amount		descriptor "comment" = "on hire period, calculated with d_days and d_rate otherwise the base amount~r~n"
+	decimal { 8 }		d_rate		descriptor "comment" = "contract rate, n/a for expense/income"
+	decimal { 8 }		d_days		descriptor "comment" = "days between dtm_start and dtm_end minus estimated off days"
+	string		s_voyagenr		descriptor "comment" = "periods voyage number, EXC code if problem locating number.~r~n"
+	decimal { 8 }		d_offhire_days		descriptor "comment" = "if ~"act off days~" > ~"est off days~" then ~"act off days~" else ~"est off days~""
+	decimal { 8 }		d_contractexp_amount		descriptor "comment" = "total contract expenses"
+	decimal { 8 }		d_estbrokercomm_amount		descriptor "comment" = "estimated broker commission amount for period"
+	decimal { 8 }		d_miscinc_amount
+	decimal { 8 }		d_miscexp_amount
+	decimal { 8 }		d_offhire_amount
+	decimal { 8 }		d_estoffhire_days		descriptor "comment" = "~"est off days~""
+end type
+

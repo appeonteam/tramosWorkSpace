@@ -1,0 +1,35 @@
+﻿$PBExportHeader$s_off_service.srs
+$PBExportComments$Structure used when selecting a voyage and port, aswell as when off-service is created/modified
+global type s_off_service from structure
+	string		port_code
+	integer		vessel_nr
+	string		voyage_nr
+	datetime		off_start
+	datetime		off_end
+	integer		days
+	integer		hours
+	decimal { 4 }		fuel_oil
+	decimal { 4 }		diesel_oil
+	decimal { 4 }		gas_oil
+	decimal { 4 }		lshfo_oil
+	decimal { 4 }		hfo_start
+	decimal { 4 }		hfo_end
+	decimal { 4 }		do_start
+	decimal { 4 }		do_end
+	decimal { 4 }		go_start
+	decimal { 4 }		go_end
+	decimal { 4 }		lshfo_start
+	decimal { 4 }		lshfo_end
+	string		description
+	integer		minutes
+	boolean		scheduled
+	n_offservice		businessobject
+	boolean		new_record
+	long		ops_off_service_id
+	string		comment		descriptor "comment" = "Operators comments, will only be shown in w_edit_single_offservice "
+	boolean		trans_to_coda		descriptor "comment" = "If this off-service is settled through the TC-contract/payment or not"
+	long		trans_to_tcin		descriptor "comment" = "> 0, if offservice is transferred to tc hire in contract, else 0"
+	long		trans_to_tcout		descriptor "comment" = "> 0, if offservice is transferred to tc hire out contract, else 0"
+	integer		transfer_saved
+end type
+

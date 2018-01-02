@@ -1,0 +1,19 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "interfacemanager\\blockedvendors.pbl" "";
+@end;
+@begin Objects
+ "interfacemanager\\d_sq_tb_blocked_charterer.srd" "interfacemanager\\blockedvendors.pbl";
+ "interfacemanager\\d_sq_tb_find_blocked_broker_tccontract.srd" "interfacemanager\\blockedvendors.pbl";
+ "interfacemanager\\d_sq_tb_find_blocked_tcowner_vessels.srd" "interfacemanager\\blockedvendors.pbl";
+ "interfacemanager\\d_sq_tb_find_blocked_charterer_tccontract.srd" "interfacemanager\\blockedvendors.pbl";
+ "interfacemanager\\d_sq_tb_find_blocked_agent.srd" "interfacemanager\\blockedvendors.pbl";
+ "interfacemanager\\d_sq_tb_blocked_agent.srd" "interfacemanager\\blockedvendors.pbl";
+ "interfacemanager\\d_sq_tb_blocked_broker.srd" "interfacemanager\\blockedvendors.pbl";
+ "interfacemanager\\d_sq_tb_find_blocked_charterer_cp.srd" "interfacemanager\\blockedvendors.pbl";
+ "interfacemanager\\d_sq_tb_blocked_tcowner.srd" "interfacemanager\\blockedvendors.pbl";
+ "interfacemanager\\d_sq_tb_find_blocked_tcowner_tccontract.srd" "interfacemanager\\blockedvendors.pbl";
+ "interfacemanager\\d_sq_tb_find_blocked_broker_cp.srd" "interfacemanager\\blockedvendors.pbl";
+ "interfacemanager\\d_sq_tb_blocked_log.srd" "interfacemanager\\blockedvendors.pbl";
+ "interfacemanager\\d_ex_tb_import_vendors.srd" "interfacemanager\\blockedvendors.pbl";
+@end;

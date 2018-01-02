@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_new_distance.srs
+$PBExportComments$Contains a from and a to port
+global type s_new_distance from structure
+    string from_port
+    string to_port
+end type
+

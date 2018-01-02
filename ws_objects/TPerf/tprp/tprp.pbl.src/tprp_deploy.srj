@@ -1,0 +1,23 @@
+﻿$PBExportHeader$tprp_deploy.srj
+EXE:tprp.exe,,0,1,1
+CMP:0,0,0,2,0,0,0
+COM:Maersk Tankers
+DES:
+CPY:A.P. Moller-Maersk
+PRD:T-Perf Report Processor
+PVS:1.6.0.0
+PVN:1,7,0,0
+FVS:1.6.0.0
+FVN:1,7,0,0
+MAN:0,asInvoker,0
+PBD:tprp\tprp.pbl,,1
+OBJ:C:\tramosWS\tperf\tprp\tprp.pbl,n_datastore,u
+OBJ:C:\tramosWS\tperf\tprp\tprp.pbl,n_wrr,u
+OBJ:C:\tramosWS\tperf\tprp\tprp.pbl,struct_spdcontable,s
+OBJ:C:\tramosWS\tperf\tprp\tprp.pbl,f_transfervoyage,f
+OBJ:C:\tramosWS\tperf\tprp\tprp.pbl,w_main,w
+OBJ:C:\tramosWS\tperf\tprp\tprp.pbl,tprp,a
+OBJ:C:\tramosWS\tperf\tprp\tprp.pbl,n_reportprocessor,u
+OBJ:C:\tramosWS\tperf\tprp\tprp.pbl,f_write2log,f
+OBJ:C:\tramosWS\tperf\tprp\tprp.pbl,f_addalert,f
+OBJ:C:\tramosWS\tperf\tprp\tprp.pbl,f_addsysalert,f

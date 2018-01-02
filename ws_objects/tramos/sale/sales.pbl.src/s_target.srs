@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_target.srs
+$PBExportComments$Structure used to hold targetkey, charterer key and charterer name.
+global type s_target from structure
+    long target_pk
+    long charterer_pk
+    string charterer_name
+end type
+

@@ -1,0 +1,14 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "crminterface.pbl" "";
+@end;
+@begin Objects 
+ "crminterface.sra" "crminterface.pbl";
+ "d_sp_gr_financials_crm.srd" "crminterface.pbl";
+ "d_sp_gr_recent_spot_fixtures.srd" "crminterface.pbl";
+ "p_crminterface_exe.srj" "crminterface.pbl";
+ "s_command_line.srs" "crminterface.pbl";
+ "c#log_level.sru" "crminterface.pbl";
+ "n_crm_interface.sru" "crminterface.pbl";
+ "w_crm_interface.srw" "crminterface.pbl";
+@end;

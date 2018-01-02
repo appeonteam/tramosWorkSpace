@@ -1,0 +1,7 @@
+﻿$PBExportHeader$str_filecontent.srs
+global type str_filecontent from structure
+	long		il_fileid
+	blob		ibl_filecontent
+	string		is_comment
+end type
+

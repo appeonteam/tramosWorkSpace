@@ -1,0 +1,51 @@
+﻿$PBExportHeader$f_amount_to_text.srf
+$PBExportComments$Converts amount to text (1234.56 -> One-Two-Three-Four 56/100)
+global type f_amount_to_text from function_object
+end type
+
+forward prototypes
+global function string f_amount_to_text (double dp_amount)
+end prototypes
+
+global function string f_amount_to_text (double dp_amount);//
+// Converts amount to string
+//
+// e.x. 1023,56 = One-Zero-Two-Three 56/100
+//
+
+String ls_amount, ls_alfa_amount
+Long ll_len,ll_counter
+
+ls_Amount = String ( dp_amount, "0.00" )
+ll_Len = Len(ls_amount)
+
+FOR ll_counter = 1 TO (ll_Len - 3)
+	CHOOSE CASE mid(ls_Amount,ll_counter,1)
+		CASE "0"
+			ls_alfa_amount = ls_alfa_amount + "Zero"
+		CASE "1"
+			ls_alfa_amount = ls_alfa_amount + "One"
+		CASE "2"
+			ls_alfa_amount = ls_alfa_amount + "Two"
+		CASE "3"
+			ls_alfa_amount = ls_alfa_amount + "Three"
+		CASE "4"
+			ls_alfa_amount = ls_alfa_amount + "Four"
+		CASE "5"
+			ls_alfa_amount = ls_alfa_amount + "Five"
+		CASE "6"
+			ls_alfa_amount = ls_alfa_amount + "Six"
+		CASE "7"
+			ls_alfa_amount = ls_alfa_amount + "Seven"
+		CASE "8"
+			ls_alfa_amount = ls_alfa_amount + "Eight"
+		CASE "9"
+			ls_alfa_amount = ls_alfa_amount + "Nine"
+	END CHOOSE
+	IF ll_counter < (ll_len - 3) THEN ls_alfa_amount = ls_alfa_amount + "-"
+NEXT
+
+ls_alfa_amount = ls_alfa_amount + " " + mid(ls_amount,(ll_Len - 1),2) +"/100"
+Return ls_alfa_amount
+end function
+

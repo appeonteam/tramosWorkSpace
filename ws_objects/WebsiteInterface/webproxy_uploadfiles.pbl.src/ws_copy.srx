@@ -1,0 +1,28 @@
+﻿$PBExportHeader$ws_copy.srx
+$PBExportComments$Proxy imported from Web service using Web Service Proxy Generator.
+global type ws_Copy from NonVisualObject
+end type
+
+type variables
+Protected:
+        string pbws_ver = ".NET"
+        string cs_namespace = "WebService"
+        string cs_class = "Copy"
+        string cs_assembly = "websiteproxy_uploadfiles.dll"
+        string pb_prefix = "ws_"
+        string pb_usenvo = "YES"
+        string pb_target = "c:\root\tramosws\websiteinterface"
+        string ws_CopyResult = "CopyResult(WebService.CopyErrorCode ErrorCode,System.String ErrorMessage,System.String DestinationUrl)"
+        string ws_FieldInformation = "FieldInformation(WebService.FieldType Type,System.String DisplayName,System.String InternalName,System.Guid Id,System.String Value)"
+end variables
+
+forward prototypes
+public:
+function ulong CopyIntoItemsLocal(  string SourceUrl,  string DestinationUrls[], ref ws_CopyResult Results[]) alias for "<method name='CopyIntoItemsLocal' ns='WebService' pbname='CopyIntoItemsLocal'><return name='returnvalue' type='System.UInt32' isRef='False' ArrayDim='0' IsNullableType='False' /><param name='SourceUrl' type='System.String' pos='0' dir='in' ArrayDim='0' IsNullableType='False'/><param name='DestinationUrls' type='System.String' pos='1' dir='in' ArrayDim='1' IsNullableType='False'/><param name='Results' type='WebService.CopyResult' pos='2' dir='inout' ArrayDim='1' IsNullableType='False'/></method>"
+function ulong CopyIntoItems(  string SourceUrl,  string DestinationUrls[],  ws_FieldInformation Fields[],  byte Stream[], ref ws_CopyResult Results[]) alias for "<method name='CopyIntoItems' ns='WebService' pbname='CopyIntoItems'><return name='returnvalue' type='System.UInt32' isRef='False' ArrayDim='0' IsNullableType='False' /><param name='SourceUrl' type='System.String' pos='0' dir='in' ArrayDim='0' IsNullableType='False'/><param name='DestinationUrls' type='System.String' pos='1' dir='in' ArrayDim='1' IsNullableType='False'/><param name='Fields' type='WebService.FieldInformation' pos='2' dir='in' ArrayDim='1' IsNullableType='False'/><param name='Stream' type='System.Byte' pos='3' dir='in' ArrayDim='1' IsNullableType='False'/><param name='Results' type='WebService.CopyResult' pos='4' dir='inout' ArrayDim='1' IsNullableType='False'/></method>"
+function ulong GetItem(  string Url, ref ws_FieldInformation Fields[], ref byte Stream[]) alias for "<method name='GetItem' ns='WebService' pbname='GetItem'><return name='returnvalue' type='System.UInt32' isRef='False' ArrayDim='0' IsNullableType='False' /><param name='Url' type='System.String' pos='0' dir='in' ArrayDim='0' IsNullableType='False'/><param name='Fields' type='WebService.FieldInformation' pos='1' dir='inout' ArrayDim='1' IsNullableType='False'/><param name='Stream' type='System.Byte' pos='2' dir='inout' ArrayDim='1' IsNullableType='False'/></method>"
+subroutine CancelAsync (  any userState) alias for "<method name='CancelAsync' ns='WebService' pbname='CancelAsync'><param name='userState' type='System.Object' pos='0' dir='in' ArrayDim='0' IsNullableType='False'/></method>"
+subroutine PBAddCookie(any cookie) alias for "<method name='PBAddCookie' ns='System.Runtime.Remoting.Messaging'  IsCookieFunction='True' pbname='PBAddCookie'><return name='returnvalue' type='System.Void' isRef='false' ArrayDim='0' IsNullableType='false' /><param name='cookie' type='any' pos='0' dir='in' ArrayDim='0' IsNullableType='False'/></method>"
+function any PBGetCookies(string Uri) alias for "<method name='PBGetCookies' ns='System.Runtime.Remoting.Messaging'  IsCookieFunction='True' pbname='PBGetCookies'><return name='returnvalue' type='System.Object' isRef='false' ArrayDim='0' IsNullableType='false' /><param name='cookie' type='System.String' pos='0' dir='in' ArrayDim='0' IsNullableType='False'/></method>"
+end prototypes
+

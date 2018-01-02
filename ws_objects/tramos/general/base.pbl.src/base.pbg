@@ -1,0 +1,23 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "base.pbl" "";
+@end;
+@begin Objects 
+ "u_base_sqlca.sru" "base.pbl";
+ "u_datawindow_dragdrop.sru" "base.pbl";
+ "u_datawindow_sqlca.sru" "base.pbl";
+ "u_dw_multiselect_dragdrop.sru" "base.pbl";
+ "u_nvo_base.sru" "base.pbl";
+ "u_tramos_base.sru" "base.pbl";
+ "uo_cb_base.sru" "base.pbl";
+ "uo_cbx_base.sru" "base.pbl";
+ "uo_datawindow.sru" "base.pbl";
+ "uo_ddlb_base.sru" "base.pbl";
+ "uo_gb_base.sru" "base.pbl";
+ "uo_lb_base.sru" "base.pbl";
+ "uo_mle_base.sru" "base.pbl";
+ "uo_rb_base.sru" "base.pbl";
+ "uo_sle_base.sru" "base.pbl";
+ "uo_st_base.sru" "base.pbl";
+ "w_base.srw" "base.pbl";
+@end;

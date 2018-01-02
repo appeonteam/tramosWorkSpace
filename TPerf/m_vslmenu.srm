@@ -1,0 +1,628 @@
+HA$PBExportHeader$m_vslmenu.srm
+forward
+global type m_vslmenu from menu
+end type
+type m_vsldet from menu within m_vslmenu
+end type
+type m_warrantedsettings from menu within m_vslmenu
+end type
+type m_vslid from menu within m_vslmenu
+end type
+type m_transfervoyages from menu within m_vslmenu
+end type
+type m_l2 from menu within m_vslmenu
+end type
+type m_activevesselsonly from menu within m_vslmenu
+end type
+type m_activeinactivevessels from menu within m_vslmenu
+end type
+type m_l4 from menu within m_vslmenu
+end type
+type m_tperfonly from menu within m_vslmenu
+end type
+type m_l3 from menu within m_vslmenu
+end type
+type m_reports from menu within m_vslmenu
+end type
+type m_0 from menu within m_reports
+end type
+type m_consumptionreport from menu within m_reports
+end type
+type m_activealerts from menu within m_reports
+end type
+type m_reports from menu within m_vslmenu
+m_0 m_0
+m_consumptionreport m_consumptionreport
+m_activealerts m_activealerts
+end type
+type m_l5 from menu within m_vslmenu
+end type
+type m_refreshlist from menu within m_vslmenu
+end type
+global type m_vslmenu from menu
+m_vsldet m_vsldet
+m_warrantedsettings m_warrantedsettings
+m_vslid m_vslid
+m_transfervoyages m_transfervoyages
+m_l2 m_l2
+m_activevesselsonly m_activevesselsonly
+m_activeinactivevessels m_activeinactivevessels
+m_l4 m_l4
+m_tperfonly m_tperfonly
+m_l3 m_l3
+m_reports m_reports
+m_l5 m_l5
+m_refreshlist m_refreshlist
+end type
+end forward
+
+global type m_vslmenu from menu
+m_vsldet m_vsldet
+m_warrantedsettings m_warrantedsettings
+m_vslid m_vslid
+m_transfervoyages m_transfervoyages
+m_l2 m_l2
+m_activevesselsonly m_activevesselsonly
+m_activeinactivevessels m_activeinactivevessels
+m_l4 m_l4
+m_tperfonly m_tperfonly
+m_l3 m_l3
+m_reports m_reports
+m_l5 m_l5
+m_refreshlist m_refreshlist
+end type
+global m_vslmenu m_vslmenu
+
+type variables
+
+end variables
+
+on m_vslmenu.create
+m_vslmenu=this
+call super::create
+this.text = "m_vslmenu"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_vsldet=create m_vsldet
+this.m_warrantedsettings=create m_warrantedsettings
+this.m_vslid=create m_vslid
+this.m_transfervoyages=create m_transfervoyages
+this.m_l2=create m_l2
+this.m_activevesselsonly=create m_activevesselsonly
+this.m_activeinactivevessels=create m_activeinactivevessels
+this.m_l4=create m_l4
+this.m_tperfonly=create m_tperfonly
+this.m_l3=create m_l3
+this.m_reports=create m_reports
+this.m_l5=create m_l5
+this.m_refreshlist=create m_refreshlist
+this.Item[UpperBound(this.Item)+1]=this.m_vsldet
+this.Item[UpperBound(this.Item)+1]=this.m_warrantedsettings
+this.Item[UpperBound(this.Item)+1]=this.m_vslid
+this.Item[UpperBound(this.Item)+1]=this.m_transfervoyages
+this.Item[UpperBound(this.Item)+1]=this.m_l2
+this.Item[UpperBound(this.Item)+1]=this.m_activevesselsonly
+this.Item[UpperBound(this.Item)+1]=this.m_activeinactivevessels
+this.Item[UpperBound(this.Item)+1]=this.m_l4
+this.Item[UpperBound(this.Item)+1]=this.m_tperfonly
+this.Item[UpperBound(this.Item)+1]=this.m_l3
+this.Item[UpperBound(this.Item)+1]=this.m_reports
+this.Item[UpperBound(this.Item)+1]=this.m_l5
+this.Item[UpperBound(this.Item)+1]=this.m_refreshlist
+end on
+
+on m_vslmenu.destroy
+call super::destroy
+destroy(this.m_vsldet)
+destroy(this.m_warrantedsettings)
+destroy(this.m_vslid)
+destroy(this.m_transfervoyages)
+destroy(this.m_l2)
+destroy(this.m_activevesselsonly)
+destroy(this.m_activeinactivevessels)
+destroy(this.m_l4)
+destroy(this.m_tperfonly)
+destroy(this.m_l3)
+destroy(this.m_reports)
+destroy(this.m_l5)
+destroy(this.m_refreshlist)
+end on
+
+type m_vsldet from menu within m_vslmenu
+end type
+
+on m_vsldet.create
+call super::create
+this.text = "&Vessel Details"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_vsldet.destroy
+call super::destroy
+end on
+
+event clicked;parentwindow.dynamic event ue_vslmenuclick(0)
+end event
+
+type m_warrantedsettings from menu within m_vslmenu
+end type
+
+event clicked;parentwindow.dynamic event ue_vslmenuclick(1)
+end event
+
+on m_warrantedsettings.create
+call super::create
+this.text = "&Warranted Settings"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_warrantedsettings.destroy
+call super::destroy
+end on
+
+type m_vslid from menu within m_vslmenu
+end type
+
+on m_vslid.create
+call super::create
+this.text = "Vessel ID &Code"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_vslid.destroy
+call super::destroy
+end on
+
+event clicked;parentwindow.dynamic event ue_vslmenuclick(2)
+end event
+
+type m_transfervoyages from menu within m_vslmenu
+end type
+
+event clicked;parentwindow.dynamic event ue_vslmenuclick(13)
+end event
+
+on m_transfervoyages.create
+call super::create
+this.text = "Tra&nsfer Voyages..."
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_transfervoyages.destroy
+call super::destroy
+end on
+
+type m_l2 from menu within m_vslmenu
+end type
+
+on m_l2.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_l2.destroy
+call super::destroy
+end on
+
+type m_activevesselsonly from menu within m_vslmenu
+end type
+
+on m_activevesselsonly.create
+call super::create
+this.text = "&Active Vessels Only"
+this.checked = true
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_activevesselsonly.destroy
+call super::destroy
+end on
+
+event clicked;parentwindow.dynamic event ue_vslmenuclick(5)
+end event
+
+type m_activeinactivevessels from menu within m_vslmenu
+end type
+
+on m_activeinactivevessels.create
+call super::create
+this.text = "Active && &Inactive Vessels"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_activeinactivevessels.destroy
+call super::destroy
+end on
+
+event clicked;parentwindow.dynamic event ue_vslmenuclick(6)
+end event
+
+type m_l4 from menu within m_vslmenu
+event create ( )
+event destroy ( )
+end type
+
+on m_l4.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_l4.destroy
+call super::destroy
+end on
+
+type m_tperfonly from menu within m_vslmenu
+event create ( )
+event destroy ( )
+end type
+
+on m_tperfonly.create
+call super::create
+this.text = "&T-Perf Vessels Only"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tperfonly.destroy
+call super::destroy
+end on
+
+event clicked;parentwindow.dynamic event ue_vslmenuclick(7)
+end event
+
+type m_l3 from menu within m_vslmenu
+end type
+
+on m_l3.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_l3.destroy
+call super::destroy
+end on
+
+type m_reports from menu within m_vslmenu
+m_0 m_0
+m_consumptionreport m_consumptionreport
+m_activealerts m_activealerts
+end type
+
+on m_reports.create
+call super::create
+this.text = "Re&ports"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_0=create m_0
+this.m_consumptionreport=create m_consumptionreport
+this.m_activealerts=create m_activealerts
+this.Item[UpperBound(this.Item)+1]=this.m_0
+this.Item[UpperBound(this.Item)+1]=this.m_consumptionreport
+this.Item[UpperBound(this.Item)+1]=this.m_activealerts
+end on
+
+on m_reports.destroy
+call super::destroy
+destroy(this.m_0)
+destroy(this.m_consumptionreport)
+destroy(this.m_activealerts)
+end on
+
+type m_0 from menu within m_reports
+end type
+
+event clicked;
+ParentWindow.Dynamic event ue_VslMenuClick(11)
+end event
+
+on m_0.create
+call super::create
+this.text = "&Speed && Consumption"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_consumptionreport from menu within m_reports
+end type
+
+event clicked;
+ParentWindow.Dynamic event ue_VslMenuClick(10)
+end event
+
+on m_consumptionreport.create
+call super::create
+this.text = "Total &Consumption"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_consumptionreport.destroy
+call super::destroy
+end on
+
+type m_activealerts from menu within m_reports
+end type
+
+event clicked;
+ParentWindow.Dynamic event ue_VslMenuClick(12)
+end event
+
+on m_activealerts.create
+call super::create
+this.text = "Active A&lerts"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_activealerts.destroy
+call super::destroy
+end on
+
+type m_l5 from menu within m_vslmenu
+end type
+
+on m_l5.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_l5.destroy
+call super::destroy
+end on
+
+type m_refreshlist from menu within m_vslmenu
+end type
+
+on m_refreshlist.create
+call super::create
+this.text = "&Refresh List"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_refreshlist.destroy
+call super::destroy
+end on
+
+event clicked;parentwindow.dynamic event ue_vslmenuclick(8)
+end event
+

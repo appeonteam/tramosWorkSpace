@@ -1,0 +1,33 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "sharedobjects\\mt\\mt_services.pbl" "";
+@end;
+@begin Objects
+ "sharedobjects\\mt\\w_show_errormessage.srw" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_open_urloremail.sru" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\w_capture_errormessage.srw" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\d_ex_tb_sqlsyntax_transaction.srd" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\w_sqlsyntax_spy.srw" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_fileattach_service.sru" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_fileattach_trans.sru" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\w_master_spy.srw" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_service_manager.sru" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\str_filecontent.srs" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\d_ex_tb_user_errormessages.srd" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_get_maxvalue.sru" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\d_ex_tb_errormessages.srd" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_dw_validation_service.sru" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_sequence_service.sru" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_menu_service.sru" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_dw_spy_service.sru" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\w_ds_spy.srw" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_ds_spy_parameters.sru" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_error_service.sru" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_transaction_spy_service.sru" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\d_ex_tb_sqlsyntax.srd" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_att_service.sru" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\w_transaction_spy.srw" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_dw_sort_service.sru" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_dw_style_service.sru" "sharedobjects\\mt\\mt_services.pbl";
+ "sharedobjects\\mt\\n_gui_style_service.sru" "sharedobjects\\mt\\mt_services.pbl";
+@end;

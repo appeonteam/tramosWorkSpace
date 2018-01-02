@@ -1,0 +1,110 @@
+﻿$PBExportHeader$d_sq_gr_bunker_ifrs.srd
+release 17;
+datawindow(units=0 timer_interval=0 color=1073741824 brushmode=0 transparency=0 gradient.angle=0 gradient.color=8421504 gradient.focus=0 gradient.repetition.count=0 gradient.repetition.length=100 gradient.repetition.mode=0 gradient.scale=100 gradient.spread=100 gradient.transparency=0 picture.blur=0 picture.clip.bottom=0 picture.clip.left=0 picture.clip.right=0 picture.clip.top=0 picture.mode=0 picture.scale.x=100 picture.scale.y=100 picture.transparency=0 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.background=no print.preview.background=no print.preview.outline=yes hidegrayline=no showbackcoloronxp=no picture.file="" grid.lines=0 grid.columnmove=no selected.mouse=no )
+header(height=64 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+summary(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+footer(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+detail(height=64 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+table(column=(type=long updatewhereclause=yes name=vessel_nr dbname="POC.VESSEL_NR" )
+ column=(type=char(50) updatewhereclause=yes name=vessels_vessel_name dbname="VESSELS.VESSEL_NAME" )
+ column=(type=char(5) updatewhereclause=yes name=vessels_vessel_ref_nr dbname="VESSELS.VESSEL_REF_NR" )
+ column=(type=char(7) updatewhereclause=yes name=voyage_nr dbname="POC.VOYAGE_NR" )
+ column=(type=datetime updatewhereclause=yes name=port_arr_dt dbname="POC.PORT_ARR_DT" )
+ column=(type=char(10) updatewhereclause=yes name=poc_port_code dbname="POC.PORT_CODE" )
+ column=(type=long updatewhereclause=yes name=poc_pcn dbname="POC.PCN" )
+ column=(type=decimal(4) updatewhereclause=yes name=dept_hsfo_quantity dbname="dept_hsfo_quantity" )
+ column=(type=decimal(4) updatewhereclause=yes name=dept_lsgo_quantity dbname="dept_lsgo_quantity" )
+ column=(type=decimal(4) updatewhereclause=yes name=dept_hsgo_quantity dbname="dept_hsgo_quantity" )
+ column=(type=decimal(4) updatewhereclause=yes name=dept_lsfo_quantity dbname="dept_lsfo_quantity" )
+ column=(type=decimal(4) updatewhereclause=yes name=stock_hsfo_quantity dbname="stock_hsfo_quantity" )
+ column=(type=decimal(4) updatewhereclause=yes name=stock_lsgo_quantity dbname="stock_lsgo_quantity" )
+ column=(type=decimal(4) updatewhereclause=yes name=stock_hsgo_quantity dbname="stock_hsgo_quantity" )
+ column=(type=decimal(4) updatewhereclause=yes name=stock_lsfo_quantity dbname="stock_lsfo_quantity" )
+ column=(type=decimal(2) updatewhereclause=yes name=dept_bunker_amount dbname="dept_bunker_amount" )
+ column=(type=decimal(2) updatewhereclause=yes name=stock_bunker_amount dbname="stock_bunker_amount" )
+ column=(type=decimal(4) updatewhereclause=yes name=hire_rate dbname="hire_rate" )
+ retrieve="select	POC.VESSEL_NR,
+         VESSELS.VESSEL_NAME,
+         VESSELS.VESSEL_REF_NR,
+         POC.VOYAGE_NR,
+         POC.PORT_ARR_DT,
+         POC.PORT_CODE,
+         POC.PCN,
+         dept_hsfo_quantity = isnull(POC.DEPT_HFO, 0), 
+         dept_lsgo_quantity = isnull(POC.DEPT_DO, 0),  
+         dept_hsgo_quantity = isnull(POC.DEPT_GO, 0), 
+         dept_lsfo_quantity = isnull(POC.DEPT_LSHFO, 0),
+         stock_hsfo_quantity = case when ( VESSELS.STOCK_LASTUPDATED >POC.PORT_DEPT_DT and  VESSELS.STOCK_LASTUPDATED <= :report_date) 
+                                        then isnull(VESSELS.STOCK_HFO, 0)
+                                         else 0 end,
+         stock_lsgo_quantity = case when ( VESSELS.STOCK_LASTUPDATED >POC.PORT_DEPT_DT and  VESSELS.STOCK_LASTUPDATED <= :report_date) 
+                                      then isnull(VESSELS.STOCK_DO, 0)
+                                       else 0 end,
+         stock_hsgo_quantity =  case when ( VESSELS.STOCK_LASTUPDATED > POC.PORT_DEPT_DT and  VESSELS.STOCK_LASTUPDATED <= :report_date) 
+                                       then  isnull(VESSELS.STOCK_GO, 0)
+                                        else 0 end,
+         stock_lsfo_quantity =  case when ( VESSELS.STOCK_LASTUPDATED > POC.PORT_DEPT_DT and  VESSELS.STOCK_LASTUPDATED <= :report_date) 
+                                            then isnull(VESSELS.STOCK_LSHFO, 0)
+                                             else 0 end,
+         dept_bunker_amount = 0.00,
+         stock_bunker_amount = 0.00,
+         hire_rate = (select NTC_TC_PERIOD.RATE 
+                             from NTC_TC_CONTRACT inner join NTC_TC_PERIOD 
+                                                                             on NTC_TC_CONTRACT.CONTRACT_ID = NTC_TC_PERIOD.CONTRACT_ID
+                           where NTC_TC_CONTRACT.TC_HIRE_IN = 1
+                               and ( :report_date between NTC_TC_PERIOD.PERIODE_START and NTC_TC_PERIOD.PERIODE_END )
+                               and NTC_TC_CONTRACT.VESSEL_NR = POC.VESSEL_NR)
+ from POC inner join VESSELS 
+                          on POC.VESSEL_NR = VESSELS.VESSEL_NR
+                inner join ( select POC.VESSEL_NR, 
+                                          POC.VOYAGE_NR, 
+                                          max(POC.PORT_DEPT_DT) as PORT_DEPT_DT
+                                  from POC, (select VESSEL_NR, 
+                                                             max(VOYAGE_NR) as VOYAGE_NR
+                                                     from ( select POC.VESSEL_NR, 
+                                                                        POC.VOYAGE_NR, 
+                                                                        MAX(POC.PORT_DEPT_DT) as VESSEL_DEPT_DT 
+                                                                from POC inner join VESSELS on POC.VESSEL_NR = VESSELS.VESSEL_NR
+                                                                               inner join VOYAGES on POC.VESSEL_NR = VOYAGES.VESSEL_NR
+                                                                                                           and POC.VOYAGE_NR = VOYAGES.VOYAGE_NR
+                                                              where VESSELS.VESSEL_ACTIVE = 1
+                                                                  and VESSELS.PC_NR IN ( select PC_NR 
+                                                                                                         from USERS_PROFITCENTER
+                                                                                                       where USERID = :user_id)
+                                                                  and VOYAGES.VOYAGE_FINISHED = 1
+                                                                  and VOYAGES.VOYAGE_TYPE <> 2 
+														   and ( convert(int, left(VOYAGES.FULL_VOYAGE_NR, 4) ) = datepart(yy, :report_date)
+                                                                    or convert(int, left(VOYAGES.FULL_VOYAGE_NR, 4) ) = (datepart(yy, :report_date) - 1) )
+                                                               group by POC.VESSEL_NR, POC.VOYAGE_NR) VSL_POC
+                                                   where VSL_POC.VESSEL_DEPT_DT <= :report_date
+                                                    group by VSL_POC.VESSEL_NR ) VSL_VOYAGE
+                                where POC.VESSEL_NR = VSL_VOYAGE.VESSEL_NR
+                                    and POC.VOYAGE_NR = VSL_VOYAGE.VOYAGE_NR
+                                 group by POC.VESSEL_NR, POC.VOYAGE_NR ) POC_MAX
+                          on POC.VESSEL_NR = POC_MAX.VESSEL_NR
+                        and POC.VOYAGE_NR = POC_MAX.VOYAGE_NR
+                        and POC.PORT_DEPT_DT = POC_MAX.PORT_DEPT_DT
+order by  POC.VESSEL_NR" arguments=(("user_id", string),("report_date", datetime)) )
+text(band=header alignment="2" text="Vessel Name" enabled="0" border="0" color="0" x="174" y="4" height="52" width="937" html.valueishtml="0"  name=vessels_vessel_name_t visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="0" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="0" background.gradient.focus="0" background.gradient.scale="0" background.gradient.spread="0" tooltip.backcolor="0" tooltip.delay.initial="0" tooltip.delay.visible="0" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="0" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="No" enabled="0" border="0" color="0" x="9" y="4" height="52" width="155" html.valueishtml="0"  name=vessels_vessel_ref_nr_t visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="0" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="0" background.gradient.focus="0" background.gradient.scale="0" background.gradient.spread="0" tooltip.backcolor="0" tooltip.delay.initial="0" tooltip.delay.visible="0" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="0" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Voyage" enabled="0" border="0" color="0" x="1120" y="4" height="52" width="256" html.valueishtml="0"  name=poc_voyage_nr_t visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="0" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="0" background.gradient.focus="0" background.gradient.scale="0" background.gradient.spread="0" tooltip.backcolor="0" tooltip.delay.initial="0" tooltip.delay.visible="0" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="0" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Dept Bunker Amount" enabled="0" border="0" color="0" x="1385" y="4" height="52" width="576" html.valueishtml="0"  name=dept_bunker_amount_t visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="0" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="0" background.gradient.focus="0" background.gradient.scale="0" background.gradient.spread="0" tooltip.backcolor="0" tooltip.delay.initial="0" tooltip.delay.visible="0" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="0" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Stock Bunker Amount" enabled="0" border="0" color="0" x="1970" y="4" height="52" width="576" html.valueishtml="0"  name=stock_bunker_amount_t visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="0" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="0" background.gradient.focus="0" background.gradient.scale="0" background.gradient.spread="0" tooltip.backcolor="0" tooltip.delay.initial="0" tooltip.delay.visible="0" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="0" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="TC-in Contract Rate" enabled="0" border="0" color="0" x="2555" y="4" height="52" width="480" html.valueishtml="0"  name=hire_rate_t visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="0" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="0" background.gradient.focus="0" background.gradient.scale="0" background.gradient.spread="0" tooltip.backcolor="0" tooltip.delay.initial="0" tooltip.delay.visible="0" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="0" tooltip.transparency="0" transparency="0" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="174" y="4" height="56" width="937" format="[general]" html.valueishtml="0"  name=vessels_vessel_name visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="56" width="155" format="[general]" html.valueishtml="0"  name=vessels_vessel_ref_nr visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1120" y="4" height="56" width="256" format="[general]" html.valueishtml="0"  name=voyage_nr visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="0" color="0" x="1385" y="4" height="56" width="576" format="######,##0.00" html.valueishtml="0"  name=dept_bunker_amount visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=17 alignment="1" tabsequence=32766 border="0" color="0" x="1970" y="4" height="56" width="576" format="######,##0.00" html.valueishtml="0"  name=stock_bunker_amount visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=18 alignment="1" tabsequence=32766 border="0" color="0" x="2555" y="4" height="56" width="480" format="######,##0.00" html.valueishtml="0"  name=hire_rate visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" nativepdf.customsize=0 nativepdf.customorientation=0 )
+export.xhtml()
+ 

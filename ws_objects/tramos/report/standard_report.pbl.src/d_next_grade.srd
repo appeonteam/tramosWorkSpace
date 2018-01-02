@@ -1,0 +1,28 @@
+﻿$PBExportHeader$d_next_grade.srd
+$PBExportComments$Used in report "Idle days" as a nested report that finds the grade on the first cargo on the next voyage.
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(35) updatewhereclause=yes name=cd_grade_name dbname="CD.GRADE_NAME" )
+ retrieve="  SELECT CD.GRADE_NAME  
+    FROM POC,   
+         CD  
+   WHERE ( POC.VESSEL_NR = CD.VESSEL_NR ) and  
+         ( POC.VOYAGE_NR = CD.VOYAGE_NR ) and  
+         ( POC.PORT_CODE = CD.PORT_CODE ) and  
+         ( POC.PCN = CD.PCN ) and  
+         ( 
+			( POC.VESSEL_NR = :vessel_nr ) AND 
+         ( POC.PORT_DEPT_DT = (SELECT Min(POC.PORT_DEPT_DT)
+										FROM POC 
+										WHERE POC.PORT_DEPT_DT > :date and
+												POC.VESSEL_NR = :vessel_nr and
+												( POC.PURPOSE_CODE = ~"L~" OR
+												POC.PURPOSE_CODE = ~"L/D~" ) AND
+												POC.VOYAGE_NR <> :voyage_nr) ) )    
+" arguments=(("voyage_nr", string),("date", datetime),("vessel_nr", number)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="60" width="987" format="[general]"  name=cd_grade_name edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

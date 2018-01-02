@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_login.srs
+$PBExportComments$Login structure used for passing data to/from w_login
+global type s_login from structure
+    string program_name
+    string database_name
+    string return_userid
+end type
+

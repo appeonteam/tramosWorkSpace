@@ -1,0 +1,55 @@
+﻿$PBExportHeader$uf_string_to_datetime.srf
+$PBExportComments$Converts a datetime string to datetime
+global type uf_string_to_datetime from function_object
+end type
+
+forward prototypes
+global function datetime uf_string_to_datetime (string as_string)
+end prototypes
+
+global function datetime uf_string_to_datetime (string as_string);/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : 
+  
+ Object     : 
+
+ Function : uf_string_to_datetime
+  
+ Event	 : 
+
+ Scope     : 
+
+ ************************************************************************************
+
+ Author    : Martin Israelsen
+   
+ Date       : 30-7-96
+
+ Description : Converts a string datetime (dd/mm/yy hh:mm:ss) to a datetime variable
+
+ Arguments : Datetime String
+
+ Returns   : Datetime variable
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+  
+************************************************************************************/
+
+Integer li_pos
+
+li_pos = Pos(as_string," ")
+Return(DateTime(Date(Left(as_String,li_pos - 1)),Time(Right(as_string,Len(as_String)-li_pos))))
+
+
+
+end function
+

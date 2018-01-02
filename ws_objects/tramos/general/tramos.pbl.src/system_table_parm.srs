@@ -1,0 +1,9 @@
+﻿$PBExportHeader$system_table_parm.srs
+$PBExportComments$System structures.
+global type system_table_parm from structure
+    boolean parm_type
+    string parm_string
+    long parm_number
+    boolean new_mod
+end type
+

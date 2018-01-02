@@ -1,0 +1,38 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tramos\\tchire\\eptchire.pbl" "";
+@end;
+@begin Objects
+ "tramos\\tchire\\daysinmonth.srf" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\tc_hire.srf" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\avg_hire.srf" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\w_tchire.srw" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\months_and_days.srf" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\s_select_voyage_chartererowner.srs" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\dw_tchire.srd" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\dw_tchire_tcperiod.srd" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\s_hire_average.srs" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\w_select_voyage_charter_owner.srw" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\s_hire_month_and_days.srs" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\d_setoffs.srd" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\dw_tchire_offhire_insert.srd" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\dw_tchire_offhire_insert_print.srd" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\s_update_tccomm.srs" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\dw_tchire_offhire_view.srd" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\d_expense_offhire_list.srd" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\d_secondary_brokers.srd" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\s_secondary_brokers.srs" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\dw_tchire_listview.srd" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\w_choose_secondary_brokers.srw" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\s_expenses_offhires.srs" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\w_select_setoffdate.srw" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\dw_tchire_expense.srd" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\d_hire_statement.srd" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\dw_list_charterer.srd" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\s_hire_statement.srs" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\w_print_hirestatement.srw" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\dw_tchire_expense_print.srd" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\s_hire_statement_offhire.srs" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\w_expenseoffhires.srw" "tramos\\tchire\\eptchire.pbl";
+ "tramos\\tchire\\dw_list_voyage.srd" "tramos\\tchire\\eptchire.pbl";
+@end;

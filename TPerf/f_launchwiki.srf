@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_launchwiki.srf
+global type f_LaunchWiki from function_object
+end type
+
+forward prototypes
+global subroutine f_launchwiki (string as_wikipage)
+end prototypes
+
+global subroutine f_launchwiki (string as_wikipage);
+Inet iinet_base
+
+GetContextService("Internet", iinet_base)
+
+iinet_base.HyperlinkToURL("http://team.apmoller.net/sites/Tramos/Wiki/" + as_WikiPage)
+
+end subroutine
+

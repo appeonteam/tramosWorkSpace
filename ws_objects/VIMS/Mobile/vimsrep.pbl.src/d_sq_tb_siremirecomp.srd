@@ -1,0 +1,99 @@
+﻿$PBExportHeader$d_sq_tb_siremirecomp.srd
+release 11;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no showbackcoloronxp=no )
+header(height=128 color="536870912" )
+summary(height=36 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" height.autosize=yes )
+table(column=(type=char(50) updatewhereclause=yes name=vessels_vessel_name dbname="VESSELS.VESSEL_NAME" dbalias=".VESSEL_NAME" )
+ column=(type=datetime updatewhereclause=yes name=vett_master_inspdate dbname="VETT_MASTER.INSPDATE" dbalias=".INSPDATE" )
+ column=(type=char(50) updatewhereclause=yes name=vett_master_imname dbname="VETT_MASTER.IMNAME" dbalias=".IMNAME" )
+ column=(type=char(20) updatewhereclause=yes name=vett_master_edition dbname="VETT_MASTER.EDITION" dbalias=".EDITION" )
+ column=(type=char(100) updatewhereclause=yes name=vett_comp_name dbname="VETT_COMP.NAME" dbalias=".NAME" )
+ column=(type=char(30) updatewhereclause=yes name=fname dbname="VETT_MASTER.INSP_FNAME" dbalias=".INSP_FNAME" )
+ column=(type=char(30) updatewhereclause=yes name=lname dbname="VETT_MASTER.INSP_LNAME" dbalias=".INSP_LNAME" )
+ column=(type=long updatewhereclause=yes identity=yes name=obs dbname="OBS" )
+ column=(type=long updatewhereclause=yes identity=yes name=vlowrisk dbname="VLOWRISK" )
+ column=(type=long updatewhereclause=yes identity=yes name=vmedrisk dbname="VMEDRISK" )
+ column=(type=long updatewhereclause=yes identity=yes name=vhirisk dbname="VHIRISK" )
+ column=(type=long updatewhereclause=yes identity=yes name=lowrisk dbname="LOWRISK" )
+ column=(type=long updatewhereclause=yes identity=yes name=medrisk dbname="MEDRISK" )
+ column=(type=long updatewhereclause=yes identity=yes name=hirisk dbname="HIRISK" )
+ column=(type=char(2) updatewhereclause=yes name=rating dbname="VETT_MASTER.RATING" dbalias=".RATING" )
+ column=(type=decimal(2) updatewhereclause=yes name=vslscore dbname="VETT_MASTER.VSLSCORE" dbalias=".VSLSCORE" )
+ retrieve="  SELECT VESSELS.VESSEL_NAME,   
+         VETT_MASTER.INSPDATE,   
+         VETT_MASTER.IMNAME,   
+         VETT_MASTER.EDITION,   
+         VETT_COMP.NAME,   
+         VETT_MASTER.INSP_FNAME,   
+         VETT_MASTER.INSP_LNAME,   
+         (Count(ANS)) as OBS,   
+         (Sum(Case When (RISK = 0) and (RESPTEXT = ~"Vessel~") Then 1 Else 0 End)) AS VLOWRISK,   
+         (Sum(Case When (RISK = 1) and (RESPTEXT = ~"Vessel~") Then 1 Else 0 End)) AS VMEDRISK,   
+         (Sum(Case When (RISK = 2) and (RESPTEXT = ~"Vessel~") Then 1 Else 0 End)) AS VHIRISK,   
+         (Sum(Case RISK When 0 Then 1 Else 0 End)) AS LOWRISK,   
+         (Sum(Case RISK When 1 Then 1 Else 0 End)) AS MEDRISK,   
+         (Sum(Case RISK When 2 Then 1 Else 0 End)) AS HIRISK,            
+         VETT_MASTER.RATING,   
+         VETT_MASTER.VSLSCORE
+    FROM VETT_MASTER INNER JOIN VESSELS ON IMO_NUMBER = VESSELIMO
+         INNER JOIN VETT_COMP ON VETT_MASTER.COMP_ID = VETT_COMP.COMP_ID
+    WHERE (VETT_MASTER.VESSEL_ACTIVE = 1) and (COMPLETED = 1)
+   GROUP BY VESSELS.VESSEL_NAME,   
+         VETT_MASTER.INSPDATE,   
+         VETT_MASTER.IMNAME,   
+         VETT_MASTER.EDITION,   
+         VETT_COMP.NAME,   
+         VETT_MASTER.INSP_FNAME,   
+         VETT_MASTER.INSP_LNAME,   
+         VETT_MASTER.RATING,   
+         VETT_MASTER.VSLSCORE
+   ORDER BY VESSELS.VESSEL_NAME,   
+         VETT_MASTER.INSPDATE
+" )
+data(null null null null null null null null null null null null null null null null ) 
+group(level=1 header.height=72 trailer.height=0 trailer.height.autosize=yes by=("vessels_vessel_name" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="High Risk" border="2" color="33554432" x="3648" y="8" height="108" width="489" html.valueishtml="0"  name=t_14 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Medium Risk" border="2" color="33554432" x="3154" y="8" height="108" width="489" html.valueishtml="0"  name=t_11 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Low Risk" border="2" color="33554432" x="2661" y="8" height="108" width="489" html.valueishtml="0"  name=t_6 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Inspector" border="2" color="33554432" x="1961" y="8" height="108" width="503" html.valueishtml="0"  name=t_5 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="Vessel Type / Name" border="2" color="33554432" x="5" y="8" height="108" width="526" html.valueishtml="0"  name=t_1 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="Date" border="2" color="33554432" x="535" y="8" height="108" width="315" html.valueishtml="0"  name=t_2 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="Insp. Type" border="2" color="33554432" x="855" y="8" height="108" width="594" html.valueishtml="0"  name=t_3 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="Insp. Company" border="2" color="33554432" x="1454" y="8" height="108" width="503" html.valueishtml="0"  name=t_4 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="Valid Obs" border="2" color="33554432" x="2469" y="8" height="108" width="187" html.valueishtml="0"  name=t_17 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Rating" border="2" color="33554432" x="4142" y="8" height="108" width="224" html.valueishtml="0"  name=t_15 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Score" border="2" color="33554432" x="4370" y="8" height="108" width="215" html.valueishtml="0"  name=t_16 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Overall" border="0" color="33554432" x="3895" y="64" height="52" width="242" html.valueishtml="0"  name=t_13 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Vessel" border="0" color="33554432" x="3648" y="64" height="52" width="242" html.valueishtml="0"  name=t_12 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Overall" border="0" color="33554432" x="3401" y="64" height="52" width="242" html.valueishtml="0"  name=t_10 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Vessel" border="0" color="33554432" x="3154" y="64" height="52" width="242" html.valueishtml="0"  name=t_9 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Overall" border="0" color="33554432" x="2907" y="64" height="52" width="242" html.valueishtml="0"  name=t_8 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Vessel" border="0" color="33554432" x="2661" y="64" height="52" width="242" html.valueishtml="0"  name=t_7 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header.1 id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="4" height="60" width="951" format="[general]" html.valueishtml="0"  name=vessels_vessel_name visible="1" edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="33554432" x="526" y="0" height="60" width="329" format="dd MMM yy" html.valueishtml="0"  name=vett_master_inspdate visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="869" y="4" height="60" width="576" format="[general]" html.valueishtml="0"  name=vett_master_imname visible="1" edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes edit.useellipsis=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="33554432" x="1463" y="4" height="60" width="480" format="[general]" html.valueishtml="0"  name=vett_comp_name visible="1" edit.limit=100 edit.case=any edit.autoselect=yes edit.autohscroll=yes edit.useellipsis=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="33554432" x="2491" y="4" height="60" width="123" format="[general]" html.valueishtml="0"  name=obs visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" fname + If(fname > '', ' ', '') +  lname "border="0" color="33554432" x="1966" y="4" height="56" width="498" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="33554432" x="2720" y="4" height="52" width="87" format="0" html.valueishtml="0"  name=vlowrisk visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="33554432" x="3205" y="4" height="52" width="96" format="0" html.valueishtml="0"  name=vmedrisk visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="33554432" x="2981" y="4" height="52" width="69" format="0" html.valueishtml="0"  name=lowrisk visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="33554432" x="3451" y="4" height="52" width="91" format="0" html.valueishtml="0"  name=medrisk visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="33554432" x="3680" y="4" height="52" width="105" format="0" html.valueishtml="0"  name=vhirisk visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="0" color="33554432" x="3895" y="4" height="52" width="146" format="0" html.valueishtml="0"  name=hirisk visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="33554432" x="4229" y="4" height="60" width="82" format="[general]" html.valueishtml="0"  name=rating visible="1" edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="0" color="33554432" x="4393" y="4" height="52" width="128" format="0" html.valueishtml="0"  name=vslscore visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=summary x1="14" y1="28" x2="4571" y2="28"  name=l_1 visible="1" pen.style="0" pen.width="9" pen.color="33554432"  background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

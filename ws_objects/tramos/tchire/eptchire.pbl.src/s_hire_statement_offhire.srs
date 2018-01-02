@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_hire_statement_offhire.srs
+$PBExportComments$Structure used in hire statement window
+global type s_hire_statement_offhire from structure
+    datetime startdate
+    datetime enddate
+    decimal {4} allowance
+end type
+

@@ -1,0 +1,53 @@
+﻿$PBExportHeader$s_calculation_parm.srs
+$PBExportComments$Contains all data nessesary the do a calculation incl. results and cargoes.
+global type s_calculation_parm from structure
+	integer		i_function_code
+	integer		i_no_cargos
+	boolean		b_ballastvoyage
+	string		s_ballast_from
+	string		s_ballast_to
+	double		d_miles_ballasted
+	double		d_miles_loaded
+	double		d_minutes_ballasted
+	double		d_minutes_loaded
+	double		d_add_min_ballasted
+	double		d_add_min_loaded
+	double		d_fo_price
+	double		d_do_price
+	double		d_mgo_price
+	decimal { 4 }		d_lsfo_price
+	double		d_drc
+	double		d_oa
+	double		d_cap
+	double		d_tc
+	double		d_deadweight
+	s_calculation_cargo_detail		cargolist[]
+	s_calculation_result		result
+	s_speed		speedlist[]
+	boolean		fixturelist[]
+	integer		i_nospeeds
+	w_progress		w_progress
+	integer		i_ws_year
+	double		d_minutes_noticetime
+	integer		i_pc_nr
+	double		d_budget_comm
+	double		d_global_costs
+	integer		i_add_days_laden_pcnt_total
+	integer		i_add_days_ballasted_pcnt_total
+	boolean		b_silent_calculation
+	boolean		b_explain_calculation
+	string		s_explanation
+	double		d_noticetime_loadports
+	double		d_noticetime_dischports
+	double		d_noticetime_choports
+	mt_n_datastore		ds_speed_list
+	decimal { 4 }		d_fo_laden_atsea		descriptor "comment" = "use to calculate additional laden fo in itinerary"
+	decimal { 4 }		d_do_laden_atsea		descriptor "comment" = "use to calculate additional laden do in itinerary"
+	decimal { 4 }		d_mgo_laden_atsea		descriptor "comment" = "use to calculate additional laden mgo in itinerary"
+	decimal { 4 }		d_lsfo_laden_atsea		descriptor "comment" = "use to calculate additional laden lsfo in itinerary"
+	decimal { 4 }		d_fo_ballasted_atsea		descriptor "comment" = "use to calculate additional ballasted fo in itinerary"
+	decimal { 4 }		d_do_ballasted_atsea		descriptor "comment" = "use to calculate additional ballasted do in itinerary"
+	decimal { 4 }		d_mgo_ballasted_atsea		descriptor "comment" = "use to calculate additional ballasted mgo in itinerary"
+	decimal { 4 }		d_lsfo_ballasted_atsea		descriptor "comment" = "use to calculate additional ballasted lsfo in itinerary"
+end type
+

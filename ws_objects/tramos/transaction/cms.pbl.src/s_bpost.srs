@@ -1,0 +1,33 @@
+﻿$PBExportHeader$s_bpost.srs
+$PBExportComments$Structure used in userobject u_electronic_file.
+global type s_bpost from structure
+	string		acctyr
+	string		voucno
+	string		picno
+	string		pport
+	string		qty
+	string		apmacc
+	string		actyr
+	string		actmo
+	string		pt
+	string		vesacc
+	string		desc1
+	string		line
+	string		vessel
+	string		voyage
+	string		cat
+	string		aport
+	string		currcd
+	string		exrate
+	string		contr
+	string		cocode
+	string		part
+	string		qty2
+	string		desc2
+	string		desc
+	string		amount
+	string		orderno
+	string		cms_rris_key
+	string		b_key
+end type
+

@@ -1,0 +1,16 @@
+﻿$PBExportHeader$s_calc_data.srs
+$PBExportComments$Used in calculating the calculation, to find laytime and when clearing information
+global type s_calc_data from structure
+	string		s_description
+	integer		i_number_of_cargoes
+	s_calc_cargo_data		str_cargo[]
+	boolean		b_prepared
+	double		d_demurrage
+	double		d_despatch
+	double		d_load_minutes
+	double		d_load_minutes_gear
+	double		d_disch_minutes
+	double		d_disch_minutes_gear
+	double		d_cho_minutes
+end type
+

@@ -1,0 +1,14 @@
+﻿$PBExportHeader$s_hea_dev_misc_parm.srs
+$PBExportComments$Parameters for calculating misc, heating and deviation claims, and bringing the result back to the main calculation
+global type s_hea_dev_misc_parm from structure
+	s_heat_dev		array_heat_dev[]
+	s_misc_claims		array_misc_claims[]
+	double		d_gross_freight_amount
+	double		d_misc_income_amount
+	double		d_addrs_comm_amount
+	double		d_broker_comm_amount
+	double		d_addrs_comm_pct
+	double		d_broker_comm_pct
+	double		d_broker_comm_pct_pool
+end type
+

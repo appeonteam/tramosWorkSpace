@@ -1,0 +1,57 @@
+﻿$PBExportHeader$f_sql_check.srf
+$PBExportComments$Function for displaying SQLCA error text
+global type f_sql_check from function_object
+end type
+
+forward prototypes
+global function boolean f_sql_check (string as_updatetype)
+end prototypes
+
+global function boolean f_sql_check (string as_updatetype);/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Author    : MIS
+   
+ Date       : 1996
+
+ Description : This function is for debugging purpose. Call it to display pending
+ 					SQLCA database errors. Messagetext can be passed in the AS_UPDATETYPE
+					argument
+					 
+					NOTE: F_SQL_CHECK automaticly do a COMMIT or ROLLBACK, depending on
+					current SQLCA.SQLCode error.
+
+ Arguments : AS_UPDATETYPE as string
+
+ Returns   : True if no pending SQL error
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+  
+************************************************************************************/
+
+
+If SQLCA.SQLCode = 0 Then
+	COMMIT USING SQLCA;
+	Return(true)
+Else
+
+String ls_tmp
+Long ll_tmp
+
+	ls_tmp = SQLCA.SQLErrtext
+	ll_tmp = SQLCA.SQLCode
+
+	ROLLBACK USING SQLCA;
+
+	MessageBox("Database error", "Error during "+as_updatetype + " Code (" + String(ll_tmp)+") "+ls_tmp)
+	Return(false)
+End if
+
+
+
+end function
+

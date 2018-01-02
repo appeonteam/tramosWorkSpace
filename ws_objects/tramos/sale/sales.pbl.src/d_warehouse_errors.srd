@@ -1,0 +1,21 @@
+﻿$PBExportHeader$d_warehouse_errors.srd
+$PBExportComments$Used to handle errors when recreating sales datawarehouse.
+release 4;
+datawindow(units=3 timer_interval=0 color=1073741824 processing=0 print.documentname="" print.orientation = 2 print.margin.left = 635 print.margin.right = 635 print.margin.top = 635 print.margin.bottom = 635 print.paper.source = 0 print.paper.size = 9 print.prompt=no )
+header(height=1508 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=555 color="536870912" )
+detail(height=846 color="536870912"  height.autosize=yes)
+table(column=(type=char(50) name=module dbname="module" )
+ column=(type=char(250) name=error_text dbname="error_text" )
+ )
+group(level=1 header.height=582 trailer.height=0 by=("module" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="Module"border="0" color="0" x="2883" y="1005" height="370" width="1084"  name=module_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Error_text"border="0" color="0" x="12461" y="1005" height="370" width="1455"  name=error_text_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+rectangle(band=header x="0" y="767" height="105" width="19632" brush.hatch="6" brush.color="0" pen.style="5" pen.width="26" pen.color="553648127"  background.mode="1" background.color="553648127" )
+rectangle(band=header x="0" y="1375" height="105" width="19632" brush.hatch="6" brush.color="0" pen.style="5" pen.width="26" pen.color="553648127"  background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Errors when recreating datawarehouse"border="0" color="0" x="0" y="26" height="370" width="10212"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="0" expression="today()"border="0" color="0" x="0" y="396" height="370" width="2936" format="[shortdate]"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=1 alignment="0" tabsequence=32766 border="0" color="0" x="105" y="105" height="449" width="6614" format="[general]"  name=module edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="6852" y="106" height="449" width="12700" format="[general]"  name=error_text height.autosize=yes edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.displayonly=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="0" expression="'Page ' + page() + ' of ' + pagecount()"border="0" color="0" x="26" y="26" height="370" width="2725" format="[general]"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

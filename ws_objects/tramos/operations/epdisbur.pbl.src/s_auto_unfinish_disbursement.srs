@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_auto_unfinish_disbursement.srs
+global type s_auto_unfinish_disbursement from structure
+	integer		vessel_nr
+	string		voyage_nr
+	string		port_code
+	integer		pcn
+	long		agent_nr
+end type
+

@@ -1,0 +1,36 @@
+﻿$PBExportHeader$f_get_vessel_name.srf
+$PBExportComments$Get vessel name from vessel number (made due to an error in PowerBuilder). NOTE: Only used in dw_disb_print_agent_balance_pay
+global type f_get_vessel_name from function_object
+end type
+
+forward prototypes
+global function string f_get_vessel_name (integer vessel_nr)
+end prototypes
+
+global function string f_get_vessel_name (integer vessel_nr);    /* This global function is made in order to insert vessel name in the agent balance
+	    report. It is not the easiest way to solve the problem, but due to an error in
+		 PowerBuilder it is neccesary.
+		 NOTE: THIS GLOBAL FUNCTION IS ONLY USED IN "DW_DISB_PRINT_AGENT_PAY"
+		 Date: 09-07-1998
+		 Kim F. Nielsen */
+	 
+	 string ls_vessel_name
+	 
+	 SELECT VESSELS.VESSEL_NAME  
+    INTO :ls_vessel_name  
+    FROM VESSELS
+	 WHERE VESSELS.VESSEL_NR = :vessel_nr   ;
+	 	 
+	 IF SQLCA.SQLCode = 0 THEN
+		Commit;
+	 ELSE
+		Rollback;
+	 END IF
+		 
+	 IF NOT ISNULL (ls_vessel_name) THEN
+	 	Return ls_vessel_name
+	 ELSE
+		Return ("")
+	 END IF
+end function
+

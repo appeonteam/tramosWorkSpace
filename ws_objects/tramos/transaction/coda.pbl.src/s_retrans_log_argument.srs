@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_retrans_log_argument.srs
+$PBExportComments$Used as argument when the retransmission log window is opened
+global type s_retrans_log_argument from structure
+	datastore		lds_retrans
+	double		ldb_key_no
+end type
+

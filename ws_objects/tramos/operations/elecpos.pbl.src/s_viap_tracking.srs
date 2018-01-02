@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_viap_tracking.srs
+$PBExportComments$structure used for tracking via points.
+global type s_viap_tracking from structure
+    string port[]
+    integer viap[]
+end type
+

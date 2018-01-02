@@ -1,0 +1,33 @@
+﻿$PBExportHeader$s_voyageestimate.srs
+global type s_voyageestimate from structure
+	string		s_voyagenr		descriptor "comment" = "voyage number"
+	integer		i_vesselnr		descriptor "comment" = "vessel number"
+	datetime		dtm_start		descriptor "comment" = "start of voyage"
+	datetime		dtm_end		descriptor "comment" = "end of voyage"
+	long		l_calcid		descriptor "comment" = "the calculated calculation id"
+	boolean		b_allocated		descriptor "comment" = "flag when true voyage is allocated, when false voyage is unallocated"
+	long		l_atobviacdistance		descriptor "comment" = "the distance according to atobviac"
+	integer		i_contracttype		descriptor "comment" = "contract number reference"
+	string		s_vesselrefnr		descriptor "comment" = "vessel_ref_nr from vessels table"
+	s_portcall		str_portcalls[]		descriptor "comment" = "array of structure s_portcall"
+	string		s_typecode		descriptor "comment" = "S=SingleVoyage, P=Position, O=OffService, L=LaidUp, I=IdleVoyage,D=IdleDays, T=TCOut~r~n "
+	string		s_statuscode		descriptor "comment" = "A=Active, F=Finished"
+	decimal { 4 }		d_grossfreight		descriptor "comment" = "used only in allocated (debit)"
+	decimal { 4 }		d_demurrage		descriptor "comment" = "used only in allocated (debit)"
+	decimal { 4 }		d_miscincome		descriptor "comment" = "used only in allocated (debit)"
+	decimal { 4 }		d_totalcommission		descriptor "comment" = "used only in allocated: total commission"
+	decimal { 4 }		d_totalbunker		descriptor "comment" = "used only in allocated: total of bunker"
+	decimal { 4 }		d_miscexpenses		descriptor "comment" = "used only in allocated: misc. expenses"
+	decimal { 4 }		d_totaladdrcomm		descriptor "comment" = "used only in allocated: address commission"
+	datetime		dtm_cerpstart		descriptor "comment" = "earliest CP date for voyage"
+	integer		i_yyyy		descriptor "comment" = "year reference"
+	integer		i_period		descriptor "comment" = "period numeric reference"
+	string		s_activityperiod		descriptor "comment" = "year and period (yyyypp) "
+	string		s_reporttext		descriptor "comment" = "* not used *"
+	integer		i_errorcode		descriptor "comment" = "* wip *"
+	string		s_errormessage		descriptor "comment" = "* wip *"
+	boolean		b_client		descriptor "comment" = "flag to store where process was originally called from true=tramos, false=server"
+	datetime		dtm_fixturedate
+	datetime		dt_firstload		descriptor "comment" = "voyage's first load port arrival datetime"
+end type
+

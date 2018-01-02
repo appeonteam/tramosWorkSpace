@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_vessel_selection.srs
+global type s_vessel_selection from structure
+	string		as_returntext		descriptor "comment" = "Show on u_vessel_selection object"
+	string		as_filter		descriptor "comment" = "filter vessel and profit center"
+	string		as_filtervessel		descriptor "comment" = "filter vessel selection on w_share datawindow"
+end type
+

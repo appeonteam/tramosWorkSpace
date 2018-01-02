@@ -1,0 +1,13 @@
+﻿$PBExportHeader$s_h_statement.srs
+$PBExportComments$To pass information to w_h_statement
+global type s_h_statement from structure
+	long		contract_id
+	long		payment_id
+	long		pc_nr
+	long		payment_id_low
+	string		s_tccurrcode
+	string		s_restrict_curr_list
+	string		s_default_curr
+	long		l_last_rst_payment
+end type
+

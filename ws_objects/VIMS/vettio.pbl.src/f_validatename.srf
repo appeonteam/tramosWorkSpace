@@ -1,0 +1,56 @@
+﻿$PBExportHeader$f_validatename.srf
+global type f_validatename from function_object
+end type
+
+forward prototypes
+global subroutine f_validatename (ref string as_name, integer ai_type)
+end prototypes
+
+global subroutine f_validatename (ref string as_name, integer ai_type);
+// This function validates a name. Trims the name, applies wordcap, drops middle names.
+// It updates the referenced variable and returns nothing
+
+as_Name = Wordcap(Trim(as_Name, True))
+
+Do
+	If Lower(Left(as_Name, 7)) = "captain" then as_Name = Trim(Right(as_Name, Len(as_Name) - 7), True)
+Loop Until Lower(Left(as_Name, 7)) <> "captain"
+
+Do 
+	If Lower(Left(as_Name, 5)) = "capt." then as_Name = Trim(Right(as_Name, Len(as_Name)-5), True)
+Loop Until Lower(Left(as_Name, 5)) <> "capt."
+
+Do
+	If Lower(Left(as_Name, 4)) = "capt" then as_Name = Trim(Right(as_Name, Len(as_Name) - 4), True)
+Loop Until Lower(Left(as_Name, 4)) <> "capt"
+
+Do
+	If Lower(Left(as_Name, 3)) = "mr." then as_Name = Trim(Right(as_Name, Len(as_Name) - 3), True)
+Loop Until Lower(Left(as_Name, 3)) <> "mr."
+
+Do
+	If Lower(Left(as_Name, 2)) = "mr" then as_Name = Trim(Right(as_Name, Len(as_Name) - 2), True)
+Loop Until Lower(Left(as_Name, 2)) <> "mr"
+
+as_Name = Wordcap(Trim(as_Name, True))
+
+If (as_Name = "") or (ai_Type = 0) then Return
+
+Integer li_Count
+
+If ai_Type = 1 then   // This is a first name. Get rid of anything after the first name
+	li_Count = 1 
+	Do Until li_Count = Len(as_Name) or AscA(Mid(as_Name, li_Count, 1))<33
+		li_Count ++
+	Loop
+	If AscA(Mid(as_Name, li_Count, 1)) < 33 then li_Count --
+	If li_Count < Len(as_Name) then as_Name = Left(as_Name, li_Count)
+Else									// This is a last name. Get rid of anything before the last name
+	li_Count = Len(as_Name)
+	Do Until li_Count = 1 or AscA(Mid(as_Name, li_Count, 1))<33
+		li_Count --
+	Loop	
+	If li_Count > 1 then as_Name = Right(as_Name, Len(as_Name) - li_Count)
+End If
+end subroutine
+

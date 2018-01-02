@@ -1,0 +1,6 @@
+﻿$PBExportHeader$str_retrievalarg.srs
+global type str_retrievalarg from structure
+	string		is_name
+	string		is_type
+end type
+

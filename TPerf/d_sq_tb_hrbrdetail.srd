@@ -1,0 +1,67 @@
+HA$PBExportHeader$d_sq_tb_hrbrdetail.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=96 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=656 color="536870912" height.autosize=yes )
+table(column=(type=long updatewhereclause=yes name=tperf_hrbr_h_type dbname="TPERF_HRBR.H_TYPE" values="Loading	0/Discharge	1/Load//Discharge	2/Repair//Docking	3/Other	4/" )
+ column=(type=decimal(2) updatewhereclause=yes name=tperf_hrbr_per_man dbname="TPERF_HRBR.PER_MAN" )
+ column=(type=decimal(2) updatewhereclause=yes name=tperf_hrbr_per_cargo dbname="TPERF_HRBR.PER_CARGO" )
+ column=(type=decimal(2) updatewhereclause=yes name=tperf_hrbr_per_idle dbname="TPERF_HRBR.PER_IDLE" )
+ column=(type=decimal(2) updatewhereclause=yes name=tperf_hrbr_per_misc dbname="TPERF_HRBR.PER_MISC" )
+ column=(type=number updatewhereclause=yes name=tperf_hrbr_is_dep dbname="TPERF_HRBR.IS_DEP" )
+ column=(type=char(50) updatewhereclause=yes name=tperf_hrbr_port dbname="PORT" )
+ column=(type=char(20) updatewhereclause=yes name=tperf_hrbr_berth dbname="TPERF_HRBR.BERTH" )
+ column=(type=long updatewhereclause=yes key=yes name=h_id dbname="TPERF_HRBR.H_ID" )
+ retrieve="  SELECT TPERF_HRBR.H_TYPE,   
+         TPERF_HRBR.PER_MAN,   
+         TPERF_HRBR.PER_CARGO,   
+         TPERF_HRBR.PER_IDLE,   
+         TPERF_HRBR.PER_MISC,   
+         TPERF_HRBR.IS_DEP,   
+         (select CASE Left(TH.PORT,2) WHEN ~"^^~" THEN Right(TH.PORT, Len(TH.PORT)-2) ELSE P1.PORT_N END
+				from TPERF_HRBR TH, PORTS P1 
+				where TH.PORT *= P1.PORT_CODE
+				AND TH.VOY_ID = :VoyID AND TH.H_ID = TPERF_HRBR.H_ID) AS PORT,
+         TPERF_HRBR.BERTH,   
+         TPERF_HRBR.H_ID  
+    FROM TPERF_HRBR  
+   WHERE ( TPERF_HRBR.VOY_ID = :VoyID ) AND  
+         ( TPERF_HRBR.IS_DEP = :Dep )    
+" update="TPERF_HRBR" updatewhere=0 updatekeyinplace=no arguments=(("VoyID", number),("Dep", number)) )
+compute(band=header alignment="0" expression="if( tperf_hrbr_is_dep = 0 , ~"Arrival~" , ~"Departure~") + ~" Harbour Stay Summary~""border="0" color="33554432" x="5" y="4" height="84" width="1353" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+rectangle(band=detail x="0" y="0" height="696~trowheight()" width="3122"  name=r_1 visible="1" brush.hatch="7" brush.color="570425344" pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="33554432" )
+text(band=detail alignment="0" text="Port Code / Name:" border="0" color="33554432" x="27" y="16" height="56" width="425" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Berth Number/ Name:" border="0" color="33554432" x="27" y="88" height="56" width="530" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="16711680" x="645" y="88" height="60" width="727" format="[general]" html.valueishtml="0"  name=tperf_hrbr_berth visible="1" edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="16711680" x="645" y="16" height="60" width="795" format="[general]" html.valueishtml="0"  name=tperf_hrbr_port visible="1" edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="16711680" x="645" y="164" height="60" width="750" format="[general]" html.valueishtml="0"  name=tperf_hrbr_h_type visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes edit.codetable=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="16711680" x="1161" y="368" height="64" width="197" format="[general]" html.valueishtml="0"  name=tperf_hrbr_is_dep visible="0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Purpose:" border="0" color="33554432" x="27" y="160" height="56" width="530" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+report(band=detail dataobject="d_sq_tb_hrbrcondetail" x="1591" y="12" height="76" width="1335" border="0"  height.autosize=yes criteria="" nest_arguments=((" h_id ")) trail_footer = yes  name=dw_1 visible="1"  slideup=directlyabove )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="16711680" x="1157" y="300" height="56" width="151" format="[general]" html.valueishtml="0"  name=h_id visible="0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Time Spent in Harbour:" border="0" color="33554432" x="23" y="248" height="56" width="498" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Manoeuvring:" border="0" color="33554432" x="110" y="324" height="56" width="338" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="16711680" x="709" y="320" height="64" width="251" format="0.00" html.valueishtml="0"  name=tperf_hrbr_per_man visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+report(band=detail dataobject="d_sq_tb_hrbrconsel" x="1591" y="104" height="60" width="1335" border="0"  height.autosize=yes criteria="" nest_arguments=((" h_id ")) trail_footer = yes  name=dw_2 visible="1"  slideup=directlyabove )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="16711680" x="709" y="388" height="60" width="251" format="0.00" html.valueishtml="0"  name=tperf_hrbr_per_cargo visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="case( tperf_hrbr_h_type when 0 then 'Loading:' when 1 then 'Discharging:' when 2 then 'Load/Disch.:' when 3 then 'Repair/Dock' when 4 then 'Other' else '<Invalid>')"border="0" color="33554432" x="110" y="388" height="56" width="379" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Idle / Waiting / Anchorage:" border="0" color="33554432" x="110" y="452" height="56" width="576" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="16711680" x="709" y="452" height="56" width="251" format="0.00" html.valueishtml="0"  name=tperf_hrbr_per_idle visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Other / Miscellaneous:" border="0" color="33554432" x="110" y="516" height="56" width="576" html.valueishtml="0"  name=t_7 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="16711680" x="709" y="516" height="56" width="251" format="0.00" html.valueishtml="0"  name=tperf_hrbr_per_misc visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="105" y1="576" x2="965" y2="576"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="1" expression=" tperf_hrbr_per_man  +  tperf_hrbr_per_cargo  +  tperf_hrbr_per_idle  +  tperf_hrbr_per_misc "border="0" color="16711680" x="709" y="584" height="56" width="251" format="0.00" html.valueishtml="0"  name=compute_3 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Total:" border="0" color="33554432" x="110" y="584" height="56" width="576" html.valueishtml="0"  name=t_8 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

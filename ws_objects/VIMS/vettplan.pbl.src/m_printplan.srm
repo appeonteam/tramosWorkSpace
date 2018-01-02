@@ -1,0 +1,155 @@
+﻿$PBExportHeader$m_printplan.srm
+forward
+global type m_printplan from menu
+end type
+type m_overviewwithoutnotes from menu within m_printplan
+end type
+type m_internalinspectionswithnotes from menu within m_printplan
+end type
+type m_externalinspectionswithnotes from menu within m_printplan
+end type
+global type m_printplan from menu
+m_overviewwithoutnotes m_overviewwithoutnotes
+m_internalinspectionswithnotes m_internalinspectionswithnotes
+m_externalinspectionswithnotes m_externalinspectionswithnotes
+end type
+end forward
+
+global type m_printplan from menu
+m_overviewwithoutnotes m_overviewwithoutnotes
+m_internalinspectionswithnotes m_internalinspectionswithnotes
+m_externalinspectionswithnotes m_externalinspectionswithnotes
+end type
+global m_printplan m_printplan
+
+on m_printplan.create
+m_printplan=this
+call super::create
+this.text = "m_printplan"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_overviewwithoutnotes=create m_overviewwithoutnotes
+this.m_internalinspectionswithnotes=create m_internalinspectionswithnotes
+this.m_externalinspectionswithnotes=create m_externalinspectionswithnotes
+this.Item[UpperBound(this.Item)+1]=this.m_overviewwithoutnotes
+this.Item[UpperBound(this.Item)+1]=this.m_internalinspectionswithnotes
+this.Item[UpperBound(this.Item)+1]=this.m_externalinspectionswithnotes
+end on
+
+on m_printplan.destroy
+call super::destroy
+destroy(this.m_overviewwithoutnotes)
+destroy(this.m_internalinspectionswithnotes)
+destroy(this.m_externalinspectionswithnotes)
+end on
+
+event clicked;
+Parentwindow.dynamic event ue_Print(0)
+end event
+
+type m_overviewwithoutnotes from menu within m_printplan
+end type
+
+on m_overviewwithoutnotes.create
+call super::create
+this.text = "Overview without Notes"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_overviewwithoutnotes.destroy
+call super::destroy
+end on
+
+event clicked;
+Parentwindow.dynamic event ue_Print(0)
+end event
+
+type m_internalinspectionswithnotes from menu within m_printplan
+end type
+
+on m_internalinspectionswithnotes.create
+call super::create
+this.text = "Internal Inspections with Notes"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_internalinspectionswithnotes.destroy
+call super::destroy
+end on
+
+event clicked;
+Parentwindow.dynamic event ue_Print(1)
+end event
+
+type m_externalinspectionswithnotes from menu within m_printplan
+end type
+
+on m_externalinspectionswithnotes.create
+call super::create
+this.text = "External Inspections with Notes"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_externalinspectionswithnotes.destroy
+call super::destroy
+end on
+
+event clicked;
+Parentwindow.dynamic event ue_Print(2)
+end event
+

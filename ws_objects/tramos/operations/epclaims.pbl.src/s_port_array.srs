@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_port_array.srs
+$PBExportComments$Used in w_claims, w_laytime, uo_find_laytime_ports
+global type s_port_array from structure
+    string ports[50]
+    integer pcn[50]
+end type
+

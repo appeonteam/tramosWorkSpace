@@ -1,0 +1,50 @@
+﻿$PBExportHeader$d_misc_claims.srd
+$PBExportComments$Datastore used for misc. claims
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=124 color="536870912" )
+summary(height=80 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=number updatewhereclause=yes name=claims_claim_amount_usd dbname="CLAIMS.CLAIM_AMOUNT_USD" )
+ column=(type=long updatewhereclause=yes name=chart_nr dbname="CLAIMS.CHART_NR" )
+ column=(type=long updatewhereclause=yes name=claim_nr dbname="CLAIMS.CLAIM_NR" )
+ column=(type=number updatewhereclause=yes name=claims_address_com dbname="compute_0004" )
+ column=(type=decimal(2) updatewhereclause=yes name=received dbname="received" )
+ column=(type=decimal(2) updatewhereclause=yes name=transactions dbname="transactions" )
+ retrieve="  SELECT CLAIMS.CLAIM_AMOUNT_USD,   
+         CLAIMS.CHART_NR,   
+         CLAIMS.CLAIM_NR,   
+         IsNull(CLAIMS.ADDRESS_COM,0),   
+         received = 0.00,   
+         transactions = 0.00  
+    FROM CLAIMS,   
+         CLAIM_TYPES  
+   WHERE ( CLAIMS.CLAIM_TYPE = CLAIM_TYPES.CLAIM_TYPE ) and  
+         ( ( CLAIM_TYPES.CLAIM_GROSS_FRT = 0 ) AND  
+         ( CLAIMS.CLAIM_TYPE <> 'FRT' ) AND  
+         ( CLAIMS.CLAIM_TYPE <> 'DEM' ) AND  
+         ( CLAIMS.VESSEL_NR = :vessel ) AND  
+         ( CLAIMS.VOYAGE_NR = :voyage ) AND  
+         ( CLAIM_TYPES.CLAIM_VAS = 1 ) )    
+" arguments=(("vessel", number),("voyage", string)) )
+text(band=header alignment="2" text="Claim Amount Usd" border="0" color="0" x="5" y="0" height="56" width="398"  name=claims_claim_amount_usd_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Chart Nr" border="0" color="0" x="457" y="4" height="56" width="183"  name=claims_chart_nr_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Claim Nr" border="0" color="0" x="782" y="8" height="56" width="178"  name=claims_claim_nr_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Adr. com" border="0" color="0" x="1143" y="12" height="56" width="201"  name=t_1  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Transactions" border="0" color="0" x="1408" y="12" height="56" width="288"  name=t_2  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Received" border="0" color="0" x="1787" y="8" height="56" width="206"  name=t_3  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Balance" border="0" color="0" x="2126" y="12" height="56" width="178"  name=t_4  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Amount" border="0" color="0" x="2455" y="12" height="56" width="169"  name=t_5  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="430" y="4" height="52" width="274" format="[general]"  name=chart_nr edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="791" y="4" height="52" width="274" format="[general]"  name=claim_nr edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="5" y="4" height="52" width="274" format="[general]"  name=claims_claim_amount_usd edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1417" y="4" height="56" width="288" format="[general]"  name=transactions edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1792" y="4" height="56" width="206" format="[general]"  name=received edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" claims_claim_amount_usd  -  transactions "border="0" color="0" x="2121" y="8" height="56" width="183" format="[general]"  name=balance  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" if(  balance = 0,  received ,  (claims_claim_amount_usd - (  claims_claim_amount_usd  * ( claims_address_com /100))) ) "border="0" color="0" x="2459" y="4" height="56" width="183" format="[general]"  name=amount  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1102" y="4" height="56" width="247" format="[general]"  name=claims_address_com edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="sum(received for all)"border="0" color="0" x="1792" y="4" height="60" width="206" format="[general]"  name=sum_received  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="sum( if(  balance = 0,  received ,  ((claims_claim_amount_usd -  transactions) - (  (claims_claim_amount_usd - transactions) * ( claims_address_com /100))) )  for all)"border="0" color="0" x="2459" y="4" height="60" width="183" format="[general]"  name=sum_amount  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

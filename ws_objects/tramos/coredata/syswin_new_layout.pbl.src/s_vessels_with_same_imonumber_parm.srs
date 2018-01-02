@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_vessels_with_same_imonumber_parm.srs
+$PBExportComments$Used to pass parameters between vessel maintainance and window showing vessels with same IMO number
+global type s_vessels_with_same_imonumber_parm from structure
+	long		IMO_number
+	long		vessel_number
+end type
+

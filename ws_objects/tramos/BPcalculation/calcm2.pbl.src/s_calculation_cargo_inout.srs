@@ -1,0 +1,21 @@
+﻿$PBExportHeader$s_calculation_cargo_inout.srs
+$PBExportComments$Contains the details of a port on the calculation
+global type s_calculation_cargo_inout from structure
+	long		l_terms_id
+	double		l_type
+	decimal { 4 }		d_estimated
+	decimal { 4 }		d_calculated
+	decimal		d_minutes
+	double		d_units
+	double		d_despatch
+	double		d_demurrage
+	integer		i_gear
+	integer		i_itinerary_number
+	string		s_port
+	double		d_notice_time
+	string		s_purpose
+	long		l_port_cons_id
+	long		l_sailing_cons_id
+	long		l_cal_caio_interim_port
+end type
+

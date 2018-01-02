@@ -1,0 +1,19 @@
+﻿$PBExportHeader$s_calculation_combine.srs
+global type s_calculation_combine from structure
+	boolean		b_calculated
+	boolean		b_modified
+	long		l_vesselid
+	integer		i_status
+	string		s_vessel
+	string		s_calc_desc
+	string		s_ballastfrom
+	string		s_firstport
+	string		s_lastport
+	datetime		dt_lastedited
+	string		s_createdby
+	decimal { 4 }		d_tceperday
+	decimal { 4 }		d_ballastdays
+	decimal { 4 }		d_ladendays
+	decimal { 4 }		d_totaldays
+end type
+

@@ -1,0 +1,13 @@
+﻿$PBExportHeader$s_revers_sens.srs
+$PBExportComments$Parametres for revers sensitivity calculation at calc level
+global type s_revers_sens from structure
+    s_revers_parm istr_revers_parm[30]
+    decimal {6} d_budget_comm
+    decimal {6} d_drc
+    decimal {6} d_oa
+    decimal {2} d_tc_hire
+    integer d_hfo_price
+    integer d_do_price
+    integer d_go_price
+end type
+

@@ -1,0 +1,177 @@
+﻿$PBExportHeader$d_dem_outstanding_stat.srd
+$PBExportComments$Used in Demurrage Section Window header
+release 17;
+datawindow(units=0 timer_interval=0 color=1073741824 brushmode=0 transparency=0 gradient.angle=0 gradient.color=8421504 gradient.focus=0 gradient.repetition.count=0 gradient.repetition.length=100 gradient.repetition.mode=0 gradient.scale=100 gradient.spread=100 gradient.transparency=0 picture.blur=0 picture.clip.bottom=0 picture.clip.left=0 picture.clip.right=0 picture.clip.top=0 picture.mode=0 picture.scale.x=100 picture.scale.y=100 picture.transparency=0 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.background=no print.preview.background=no print.preview.outline=yes hidegrayline=no showbackcoloronxp=no picture.file="" )
+header(height=364 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+summary(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+footer(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+detail(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+table(column=(type=long updatewhereclause=yes name=vessel_nr dbname="VESSEL_NR" )
+ column=(type=char(5) updatewhereclause=yes name=vessel_ref_nr dbname="VESSEL_REF_NR" )
+ column=(type=char(50) updatewhereclause=yes name=vessel_name dbname="VESSEL_NAME" )
+ column=(type=char(7) updatewhereclause=yes name=voyage_nr dbname="VOYAGE_NR" )
+ column=(type=long updatewhereclause=yes name=claim_nr dbname="CLAIM_NR" )
+ column=(type=char(4) updatewhereclause=yes name=claim_type dbname="CLAIM_TYPE" )
+ column=(type=char(40) updatewhereclause=yes name=created_by dbname="CREATED_BY" )
+ column=(type=long updatewhereclause=yes name=chart_nr dbname="CHART_NR" )
+ column=(type=char(70) updatewhereclause=yes name=chart_n_1 dbname="CHART_N_1" )
+ column=(type=char(20) updatewhereclause=yes name=nom_acc_nr dbname="NOM_ACC_NR" )
+ column=(type=long updatewhereclause=yes name=broker_nr dbname="BROKER_NR" )
+ column=(type=char(35) updatewhereclause=yes name=broker_name dbname="BROKER_NAME" )
+ column=(type=number updatewhereclause=yes name=out_amount_usd dbname="OUT_AMOUNT_USD" )
+ column=(type=long updatewhereclause=yes name=pc_nr dbname="PC_NR" )
+ column=(type=datetime updatewhereclause=yes name=forwarding_date dbname="FORWARDING_DATE" )
+ column=(type=datetime updatewhereclause=yes name=disch_date dbname="DISCH_DATE" )
+ column=(type=datetime updatewhereclause=yes name=cp_date dbname="CP_DATE" )
+ column=(type=long updatewhereclause=yes name=office_nr dbname="OFFICE_NR" )
+ column=(type=number updatewhereclause=yes name=claim_sent dbname="CLAIM_SENT" )
+ column=(type=datetime updatewhereclause=yes name=claim_sent_date dbname="CLAIM_SENT_DATE" )
+ column=(type=decimal(21) updatewhereclause=yes name=original_amount_in_usd dbname="ORIGINAL_AMOUNT_IN_USD" )
+ column=(type=number updatewhereclause=yes name=broker_confirmed dbname="BROKER_CONFIRMED" )
+ column=(type=datetime updatewhereclause=yes name=broker_confirmed_date dbname="BROKER_CONFIRMED_DATE" )
+ column=(type=number updatewhereclause=yes name=charterer_confirmed dbname="CHARTERER_CONFIRMED" )
+ column=(type=datetime updatewhereclause=yes name=charterer_confirmed_date dbname="CHARTERER_CONFIRMED_DATE" )
+ column=(type=char(20) updatewhereclause=yes name=status dbname="STATUS" )
+ column=(type=datetime updatewhereclause=yes name=status_date dbname="STATUS_DATE" )
+ column=(type=char(50) updatewhereclause=yes name=claim_email dbname="CLAIM_EMAIL" )
+ column=(type=char(1500) updatewhereclause=yes name=claim_comment dbname="CLAIM_COMMENT" )
+ retrieve="select VESSEL_NR,
+		VESSEL_REF_NR,
+      	VESSEL_NAME,
+       	VOYAGE_NR,   
+    	   	CLAIM_NR,   
+      	CLAIM_TYPE,   
+     	CREATED_BY,
+      	CHART_NR,
+       	CHART_N_1,
+       	NOM_ACC_NR,   
+       	BROKER_NR,
+         BROKER_NAME,
+		OUT_AMOUNT_USD,
+		PC_NR,
+       	FORWARDING_DATE,
+		DISCH_DATE,
+  		CP_DATE,
+       	OFFICE_NR,
+       	CLAIM_SENT,
+       	CLAIM_SENT_DATE,
+		ORIGINAL_AMOUNT_IN_USD,   
+      	BROKER_CONFIRMED,
+       	BROKER_CONFIRMED_DATE,
+       	CHARTERER_CONFIRMED, 
+       	CHARTERER_CONFIRMED_DATE,
+      	[STATUS], 
+       	STATUS_DATE, 
+       	CLAIM_EMAIL,
+       	CLAIM_COMMENT
+from 
+(SELECT DISTINCT CLAIMS.VESSEL_NR,
+       VESSELS.VESSEL_REF_NR,
+       VESSELS.VESSEL_NAME,
+       CLAIMS.VOYAGE_NR,   
+       CLAIMS.CLAIM_NR,   
+       CLAIMS.CLAIM_TYPE,   
+       CLAIMS.CREATED_BY,
+       CLAIMS.CHART_NR,
+       CHART.CHART_N_1,
+       CHART.NOM_ACC_NR,   
+       CLAIMS.BROKER_NR,
+       (SELECT BROKERS.BROKER_NAME FROM BROKERS WHERE BROKERS.BROKER_NR = CLAIMS.BROKER_NR) BROKER_NAME,
+       round((round(CLAIMS.CLAIM_AMOUNT, 2) - isnull(TRANS.TRANS_AMOUNT, 0)) * 
+           (
+			dbo.FN_GET_EXCHANGERATE(
+			   CAL_CARG_CURRENCY.DEM_CURR_CODE,
+				CAL_CARG_CURRENCY.SET_EXRATE,
+				CAL_CARG_CURRENCY.DEM_EXRATE,
+				CAL_CARG_CURRENCY.FREIGHT_EXRATE,
+				CAL_CARG_CURRENCY.FREIGHT_CURR_CODE,
+				CLAIMS.CLAIM_TYPE,
+				CLAIMS.CURR_CODE,
+				LATEST_EXCHANGE_RATE.EXRATE_USD)
+			  ) / 100, 2) as OUT_AMOUNT_USD,
+       VESSELS.PC_NR,
+       CLAIMS.FORWARDING_DATE,
+        (SELECT MAX(ISNULL(POC.PORT_DEPT_DT, POC_EST.PORT_DEPT_DT))
+         FROM PROCEED LEFT JOIN POC ON PROCEED.VESSEL_NR = POC.VESSEL_NR AND PROCEED.VOYAGE_NR = POC.VOYAGE_NR AND PROCEED.PORT_CODE = POC.PORT_CODE AND PROCEED.PCN = POC.PCN
+                                 LEFT JOIN POC_EST ON PROCEED.VESSEL_NR = POC_EST.VESSEL_NR AND PROCEED.VOYAGE_NR = POC_EST.VOYAGE_NR AND PROCEED.PORT_CODE = POC_EST.PORT_CODE AND PROCEED.PCN = POC_EST.PCN 
+         WHERE CLAIMS.VESSEL_NR = PROCEED.VESSEL_NR AND CLAIMS.VOYAGE_NR = PROCEED.VOYAGE_NR
+         AND (POC.PURPOSE_CODE IN('D','L/D') OR POC_EST.PURPOSE_CODE IN ('D', 'L/D') ) AND (POC.PORT_DEPT_DT IS NOT NULL OR POC_EST.PORT_DEPT_DT IS NOT NULL) 
+        )  AS DISCH_DATE,
+       CLAIMS.CP_DATE,
+       CLAIMS.OFFICE_NR,
+       CLAIMS.CLAIM_SENT,
+       CLAIMS.CLAIM_SENT_DATE,
+       (select SENT_AMOUNT
+          from CLAIM_SENT
+         where CLAIM_SENT.CHART_NR = CLAIMS.CHART_NR 
+           and CLAIM_SENT.VESSEL_NR = CLAIMS.VESSEL_NR 
+           and CLAIM_SENT.VOYAGE_NR = CLAIMS.VOYAGE_NR 
+           and CLAIM_SENT.CLAIM_NR = CLAIMS.CLAIM_NR 
+         group by CLAIM_SENT.CHART_NR, CLAIM_SENT.VESSEL_NR, CLAIM_SENT.VOYAGE_NR, CLAIM_SENT.CLAIM_NR
+        having SENT_NR = min(SENT_NR)) *
+           (
+			dbo.FN_GET_EXCHANGERATE(
+			   CAL_CARG_CURRENCY.DEM_CURR_CODE,
+				CAL_CARG_CURRENCY.SET_EXRATE,
+				CAL_CARG_CURRENCY.DEM_EXRATE,
+				CAL_CARG_CURRENCY.FREIGHT_EXRATE,
+				CAL_CARG_CURRENCY.FREIGHT_CURR_CODE,
+				CLAIMS.CLAIM_TYPE,
+				CLAIMS.CURR_CODE,
+				LATEST_EXCHANGE_RATE.EXRATE_USD)
+			  )/ 100 as ORIGINAL_AMOUNT_IN_USD,   
+       CLAIMS.BROKER_CONFIRMED,
+       CLAIMS.BROKER_CONFIRMED_DATE,
+       CLAIMS.CHARTERER_CONFIRMED, 
+       CLAIMS.CHARTERER_CONFIRMED_DATE,
+       CLAIMS.[STATUS], 
+       CLAIMS.STATUS_DATE, 
+       CLAIMS.CLAIM_EMAIL,
+       CLAIMS.CLAIM_COMMENT
+  FROM CLAIMS LEFT JOIN(
+           select TR.CHART_NR, TR.VESSEL_NR, TR.VOYAGE_NR, TR.CLAIM_NR, sum(TR.C_TRANS_AMOUNT) as TRANS_AMOUNT
+           from CLAIM_TRANSACTION TR
+           group by TR.CHART_NR, TR.VESSEL_NR, TR.VOYAGE_NR, TR.CLAIM_NR
+       ) TRANS ON(CLAIMS.CHART_NR = TRANS.CHART_NR and CLAIMS.VESSEL_NR = TRANS.VESSEL_NR and CLAIMS.VOYAGE_NR = TRANS.VOYAGE_NR and CLAIMS.CLAIM_NR = TRANS.CLAIM_NR)
+		 LEFT JOIN VOYAGES ON (VOYAGES.VESSEL_NR = CLAIMS.VESSEL_NR AND VOYAGES.VOYAGE_NR = CLAIMS.VOYAGE_NR)
+		 LEFT JOIN CAL_CARG_CURRENCY ON (CAL_CARG_CURRENCY.CAL_CERP_ID = CLAIMS.CAL_CERP_ID AND CAL_CARG_CURRENCY.CAL_CALC_ID = VOYAGES.CAL_CALC_ID)
+		 LEFT JOIN LATEST_EXCHANGE_RATE ON (LATEST_EXCHANGE_RATE.CURR_CODE = CLAIMS.CURR_CODE),
+       VESSELS,
+       CHART
+ WHERE ( CLAIMS.CLAIM_TYPE = 'DEM') AND
+       ( CLAIMS.VESSEL_NR = VESSELS.VESSEL_NR) AND
+       ( CLAIMS.CHART_NR = CHART.CHART_NR) AND
+       round(round(CLAIMS.CLAIM_AMOUNT,2) - isnull(TRANS.TRANS_AMOUNT, 0) ,2) > 0 AND  
+       ( CLAIMS.INVOICE_NR IS NOT NULL )) T"  sort="vessel_ref_nr A compute_voyage_sort A " )
+compute(band=header alignment="1" expression="sum(out_amount_usd for all)"border="0" color="0" x="741" y="120" height="56" width="439" format="#,##0.00" html.valueishtml="0"  name=total_outst_amount_usd visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=header alignment="1" expression="rowcount()"border="0" color="0" x="370" y="120" height="56" width="366" format="[GENERAL]" html.valueishtml="0"  name=total_claims visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=header alignment="1" expression="sum(daysafter( forwarding_date , today() ) for all)"border="0" color="0" x="18" y="120" height="56" width="347" format="[General]" html.valueishtml="0"  name=total_outst_days visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+line(band=header x1="366" y1="4" x2="366" y2="192"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="67108864"  background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" )
+line(band=header x1="736" y1="4" x2="736" y2="192"  name=l_2 visible="1" pen.style="0" pen.width="5" pen.color="67108864"  background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" )
+line(band=header x1="1179" y1="4" x2="1179" y2="192"  name=l_3 visible="1" pen.style="0" pen.width="5" pen.color="67108864"  background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" )
+line(band=header x1="366" y1="164" x2="366" y2="348"  name=l_4 visible="1" pen.style="0" pen.width="5" pen.color="67108864"  background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" )
+line(band=header x1="919" y1="164" x2="919" y2="348"  name=l_5 visible="1" pen.style="0" pen.width="5" pen.color="67108864"  background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" )
+compute(band=header alignment="1" expression="if(total_claims = 0, 0, sum(daysafter(disch_date ,forwarding_date) for all) / total_claims)"border="0" color="0" x="370" y="304" height="56" width="549" format="#,##0.00" html.valueishtml="0"  name=total_avg_time_disch_fwd visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=header alignment="1" expression=" avg_outst_days + total_avg_time_disch_fwd "border="0" color="0" x="923" y="304" height="56" width="617" format="#,##0.00" html.valueishtml="0"  name=outst_days_incl_time_from_disch_to_fwd visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=header alignment="1" expression="if(total_claims = 0, 0, total_outst_amount_usd /  total_claims)"border="0" color="0" x="18" y="304" height="56" width="347" format="#,##0.00" html.valueishtml="0"  name=avg_outst_amount_usd visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=header alignment="1" expression=" total_outst_days / total_claims "border="0" color="0" x="1189" y="120" height="56" width="347" format="#,##0.00" html.valueishtml="0"  name=avg_outst_days visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="0" text="Total Outs Days" border="0" color="16777215" x="0" y="0" height="112" width="366" html.valueishtml="0"  name=t_1  tag="#10 A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="22628899" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="0" text="Average Outs Claims USD" border="0" color="16777215" x="0" y="184" height="112" width="366" html.valueishtml="0"  name=t_4  tag="#10 A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="22628899" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="0" text="Average Time from Discharge to Claims Fwd" border="0" color="16777215" x="370" y="184" height="112" width="549" html.valueishtml="0"  name=t_5  tag="#10 A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="22628899" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="0" text="Total Outs Claims" border="0" color="16777215" x="370" y="0" height="112" width="366" html.valueishtml="0"  name=t_2  tag="#10 A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="22628899" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="0" text="Total Outs Claims USD" border="0" color="16777215" x="741" y="0" height="112" width="439" html.valueishtml="0"  name=total_outst_amount  tag="#10 A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="22628899" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="0" text="Outs Days Incl Time from Discharge to Claims Fwd" border="0" color="16777215" x="923" y="184" height="112" width="617" html.valueishtml="0"  name=t_6  tag="#10 A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="22628899" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="0" text="Average Outs Days" border="0" color="16777215" x="1184" y="0" height="112" width="352" html.valueishtml="0"  name=t_3  tag="#10 A" visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="22628899" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=detail alignment="1" expression="IF (number (left (voyage_nr , 2)) < 50, string(20) +  voyage_nr , string(19) +  voyage_nr )"border="0" color="0" x="169" y="48" height="56" width="288" format="[GENERAL]" html.valueishtml="0"  name=compute_voyage_sort visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=detail alignment="1" expression="daysafter( forwarding_date , today() )"border="0" color="0" x="882" y="44" height="56" width="288" format="[General]" html.valueishtml="0"  name=outst_days visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0  template=(comment="" encoding="UTF-16LE" name="j" xml="<?xml version=~"1.0~" encoding=~"UTF-16LE~" standalone=~"no~"?><d_dem_outstanding_stat><d_dem_outstanding_stat_row __pbband=~"detail~"><vessel_nr>vessel_nr</vessel_nr><vessel_ref_nr>vessel_ref_nr</vessel_ref_nr><vessel_name>vessel_name</vessel_name><voyage_nr>voyage_nr</voyage_nr><claim_nr>claim_nr</claim_nr><claim_type>claim_type</claim_type><created_by>created_by</created_by><chart_nr>chart_nr</chart_nr><chart_n_1>chart_n_1</chart_n_1><nom_acc_nr>nom_acc_nr</nom_acc_nr><broker_nr>broker_nr</broker_nr><broker_name/><out_amount_usd>out_amount_usd</out_amount_usd><pc_nr>pc_nr</pc_nr><forwarding_date>forwarding_date</forwarding_date><disch_date>disch_date</disch_date><cp_date>cp_date</cp_date><office_nr>office_nr</office_nr><claim_sent>claim_sent</claim_sent><claim_sent_date>claim_sent_date</claim_sent_date><original_amount_in_usd>original_amount_in_usd</original_amount_in_usd><broker_confirmed>broker_confirmed</broker_confirmed><broker_confirmed_date>broker_confirmed_date</broker_confirmed_date><charterer_confirmed>charterer_confirmed</charterer_confirmed><charterer_confirmed_date>charterer_confirmed_date</charterer_confirmed_date><status>status</status><status_date>status_date</status_date><claim_email>claim_email</claim_email><claim_comment>claim_comment</claim_comment></d_dem_outstanding_stat_row></d_dem_outstanding_stat>"))
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" nativepdf.customsize=0 nativepdf.customorientation=0 )
+export.xhtml()
+ 

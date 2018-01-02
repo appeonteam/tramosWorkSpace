@@ -1,0 +1,12 @@
+﻿$PBExportHeader$s_select_voyage_charterer.srs
+$PBExportComments$In w_claims (wf_frt_with_claim,wf_new_claim,wf_afc_new) and w_select_voyage_charterer
+global type s_select_voyage_charterer from structure
+	string		voyage_nr
+	integer		charter_nr
+	string		claim_type
+	boolean		calc_yes_no
+	long		cp_id
+	integer		cp_multiple
+	long		voyage_type
+end type
+

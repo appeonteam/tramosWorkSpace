@@ -1,0 +1,22 @@
+﻿$PBExportHeader$f_broker_name_lookup.srf
+$PBExportComments$This function reurn TRUE if broker_name exists or FALSE if not.
+global type f_broker_name_lookup from function_object
+end type
+
+forward prototypes
+global function boolean f_broker_name_lookup (string broker_name)
+end prototypes
+
+global function boolean f_broker_name_lookup (string broker_name);STRING ls_broker_name
+SELECT BROKER_NAME
+INTO :ls_broker_name
+FROM BROKERS
+WHERE BROKER_NAME = :broker_name;
+IF SQLCA.SQLCode < 0 OR SQLCA.SQLCode = 100 THEN 
+	Return (FALSE)
+ELSE
+	Return(TRUE)
+END IF
+
+end function
+

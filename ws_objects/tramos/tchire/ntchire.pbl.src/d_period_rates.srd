@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_period_rates.srd
+$PBExportComments$Shows period rates with start and end dates for a given contract
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=periode_start dbname="NTC_TC_PERIOD.PERIODE_START" )
+ column=(type=datetime updatewhereclause=yes name=periode_end dbname="NTC_TC_PERIOD.PERIODE_END" )
+ column=(type=decimal(4) updatewhereclause=yes name=rate dbname="NTC_TC_PERIOD.RATE" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"NTC_TC_PERIOD~" ) COLUMN(NAME=~"NTC_TC_PERIOD.PERIODE_START~") COLUMN(NAME=~"NTC_TC_PERIOD.PERIODE_END~") COLUMN(NAME=~"NTC_TC_PERIOD.RATE~")WHERE(    EXP1 =~"NTC_TC_PERIOD.CONTRACT_ID~"   OP =~"=~"    EXP2 =~":ra_contract_id~" ) ) ORDER(NAME=~"NTC_TC_PERIOD.PERIODE_START~" ASC=yes ) ARG(NAME = ~"ra_contract_id~" TYPE = number) " arguments=(("ra_contract_id", number))  sort="periode_start A " )
+text(band=header alignment="2" text="Periode Start" border="0" color="0" x="5" y="4" height="64" width="603"  name=periode_start_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Periode End" border="0" color="0" x="613" y="4" height="64" width="603"  name=periode_end_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Rate" border="0" color="0" x="1221" y="4" height="64" width="329"  name=rate_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="603" format="[shortdate] [time]"  name=periode_start edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="613" y="4" height="76" width="603" format="[shortdate] [time]"  name=periode_end edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1221" y="4" height="76" width="329" format="[general]"  name=rate edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

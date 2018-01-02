@@ -1,0 +1,8 @@
+﻿$PBExportHeader$str_multiupdate.srs
+global type str_multiupdate from structure
+	string		tablename
+	string		allcolumns[]
+	string		keycolumns[]
+	string		alldbcolumns[]
+end type
+

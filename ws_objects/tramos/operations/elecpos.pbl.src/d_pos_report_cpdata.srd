@@ -1,0 +1,36 @@
+﻿$PBExportHeader$d_pos_report_cpdata.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=charter dbname="compute_0001" )
+ column=(type=datetime updatewhereclause=yes name=cal_cerp_cal_cerp_date dbname="CAL_CERP.CAL_CERP_DATE" )
+ column=(type=char(10) updatewhereclause=yes name=broker dbname="compute_0003" )
+ column=(type=decimal(0) updatewhereclause=yes identity=yes name=cerp_id dbname="CAL_CERP.CAL_CERP_ID" )
+ column=(type=char(10) updatewhereclause=yes name=office dbname="compute_0005" )
+ retrieve="  SELECT DISTINCT IsNull(CHART.CHART_SN,~"~"),   
+         CAL_CERP.CAL_CERP_DATE,   
+         IsNull(BROKERS.BROKER_SN,~"~"),   
+         CAL_CERP.CAL_CERP_ID,
+ 			IsNull(OFFICES.OFFICE_SN,~"~") 
+    FROM CAL_CARG,   
+         CAL_CERP,   
+         CAL_COMM,   
+         BROKERS,   
+         CHART,OFFICES  
+   WHERE ( CAL_CERP.CAL_CERP_ID = CAL_CARG.CAL_CERP_ID ) and  
+         ( CAL_COMM.CAL_CERP_ID = CAL_CERP.CAL_CERP_ID ) and  
+         ( BROKERS.BROKER_NR = CAL_COMM.BROKER_NR ) and  
+			( OFFICES.OFFICE_NR =* CAL_CERP.CAL_CERP_OFFICE_NR ) and
+         ( CHART.CHART_NR = CAL_CERP.CHART_NR ) and  
+         ( ( CAL_CARG.CAL_CALC_ID = :ld_calc_id ) )    
+" arguments=(("ld_calc_id", number)) )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="311" y="4" height="76" width="603" format="[shortdate] [time]"  name=cal_cerp_cal_cerp_date edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="4" height="64" width="270" format="[general]"  name=charter edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1010" y="8" height="64" width="270" format="[general]"  name=broker edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="charter + ~"/~" + string( cal_cerp_cal_cerp_date,~"DDMMYY~")+~"/~"+ If( len(office) > 0, office, broker)"border="0" color="0" x="1586" y="4" height="68" width="786" format="[GENERAL]"  name=cpdata  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2633" y="12" height="64" width="590" format="[general]"  name=cerp_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1303" y="8" height="64" width="270" format="[general]"  name=office edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

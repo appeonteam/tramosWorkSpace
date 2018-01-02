@@ -1,0 +1,28 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "mt_constants.pbl" "";
+@end;
+@begin Objects 
+ "c#basecontrol.sru" "mt_constants.pbl";
+ "c#calculationstatus.sru" "mt_constants.pbl";
+ "c#color.sru" "mt_constants.pbl";
+ "c#connectivity.sru" "mt_constants.pbl";
+ "c#consumptiontype.sru" "mt_constants.pbl";
+ "c#datatype.sru" "mt_constants.pbl";
+ "c#decimal.sru" "mt_constants.pbl";
+ "c#dwband.sru" "mt_constants.pbl";
+ "c#dwdatatype.sru" "mt_constants.pbl";
+ "c#dwedit.sru" "mt_constants.pbl";
+ "c#dwobject.sru" "mt_constants.pbl";
+ "c#dwrowselect.sru" "mt_constants.pbl";
+ "c#email.sru" "mt_constants.pbl";
+ "c#empty.sru" "mt_constants.pbl";
+ "c#pcgroup.sru" "mt_constants.pbl";
+ "c#profile.sru" "mt_constants.pbl";
+ "c#return.sru" "mt_constants.pbl";
+ "c#severity.sru" "mt_constants.pbl";
+ "c#string.sru" "mt_constants.pbl";
+ "c#usergroup.sru" "mt_constants.pbl";
+ "c#windowmessage.sru" "mt_constants.pbl";
+ "c#windowposition.sru" "mt_constants.pbl";
+@end;

@@ -1,0 +1,17 @@
+﻿$PBExportHeader$d_target_list.srd
+$PBExportComments$List af Targets related to a given Keycode.
+release 4;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=57 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=57 color="536870912" )
+table(column=(type=char(20) name=userid dbname="CCS_TARG.USERID" )
+ column=(type=char(32766) name=ccs_targ_desc dbname="CCS_TARG.CCS_TARG_DESC" )
+ column=(type=decimal(0) update=yes key=yes name=target_keycodes_ccs_targ__pk dbname="TARGET_KEYCODES.CCS_TARG__PK" )
+ column=(type=decimal(0) update=yes key=yes name=target_keycodes_ccs_keyc_pk dbname="TARGET_KEYCODES.CCS_KEYC_PK" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_TARG~" ) TABLE(NAME=~"TARGET_KEYCODES~" ) TABLE(NAME=~"CCS_KEYC~" ) COLUMN(NAME=~"CCS_TARG.USERID~") COLUMN(NAME=~"CCS_TARG.CCS_TARG_DESC~") COLUMN(NAME=~"TARGET_KEYCODES.CCS_TARG__PK~") COLUMN(NAME=~"TARGET_KEYCODES.CCS_KEYC_PK~") JOIN (LEFT=~"CCS_TARG.CCS_TARG__PK~" OP =~"=~"RIGHT=~"TARGET_KEYCODES.CCS_TARG__PK~" ) JOIN (LEFT=~"CCS_KEYC.CCS_KEYC_PK~" OP =~"=~"RIGHT=~"TARGET_KEYCODES.CCS_KEYC_PK~" )WHERE( EXP1 =~"CCS_KEYC.CCS_KEYC_PK~" OP =~"=~" EXP2 =~":ccs_keyc_pk~" ) ) ORDER(NAME=~"CCS_TARG.USERID~" ASC=yes ) ARG(NAME = ~"ccs_keyc_pk~" TYPE = number) " update="TARGET_KEYCODES" updatewhere=1 updatekeyinplace=yes arguments=(("ccs_keyc_pk", number)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="4" height="65" width="110" format="[general]"  name=userid  tag=" " edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="348" y="4" height="65" width="2195" format="[general]"  name=ccs_targ_desc  tag="Description of the target" edit.limit=32000 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Salesperson"border="0" color="0" x="1" y="4" height="57" width="321"  name=userid_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Target Description"border="0" color="0" x="348" y="4" height="57" width="467"  name=ccs_targ_desc_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

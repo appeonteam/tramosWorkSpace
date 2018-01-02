@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_tcouterrors.srs
+global type s_tcouterrors from structure
+	string		s_vesselrefnr
+	string		s_voyagenr
+	long		l_contractnr
+	string		s_notes
+	string		s_errorcode
+end type
+

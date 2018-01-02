@@ -1,0 +1,12 @@
+﻿$PBExportHeader$s_misc_claims.srs
+$PBExportComments$Data for a misc claim
+global type s_misc_claims from structure
+	string		s_claim_type
+	double		d_claim_amount
+	integer		i_addrs_comm_claim
+	integer		i_broker_comm_claim
+	integer		i_gross_freight_yes
+	integer		broker_commission
+	integer		pool_manager_commission
+end type
+

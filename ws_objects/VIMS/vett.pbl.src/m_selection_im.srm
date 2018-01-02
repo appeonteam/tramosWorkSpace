@@ -1,0 +1,278 @@
+﻿$PBExportHeader$m_selection_im.srm
+forward
+global type m_selection_im from m_selection
+end type
+type m_l1 from menu within m_selection_im
+end type
+type m_selectallsire from menu within m_selection_im
+end type
+type m_selectallcdi from menu within m_selection_im
+end type
+type m_selectallmire from menu within m_selection_im
+end type
+type m_selectallpsc from menu within m_selection_im
+end type
+type m_selectallts from menu within m_selection_im
+end type
+global type m_selection_im from m_selection
+m_l1 m_l1
+m_selectallsire m_selectallsire
+m_selectallcdi m_selectallcdi
+m_selectallmire m_selectallmire
+m_selectallpsc m_selectallpsc
+m_selectallts m_selectallts
+end type
+end forward
+
+global type m_selection_im from m_selection
+m_l1 m_l1
+m_selectallsire m_selectallsire
+m_selectallcdi m_selectallcdi
+m_selectallmire m_selectallmire
+m_selectallpsc m_selectallpsc
+m_selectallts m_selectallts
+end type
+global m_selection_im m_selection_im
+
+on m_selection_im.create
+m_selection_im=this
+call super::create
+this.m_l1=create m_l1
+this.m_selectallsire=create m_selectallsire
+this.m_selectallcdi=create m_selectallcdi
+this.m_selectallmire=create m_selectallmire
+this.m_selectallpsc=create m_selectallpsc
+this.m_selectallts=create m_selectallts
+this.Item[UpperBound(this.Item)+1]=this.m_l1
+this.Item[UpperBound(this.Item)+1]=this.m_selectallsire
+this.Item[UpperBound(this.Item)+1]=this.m_selectallcdi
+this.Item[UpperBound(this.Item)+1]=this.m_selectallmire
+this.Item[UpperBound(this.Item)+1]=this.m_selectallpsc
+this.Item[UpperBound(this.Item)+1]=this.m_selectallts
+end on
+
+on m_selection_im.destroy
+call super::destroy
+destroy(this.m_l1)
+destroy(this.m_selectallsire)
+destroy(this.m_selectallcdi)
+destroy(this.m_selectallmire)
+destroy(this.m_selectallpsc)
+destroy(this.m_selectallts)
+end on
+
+type m_selectall from m_selection`m_selectall within m_selection_im
+end type
+
+on m_selectall.create
+call super::create
+end on
+
+on m_selectall.destroy
+call super::destroy
+end on
+
+type m_deselectall from m_selection`m_deselectall within m_selection_im
+end type
+
+on m_deselectall.create
+call super::create
+end on
+
+on m_deselectall.destroy
+call super::destroy
+end on
+
+type m_resp from m_selection`m_resp within m_selection_im
+end type
+
+on m_resp.create
+call super::create
+end on
+
+on m_resp.destroy
+call super::destroy
+end on
+
+type m_l1 from menu within m_selection_im
+end type
+
+on m_l1.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_l1.destroy
+call super::destroy
+end on
+
+type m_selectallsire from menu within m_selection_im
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_ContextMenuClick(100)
+end event
+
+on m_selectallsire.create
+call super::create
+this.text = "Select all SIRE"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_selectallsire.destroy
+call super::destroy
+end on
+
+type m_selectallcdi from menu within m_selection_im
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_ContextMenuClick(110)
+end event
+
+on m_selectallcdi.create
+call super::create
+this.text = "Select all CDI"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_selectallcdi.destroy
+call super::destroy
+end on
+
+type m_selectallmire from menu within m_selection_im
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_ContextMenuClick(120)
+end event
+
+on m_selectallmire.create
+call super::create
+this.text = "Select all MIRE"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_selectallmire.destroy
+call super::destroy
+end on
+
+type m_selectallpsc from menu within m_selection_im
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_ContextMenuClick(130)
+end event
+
+on m_selectallpsc.create
+call super::create
+this.text = "Select PSC"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_selectallpsc.destroy
+call super::destroy
+end on
+
+type m_selectallts from menu within m_selection_im
+end type
+
+event clicked;
+Parentwindow.dynamic event ue_ContextMenuClick(140)
+end event
+
+on m_selectallts.create
+call super::create
+this.text = "Select T/S"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_selectallts.destroy
+call super::destroy
+end on
+

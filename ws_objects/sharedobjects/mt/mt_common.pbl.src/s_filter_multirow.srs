@@ -1,0 +1,12 @@
+﻿$PBExportHeader$s_filter_multirow.srs
+$PBExportComments$save datawindow multi row filter parm
+global type s_filter_multirow from structure
+	u_datagrid		self_dw		descriptor "comment" = "the current filter datawindow"
+	string		self_column_name		descriptor "comment" = "the column name used to get item value"
+	u_datagrid		cascade_dw[]		descriptor "comment" = "the cascading filter datawindow"
+	string		cascade_column_name[]		descriptor "comment" = "the column name used to generate filter condition for cascading datawindows"
+	string		report_column_name		descriptor "comment" = "the column name used to generate filter condition for report datawindows"
+	u_datagrid		master_dw		descriptor "comment" = "currently not used"
+	boolean		include_null		descriptor "comment" = "true = include a NULL value item in the DW; false = not include a NULL value item in the DW."
+end type
+

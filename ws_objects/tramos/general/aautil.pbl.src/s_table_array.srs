@@ -1,0 +1,6 @@
+﻿$PBExportHeader$s_table_array.srs
+$PBExportComments$Array containing table names
+global type s_table_array from structure
+    string ss_table_name
+end type
+

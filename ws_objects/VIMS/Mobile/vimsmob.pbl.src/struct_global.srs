@@ -1,0 +1,31 @@
+﻿$PBExportHeader$struct_global.srs
+$PBExportComments$Global variables & temp parameters
+global type struct_global from structure
+	byte		login		descriptor "comment" = "Holds login Type:  0 - Readonly, 1 - Vessel Management, 2 - Inspector"
+	string		userid		descriptor "comment" = "Holds user ID of inspector. Only if Inspector login"
+	byte		install		descriptor "comment" = "Type of Installation: 0 - Vessel, 1 - Inspector"
+	string		vesselname		descriptor "comment" = "Holds name of vessel obtained from VMIC"
+	long		vesselimo		descriptor "comment" = "Holds IMO number of vessel"
+	string		vesselnumber		descriptor "comment" = "Holds Vessel number"
+	string		inspfirstname		descriptor "comment" = "Holds Inspector's first name"
+	string		insplastname		descriptor "comment" = "Holds Inspector's last name"
+	long		inspmodel		descriptor "comment" = "Temp parameter to pass Inspection Model"
+	long		inspid		descriptor "comment" = "Temp parameter to pass InspID"
+	string		paramstring		descriptor "comment" = "Temp parameter to pass a string"
+	long		itemid		descriptor "comment" = "Temp parameter to pass a item"
+	long		paramlong		descriptor "comment" = "Temp parameter to pass a long"
+	integer		paramint		descriptor "comment" = "Temp parameter to pass a integer"
+	string		appver		descriptor "comment" = "Application Version"
+	string		compname		descriptor "comment" = "Workstation Name"
+	string		appbuilt		descriptor "comment" = "Application Build Date"
+	integer		level		descriptor "comment" = "Temp parameter"
+	string		footer		descriptor "comment" = "String for report footer"
+	string		appfolder		descriptor "comment" = "String to hold the application source folder"
+	string		tempfolder		descriptor "comment" = "String to hold temporary folder to extract/compress packages"
+	string		defuserpath		descriptor "comment" = "String to hold default user path"
+	integer		dbver		descriptor "comment" = "Holds DB Issue Number"
+	boolean		is_vm		descriptor "comment" = "!!! Global variable - Determines if application is VIMS or VIMS Mobile (used in common library vettio.pbl)"
+	boolean		logging		descriptor "comment" = "!!! Global variable - Logging is enabled or disabled"
+	integer		mindbver		descriptor "comment" = "!!! Global variable - Minimum DB version required"
+end type
+

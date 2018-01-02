@@ -1,0 +1,15 @@
+﻿$PBExportHeader$dw_voucher_group_list.srd
+$PBExportComments$This datawindow lists all the voucher groups.
+release 4;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=61 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=65 color="536870912" )
+table(column=(type=char(30) update=yes key=yes name=vg_name dbname="VOUCHER_GROUPS.VG_NAME" )
+ column=(type=char(7) update=yes name=vg_acc_nr dbname="VOUCHER_GROUPS.VG_ACC_NR" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"VOUCHER_GROUPS~" ) COLUMN(NAME=~"VOUCHER_GROUPS.VG_NAME~") COLUMN(NAME=~"VOUCHER_GROUPS.VG_ACC_NR~")) ORDER(NAME=~"VOUCHER_GROUPS.VG_NAME~" ASC=yes ) " update="VOUCHER_GROUPS" updatewhere=0 updatekeyinplace=yes )
+text(band=header alignment="0" text="Group Name"border="0" color="0" x="5" y="4" height="57" width="311"  name=vg_name_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Account Number"border="0" color="0" x="718" y="4" height="57" width="421"  name=vg_acc_nr_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="57" width="709" format="[general]"  name=vg_name edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="718" y="4" height="57" width="426" format="[general]"  name=vg_acc_nr edit.limit=7 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

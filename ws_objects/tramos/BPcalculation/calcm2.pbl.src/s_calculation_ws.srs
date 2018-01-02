@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_calculation_ws.srs
+$PBExportComments$Contains the ports order and the WS rate
+global type s_calculation_ws from structure
+    string s_portlist
+    double d_rate
+    integer i_year
+end type
+

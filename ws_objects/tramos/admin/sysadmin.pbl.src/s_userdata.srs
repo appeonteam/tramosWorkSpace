@@ -1,0 +1,10 @@
+﻿$PBExportHeader$s_userdata.srs
+$PBExportComments$Structure used by the edit users windows
+global type s_userdata from structure
+    transaction SQLchangeuser
+    long userno
+    datawindow userlist
+    long groupno
+    datawindow grouplist
+end type
+

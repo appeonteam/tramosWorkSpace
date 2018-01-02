@@ -1,0 +1,9 @@
+﻿$PBExportHeader$str_parm.srs
+$PBExportComments$Used for the transfer of parameters to the print preview window.
+global type str_parm from structure
+	string		parameters
+	blob		blb_data
+	string		report_name
+	string		charterer_names
+end type
+

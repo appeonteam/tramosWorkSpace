@@ -1,0 +1,25 @@
+﻿$PBExportHeader$f_daysinmonth.srf
+global type f_daysinmonth from function_object
+end type
+
+forward prototypes
+global function integer f_daysinmonth (integer ai_month, integer ai_year)
+end prototypes
+
+global function integer f_daysinmonth (integer ai_month, integer ai_year);// Function to return the last day of the month
+
+Date ldt_check
+Integer li_Day
+
+li_Day = 31  // Set highest day
+
+// Check if date is valid
+Do
+	ldt_check = Date(ai_Year, ai_Month, li_Day)
+	If ldt_check = Date("1900-01-01") then li_Day --
+loop until ldt_check > Date("1900-01-01")
+
+Return li_Day
+
+end function
+

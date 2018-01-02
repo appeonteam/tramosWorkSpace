@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_updateflags.srs
+global type s_updateflags from structure
+	boolean		b_update_fleet_list
+	boolean		b_update_positions
+	boolean		b_update_certificates
+	boolean		b_update_all_certificates
+end type
+

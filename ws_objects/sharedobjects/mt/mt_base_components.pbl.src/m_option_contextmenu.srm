@@ -1,0 +1,1527 @@
+﻿$PBExportHeader$m_option_contextmenu.srm
+forward
+global type m_option_contextmenu from menu
+end type
+type m_item01 from menu within m_option_contextmenu
+end type
+type m_item02 from menu within m_option_contextmenu
+end type
+type m_item03 from menu within m_option_contextmenu
+end type
+type m_item04 from menu within m_option_contextmenu
+end type
+type m_item05 from menu within m_option_contextmenu
+end type
+type m_item06 from menu within m_option_contextmenu
+end type
+type m_item07 from menu within m_option_contextmenu
+end type
+type m_item08 from menu within m_option_contextmenu
+end type
+type m_item09 from menu within m_option_contextmenu
+end type
+type m_item10 from menu within m_option_contextmenu
+end type
+type m_item11 from menu within m_option_contextmenu
+end type
+type m_item12 from menu within m_option_contextmenu
+end type
+type m_item13 from menu within m_option_contextmenu
+end type
+type m_item14 from menu within m_option_contextmenu
+end type
+type m_item15 from menu within m_option_contextmenu
+end type
+type m_item16 from menu within m_option_contextmenu
+end type
+type m_item17 from menu within m_option_contextmenu
+end type
+type m_item18 from menu within m_option_contextmenu
+end type
+type m_item19 from menu within m_option_contextmenu
+end type
+type m_item20 from menu within m_option_contextmenu
+end type
+type m_item21 from menu within m_option_contextmenu
+end type
+type m_item22 from menu within m_option_contextmenu
+end type
+type m_item23 from menu within m_option_contextmenu
+end type
+type m_item24 from menu within m_option_contextmenu
+end type
+type m_item25 from menu within m_option_contextmenu
+end type
+type m_item26 from menu within m_option_contextmenu
+end type
+type m_item27 from menu within m_option_contextmenu
+end type
+type m_item28 from menu within m_option_contextmenu
+end type
+type m_item29 from menu within m_option_contextmenu
+end type
+type m_item30 from menu within m_option_contextmenu
+end type
+global type m_option_contextmenu from menu
+m_item01 m_item01
+m_item02 m_item02
+m_item03 m_item03
+m_item04 m_item04
+m_item05 m_item05
+m_item06 m_item06
+m_item07 m_item07
+m_item08 m_item08
+m_item09 m_item09
+m_item10 m_item10
+m_item11 m_item11
+m_item12 m_item12
+m_item13 m_item13
+m_item14 m_item14
+m_item15 m_item15
+m_item16 m_item16
+m_item17 m_item17
+m_item18 m_item18
+m_item19 m_item19
+m_item20 m_item20
+m_item21 m_item21
+m_item22 m_item22
+m_item23 m_item23
+m_item24 m_item24
+m_item25 m_item25
+m_item26 m_item26
+m_item27 m_item27
+m_item28 m_item28
+m_item29 m_item29
+m_item30 m_item30
+end type
+end forward
+
+global type m_option_contextmenu from menu
+m_item01 m_item01
+m_item02 m_item02
+m_item03 m_item03
+m_item04 m_item04
+m_item05 m_item05
+m_item06 m_item06
+m_item07 m_item07
+m_item08 m_item08
+m_item09 m_item09
+m_item10 m_item10
+m_item11 m_item11
+m_item12 m_item12
+m_item13 m_item13
+m_item14 m_item14
+m_item15 m_item15
+m_item16 m_item16
+m_item17 m_item17
+m_item18 m_item18
+m_item19 m_item19
+m_item20 m_item20
+m_item21 m_item21
+m_item22 m_item22
+m_item23 m_item23
+m_item24 m_item24
+m_item25 m_item25
+m_item26 m_item26
+m_item27 m_item27
+m_item28 m_item28
+m_item29 m_item29
+m_item30 m_item30
+end type
+global m_option_contextmenu m_option_contextmenu
+
+type variables
+powerobject		ipo_parent
+
+long	il_menuitemcount
+
+end variables
+
+forward prototypes
+public subroutine mf_setparent (powerobject apo_parent)
+public subroutine documentation ()
+public function long mf_additem (string as_text)
+public function integer mf_modifyitem (long al_num, boolean ab_enabled)
+public function integer mf_modifyitem (long al_num, string as_text)
+public function long mf_additem (long al_parent, string as_text)
+public function long mf_additem (long al_parent, string as_text, string as_tag)
+public function long mf_additem (string as_text, string as_tag)
+end prototypes
+
+public subroutine mf_setparent (powerobject apo_parent);/********************************************************************
+   mf_setparent
+   <DESC>	Sets the parent object of this menu	</DESC>
+   <RETURN>	(None)	</RETURN>
+   <ACCESS> public </ACCESS>
+   <ARGS>
+		apo_parent: parent object of the menu
+   </ARGS>
+   <USAGE>	</USAGE>
+   <HISTORY>
+   	Date         CR-Ref       Author       Comments
+   	31/07/2012   CR2413       ZSW001       First Version
+   </HISTORY>
+********************************************************************/
+
+ipo_parent = apo_parent
+
+end subroutine
+
+public subroutine documentation ();/********************************************************************
+   m_option_contextmenu
+   <OBJECT>		Context Menu	</OBJECT>
+   <USAGE>	</USAGE>
+   <ALSO>	</ALSO>
+   <HISTORY>
+   	Date         CR-Ref       Author        Comments
+   	31/07/2012   CR2413       ZSW001        First Version
+		09/14/16     CR4226       SSX014        Modified mf_additem functions
+   </HISTORY>
+********************************************************************/
+
+end subroutine
+
+public function long mf_additem (string as_text);/********************************************************************
+   mf_additem
+   <DESC>	Add menu item	</DESC>
+   <RETURN>	long:
+            <LI> Menu item serial number
+            <LI> c#return.Failure	</RETURN>
+   <ACCESS> public </ACCESS>
+   <ARGS>
+		as_text
+   </ARGS>
+   <USAGE>	</USAGE>
+   <HISTORY>
+   	Date         CR-Ref       Author       Comments
+   	31/07/2012   CR2413       ZSW001       First Version
+   </HISTORY>
+********************************************************************/
+
+return mf_additem(0, as_text)
+
+end function
+
+public function integer mf_modifyitem (long al_num, boolean ab_enabled);/********************************************************************
+   mf_modifyitem
+   <DESC>	Modify the enabled property of the menu item	</DESC>
+   <RETURN>	integer:
+            <LI> c#return.Success, X ok
+            <LI> c#return.Failure, X failed	</RETURN>
+   <ACCESS> public </ACCESS>
+   <ARGS>
+		al_num
+		ab_enabled
+   </ARGS>
+   <USAGE>	</USAGE>
+   <HISTORY>
+   	Date         CR-Ref       Author       Comments
+   	31/07/2012   CR2413       ZSW001       First Version
+   </HISTORY>
+********************************************************************/
+
+if al_num <= 0 or al_num > upperbound(this.item) then return c#return.Failure
+
+this.item[al_num].enabled = ab_enabled
+
+return c#return.Success
+
+end function
+
+public function integer mf_modifyitem (long al_num, string as_text);/********************************************************************
+   mf_modifyitem
+   <DESC>	Modify the text property of the menu item	</DESC>
+   <RETURN>	integer:
+            <LI> c#return.Success, X ok
+            <LI> c#return.Failure, X failed	</RETURN>
+   <ACCESS> public </ACCESS>
+   <ARGS>
+		al_num
+		as_text
+   </ARGS>
+   <USAGE>	</USAGE>
+   <HISTORY>
+   	Date         CR-Ref       Author       Comments
+   	31/07/2012   CR2413       ZSW001       First Version
+   </HISTORY>
+********************************************************************/
+
+if al_num <= 0 or al_num > upperbound(this.item) then return c#return.Failure
+
+this.item[al_num].text = as_text
+
+return c#return.Success
+
+end function
+
+public function long mf_additem (long al_parent, string as_text);/********************************************************************
+   mf_additem
+   <DESC>	Add menu item	</DESC>
+   <RETURN>	long:
+            <LI> Menu item serial number
+            <LI> c#return.Failure	</RETURN>
+   <ACCESS> public </ACCESS>
+   <ARGS>
+		as_text
+   </ARGS>
+   <USAGE>	</USAGE>
+   <HISTORY>
+   	Date         CR-Ref       Author       Comments
+   	31/07/2012   CR2413       ZSW001       First Version
+		31/08/2016   CR4226       SSX014       
+   </HISTORY>
+********************************************************************/
+long ll_index
+m_option_contextmenuitem lcm_item
+
+if al_parent <= 0 then
+	if il_menuitemcount > upperbound(this.item) then return c#return.Failure
+	il_menuitemcount++
+	this.item[il_menuitemcount].text = as_text
+	this.item[il_menuitemcount].visible = true
+else
+	if al_parent > upperbound(this.item) then return c#return.Failure
+	
+	lcm_item = create m_option_contextmenuitem
+	lcm_item.ipo_parent = ipo_parent
+	lcm_item.text = as_text
+	lcm_item.visible = true
+	
+	ll_index = upperbound(this.item[al_parent].item) + 1
+	this.item[al_parent].item[ll_index] = lcm_item
+end if
+
+return il_menuitemcount
+
+end function
+
+public function long mf_additem (long al_parent, string as_text, string as_tag);/********************************************************************
+   mf_additem
+   <DESC>	Add menu item	</DESC>
+   <RETURN>	long:
+            <LI> Menu item serial number
+            <LI> c#return.Failure	</RETURN>
+   <ACCESS> public </ACCESS>
+   <ARGS>
+		as_text
+   </ARGS>
+   <USAGE>	</USAGE>
+   <HISTORY>
+   	Date         CR-Ref       Author       Comments
+   	31/07/2012   CR2413       ZSW001       First Version
+		31/08/2016   CR4226       SSX014       
+   </HISTORY>
+********************************************************************/
+long ll_index
+m_option_contextmenuitem lcm_item
+
+if al_parent <= 0 then
+	if il_menuitemcount > upperbound(this.item) then return c#return.Failure
+	il_menuitemcount++
+	this.item[il_menuitemcount].text = as_text
+	this.item[il_menuitemcount].tag = as_tag
+	this.item[il_menuitemcount].visible = true
+else
+	if al_parent > upperbound(this.item) then return c#return.Failure
+	
+	lcm_item = create m_option_contextmenuitem
+	lcm_item.ipo_parent = ipo_parent
+	lcm_item.text = as_text
+	lcm_item.tag = as_tag
+	lcm_item.visible = true
+	
+	ll_index = upperbound(this.item[al_parent].item) + 1
+	this.item[al_parent].item[ll_index] = lcm_item
+end if
+
+return il_menuitemcount
+
+end function
+
+public function long mf_additem (string as_text, string as_tag);/********************************************************************
+   mf_additem
+   <DESC>	Add menu item	</DESC>
+   <RETURN>	long:
+            <LI> Menu item serial number
+            <LI> c#return.Failure	</RETURN>
+   <ACCESS> public </ACCESS>
+   <ARGS>
+		as_text
+   </ARGS>
+   <USAGE>	</USAGE>
+   <HISTORY>
+   	Date         CR-Ref       Author       Comments
+   	31/07/2012   CR2413       ZSW001       First Version
+   </HISTORY>
+********************************************************************/
+
+return mf_additem(0, as_text, as_tag)
+
+end function
+
+on m_option_contextmenu.create
+m_option_contextmenu=this
+call super::create
+this.text = "m_option_contextmenu"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_item01=create m_item01
+this.m_item02=create m_item02
+this.m_item03=create m_item03
+this.m_item04=create m_item04
+this.m_item05=create m_item05
+this.m_item06=create m_item06
+this.m_item07=create m_item07
+this.m_item08=create m_item08
+this.m_item09=create m_item09
+this.m_item10=create m_item10
+this.m_item11=create m_item11
+this.m_item12=create m_item12
+this.m_item13=create m_item13
+this.m_item14=create m_item14
+this.m_item15=create m_item15
+this.m_item16=create m_item16
+this.m_item17=create m_item17
+this.m_item18=create m_item18
+this.m_item19=create m_item19
+this.m_item20=create m_item20
+this.m_item21=create m_item21
+this.m_item22=create m_item22
+this.m_item23=create m_item23
+this.m_item24=create m_item24
+this.m_item25=create m_item25
+this.m_item26=create m_item26
+this.m_item27=create m_item27
+this.m_item28=create m_item28
+this.m_item29=create m_item29
+this.m_item30=create m_item30
+this.Item[UpperBound(this.Item)+1]=this.m_item01
+this.Item[UpperBound(this.Item)+1]=this.m_item02
+this.Item[UpperBound(this.Item)+1]=this.m_item03
+this.Item[UpperBound(this.Item)+1]=this.m_item04
+this.Item[UpperBound(this.Item)+1]=this.m_item05
+this.Item[UpperBound(this.Item)+1]=this.m_item06
+this.Item[UpperBound(this.Item)+1]=this.m_item07
+this.Item[UpperBound(this.Item)+1]=this.m_item08
+this.Item[UpperBound(this.Item)+1]=this.m_item09
+this.Item[UpperBound(this.Item)+1]=this.m_item10
+this.Item[UpperBound(this.Item)+1]=this.m_item11
+this.Item[UpperBound(this.Item)+1]=this.m_item12
+this.Item[UpperBound(this.Item)+1]=this.m_item13
+this.Item[UpperBound(this.Item)+1]=this.m_item14
+this.Item[UpperBound(this.Item)+1]=this.m_item15
+this.Item[UpperBound(this.Item)+1]=this.m_item16
+this.Item[UpperBound(this.Item)+1]=this.m_item17
+this.Item[UpperBound(this.Item)+1]=this.m_item18
+this.Item[UpperBound(this.Item)+1]=this.m_item19
+this.Item[UpperBound(this.Item)+1]=this.m_item20
+this.Item[UpperBound(this.Item)+1]=this.m_item21
+this.Item[UpperBound(this.Item)+1]=this.m_item22
+this.Item[UpperBound(this.Item)+1]=this.m_item23
+this.Item[UpperBound(this.Item)+1]=this.m_item24
+this.Item[UpperBound(this.Item)+1]=this.m_item25
+this.Item[UpperBound(this.Item)+1]=this.m_item26
+this.Item[UpperBound(this.Item)+1]=this.m_item27
+this.Item[UpperBound(this.Item)+1]=this.m_item28
+this.Item[UpperBound(this.Item)+1]=this.m_item29
+this.Item[UpperBound(this.Item)+1]=this.m_item30
+end on
+
+on m_option_contextmenu.destroy
+call super::destroy
+destroy(this.m_item01)
+destroy(this.m_item02)
+destroy(this.m_item03)
+destroy(this.m_item04)
+destroy(this.m_item05)
+destroy(this.m_item06)
+destroy(this.m_item07)
+destroy(this.m_item08)
+destroy(this.m_item09)
+destroy(this.m_item10)
+destroy(this.m_item11)
+destroy(this.m_item12)
+destroy(this.m_item13)
+destroy(this.m_item14)
+destroy(this.m_item15)
+destroy(this.m_item16)
+destroy(this.m_item17)
+destroy(this.m_item18)
+destroy(this.m_item19)
+destroy(this.m_item20)
+destroy(this.m_item21)
+destroy(this.m_item22)
+destroy(this.m_item23)
+destroy(this.m_item24)
+destroy(this.m_item25)
+destroy(this.m_item26)
+destroy(this.m_item27)
+destroy(this.m_item28)
+destroy(this.m_item29)
+destroy(this.m_item30)
+end on
+
+type m_item01 from menu within m_option_contextmenu
+end type
+
+on m_item01.create
+call super::create
+this.visible = false
+this.text = "item01"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item01.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+
+end event
+
+type m_item02 from menu within m_option_contextmenu
+end type
+
+on m_item02.create
+call super::create
+this.visible = false
+this.text = "item02"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item02.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item03 from menu within m_option_contextmenu
+end type
+
+on m_item03.create
+call super::create
+this.visible = false
+this.text = "item03"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item03.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item04 from menu within m_option_contextmenu
+end type
+
+on m_item04.create
+call super::create
+this.visible = false
+this.text = "item04"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item04.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item05 from menu within m_option_contextmenu
+end type
+
+on m_item05.create
+call super::create
+this.visible = false
+this.text = "item05"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item05.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item06 from menu within m_option_contextmenu
+end type
+
+on m_item06.create
+call super::create
+this.visible = false
+this.text = "item06"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item06.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item07 from menu within m_option_contextmenu
+end type
+
+on m_item07.create
+call super::create
+this.visible = false
+this.text = "item07"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item07.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item08 from menu within m_option_contextmenu
+end type
+
+on m_item08.create
+call super::create
+this.visible = false
+this.text = "item08"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item08.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item09 from menu within m_option_contextmenu
+end type
+
+on m_item09.create
+call super::create
+this.visible = false
+this.text = "item09"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item09.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item10 from menu within m_option_contextmenu
+end type
+
+on m_item10.create
+call super::create
+this.visible = false
+this.text = "item10"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item10.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item11 from menu within m_option_contextmenu
+end type
+
+on m_item11.create
+call super::create
+this.visible = false
+this.text = "item11"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item11.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item12 from menu within m_option_contextmenu
+end type
+
+on m_item12.create
+call super::create
+this.visible = false
+this.text = "item12"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item12.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item13 from menu within m_option_contextmenu
+end type
+
+on m_item13.create
+call super::create
+this.visible = false
+this.text = "item13"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item13.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item14 from menu within m_option_contextmenu
+end type
+
+on m_item14.create
+call super::create
+this.visible = false
+this.text = "item14"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item14.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item15 from menu within m_option_contextmenu
+end type
+
+on m_item15.create
+call super::create
+this.visible = false
+this.text = "item15"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item15.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item16 from menu within m_option_contextmenu
+end type
+
+on m_item16.create
+call super::create
+this.visible = false
+this.text = "item16"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item16.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item17 from menu within m_option_contextmenu
+end type
+
+on m_item17.create
+call super::create
+this.visible = false
+this.text = "item17"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item17.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item18 from menu within m_option_contextmenu
+end type
+
+on m_item18.create
+call super::create
+this.visible = false
+this.text = "item18"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item18.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item19 from menu within m_option_contextmenu
+end type
+
+on m_item19.create
+call super::create
+this.visible = false
+this.text = "item19"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item19.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item20 from menu within m_option_contextmenu
+end type
+
+on m_item20.create
+call super::create
+this.visible = false
+this.text = "item20"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item20.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item21 from menu within m_option_contextmenu
+end type
+
+on m_item21.create
+call super::create
+this.visible = false
+this.text = "item21"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item21.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item22 from menu within m_option_contextmenu
+end type
+
+on m_item22.create
+call super::create
+this.visible = false
+this.text = "item22"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item22.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item23 from menu within m_option_contextmenu
+end type
+
+on m_item23.create
+call super::create
+this.visible = false
+this.text = "item23"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item23.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item24 from menu within m_option_contextmenu
+end type
+
+on m_item24.create
+call super::create
+this.visible = false
+this.text = "item24"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item24.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item25 from menu within m_option_contextmenu
+end type
+
+on m_item25.create
+call super::create
+this.visible = false
+this.text = "item25"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item25.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item26 from menu within m_option_contextmenu
+end type
+
+on m_item26.create
+call super::create
+this.visible = false
+this.text = "item26"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item26.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item27 from menu within m_option_contextmenu
+end type
+
+on m_item27.create
+call super::create
+this.visible = false
+this.text = "item27"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item27.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item28 from menu within m_option_contextmenu
+end type
+
+on m_item28.create
+call super::create
+this.visible = false
+this.text = "item28"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item28.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item29 from menu within m_option_contextmenu
+end type
+
+on m_item29.create
+call super::create
+this.visible = false
+this.text = "item29"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item29.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+
+type m_item30 from menu within m_option_contextmenu
+end type
+
+on m_item30.create
+call super::create
+this.visible = false
+this.text = "item30"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item30.destroy
+call super::destroy
+end on
+
+event clicked;if this.Tag <> "" then
+	ipo_parent.dynamic event ue_commandex(this.text, this.tag)
+else
+	ipo_parent.dynamic event ue_command(this.text)
+end if
+end event
+

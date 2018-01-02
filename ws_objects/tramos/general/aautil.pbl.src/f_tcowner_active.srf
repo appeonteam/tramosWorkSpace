@@ -1,0 +1,24 @@
+﻿$PBExportHeader$f_tcowner_active.srf
+global type f_tcowner_active from function_object
+end type
+
+forward prototypes
+global function boolean f_tcowner_active (long al_tcownernr)
+end prototypes
+
+global function boolean f_tcowner_active (long al_tcownernr);/* This function checks if a TC owner is active or not. User to validate in datawindows */
+integer	li_active
+
+SELECT TCOWNER_ACTIVE
+	INTO :li_active
+	FROM TCOWNERS
+	WHERE TCOWNER_NR = :al_tcownernr ;
+
+if li_active = 1 then
+	return true
+else
+	return false
+end if
+
+end function
+

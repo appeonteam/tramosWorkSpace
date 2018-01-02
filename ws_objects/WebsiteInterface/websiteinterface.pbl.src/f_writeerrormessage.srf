@@ -1,0 +1,12 @@
+﻿$PBExportHeader$f_writeerrormessage.srf
+global type f_writeerrormessage from function_object
+end type
+
+forward prototypes
+global subroutine f_writeerrormessage (ref long al_loghandle, string as_errormessage)
+end prototypes
+
+global subroutine f_writeerrormessage (ref long al_loghandle, string as_errormessage);fileWrite(al_logHandle, string(datetime(today(),now()), "dd-mmm-yyyy hh:mm:ss") + " " + as_errormessage)
+//fileWrite(al_logHandle, "  ")
+end subroutine
+

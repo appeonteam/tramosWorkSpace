@@ -1,0 +1,28 @@
+﻿$PBExportHeader$d_sq_tb_rep_inspname.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=60 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=insp_lname dbname="VETT_INSP.INSP_LNAME" )
+ column=(type=char(30) updatewhereclause=yes name=insp_fname dbname="VETT_INSP.INSP_FNAME" )
+ retrieve="  SELECT DISTINCT INSP_LNAME, INSP_FNAME  
+    FROM VETT_INSP
+ Where (Len(RTrim(INSP_LNAME + INSP_FNAME)) > 0)
+"  sort="fname A " )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="878" y="4" height="64" width="87" format="[general]" html.valueishtml="0"  name=insp_lname visible="0" edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="974" y="4" height="64" width="114" format="[general]" html.valueishtml="0"  name=insp_fname visible="0" edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="If( insp_lname > ~"~",  insp_lname + ~", ~", ~"~") +  insp_fname "border="0" color="33554432" x="9" y="4" height="52" width="827" format="[GENERAL]" html.valueishtml="0"  name=fname visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression=" insp_fname + insp_lname "border="0" color="33554432" x="1102" y="4" height="48" width="256" format="[GENERAL]" html.valueishtml="0"  name=fullnameid visible="0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

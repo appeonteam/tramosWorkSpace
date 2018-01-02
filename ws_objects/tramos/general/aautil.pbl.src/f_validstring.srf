@@ -1,0 +1,16 @@
+﻿$PBExportHeader$f_validstring.srf
+$PBExportComments$Returns false if string is null or empty, otherwise true
+global type f_validstring from function_object
+end type
+
+forward prototypes
+global function boolean f_validstring (string as_string)
+end prototypes
+
+global function boolean f_validstring (string as_string);If IsNull(as_string) Then 
+	Return(False) 
+Else 
+	Return(as_string <> "")
+End if
+end function
+

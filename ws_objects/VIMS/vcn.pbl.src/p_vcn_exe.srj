@@ -1,0 +1,16 @@
+﻿$PBExportHeader$p_vcn_exe.srj
+$PBExportComments$Generated Application Executable Project
+EXE:vcn.exe,,0,1,1
+CMP:1,0,0,2,1,0,0
+COM:Maersk Tankers
+DES:VIMS Communication Notifier
+CPY:Maersk Tankers
+PRD:VIMS Communication Notifier
+PVS:2.2.0.0
+PVN:2,2,0,0
+FVS:2.2.0.0
+FVN:2,2,0,0
+MAN:0,asInvoker,0
+PBD:vcn.pbl,,0
+OBJ:j:\tramosws\vims\vcn.pbl,w_vcn,w
+OBJ:J:\TramosWS\vims\vcn.pbl,vcn,a

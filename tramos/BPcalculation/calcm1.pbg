@@ -1,0 +1,20 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tramos\\bpcalculation\\calcm1.pbl" "";
+@end;
+@begin Objects
+ "tramos\\bpcalculation\\u_calc_cargos.sru" "tramos\\bpcalculation\\calcm1.pbl";
+ "tramos\\bpcalculation\\w_calc_calculation.srw" "tramos\\bpcalculation\\calcm1.pbl";
+ "tramos\\bpcalculation\\u_calc_base_sqlca.sru" "tramos\\bpcalculation\\calcm1.pbl";
+ "tramos\\bpcalculation\\u_calc_itinerary.sru" "tramos\\bpcalculation\\calcm1.pbl";
+ "tramos\\bpcalculation\\u_calc_result.sru" "tramos\\bpcalculation\\calcm1.pbl";
+ "tramos\\bpcalculation\\u_calc_summary.sru" "tramos\\bpcalculation\\calcm1.pbl";
+ "tramos\\bpcalculation\\d_calc_weekly_fix_pool.srd" "tramos\\bpcalculation\\calcm1.pbl";
+ "tramos\\bpcalculation\\u_calculation.sru" "tramos\\bpcalculation\\calcm1.pbl";
+ "tramos\\bpcalculation\\u_nvo_calculator.sru" "tramos\\bpcalculation\\calcm1.pbl";
+ "tramos\\bpcalculation\\u_calcutil_nvo.sru" "tramos\\bpcalculation\\calcm1.pbl";
+ "tramos\\bpcalculation\\d_calc_weekly_fix_profit.srd" "tramos\\bpcalculation\\calcm1.pbl";
+ "tramos\\bpcalculation\\d_calc_weekly_fix_report.srd" "tramos\\bpcalculation\\calcm1.pbl";
+ "tramos\\bpcalculation\\u_bpdistance_base.sru" "tramos\\bpcalculation\\calcm1.pbl";
+ "tramos\\bpcalculation\\u_bpdistance_win32.sru" "tramos\\bpcalculation\\calcm1.pbl";
+@end;

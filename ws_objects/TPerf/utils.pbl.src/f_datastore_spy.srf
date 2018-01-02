@@ -1,0 +1,14 @@
+﻿$PBExportHeader$f_datastore_spy.srf
+$PBExportComments$Shows the content of a datastore.
+global type f_datastore_spy from function_object
+end type
+
+forward prototypes
+global function integer f_datastore_spy (ref datastore ads_data)
+end prototypes
+
+global function integer f_datastore_spy (ref datastore ads_data);openwithparm(w_datastore_spy, ads_data )
+
+return 1
+end function
+

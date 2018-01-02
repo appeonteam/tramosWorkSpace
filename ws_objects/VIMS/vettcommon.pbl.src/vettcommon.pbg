@@ -1,0 +1,13 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "vettcommon.pbl" "";
+@end;
+@begin Objects 
+ "d_sq_ff_insprephead.srd" "vettcommon.pbl";
+ "d_sq_tb_inspmgmtemail.srd" "vettcommon.pbl";
+ "d_sq_tb_mgmt.srd" "vettcommon.pbl";
+ "d_sq_tb_sireoverdue.srd" "vettcommon.pbl";
+ "d_sq_tb_techreminder.srd" "vettcommon.pbl";
+ "ustruct_obj.srs" "vettcommon.pbl";
+ "uo_global.sru" "vettcommon.pbl";
+@end;

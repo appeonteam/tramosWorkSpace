@@ -1,0 +1,6 @@
+﻿$PBExportHeader$s_bunker.srs
+global type s_bunker from structure
+	long		id
+	integer		pc_nr
+end type
+

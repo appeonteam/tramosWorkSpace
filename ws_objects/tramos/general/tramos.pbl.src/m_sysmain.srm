@@ -1,0 +1,5844 @@
+﻿$PBExportHeader$m_sysmain.srm
+$PBExportComments$Top-level menu, ascendant for all other TRAMOS menus
+forward
+global type m_sysmain from menu
+end type
+type m_file from menu within m_sysmain
+end type
+type m_calc from menu within m_file
+end type
+type m_tramos from menu within m_file
+end type
+type m_sale from menu within m_file
+end type
+type m_tchire from menu within m_file
+end type
+type m_vettinginspectionmgmtsystem from menu within m_file
+end type
+type m___1 from menu within m_file
+end type
+type m_changerequest from menu within m_file
+end type
+type m___2 from menu within m_file
+end type
+type m_changepassword from menu within m_file
+end type
+type m_systemoptions_new from menu within m_file
+end type
+type m_useroptions from menu within m_file
+end type
+type mline_234 from menu within m_file
+end type
+type m_debug from menu within m_file
+end type
+type m_captureerrormessages from menu within m_debug
+end type
+type m_sqlpreview from menu within m_debug
+end type
+type m_transactionpreview from menu within m_debug
+end type
+type m_datastorespy from menu within m_debug
+end type
+type m_on from menu within m_datastorespy
+end type
+type m_multipledatastores from menu within m_datastorespy
+end type
+type m_datastorespy from menu within m_debug
+m_on m_on
+m_multipledatastores m_multipledatastores
+end type
+type m_debug from menu within m_file
+m_captureerrormessages m_captureerrormessages
+m_sqlpreview m_sqlpreview
+m_transactionpreview m_transactionpreview
+m_datastorespy m_datastorespy
+end type
+type m___3 from menu within m_file
+end type
+type m_exit from menu within m_file
+end type
+type m_file from menu within m_sysmain
+m_calc m_calc
+m_tramos m_tramos
+m_sale m_sale
+m_tchire m_tchire
+m_vettinginspectionmgmtsystem m_vettinginspectionmgmtsystem
+m___1 m___1
+m_changerequest m_changerequest
+m___2 m___2
+m_changepassword m_changepassword
+m_systemoptions_new m_systemoptions_new
+m_useroptions m_useroptions
+mline_234 mline_234
+m_debug m_debug
+m___3 m___3
+m_exit m_exit
+end type
+type m_menutop2 from menu within m_sysmain
+end type
+type m_menutop3 from menu within m_sysmain
+end type
+type m_menutop4 from menu within m_sysmain
+end type
+type m_menutop5 from menu within m_sysmain
+end type
+type m_menutop6 from menu within m_sysmain
+end type
+type m_systemtabels from menu within m_sysmain
+end type
+type m_general from menu within m_systemtabels
+end type
+type m__agents from menu within m_general
+end type
+type m_area from menu within m_general
+end type
+type m_berth from menu within m_general
+end type
+type m__brokers from menu within m_general
+end type
+type m_calculationbunkeradditionals from menu within m_general
+end type
+type m__charterers from menu within m_general
+end type
+type m_charterergroup23 from menu within m_general
+end type
+type m_claimstatus from menu within m_general
+end type
+type m__claimtypes from menu within m_general
+end type
+type m_commercialsegment from menu within m_general
+end type
+type m_companies from menu within m_general
+end type
+type m_competitorvessels from menu within m_general
+end type
+type m_consumptionzone from menu within m_general
+end type
+type m_country from menu within m_general
+end type
+type m_flatrates from menu within m_general
+end type
+type m__grades from menu within m_general
+end type
+type m__gradegroups from menu within m_general
+end type
+type m_loaddischtypes from menu within m_general
+end type
+type m__offices from menu within m_general
+end type
+type m_departments from menu within m_general
+end type
+type m_performingagents from menu within m_general
+end type
+type m__ports from menu within m_general
+end type
+type m__profitcenters from menu within m_general
+end type
+type m_profitcentersgroup from menu within m_general
+end type
+type m__purpose from menu within m_general
+end type
+type m_shiptype from menu within m_general
+end type
+type m__vessels from menu within m_general
+end type
+type m_tcowners from menu within m_general
+end type
+type m_updateclarkson from menu within m_general
+end type
+type m_vessels from menu within m_general
+end type
+type m_vesselsnewbuildings from menu within m_general
+end type
+type m_voyagealerts from menu within m_general
+end type
+type m_yards from menu within m_general
+end type
+type m_general from menu within m_systemtabels
+m__agents m__agents
+m_area m_area
+m_berth m_berth
+m__brokers m__brokers
+m_calculationbunkeradditionals m_calculationbunkeradditionals
+m__charterers m__charterers
+m_charterergroup23 m_charterergroup23
+m_claimstatus m_claimstatus
+m__claimtypes m__claimtypes
+m_commercialsegment m_commercialsegment
+m_companies m_companies
+m_competitorvessels m_competitorvessels
+m_consumptionzone m_consumptionzone
+m_country m_country
+m_flatrates m_flatrates
+m__grades m__grades
+m__gradegroups m__gradegroups
+m_loaddischtypes m_loaddischtypes
+m__offices m__offices
+m_departments m_departments
+m_performingagents m_performingagents
+m__ports m__ports
+m__profitcenters m__profitcenters
+m_profitcentersgroup m_profitcentersgroup
+m__purpose m__purpose
+m_shiptype m_shiptype
+m__vessels m__vessels
+m_tcowners m_tcowners
+m_updateclarkson m_updateclarkson
+m_vessels m_vessels
+m_vesselsnewbuildings m_vesselsnewbuildings
+m_voyagealerts m_voyagealerts
+m_yards m_yards
+end type
+type m_sep_0 from menu within m_systemtabels
+end type
+type m_financetable from menu within m_systemtabels
+end type
+type m_bankaccounts from menu within m_financetable
+end type
+type m__currency from menu within m_financetable
+end type
+type m_tcexpensetypes from menu within m_financetable
+end type
+type m_transactiondefaults from menu within m_financetable
+end type
+type m_updatefinresponsibleoperator from menu within m_financetable
+end type
+type m__vouchers from menu within m_financetable
+end type
+type m__vouchergroups from menu within m_financetable
+end type
+type m_financetable from menu within m_systemtabels
+m_bankaccounts m_bankaccounts
+m__currency m__currency
+m_tcexpensetypes m_tcexpensetypes
+m_transactiondefaults m_transactiondefaults
+m_updatefinresponsibleoperator m_updatefinresponsibleoperator
+m__vouchers m__vouchers
+m__vouchergroups m__vouchergroups
+end type
+type m_sep_1 from menu within m_systemtabels
+end type
+type m_pool from menu within m_systemtabels
+end type
+type m_poolregistration from menu within m_pool
+end type
+type m_1 from menu within m_pool
+end type
+type m_updatewebpoolpartner from menu within m_pool
+end type
+type m_pool from menu within m_systemtabels
+m_poolregistration m_poolregistration
+m_1 m_1
+m_updatewebpoolpartner m_updatewebpoolpartner
+end type
+type m_sep_5 from menu within m_systemtabels
+end type
+type m_administratortable from menu within m_systemtabels
+end type
+type m__systemadministration from menu within m_administratortable
+end type
+type m_usergroups from menu within m_administratortable
+end type
+type m_userlistmanagement from menu within m_administratortable
+end type
+type m_sep_3 from menu within m_administratortable
+end type
+type m_advancedrpgroups from menu within m_administratortable
+end type
+type m_atobviacfeedcontrol from menu within m_administratortable
+end type
+type m_hideadvancedrp from menu within m_administratortable
+end type
+type m_localatobviacdistance from menu within m_administratortable
+end type
+type m_smtp from menu within m_administratortable
+end type
+type m_smtpmailservice from menu within m_administratortable
+end type
+type m_sep_systeminterface from menu within m_administratortable
+end type
+type m_systeminterfaces from menu within m_administratortable
+end type
+type m_appmonitor from menu within m_administratortable
+end type
+type m_sep_transreason from menu within m_administratortable
+end type
+type m_transactionadjustmentreasons from menu within m_administratortable
+end type
+type m_writeoff from menu within m_administratortable
+end type
+type m_sep_voyagetype from menu within m_administratortable
+end type
+type m_voyagetype from menu within m_administratortable
+end type
+type m_sep_contracttypes from menu within m_administratortable
+end type
+type m_contracttype from menu within m_administratortable
+end type
+type m_sep_businessunit from menu within m_administratortable
+end type
+type m_businessunit from menu within m_administratortable
+end type
+type m_sep_changerequestconfig from menu within m_administratortable
+end type
+type m_chmmapping from menu within m_administratortable
+end type
+type m_sep_chmmapping from menu within m_administratortable
+end type
+type m_changerequestconfig from menu within m_administratortable
+end type
+type m_type from menu within m_changerequestconfig
+end type
+type m_nextstatus from menu within m_changerequestconfig
+end type
+type m_severity from menu within m_changerequestconfig
+end type
+type m_creqstatus from menu within m_changerequestconfig
+end type
+type m_modulesubmodule from menu within m_changerequestconfig
+end type
+type m_consultants from menu within m_changerequestconfig
+end type
+type m_project from menu within m_changerequestconfig
+end type
+type m_changerequestconfig from menu within m_administratortable
+m_type m_type
+m_nextstatus m_nextstatus
+m_severity m_severity
+m_creqstatus m_creqstatus
+m_modulesubmodule m_modulesubmodule
+m_consultants m_consultants
+m_project m_project
+end type
+type m_administratortable from menu within m_systemtabels
+m__systemadministration m__systemadministration
+m_usergroups m_usergroups
+m_userlistmanagement m_userlistmanagement
+m_sep_3 m_sep_3
+m_advancedrpgroups m_advancedrpgroups
+m_atobviacfeedcontrol m_atobviacfeedcontrol
+m_hideadvancedrp m_hideadvancedrp
+m_localatobviacdistance m_localatobviacdistance
+m_smtp m_smtp
+m_smtpmailservice m_smtpmailservice
+m_sep_systeminterface m_sep_systeminterface
+m_systeminterfaces m_systeminterfaces
+m_appmonitor m_appmonitor
+m_sep_transreason m_sep_transreason
+m_transactionadjustmentreasons m_transactionadjustmentreasons
+m_writeoff m_writeoff
+m_sep_voyagetype m_sep_voyagetype
+m_voyagetype m_voyagetype
+m_sep_contracttypes m_sep_contracttypes
+m_contracttype m_contracttype
+m_sep_businessunit m_sep_businessunit
+m_businessunit m_businessunit
+m_sep_changerequestconfig m_sep_changerequestconfig
+m_chmmapping m_chmmapping
+m_sep_chmmapping m_sep_chmmapping
+m_changerequestconfig m_changerequestconfig
+end type
+type m_sep_2 from menu within m_systemtabels
+end type
+type m_systemreports from menu within m_systemtabels
+end type
+type m_vesselsbycommsegment from menu within m_systemreports
+end type
+type m_competitorvesselsbycommsegment from menu within m_systemreports
+end type
+type m_charterersgroup from menu within m_systemreports
+end type
+type m_systemreports from menu within m_systemtabels
+m_vesselsbycommsegment m_vesselsbycommsegment
+m_competitorvesselsbycommsegment m_competitorvesselsbycommsegment
+m_charterersgroup m_charterersgroup
+end type
+type m_sep_systemreports from menu within m_systemtabels
+end type
+type m_refreshcachedtables from menu within m_systemtabels
+end type
+type m_systemtabels from menu within m_sysmain
+m_general m_general
+m_sep_0 m_sep_0
+m_financetable m_financetable
+m_sep_1 m_sep_1
+m_pool m_pool
+m_sep_5 m_sep_5
+m_administratortable m_administratortable
+m_sep_2 m_sep_2
+m_systemreports m_systemreports
+m_sep_systemreports m_sep_systemreports
+m_refreshcachedtables m_refreshcachedtables
+end type
+type m_window from menu within m_sysmain
+end type
+type m_tilevertical from menu within m_window
+end type
+type m_window from menu within m_sysmain
+m_tilevertical m_tilevertical
+end type
+type m_help from menu within m_sysmain
+end type
+type m_helpindex from menu within m_help
+end type
+type m_tramoshelp from menu within m_help
+end type
+type m___6 from menu within m_help
+end type
+type m_about from menu within m_help
+end type
+type m_help from menu within m_sysmain
+m_helpindex m_helpindex
+m_tramoshelp m_tramoshelp
+m___6 m___6
+m_about m_about
+end type
+global type m_sysmain from menu
+m_file m_file
+m_menutop2 m_menutop2
+m_menutop3 m_menutop3
+m_menutop4 m_menutop4
+m_menutop5 m_menutop5
+m_menutop6 m_menutop6
+m_systemtabels m_systemtabels
+m_window m_window
+m_help m_help
+end type
+end forward
+
+global type m_sysmain from menu
+m_file m_file
+m_menutop2 m_menutop2
+m_menutop3 m_menutop3
+m_menutop4 m_menutop4
+m_menutop5 m_menutop5
+m_menutop6 m_menutop6
+m_systemtabels m_systemtabels
+m_window m_window
+m_help m_help
+end type
+global m_sysmain m_sysmain
+
+type prototypes
+FUNCTION long ShellExecute (uint  ihwnd,string  lpszOp,string lpszFile,string  lpszParams, string  lpszDir,int  wShowCmd ) LIBRARY "Shell32.dll" ALIAS FOR "ShellExecuteA;ansi" 
+end prototypes
+
+forward prototypes
+public subroutine mf_triggerevent (string as_event)
+protected subroutine mf_opensheet (ref window pw_window)
+public subroutine documentation ()
+end prototypes
+
+public subroutine mf_triggerevent (string as_event);Window lw_active
+
+lw_active = w_tramos_main.GetActiveSheet()
+If IsValid(lw_active) Then
+	lw_active.TriggerEvent(as_event)
+End if
+end subroutine
+
+protected subroutine mf_opensheet (ref window pw_window);OpenSheet(pw_window,w_tramos_main,0,Original!)
+end subroutine
+
+public subroutine documentation ();/********************************************************************
+   ObjectName: m_sysmain
+	
+	<OBJECT>
+		Ancestor object for the TRAMOS main window container
+	</OBJECT>
+   	<DESC>
+		Event Description
+	</DESC>
+   	<USAGE>
+		Object Usage.
+	</USAGE>
+   	<ALSO>
+		otherobjs
+	</ALSO>
+    	Date   		Ref    		Author   		Comments
+  	23/11/11 	D-CALC  	AGL			Created documentation() function
+	05/12/11		M5-1		lgx001		Voyage master data -   system interfaces 
+	02/02/12		2535		lgx001		(Autoschedule)
+	06/03/12		M5-8		lgx001		Add system voyage type menu
+	09/05/12		CR#2770	agl027		Changed tramos wiki help url and applied
+												functionality to locate unique page within
+	25/04/13		CR3158	WWA048		Changed tramos menu icon images.
+	12/07/13		CR3286	LHC010		Add MSPS setup
+	22/07/13		CR3270	ZSW001		Add Claim Status menu
+	25/07/13		CR3254	LHG008		Fix bug(For messagebox title, change 'Infomation' to 'Information')
+	01/08/13		CR3279	WWA048		Remove Tramos Mail and related features.
+	18/04/14		CR3222	AZX004		Change help doc with .chm, Add read PDF help doc.
+	26/05/14		CR3222	CCY018		Use the nonvisualobject n_openhelpfile to open help file.
+	05/06/14		CR3222	AZX004		Change help context.
+	06/06/14		CR3427	CCY018		Only one instance of the same system table window can be opened at the same time.
+	26/08/14	  	CR3781	CCY018		Remove ellipsis (...) in the menu bar text.
+	12/09/14		CR3773	XSZ004		Change icon absolute path to reference path
+	24/11/14		CR3547	AZX004		Function module "AtoBviaC Control Panel" to limit the use of the user.
+	15/05/15		CR4013	XSZ004		Remove t-perf in menu.
+	21/11/16		CR3754	AGL027		Modification so SSO credentials can be passed to Vims
+********************************************************************/
+
+end subroutine
+
+on m_sysmain.create
+m_sysmain=this
+call super::create
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_file=create m_file
+this.m_menutop2=create m_menutop2
+this.m_menutop3=create m_menutop3
+this.m_menutop4=create m_menutop4
+this.m_menutop5=create m_menutop5
+this.m_menutop6=create m_menutop6
+this.m_systemtabels=create m_systemtabels
+this.m_window=create m_window
+this.m_help=create m_help
+this.Item[UpperBound(this.Item)+1]=this.m_file
+this.Item[UpperBound(this.Item)+1]=this.m_menutop2
+this.Item[UpperBound(this.Item)+1]=this.m_menutop3
+this.Item[UpperBound(this.Item)+1]=this.m_menutop4
+this.Item[UpperBound(this.Item)+1]=this.m_menutop5
+this.Item[UpperBound(this.Item)+1]=this.m_menutop6
+this.Item[UpperBound(this.Item)+1]=this.m_systemtabels
+this.Item[UpperBound(this.Item)+1]=this.m_window
+this.Item[UpperBound(this.Item)+1]=this.m_help
+end on
+
+on m_sysmain.destroy
+call super::destroy
+destroy(this.m_file)
+destroy(this.m_menutop2)
+destroy(this.m_menutop3)
+destroy(this.m_menutop4)
+destroy(this.m_menutop5)
+destroy(this.m_menutop6)
+destroy(this.m_systemtabels)
+destroy(this.m_window)
+destroy(this.m_help)
+end on
+
+event clicked;OpenSheet(w_pool_reg, w_tramos_main, 7, Original!)
+end event
+
+type m_file from menu within m_sysmain
+m_calc m_calc
+m_tramos m_tramos
+m_sale m_sale
+m_tchire m_tchire
+m_vettinginspectionmgmtsystem m_vettinginspectionmgmtsystem
+m___1 m___1
+m_changerequest m_changerequest
+m___2 m___2
+m_changepassword m_changepassword
+m_systemoptions_new m_systemoptions_new
+m_useroptions m_useroptions
+mline_234 mline_234
+m_debug m_debug
+m___3 m___3
+m_exit m_exit
+end type
+
+on m_file.create
+call super::create
+this.text = "System &Menus"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_calc=create m_calc
+this.m_tramos=create m_tramos
+this.m_sale=create m_sale
+this.m_tchire=create m_tchire
+this.m_vettinginspectionmgmtsystem=create m_vettinginspectionmgmtsystem
+this.m___1=create m___1
+this.m_changerequest=create m_changerequest
+this.m___2=create m___2
+this.m_changepassword=create m_changepassword
+this.m_systemoptions_new=create m_systemoptions_new
+this.m_useroptions=create m_useroptions
+this.mline_234=create mline_234
+this.m_debug=create m_debug
+this.m___3=create m___3
+this.m_exit=create m_exit
+this.Item[UpperBound(this.Item)+1]=this.m_calc
+this.Item[UpperBound(this.Item)+1]=this.m_tramos
+this.Item[UpperBound(this.Item)+1]=this.m_sale
+this.Item[UpperBound(this.Item)+1]=this.m_tchire
+this.Item[UpperBound(this.Item)+1]=this.m_vettinginspectionmgmtsystem
+this.Item[UpperBound(this.Item)+1]=this.m___1
+this.Item[UpperBound(this.Item)+1]=this.m_changerequest
+this.Item[UpperBound(this.Item)+1]=this.m___2
+this.Item[UpperBound(this.Item)+1]=this.m_changepassword
+this.Item[UpperBound(this.Item)+1]=this.m_systemoptions_new
+this.Item[UpperBound(this.Item)+1]=this.m_useroptions
+this.Item[UpperBound(this.Item)+1]=this.mline_234
+this.Item[UpperBound(this.Item)+1]=this.m_debug
+this.Item[UpperBound(this.Item)+1]=this.m___3
+this.Item[UpperBound(this.Item)+1]=this.m_exit
+end on
+
+on m_file.destroy
+call super::destroy
+destroy(this.m_calc)
+destroy(this.m_tramos)
+destroy(this.m_sale)
+destroy(this.m_tchire)
+destroy(this.m_vettinginspectionmgmtsystem)
+destroy(this.m___1)
+destroy(this.m_changerequest)
+destroy(this.m___2)
+destroy(this.m_changepassword)
+destroy(this.m_systemoptions_new)
+destroy(this.m_useroptions)
+destroy(this.mline_234)
+destroy(this.m_debug)
+destroy(this.m___3)
+destroy(this.m_exit)
+end on
+
+type m_calc from menu within m_file
+end type
+
+event clicked;/*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+{ 11-07-96	1.0 			JH		Initial version}
+  
+************************************************************************************/
+
+/* If user has access rights to choosen subsystem
+	Change to menu for subsystem */
+
+w_tramos_main.ChangeMenu(m_calcmain)
+
+/* Else show messagebox No Access */
+
+end event
+
+on m_calc.create
+call super::create
+this.text = "&Calc"
+this.microhelp = "Display the Calcule Menu"
+this.toolbaritemname = "images\calcmenu.ico"
+this.toolbaritemdownname = "images\calcmenu.ico"
+this.toolbaritemtext = "Calculation"
+this.toolbaritemorder = 3
+this.menuimage = "images\calcmenu.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_calc.destroy
+call super::destroy
+end on
+
+type m_tramos from menu within m_file
+end type
+
+event clicked;/************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+{ 11-07-96	1.0 			JH		Initial version}
+  
+************************************************************************************/
+
+/* If user has access rights to choosen subsystem
+	Change to menu for subsystem */
+
+// Run("H:\PUBLIC\USERS\PETE\VMPEG\VMPEGWIN.EXE H:\PUBLIC\USERS\PETE\VMPEG\DUO-1H.MPG /play", Maximized!)
+
+w_tramos_main.ChangeMenu(m_tramosmain)
+
+m_tramosmain.m_menutop2.m_vcautomation.visible = uo_global.ib_msps_visible
+m_tramosmain.m_menutop2.m_vcautomation.m_mspsmessageslist.Toolbaritemvisible = uo_global.ib_msps_visible
+
+/* Else show messagebox No Access */
+end event
+
+on m_tramos.create
+call super::create
+this.text = "&Operations"
+this.microhelp = "Display the Tramos Menu"
+this.toolbaritemname = "images\operationmenu.ico"
+this.toolbaritemdownname = "images\operationmenu.ico"
+this.toolbaritemtext = "Operations"
+this.toolbaritemorder = 4
+this.menuimage = "images\operationmenu.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tramos.destroy
+call super::destroy
+end on
+
+type m_sale from menu within m_file
+end type
+
+event clicked;/************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+{ 11-07-96	1.0 			JH		Initial version}
+  
+************************************************************************************/
+String ls_userid
+Integer li_salesperson
+
+IF uo_global.ii_access_level < 0 THEN
+	this.Enabled = FALSE
+	MessageBox("Information","As an external user you do not have access to this functionality.")
+	return
+END IF
+
+ls_userid =  uo_global.Getuserid()
+
+
+/* Check if user is a sales person */
+  SELECT USERS.SALES_PERSON  
+    INTO :li_salesperson  
+    FROM USERS  
+   WHERE USERS.USERID = :ls_userid 
+USING SQLCA  ;
+
+IF SQLCA.SQLCode = -1 THEN
+	MessageBox("Database error",SQLCA.SQLErrText,Information!)
+	Return
+END IF
+
+IF li_salesperson <> 1 THEN
+	MessageBox("Access denied","User is not authorised to use Sales system",Information!)
+	Return
+END IF
+/*User has access rights to choosen subsystem,so
+	Change to menu for subsystem */
+
+w_tramos_main.ChangeMenu(m_salemain)
+
+/* Else show messagebox No Access */
+
+/* Open sales system with Hot List */
+
+s_list lstr_parametre
+
+/* Initialize the structure:
+ The datawindow holding the list of all action_status*/
+lstr_parametre.list_window = "d_hotlist"
+
+/* The detail window to be call when editing a selected action , Not needed*/
+//lstr_parametre.edit_window = "w_action_detail"
+
+/* No detail datawindow to be initialized at run time*/
+SetNull(lstr_parametre.edit_datawindow)
+
+/* Key column name*/
+lstr_parametre.column[0] = "ccs_acts_ccs_acts_pk"
+
+/* 1st column name to be shown in list*/
+lstr_parametre.column[1] = "ccs_acts_ccs_acts_sts_d"
+
+/* 2nd column name to be shown in list*/
+lstr_parametre.column[2] = "ccs_acts_ccs_acts_sts_desc"
+
+/* 3rd column name to be shown in list */
+lstr_parametre.column[3] = "ccs_targ_userid"
+
+/* 1st column header name*/
+lstr_parametre.column_name[1] = "Date"
+
+/* 2nd column header name*/
+lstr_parametre.column_name[2] = "Description"
+
+/* 3nd column header name*/
+lstr_parametre.column_name[3] = "Sales Person"
+
+/* Title of Window to open*/ 
+lstr_parametre.window_title = "Hot List"
+
+OpenSheetWithParm(w_hotlist, lstr_parametre, w_tramos_main, 7, Original!)
+
+
+end event
+
+on m_sale.create
+call super::create
+this.text = "&Sale"
+this.microhelp = "Display the CCS menu"
+this.toolbaritemname = "images\salemenu.ico"
+this.toolbaritemdownname = "images\salemenu.ico"
+this.toolbaritemtext = "Sales"
+this.toolbaritemorder = 5
+this.menuimage = "images\salemenu.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sale.destroy
+call super::destroy
+end on
+
+type m_tchire from menu within m_file
+end type
+
+event clicked;/*User has access rights to choosen subsystem,so
+Change to menu for subsystem */
+
+w_tramos_main.ChangeMenu(m_tcmain)
+
+end event
+
+on m_tchire.create
+call super::create
+this.text = "&TC Hire"
+this.toolbaritemname = "images\tcmenu.ico"
+this.toolbaritemdownname = "images\tcmenu.ico"
+this.toolbaritemtext = "TC Hire Module"
+this.toolbaritemorder = 6
+this.menuimage = "images\tcmenu.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tchire.destroy
+call super::destroy
+end on
+
+type m_vettinginspectionmgmtsystem from menu within m_file
+end type
+
+event clicked;long ll_whndl
+//w_tramos_main.ChangeMenu(m_tperf)
+
+ll_whndl = FindWindow_NT( 0, "VIMS - Vetting and Inspection Management System" ) 
+if ll_whndl > 0 then
+	SetForegroundWindow_NT( ll_whndl)
+else
+	ll_whndl = FindWindow_NT( 0, "VIMS Login" ) 
+	if ll_whndl > 0 then
+		SetForegroundWindow_NT( ll_whndl)
+	else
+		if isnull(uo_global.is_sec_server_principal) or uo_global.is_sec_server_principal="" then
+			run ( "vims.exe "+uo_global.is_userid+";"+uo_global.is_password, normal!)
+		else	
+			run ( "vims.exe "+uo_global.is_sec_server_principal, normal!)
+		end if
+	end if
+end if
+	
+end event
+
+on m_vettinginspectionmgmtsystem.create
+call super::create
+this.text = "&Vetting && Inspection Mgmt. System"
+this.toolbaritemname = "images\vims.ico"
+this.toolbaritemdownname = "images\vims.ico"
+this.toolbaritemtext = "Vetting and Inspection Management System"
+this.toolbaritemorder = 6
+this.menuimage = "images\vims.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_vettinginspectionmgmtsystem.destroy
+call super::destroy
+end on
+
+type m___1 from menu within m_file
+end type
+
+on m___1.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m___1.destroy
+call super::destroy
+end on
+
+type m_changerequest from menu within m_file
+end type
+
+event clicked;window lw_activesheet
+
+lw_activesheet = w_tramos_main.getactivesheet()
+if isvalid(lw_activesheet) and lw_activesheet = w_changerequest then
+	lw_activesheet.triggerevent(activate!)
+else
+	w_tramos_main.changemenu(m_creqmain)
+	m_creqmain.m_menutop2.m_open.event clicked()
+end if
+end event
+
+on m_changerequest.create
+call super::create
+this.text = "Change &Request"
+this.toolbaritemname = "images\change_request.ico"
+this.toolbaritemdownname = "images\change_request.ico"
+this.toolbaritemtext = "Change Request"
+this.toolbaritemorder = 1
+this.menuimage = "images\change_request.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_changerequest.destroy
+call super::destroy
+end on
+
+type m___2 from menu within m_file
+end type
+
+on m___2.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m___2.destroy
+call super::destroy
+end on
+
+type m_changepassword from menu within m_file
+end type
+
+on clicked;Open ( w_sysadmin_changepassword )
+end on
+
+on m_changepassword.create
+call super::create
+this.visible = false
+this.text = "Change Password"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_changepassword.destroy
+call super::destroy
+end on
+
+type m_systemoptions_new from menu within m_file
+end type
+
+event clicked;mf_opensheet(w_system_options)
+end event
+
+on m_systemoptions_new.create
+call super::create
+this.text = "System Options"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_systemoptions_new.destroy
+call super::destroy
+end on
+
+type m_useroptions from menu within m_file
+end type
+
+on m_useroptions.create
+call super::create
+this.text = "User Options"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_useroptions.destroy
+call super::destroy
+end on
+
+event clicked;mf_opensheet(w_user_options)
+end event
+
+type mline_234 from menu within m_file
+end type
+
+on mline_234.create
+call super::create
+this.visible = false
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on mline_234.destroy
+call super::destroy
+end on
+
+type m_debug from menu within m_file
+m_captureerrormessages m_captureerrormessages
+m_sqlpreview m_sqlpreview
+m_transactionpreview m_transactionpreview
+m_datastorespy m_datastorespy
+end type
+
+on m_debug.create
+call super::create
+this.text = "Debug"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_captureerrormessages=create m_captureerrormessages
+this.m_sqlpreview=create m_sqlpreview
+this.m_transactionpreview=create m_transactionpreview
+this.m_datastorespy=create m_datastorespy
+this.Item[UpperBound(this.Item)+1]=this.m_captureerrormessages
+this.Item[UpperBound(this.Item)+1]=this.m_sqlpreview
+this.Item[UpperBound(this.Item)+1]=this.m_transactionpreview
+this.Item[UpperBound(this.Item)+1]=this.m_datastorespy
+end on
+
+on m_debug.destroy
+call super::destroy
+destroy(this.m_captureerrormessages)
+destroy(this.m_sqlpreview)
+destroy(this.m_transactionpreview)
+destroy(this.m_datastorespy)
+end on
+
+type m_captureerrormessages from menu within m_debug
+end type
+
+event clicked;n_service_manager 	lnv_serviceManager
+n_error_service		lnv_errService
+
+lnv_serviceManager.of_loadservice( lnv_errService , "n_error_service")
+lnv_errService.of_capturemessages( TRUE )
+
+end event
+
+on m_captureerrormessages.create
+call super::create
+this.text = "Capture Error Messages"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_captureerrormessages.destroy
+call super::destroy
+end on
+
+type m_sqlpreview from menu within m_debug
+end type
+
+event clicked;n_service_manager 	lnv_serviceManager
+n_dw_spy_service		lnv_spyService
+
+lnv_serviceManager.of_loadservice( lnv_spyService , "n_dw_spy_service")
+lnv_spyService.of_captureSQL( TRUE )
+
+
+
+
+
+end event
+
+on m_sqlpreview.create
+call super::create
+this.text = "SQL Preview"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sqlpreview.destroy
+call super::destroy
+end on
+
+type m_transactionpreview from menu within m_debug
+end type
+
+event clicked;mf_opensheet(w_transaction_spy)
+end event
+
+on m_transactionpreview.create
+call super::create
+this.text = "Transaction Preview"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_transactionpreview.destroy
+call super::destroy
+end on
+
+type m_datastorespy from menu within m_debug
+m_on m_on
+m_multipledatastores m_multipledatastores
+end type
+
+on m_datastorespy.create
+call super::create
+this.text = "Datastore Spy"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_on=create m_on
+this.m_multipledatastores=create m_multipledatastores
+this.Item[UpperBound(this.Item)+1]=this.m_on
+this.Item[UpperBound(this.Item)+1]=this.m_multipledatastores
+end on
+
+on m_datastorespy.destroy
+call super::destroy
+destroy(this.m_on)
+destroy(this.m_multipledatastores)
+end on
+
+type m_on from menu within m_datastorespy
+end type
+
+event clicked;// need to create the datastore to set the shared variables
+mt_n_datastore lds_data
+lds_data = create mt_n_datastore
+
+
+this.checked = not this.checked
+
+lds_data.of_setdatastorespy(  this.checked ) 
+m_file.m_debug.m_datastorespy.m_multipledatastores.enabled = this.checked
+
+destroy lds_data
+end event
+
+on m_on.create
+call super::create
+this.text = "On"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_on.destroy
+call super::destroy
+end on
+
+type m_multipledatastores from menu within m_datastorespy
+end type
+
+on m_multipledatastores.create
+call super::create
+this.text = "Multiple Datastores"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_multipledatastores.destroy
+call super::destroy
+end on
+
+event clicked;// need to create the datastore to set the shared variables
+mt_n_datastore lds_data
+lds_data = create mt_n_datastore
+
+this.checked = not this.checked
+
+lds_data.of_setmultidatastorespy( this.checked )
+
+destroy lds_data
+
+
+
+end event
+
+type m___3 from menu within m_file
+end type
+
+on m___3.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m___3.destroy
+call super::destroy
+end on
+
+type m_exit from menu within m_file
+end type
+
+on clicked;close(w_tramos_main)
+end on
+
+on m_exit.create
+call super::create
+this.text = "E&xit"
+this.toolbaritemname = "exit!"
+this.toolbaritemtext = "Exit"
+this.toolbaritemorder = 99
+this.menuimage = "exit!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_exit.destroy
+call super::destroy
+end on
+
+type m_menutop2 from menu within m_sysmain
+end type
+
+on m_menutop2.create
+call super::create
+this.visible = false
+this.text = "menutop2"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_menutop2.destroy
+call super::destroy
+end on
+
+type m_menutop3 from menu within m_sysmain
+end type
+
+on m_menutop3.create
+call super::create
+this.visible = false
+this.text = "menutop3"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_menutop3.destroy
+call super::destroy
+end on
+
+type m_menutop4 from menu within m_sysmain
+end type
+
+on m_menutop4.create
+call super::create
+this.visible = false
+this.text = "menutop4"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_menutop4.destroy
+call super::destroy
+end on
+
+type m_menutop5 from menu within m_sysmain
+end type
+
+on m_menutop5.create
+call super::create
+this.visible = false
+this.text = "menutop5"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_menutop5.destroy
+call super::destroy
+end on
+
+type m_menutop6 from menu within m_sysmain
+end type
+
+on m_menutop6.create
+call super::create
+this.visible = false
+this.text = "menutop6"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_menutop6.destroy
+call super::destroy
+end on
+
+type m_systemtabels from menu within m_sysmain
+m_general m_general
+m_sep_0 m_sep_0
+m_financetable m_financetable
+m_sep_1 m_sep_1
+m_pool m_pool
+m_sep_5 m_sep_5
+m_administratortable m_administratortable
+m_sep_2 m_sep_2
+m_systemreports m_systemreports
+m_sep_systemreports m_sep_systemreports
+m_refreshcachedtables m_refreshcachedtables
+end type
+
+on m_systemtabels.create
+call super::create
+this.text = "&System Tables"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_general=create m_general
+this.m_sep_0=create m_sep_0
+this.m_financetable=create m_financetable
+this.m_sep_1=create m_sep_1
+this.m_pool=create m_pool
+this.m_sep_5=create m_sep_5
+this.m_administratortable=create m_administratortable
+this.m_sep_2=create m_sep_2
+this.m_systemreports=create m_systemreports
+this.m_sep_systemreports=create m_sep_systemreports
+this.m_refreshcachedtables=create m_refreshcachedtables
+this.Item[UpperBound(this.Item)+1]=this.m_general
+this.Item[UpperBound(this.Item)+1]=this.m_sep_0
+this.Item[UpperBound(this.Item)+1]=this.m_financetable
+this.Item[UpperBound(this.Item)+1]=this.m_sep_1
+this.Item[UpperBound(this.Item)+1]=this.m_pool
+this.Item[UpperBound(this.Item)+1]=this.m_sep_5
+this.Item[UpperBound(this.Item)+1]=this.m_administratortable
+this.Item[UpperBound(this.Item)+1]=this.m_sep_2
+this.Item[UpperBound(this.Item)+1]=this.m_systemreports
+this.Item[UpperBound(this.Item)+1]=this.m_sep_systemreports
+this.Item[UpperBound(this.Item)+1]=this.m_refreshcachedtables
+end on
+
+on m_systemtabels.destroy
+call super::destroy
+destroy(this.m_general)
+destroy(this.m_sep_0)
+destroy(this.m_financetable)
+destroy(this.m_sep_1)
+destroy(this.m_pool)
+destroy(this.m_sep_5)
+destroy(this.m_administratortable)
+destroy(this.m_sep_2)
+destroy(this.m_systemreports)
+destroy(this.m_sep_systemreports)
+destroy(this.m_refreshcachedtables)
+end on
+
+event clicked;//IF uo_global.ii_access_level < 0 THEN
+//	this.Enabled = FALSE
+//	MessageBox("Information","As an external user you do not have access to this functionality.")
+//END IF
+end event
+
+type m_general from menu within m_systemtabels
+m__agents m__agents
+m_area m_area
+m_berth m_berth
+m__brokers m__brokers
+m_calculationbunkeradditionals m_calculationbunkeradditionals
+m__charterers m__charterers
+m_charterergroup23 m_charterergroup23
+m_claimstatus m_claimstatus
+m__claimtypes m__claimtypes
+m_commercialsegment m_commercialsegment
+m_companies m_companies
+m_competitorvessels m_competitorvessels
+m_consumptionzone m_consumptionzone
+m_country m_country
+m_flatrates m_flatrates
+m__grades m__grades
+m__gradegroups m__gradegroups
+m_loaddischtypes m_loaddischtypes
+m__offices m__offices
+m_departments m_departments
+m_performingagents m_performingagents
+m__ports m__ports
+m__profitcenters m__profitcenters
+m_profitcentersgroup m_profitcentersgroup
+m__purpose m__purpose
+m_shiptype m_shiptype
+m__vessels m__vessels
+m_tcowners m_tcowners
+m_updateclarkson m_updateclarkson
+m_vessels m_vessels
+m_vesselsnewbuildings m_vesselsnewbuildings
+m_voyagealerts m_voyagealerts
+m_yards m_yards
+end type
+
+on m_general.create
+call super::create
+this.text = "General"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m__agents=create m__agents
+this.m_area=create m_area
+this.m_berth=create m_berth
+this.m__brokers=create m__brokers
+this.m_calculationbunkeradditionals=create m_calculationbunkeradditionals
+this.m__charterers=create m__charterers
+this.m_charterergroup23=create m_charterergroup23
+this.m_claimstatus=create m_claimstatus
+this.m__claimtypes=create m__claimtypes
+this.m_commercialsegment=create m_commercialsegment
+this.m_companies=create m_companies
+this.m_competitorvessels=create m_competitorvessels
+this.m_consumptionzone=create m_consumptionzone
+this.m_country=create m_country
+this.m_flatrates=create m_flatrates
+this.m__grades=create m__grades
+this.m__gradegroups=create m__gradegroups
+this.m_loaddischtypes=create m_loaddischtypes
+this.m__offices=create m__offices
+this.m_departments=create m_departments
+this.m_performingagents=create m_performingagents
+this.m__ports=create m__ports
+this.m__profitcenters=create m__profitcenters
+this.m_profitcentersgroup=create m_profitcentersgroup
+this.m__purpose=create m__purpose
+this.m_shiptype=create m_shiptype
+this.m__vessels=create m__vessels
+this.m_tcowners=create m_tcowners
+this.m_updateclarkson=create m_updateclarkson
+this.m_vessels=create m_vessels
+this.m_vesselsnewbuildings=create m_vesselsnewbuildings
+this.m_voyagealerts=create m_voyagealerts
+this.m_yards=create m_yards
+this.Item[UpperBound(this.Item)+1]=this.m__agents
+this.Item[UpperBound(this.Item)+1]=this.m_area
+this.Item[UpperBound(this.Item)+1]=this.m_berth
+this.Item[UpperBound(this.Item)+1]=this.m__brokers
+this.Item[UpperBound(this.Item)+1]=this.m_calculationbunkeradditionals
+this.Item[UpperBound(this.Item)+1]=this.m__charterers
+this.Item[UpperBound(this.Item)+1]=this.m_charterergroup23
+this.Item[UpperBound(this.Item)+1]=this.m_claimstatus
+this.Item[UpperBound(this.Item)+1]=this.m__claimtypes
+this.Item[UpperBound(this.Item)+1]=this.m_commercialsegment
+this.Item[UpperBound(this.Item)+1]=this.m_companies
+this.Item[UpperBound(this.Item)+1]=this.m_competitorvessels
+this.Item[UpperBound(this.Item)+1]=this.m_consumptionzone
+this.Item[UpperBound(this.Item)+1]=this.m_country
+this.Item[UpperBound(this.Item)+1]=this.m_flatrates
+this.Item[UpperBound(this.Item)+1]=this.m__grades
+this.Item[UpperBound(this.Item)+1]=this.m__gradegroups
+this.Item[UpperBound(this.Item)+1]=this.m_loaddischtypes
+this.Item[UpperBound(this.Item)+1]=this.m__offices
+this.Item[UpperBound(this.Item)+1]=this.m_departments
+this.Item[UpperBound(this.Item)+1]=this.m_performingagents
+this.Item[UpperBound(this.Item)+1]=this.m__ports
+this.Item[UpperBound(this.Item)+1]=this.m__profitcenters
+this.Item[UpperBound(this.Item)+1]=this.m_profitcentersgroup
+this.Item[UpperBound(this.Item)+1]=this.m__purpose
+this.Item[UpperBound(this.Item)+1]=this.m_shiptype
+this.Item[UpperBound(this.Item)+1]=this.m__vessels
+this.Item[UpperBound(this.Item)+1]=this.m_tcowners
+this.Item[UpperBound(this.Item)+1]=this.m_updateclarkson
+this.Item[UpperBound(this.Item)+1]=this.m_vessels
+this.Item[UpperBound(this.Item)+1]=this.m_vesselsnewbuildings
+this.Item[UpperBound(this.Item)+1]=this.m_voyagealerts
+this.Item[UpperBound(this.Item)+1]=this.m_yards
+end on
+
+on m_general.destroy
+call super::destroy
+destroy(this.m__agents)
+destroy(this.m_area)
+destroy(this.m_berth)
+destroy(this.m__brokers)
+destroy(this.m_calculationbunkeradditionals)
+destroy(this.m__charterers)
+destroy(this.m_charterergroup23)
+destroy(this.m_claimstatus)
+destroy(this.m__claimtypes)
+destroy(this.m_commercialsegment)
+destroy(this.m_companies)
+destroy(this.m_competitorvessels)
+destroy(this.m_consumptionzone)
+destroy(this.m_country)
+destroy(this.m_flatrates)
+destroy(this.m__grades)
+destroy(this.m__gradegroups)
+destroy(this.m_loaddischtypes)
+destroy(this.m__offices)
+destroy(this.m_departments)
+destroy(this.m_performingagents)
+destroy(this.m__ports)
+destroy(this.m__profitcenters)
+destroy(this.m_profitcentersgroup)
+destroy(this.m__purpose)
+destroy(this.m_shiptype)
+destroy(this.m__vessels)
+destroy(this.m_tcowners)
+destroy(this.m_updateclarkson)
+destroy(this.m_vessels)
+destroy(this.m_vesselsnewbuildings)
+destroy(this.m_voyagealerts)
+destroy(this.m_yards)
+end on
+
+event selected;m_claimstatus.enabled = (uo_global.ii_access_level >= 2)
+
+end event
+
+type m__agents from menu within m_general
+end type
+
+event clicked;If uo_global.ii_access_level = -2 Then
+	This.Enabled = False
+	MessageBox("Information","As an External Partner you do not have access to this functionality.")
+	Return
+End If
+
+//s_list lstr_parametre
+//
+//lstr_parametre.list_window = "dw_agent_list"
+//lstr_parametre.edit_window = "w_agent"
+//SetNull(lstr_parametre.edit_datawindow)
+//lstr_parametre.column[0] = "agent_nr"
+//lstr_parametre.column[1] = "agent_sn"
+//lstr_parametre.column[2] = "agent_n_1"
+//lstr_parametre.column_name[1] = "Short Name"
+//lstr_parametre.column_name[2] = "Full Name"
+//lstr_parametre.window_title = "Agents"
+//w_list w_mylist
+//
+//OpenSheetWithParm(w_mylist, lstr_parametre, w_tramos_main, 7, Original!)
+//
+
+OpenSheet(w_agentlist, w_tramos_main, 7, Original!)
+end event
+
+on m__agents.create
+call super::create
+this.text = "&Agents"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m__agents.destroy
+call super::destroy
+end on
+
+type m_area from menu within m_general
+end type
+
+event clicked;//s_list lstr_parametre
+//
+//lstr_parametre.list_window = "d_area_list"
+//lstr_parametre.edit_window = "w_list"
+//lstr_parametre.edit_datawindow = "d_area_detail"
+//lstr_parametre.column[0] = "area_pk"
+//lstr_parametre.column[1] = "area_sn"
+//lstr_parametre.column[2] = "area_name"
+//lstr_parametre.column_name[1] = "Short Name"
+//lstr_parametre.column_name[2] = "Name"
+//lstr_parametre.window_title = "Area"
+//w_list w_mylist
+//
+//OpenSheetWithParm(w_mylist, lstr_parametre, w_tramos_main, 7, Original!)
+
+/* Above disabled. Open new Area window
+   from syswin_new_layout.pbl
+*/
+
+Long ll_AreaID
+
+SetNull(ll_AreaID)  //when opened form the menu no area selected
+OpenSheetWithParm(w_area, ll_AreaID, w_tramos_main, 0, Original!)
+end event
+
+on m_area.create
+call super::create
+this.text = "Areas"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_area.destroy
+call super::destroy
+end on
+
+type m_berth from menu within m_general
+end type
+
+event clicked;double ld_berthID
+
+SetNull(ld_berthID)  //when opened form the menu no berth selected
+OpenSheetWithParm(w_berth, ld_berthid, w_tramos_main, 7, Original!)
+end event
+
+on m_berth.create
+call super::create
+this.text = "&Berths"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_berth.destroy
+call super::destroy
+end on
+
+type m__brokers from menu within m_general
+end type
+
+event clicked;If uo_global.ii_access_level = -2 Then
+	This.Enabled = False
+	MessageBox("Information","As an External Partner you do not have access to this functionality.")
+	Return
+End If
+
+//s_list lstr_parametre
+//
+//lstr_parametre.list_window = "dw_broker_list"
+//lstr_parametre.edit_window = "w_broker"
+//SetNull(lstr_parametre.edit_datawindow)
+//lstr_parametre.column[0] = "broker_nr"
+//lstr_parametre.column[1] = "broker_sn"
+//lstr_parametre.column[2] = "broker_name"
+//lstr_parametre.column_name[1] = "Short Name"
+//lstr_parametre.column_name[2] = "Long Name"
+//lstr_parametre.window_title = "Brokers"
+//w_list w_mylist
+//
+//OpenSheetWithParm(w_mylist, lstr_parametre, w_tramos_main, 7, Original!)
+
+OpenSheet(w_brokerlist, w_tramos_main, 0, Original!)
+
+
+end event
+
+on m__brokers.create
+call super::create
+this.text = "&Brokers"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m__brokers.destroy
+call super::destroy
+end on
+
+type m_calculationbunkeradditionals from menu within m_general
+end type
+
+event clicked;mf_opensheet(w_cal_bunkeradditionals)
+end event
+
+on m_calculationbunkeradditionals.create
+call super::create
+this.text = "Calculation Bunker Additionals"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_calculationbunkeradditionals.destroy
+call super::destroy
+end on
+
+type m__charterers from menu within m_general
+end type
+
+event clicked;If uo_global.ii_access_level = -2 Then
+	This.Enabled = False
+	MessageBox("Information","As an External Partner you do not have access to this functionality.")
+	Return
+End If
+
+//s_list lstr_parametre
+//
+//lstr_parametre.list_window = "dw_charterer_list"
+//lstr_parametre.edit_window = "w_charterer"
+//SetNull(lstr_parametre.edit_datawindow)
+//lstr_parametre.column[0] = "chart_nr"
+//lstr_parametre.column[1] = "chart_sn"
+//lstr_parametre.column[2] = "chart_n_1"
+//lstr_parametre.column_name[1] = "Short Name"
+//lstr_parametre.column_name[2] = "Full Name"
+//lstr_parametre.window_title = "Charterers"
+//w_list w_mylist
+//
+//OpenSheetWithParm(w_mylist, lstr_parametre, w_tramos_main, 7, Original!)
+
+OpenSheet(w_chartererlist, w_tramos_main, 0, Original!)
+end event
+
+on m__charterers.create
+call super::create
+this.text = "&Charterers"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m__charterers.destroy
+call super::destroy
+end on
+
+type m_charterergroup23 from menu within m_general
+end type
+
+event clicked;/************************************************************************************
+ Arthur Andersen PowerBuilder Development
+ Window  : 
+ Object     : m_salemain.m_charterergroup
+ Event	 : Clicked
+ Scope     : Local
+ ************************************************************************************
+ Author    : Jeannette Holland
+ Date       : 04-09-96
+ Description : Opens w_chartgroup with list of charterer groups to let user edit them.
+ Arguments : {description/none}
+ Returns   : {description/none}  
+ Variables : A s_list used to send in Message.PowerObjectParm
+ Other : {other comments}
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+ 04-09-96		1.0	 		JH			Initial version
+ 03/06/14		CR3427		CCY018	Only one instance of the same system table window can be opened at the same time.	
+************************************************************************************/
+if uo_global.ii_access_level = -2 then
+	this.enabled = false
+	MessageBox("Information","As an External Partner you do not have access to this functionality.")
+	return
+end if
+
+mf_opensheet(w_charterer_group)
+end event
+
+on m_charterergroup23.create
+call super::create
+this.text = "Charterer Groups"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_charterergroup23.destroy
+call super::destroy
+end on
+
+type m_claimstatus from menu within m_general
+end type
+
+event clicked;//-2: external_partners
+//-1: external_apm
+// 1: users
+// 2: advanced_user
+// 3: administrators
+
+if uo_global.ii_access_level < 2 then
+	messagebox("Information", "Only Advanced_users and Administrators have access to this function.")
+	return
+end if
+
+opensheet(w_claim_status, w_tramos_main, 0, original!)
+
+end event
+
+on m_claimstatus.create
+call super::create
+this.text = "Claim Statuses"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_claimstatus.destroy
+call super::destroy
+end on
+
+type m__claimtypes from menu within m_general
+end type
+
+event clicked;s_list lstr_parametre
+
+//lstr_parametre.list_window = "dw_claimtype_list"
+//lstr_parametre.edit_datawindow = "dw_claimtype"
+//SetNull(lstr_parametre.edit_window)
+//lstr_parametre.column[0] = "claim_type"
+//lstr_parametre.column[1] = "claim_type"
+//lstr_parametre.column[2] = "claim_desc"
+//lstr_parametre.column_name[1] = "Type"
+//lstr_parametre.column_name[2] = "Description"
+//lstr_parametre.window_title = "Claim types"
+//w_list w_mylist
+//
+//OpenSheetWithParm(w_mylist, lstr_parametre, w_tramos_main, 7, Original!)
+
+OpenSheet(w_claimtypelist, w_tramos_main, 0, Original!)
+end event
+
+on m__claimtypes.create
+call super::create
+this.text = "C&laim Types"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m__claimtypes.destroy
+call super::destroy
+end on
+
+type m_commercialsegment from menu within m_general
+end type
+
+event clicked;/********************************************************************
+   clicked
+   <DESC>	</DESC>
+   <RETURN>	(none):
+    </RETURN>
+   <ACCESS> </ACCESS>
+   <ARGS>
+   </ARGS>
+   <USAGE></USAGE>
+   <HISTORY>
+   	Date			CR-Ref		Author	Comments
+   	04/06/14		CR3427		CCY018	Only one instance of the same system table window can be opened at the same time.
+   </HISTORY>
+********************************************************************/
+
+if (uo_global.ii_access_level = 1 and uo_global.ii_user_profile = 1) or &
+	(uo_global.ii_access_level = 2 and uo_global.ii_user_profile = 1) or &
+	(uo_global.ii_access_level = 3 and uo_global.ii_user_profile = 3) then
+	
+	mf_openSheet(w_commercial_segment)
+else
+	this.enabled = false
+	messagebox("Commercial Segment", "Only Administrators do have access to Commercial Segment.")
+end if
+
+end event
+
+on m_commercialsegment.create
+call super::create
+this.text = "Commercial Segments"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_commercialsegment.destroy
+call super::destroy
+end on
+
+type m_companies from menu within m_general
+end type
+
+event clicked;n_object_usage_log use_log
+
+If uo_global.ii_access_level = -2 Then
+	This.Enabled = False
+	MessageBox("Information","As an External Partner you do not have access to this functionality.")
+	Return
+End If
+
+use_log.uf_log_object("Menu " + this.text)
+	
+OpenSheet(w_companies, w_tramos_main, 0, Original!)
+end event
+
+on m_companies.create
+call super::create
+this.text = "Companies"
+this.menuimage = "images\distlstl.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_companies.destroy
+call super::destroy
+end on
+
+type m_competitorvessels from menu within m_general
+end type
+
+event clicked;OpenSheet(w_vessel_competitor, w_tramos_main, 7, Original!)
+end event
+
+on m_competitorvessels.create
+call super::create
+this.text = "Competitor Vessels"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_competitorvessels.destroy
+call super::destroy
+end on
+
+type m_consumptionzone from menu within m_general
+end type
+
+event clicked;/********************************************************************
+   clicked
+   <DESC>	</DESC>
+   <RETURN>	(none):
+    </RETURN>
+   <ACCESS> </ACCESS>
+   <ARGS>
+   </ARGS>
+   <USAGE></USAGE>
+   <HISTORY>
+   	Date			CR-Ref		Author	Comments
+   	04/06/14		CR3427		CCY018	Only one instance of the same system table window can be opened at the same time.
+   </HISTORY>
+********************************************************************/
+
+mf_opensheet(w_consumption_zone_list)
+
+
+end event
+
+on m_consumptionzone.create
+call super::create
+this.text = "Consumption Zones"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_consumptionzone.destroy
+call super::destroy
+end on
+
+type m_country from menu within m_general
+end type
+
+event clicked;/************************************************************************************
+DATE			VER. 	NAME	DESCRIPTION
+26-02-2001  1.0	LH		Initial version. 
+************************************************************************************/
+s_list lstr_parametre
+
+// Country
+
+//lstr_parametre.list_window = "d_country_list"
+//lstr_parametre.edit_window = "w_country_detail"
+//SetNull(lstr_parametre.edit_datawindow)
+//lstr_parametre.column[0] = "country_id"
+//lstr_parametre.column[1] = "country_sn2"
+//lstr_parametre.column[2] = "country_name"
+//lstr_parametre.column_name[1] = "Short Name"
+//lstr_parametre.column_name[2] = "Name"
+//lstr_parametre.window_title = "Country"
+//w_list w_mylist
+//
+//OpenSheetWithParm(w_mylist, lstr_parametre, w_tramos_main, 7, Original!)
+
+
+OpenSheet(w_countrylist, w_tramos_main, 0, Original!)
+end event
+
+on m_country.create
+call super::create
+this.text = "Countries"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_country.destroy
+call super::destroy
+end on
+
+type m_flatrates from menu within m_general
+end type
+
+event clicked;open(w_calc_worldscale_edit)
+end event
+
+on m_flatrates.create
+call super::create
+this.text = "Flat Rates~tAlt+Shift+F"
+this.shortcut = 1606
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_flatrates.destroy
+call super::destroy
+end on
+
+type m__grades from menu within m_general
+end type
+
+event clicked;OpenSheet(w_grade, w_tramos_main, 7, Original!)
+end event
+
+on m__grades.create
+call super::create
+this.text = "&Grades"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m__grades.destroy
+call super::destroy
+end on
+
+type m__gradegroups from menu within m_general
+end type
+
+event clicked;/********************************************************************
+   clicked
+   <DESC>	</DESC>
+   <RETURN>	(none):
+    </RETURN>
+   <ACCESS> </ACCESS>
+   <ARGS>
+   </ARGS>
+   <USAGE></USAGE>
+   <HISTORY>
+   	Date			CR-Ref		Author	Comments
+   	04/06/14		CR3427		CCY018	Only one instance of the same system table window can be opened at the same time.
+   </HISTORY>
+********************************************************************/
+
+mf_opensheet(w_grade_group)
+
+
+end event
+
+on m__gradegroups.create
+call super::create
+this.text = "Gra&de Groups"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m__gradegroups.destroy
+call super::destroy
+end on
+
+type m_loaddischtypes from menu within m_general
+end type
+
+event clicked;open(w_calc_rate_list)
+end event
+
+on m_loaddischtypes.create
+call super::create
+this.text = "Load/Discharge Types~tAlt+Shift+L"
+this.shortcut = 1612
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_loaddischtypes.destroy
+call super::destroy
+end on
+
+type m__offices from menu within m_general
+end type
+
+event clicked;//s_list lstr_parametre
+//
+//lstr_parametre.list_window = "dw_office_list"
+//lstr_parametre.edit_window = "w_office"
+//SetNull(lstr_parametre.edit_datawindow)
+//lstr_parametre.column[0] = "office_nr"
+//lstr_parametre.column[1] = "office_sn"
+//lstr_parametre.column[2] = "office_name"
+//lstr_parametre.column_name[1] = "short Name"
+//lstr_parametre.column_name[2] = "Long Name"
+//lstr_parametre.window_title = "Offices"
+//w_list w_mylist
+//
+//OpenSheetWithParm(w_mylist, lstr_parametre, w_tramos_main, 7, Original!)
+//
+OpenSheet(w_officelist, w_tramos_main, 7, Original!)
+end event
+
+on m__offices.create
+call super::create
+this.text = "O&ffices"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m__offices.destroy
+call super::destroy
+end on
+
+type m_departments from menu within m_general
+end type
+
+event clicked;mf_opensheet(w_departments_list)
+end event
+
+on m_departments.create
+call super::create
+this.text = "Owners Matters Departments"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_departments.destroy
+call super::destroy
+end on
+
+type m_performingagents from menu within m_general
+end type
+
+event clicked;/********************************************************************
+   clicked
+   <DESC>	</DESC>
+   <RETURN>	(none):
+    </RETURN>
+   <ACCESS> </ACCESS>
+   <ARGS>
+   </ARGS>
+   <USAGE></USAGE>
+   <HISTORY>
+   	Date			CR-Ref		Author	Comments
+   	03/06/14		CR3427		CCY018	Only one instance of the same system table window can be opened at the same time.
+   </HISTORY>
+********************************************************************/
+
+mf_openSheet(w_performing_agent)
+end event
+
+on m_performingagents.create
+call super::create
+this.text = "Performing Agents"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_performingagents.destroy
+call super::destroy
+end on
+
+type m__ports from menu within m_general
+end type
+
+event clicked;OpenSheet(w_port, w_tramos_main, 7, Original!)
+
+end event
+
+on m__ports.create
+call super::create
+this.text = "Por&ts"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m__ports.destroy
+call super::destroy
+end on
+
+type m__profitcenters from menu within m_general
+end type
+
+event clicked;//s_list lstr_parametre
+//
+//lstr_parametre.list_window = "dw_profit_center_list"
+//lstr_parametre.edit_datawindow = "dw_profit_center"
+//SetNull(lstr_parametre.edit_window)
+//lstr_parametre.column[0] = "pc_nr"
+//lstr_parametre.column[1] = "pc_nr"
+//lstr_parametre.column[2] = "pc_name"
+//lstr_parametre.column_name[1] = "Number"
+//lstr_parametre.column_name[2] = "Name"
+//lstr_parametre.window_title = "Profitcenters"
+//w_list w_mylist
+//
+//OpenSheetWithParm(w_mylist, lstr_parametre, w_tramos_main, 7, Original!)
+//
+OpenSheet(w_profitcenterlist, w_tramos_main, 0, Original!)
+end event
+
+on m__profitcenters.create
+call super::create
+this.text = "Prof&it Centers"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m__profitcenters.destroy
+call super::destroy
+end on
+
+type m_profitcentersgroup from menu within m_general
+end type
+
+event clicked;/********************************************************************
+   clicked
+   <DESC>	</DESC>
+   <RETURN>	(none):
+    </RETURN>
+   <ACCESS> </ACCESS>
+   <ARGS>
+   </ARGS>
+   <USAGE></USAGE>
+   <HISTORY>
+   	Date			CR-Ref		Author	Comments
+   	04/06/14		CR3427		CCY018	Only one instance of the same system table window can be opened at the same time.
+   </HISTORY>
+********************************************************************/
+
+if uo_global.ii_access_level <>3 then
+	this.enabled = false
+	messagebox("Information","You do not have access to this functionality.")
+	return
+end if
+
+mf_opensheet(w_profit_center_group)
+
+end event
+
+on m_profitcentersgroup.create
+call super::create
+this.text = "Profit Center Groups"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_profitcentersgroup.destroy
+call super::destroy
+end on
+
+type m__purpose from menu within m_general
+end type
+
+event clicked;/********************************************************************
+   clicked
+   <DESC>	</DESC>
+   <RETURN>	(none):
+    </RETURN>
+   <ACCESS> </ACCESS>
+   <ARGS>
+   </ARGS>
+   <USAGE></USAGE>
+   <HISTORY>
+   	Date			CR-Ref		Author	Comments
+   	03/06/14		CR3427		CCY018	Only one instance of the same system table window can be opened at the same time.
+   </HISTORY>
+********************************************************************/
+
+mf_opensheet(w_purpose_list)
+end event
+
+on m__purpose.create
+call super::create
+this.text = "Purpos&es"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m__purpose.destroy
+call super::destroy
+end on
+
+type m_shiptype from menu within m_general
+end type
+
+event clicked;OpenSheet(w_vessel_shiptype, w_tramos_main, 7, Original!)
+end event
+
+on m_shiptype.create
+call super::create
+this.text = "Ship Types"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_shiptype.destroy
+call super::destroy
+end on
+
+type m__vessels from menu within m_general
+end type
+
+event clicked;//s_list lstr_parametre
+//
+//lstr_parametre.list_window = "d_calc_vessel_type"
+//SetNull(lstr_parametre.edit_window)
+//lstr_parametre.edit_datawindow = "d_calc_vessel_type_detail"
+//lstr_parametre.column[0] = "cal_vest_type_id"
+//lstr_parametre.column[1] = "cal_vest_type_id"
+//lstr_parametre.column[2] = "cal_vest_type_name"
+//lstr_parametre.column_name[1] = "Type"
+//lstr_parametre.column_name[2] = "Name"
+//lstr_parametre.window_title = "Ship type"
+//
+//OpenSheetWithParm(w_shiptype_list, lstr_parametre, w_tramos_main, 7, Original!)
+//
+end event
+
+on m__vessels.create
+call super::create
+this.visible = false
+this.text = "S&hip Type/Clarkson"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m__vessels.destroy
+call super::destroy
+end on
+
+type m_tcowners from menu within m_general
+end type
+
+event clicked;If uo_global.ii_access_level = -2 Then
+	This.Enabled = False
+	MessageBox("Information","As an External Partner you do not have access to this functionality.")
+	Return
+End If
+
+//s_list lstr_parametre
+//
+//lstr_parametre.list_window = "dw_tcowner_list"
+//lstr_parametre.edit_window = "w_tcowner"
+//SetNull(lstr_parametre.edit_datawindow)
+//lstr_parametre.column[0] = "tcowner_nr"
+//lstr_parametre.column[1] = "tcowner_sn"
+//lstr_parametre.column[2] = "tcowner_n_1"
+//lstr_parametre.column_name[1] = "Short Name"
+//lstr_parametre.column_name[2] = "Full Name"
+//lstr_parametre.window_title = "T/C Owners"
+//w_list w_mylist
+//
+//OpenSheetWithParm(w_mylist, lstr_parametre, w_tramos_main, 7, Original!)
+//
+
+OpenSheet(w_tcowner_list, w_tramos_main, 0, Original!)
+end event
+
+on m_tcowners.create
+call super::create
+this.text = "&T/C Owners"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tcowners.destroy
+call super::destroy
+end on
+
+type m_updateclarkson from menu within m_general
+end type
+
+event clicked;//Disabled! Not used anymore. Is necessary to delete.
+If uo_global.ii_access_level < 2 Then
+	Messagebox("Information !","Only administrators and supervisores has access to this functionality !")
+Else
+	OpenSheet(w_convert_clarkson,w_tramos_main,0,Original!)
+End If
+
+end event
+
+on m_updateclarkson.create
+call super::create
+this.visible = false
+this.text = "Update Clarkson"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_updateclarkson.destroy
+call super::destroy
+end on
+
+type m_vessels from menu within m_general
+end type
+
+event clicked;OpenSheet(w_vessel, w_tramos_main, 7, Original!)
+
+end event
+
+on m_vessels.create
+call super::create
+this.text = "&Vessels"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_vessels.destroy
+call super::destroy
+end on
+
+type m_vesselsnewbuildings from menu within m_general
+end type
+
+event clicked;/********************************************************************
+   clicked
+   <DESC>	</DESC>
+   <RETURN>	(none):
+    </RETURN>
+   <ACCESS> </ACCESS>
+   <ARGS>
+   </ARGS>
+   <USAGE></USAGE>
+   <HISTORY>
+   	Date			CR-Ref		Author	Comments
+   	03/06/14		CR3427		CCY018	Only one instance of the same system table window can be opened at the same time.
+   </HISTORY>
+********************************************************************/
+
+mf_opensheet(w_new_buildings)
+end event
+
+on m_vesselsnewbuildings.create
+call super::create
+this.text = "Vessels New Buildings"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_vesselsnewbuildings.destroy
+call super::destroy
+end on
+
+type m_voyagealerts from menu within m_general
+end type
+
+event clicked;mf_opensheet(w_voyage_alerts)
+end event
+
+on m_voyagealerts.create
+call super::create
+this.text = "Voyage Alerts"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_voyagealerts.destroy
+call super::destroy
+end on
+
+type m_yards from menu within m_general
+end type
+
+event clicked;OpenSheet(w_yard, w_tramos_main, 7, Original!)
+
+end event
+
+on m_yards.create
+call super::create
+this.text = "&Yards"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_yards.destroy
+call super::destroy
+end on
+
+type m_sep_0 from menu within m_systemtabels
+end type
+
+on m_sep_0.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sep_0.destroy
+call super::destroy
+end on
+
+type m_financetable from menu within m_systemtabels
+m_bankaccounts m_bankaccounts
+m__currency m__currency
+m_tcexpensetypes m_tcexpensetypes
+m_transactiondefaults m_transactiondefaults
+m_updatefinresponsibleoperator m_updatefinresponsibleoperator
+m__vouchers m__vouchers
+m__vouchergroups m__vouchergroups
+end type
+
+on m_financetable.create
+call super::create
+this.text = "Finance"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_bankaccounts=create m_bankaccounts
+this.m__currency=create m__currency
+this.m_tcexpensetypes=create m_tcexpensetypes
+this.m_transactiondefaults=create m_transactiondefaults
+this.m_updatefinresponsibleoperator=create m_updatefinresponsibleoperator
+this.m__vouchers=create m__vouchers
+this.m__vouchergroups=create m__vouchergroups
+this.Item[UpperBound(this.Item)+1]=this.m_bankaccounts
+this.Item[UpperBound(this.Item)+1]=this.m__currency
+this.Item[UpperBound(this.Item)+1]=this.m_tcexpensetypes
+this.Item[UpperBound(this.Item)+1]=this.m_transactiondefaults
+this.Item[UpperBound(this.Item)+1]=this.m_updatefinresponsibleoperator
+this.Item[UpperBound(this.Item)+1]=this.m__vouchers
+this.Item[UpperBound(this.Item)+1]=this.m__vouchergroups
+end on
+
+on m_financetable.destroy
+call super::destroy
+destroy(this.m_bankaccounts)
+destroy(this.m__currency)
+destroy(this.m_tcexpensetypes)
+destroy(this.m_transactiondefaults)
+destroy(this.m_updatefinresponsibleoperator)
+destroy(this.m__vouchers)
+destroy(this.m__vouchergroups)
+end on
+
+type m_bankaccounts from menu within m_financetable
+end type
+
+event clicked;OpenSheet(w_bankaccount, w_tramos_main, 7, Original!)
+end event
+
+on m_bankaccounts.create
+call super::create
+this.text = "&Bank Accounts"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_bankaccounts.destroy
+call super::destroy
+end on
+
+type m__currency from menu within m_financetable
+end type
+
+event clicked;s_list lstr_parametre
+
+lstr_parametre.list_window = "dw_currency_list"
+SetNull(lstr_parametre.edit_window)
+lstr_parametre.edit_datawindow = "dw_currency"
+lstr_parametre.column[0] = "curr_code"
+lstr_parametre.column[1] = "curr_code"
+lstr_parametre.column[2] = "curr_desc"
+lstr_parametre.column_name[1] = "Code"
+lstr_parametre.column_name[2] = "Description"
+lstr_parametre.window_title = "Currencies"
+w_list w_mylist
+
+OpenSheetWithParm(w_mylist, lstr_parametre, w_tramos_main, 7, Original!)
+
+end event
+
+on m__currency.create
+call super::create
+this.text = "C&urrencies"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m__currency.destroy
+call super::destroy
+end on
+
+type m_tcexpensetypes from menu within m_financetable
+end type
+
+event clicked;OpenSheet(w_expense_type, w_tramos_main, 7, Original!)
+end event
+
+on m_tcexpensetypes.create
+call super::create
+this.text = "T/C &Income/Expense Types"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tcexpensetypes.destroy
+call super::destroy
+end on
+
+type m_transactiondefaults from menu within m_financetable
+end type
+
+event clicked;/***********************************************************************************
+Creator:	Teit Aunt
+Date:		17-05-1999
+Purpose:	Opens the "transaction default data" window
+************************************************************************************
+DATE			VERSION 	NAME		DESCRIPTION
+-------- 	------ 	----- 	-------------------------------------
+17-05-99		1.0		ta			Initial version
+************************************************************************************/
+Open(w_default_values_maintenance)
+
+end event
+
+on m_transactiondefaults.create
+call super::create
+this.text = "Transaction Defaults"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_transactiondefaults.destroy
+call super::destroy
+end on
+
+type m_updatefinresponsibleoperator from menu within m_financetable
+end type
+
+event clicked;OpenSheet(w_update_finance_responsible, w_tramos_main, 7, Original!)
+end event
+
+on m_updatefinresponsibleoperator.create
+call super::create
+this.text = "Update Responsible by Vessel and Charterer"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_updatefinresponsibleoperator.destroy
+call super::destroy
+end on
+
+type m__vouchers from menu within m_financetable
+end type
+
+event clicked;s_list lstr_parametre
+
+lstr_parametre.list_window = "dw_voucher_list"
+lstr_parametre.edit_datawindow = "dw_voucher"
+SetNull(lstr_parametre.edit_window)
+lstr_parametre.column[0] = "voucher_nr"
+lstr_parametre.column[1] = "voucher_nr"
+lstr_parametre.column[2] = "voucher_name"
+lstr_parametre.column_name[1] = "Number"
+lstr_parametre.column_name[2] = "Name"
+lstr_parametre.window_title = "Vouchers"
+w_list w_mylist
+
+OpenSheetWithParm(w_mylist, lstr_parametre, w_tramos_main, 7, Original!)
+
+end event
+
+on m__vouchers.create
+call super::create
+this.text = "Vouchers~tShift+Alt+V"
+this.shortcut = 1622
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m__vouchers.destroy
+call super::destroy
+end on
+
+type m__vouchergroups from menu within m_financetable
+end type
+
+event clicked;s_list lstr_parametre
+
+lstr_parametre.list_window = "dw_voucher_group_list"
+lstr_parametre.edit_datawindow = "dw_voucher_group"
+SetNull(lstr_parametre.edit_window)
+lstr_parametre.column[0] = "vg_name"
+lstr_parametre.column[1] = "vg_name"
+lstr_parametre.column[2] = "vg_acc_nr"
+lstr_parametre.column_name[1] = "Group"
+lstr_parametre.column_name[2] = "Account"
+lstr_parametre.window_title = "Voucher Groups"
+w_list w_mylist
+
+OpenSheetWithParm(w_mylist, lstr_parametre, w_tramos_main, 7, Original!)
+
+end event
+
+on m__vouchergroups.create
+call super::create
+this.text = "Vouc&her Groups"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m__vouchergroups.destroy
+call super::destroy
+end on
+
+type m_sep_1 from menu within m_systemtabels
+end type
+
+on m_sep_1.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sep_1.destroy
+call super::destroy
+end on
+
+type m_pool from menu within m_systemtabels
+m_poolregistration m_poolregistration
+m_1 m_1
+m_updatewebpoolpartner m_updatewebpoolpartner
+end type
+
+on m_pool.create
+call super::create
+this.text = "Pool"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_poolregistration=create m_poolregistration
+this.m_1=create m_1
+this.m_updatewebpoolpartner=create m_updatewebpoolpartner
+this.Item[UpperBound(this.Item)+1]=this.m_poolregistration
+this.Item[UpperBound(this.Item)+1]=this.m_1
+this.Item[UpperBound(this.Item)+1]=this.m_updatewebpoolpartner
+end on
+
+on m_pool.destroy
+call super::destroy
+destroy(this.m_poolregistration)
+destroy(this.m_1)
+destroy(this.m_updatewebpoolpartner)
+end on
+
+type m_poolregistration from menu within m_pool
+end type
+
+event clicked;IF uo_global.ii_access_level = 3 or uo_global.ii_user_profile = 3 THEN
+	n_object_usage_log use_log
+	use_log.uf_log_object(this.text)
+	OpenSheet(w_pool_reg, w_tramos_main, 7, Original!)
+else
+	this.Enabled = FALSE
+	MessageBox("Information","Only Administrator and Finance users have access to this functionality.")
+	return
+END IF
+
+
+end event
+
+on m_poolregistration.create
+call super::create
+this.text = "Pool &Registration"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_poolregistration.destroy
+call super::destroy
+end on
+
+type m_1 from menu within m_pool
+end type
+
+event clicked;IF uo_global.ii_access_level = 3 or uo_global.ii_user_profile = 3 THEN
+	n_object_usage_log use_log
+	use_log.uf_log_object(this.text)
+	OpenSheet(w_free_rates, w_tramos_main, 7, Original!)
+else
+	this.Enabled = FALSE
+	MessageBox("Information","Only Administrator and Finance users have access to this functionality.")
+	return
+END IF
+
+end event
+
+on m_1.create
+call super::create
+this.text = "Update Free Rates"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_1.destroy
+call super::destroy
+end on
+
+type m_updatewebpoolpartner from menu within m_pool
+end type
+
+event clicked;IF uo_global.ii_access_level = 3 or uo_global.ii_user_profile = 3 THEN
+	n_object_usage_log use_log
+	use_log.uf_log_object(this.text)
+	OpenSheet(w_weballocation_pool_partner, w_tramos_main, 7, Original!)
+else
+	this.Enabled = FALSE
+	MessageBox("Information","Only Administrator and Finance users have access to this functionality.")
+	return
+END IF
+
+
+end event
+
+on m_updatewebpoolpartner.create
+call super::create
+this.text = "Update Web Pool Partner"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_updatewebpoolpartner.destroy
+call super::destroy
+end on
+
+type m_sep_5 from menu within m_systemtabels
+end type
+
+on m_sep_5.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sep_5.destroy
+call super::destroy
+end on
+
+type m_administratortable from menu within m_systemtabels
+m__systemadministration m__systemadministration
+m_usergroups m_usergroups
+m_userlistmanagement m_userlistmanagement
+m_sep_3 m_sep_3
+m_advancedrpgroups m_advancedrpgroups
+m_atobviacfeedcontrol m_atobviacfeedcontrol
+m_hideadvancedrp m_hideadvancedrp
+m_localatobviacdistance m_localatobviacdistance
+m_smtp m_smtp
+m_smtpmailservice m_smtpmailservice
+m_sep_systeminterface m_sep_systeminterface
+m_systeminterfaces m_systeminterfaces
+m_appmonitor m_appmonitor
+m_sep_transreason m_sep_transreason
+m_transactionadjustmentreasons m_transactionadjustmentreasons
+m_writeoff m_writeoff
+m_sep_voyagetype m_sep_voyagetype
+m_voyagetype m_voyagetype
+m_sep_contracttypes m_sep_contracttypes
+m_contracttype m_contracttype
+m_sep_businessunit m_sep_businessunit
+m_businessunit m_businessunit
+m_sep_changerequestconfig m_sep_changerequestconfig
+m_chmmapping m_chmmapping
+m_sep_chmmapping m_sep_chmmapping
+m_changerequestconfig m_changerequestconfig
+end type
+
+on m_administratortable.create
+call super::create
+this.text = "Administrator"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m__systemadministration=create m__systemadministration
+this.m_usergroups=create m_usergroups
+this.m_userlistmanagement=create m_userlistmanagement
+this.m_sep_3=create m_sep_3
+this.m_advancedrpgroups=create m_advancedrpgroups
+this.m_atobviacfeedcontrol=create m_atobviacfeedcontrol
+this.m_hideadvancedrp=create m_hideadvancedrp
+this.m_localatobviacdistance=create m_localatobviacdistance
+this.m_smtp=create m_smtp
+this.m_smtpmailservice=create m_smtpmailservice
+this.m_sep_systeminterface=create m_sep_systeminterface
+this.m_systeminterfaces=create m_systeminterfaces
+this.m_appmonitor=create m_appmonitor
+this.m_sep_transreason=create m_sep_transreason
+this.m_transactionadjustmentreasons=create m_transactionadjustmentreasons
+this.m_writeoff=create m_writeoff
+this.m_sep_voyagetype=create m_sep_voyagetype
+this.m_voyagetype=create m_voyagetype
+this.m_sep_contracttypes=create m_sep_contracttypes
+this.m_contracttype=create m_contracttype
+this.m_sep_businessunit=create m_sep_businessunit
+this.m_businessunit=create m_businessunit
+this.m_sep_changerequestconfig=create m_sep_changerequestconfig
+this.m_chmmapping=create m_chmmapping
+this.m_sep_chmmapping=create m_sep_chmmapping
+this.m_changerequestconfig=create m_changerequestconfig
+this.Item[UpperBound(this.Item)+1]=this.m__systemadministration
+this.Item[UpperBound(this.Item)+1]=this.m_usergroups
+this.Item[UpperBound(this.Item)+1]=this.m_userlistmanagement
+this.Item[UpperBound(this.Item)+1]=this.m_sep_3
+this.Item[UpperBound(this.Item)+1]=this.m_advancedrpgroups
+this.Item[UpperBound(this.Item)+1]=this.m_atobviacfeedcontrol
+this.Item[UpperBound(this.Item)+1]=this.m_hideadvancedrp
+this.Item[UpperBound(this.Item)+1]=this.m_localatobviacdistance
+this.Item[UpperBound(this.Item)+1]=this.m_smtp
+this.Item[UpperBound(this.Item)+1]=this.m_smtpmailservice
+this.Item[UpperBound(this.Item)+1]=this.m_sep_systeminterface
+this.Item[UpperBound(this.Item)+1]=this.m_systeminterfaces
+this.Item[UpperBound(this.Item)+1]=this.m_appmonitor
+this.Item[UpperBound(this.Item)+1]=this.m_sep_transreason
+this.Item[UpperBound(this.Item)+1]=this.m_transactionadjustmentreasons
+this.Item[UpperBound(this.Item)+1]=this.m_writeoff
+this.Item[UpperBound(this.Item)+1]=this.m_sep_voyagetype
+this.Item[UpperBound(this.Item)+1]=this.m_voyagetype
+this.Item[UpperBound(this.Item)+1]=this.m_sep_contracttypes
+this.Item[UpperBound(this.Item)+1]=this.m_contracttype
+this.Item[UpperBound(this.Item)+1]=this.m_sep_businessunit
+this.Item[UpperBound(this.Item)+1]=this.m_businessunit
+this.Item[UpperBound(this.Item)+1]=this.m_sep_changerequestconfig
+this.Item[UpperBound(this.Item)+1]=this.m_chmmapping
+this.Item[UpperBound(this.Item)+1]=this.m_sep_chmmapping
+this.Item[UpperBound(this.Item)+1]=this.m_changerequestconfig
+end on
+
+on m_administratortable.destroy
+call super::destroy
+destroy(this.m__systemadministration)
+destroy(this.m_usergroups)
+destroy(this.m_userlistmanagement)
+destroy(this.m_sep_3)
+destroy(this.m_advancedrpgroups)
+destroy(this.m_atobviacfeedcontrol)
+destroy(this.m_hideadvancedrp)
+destroy(this.m_localatobviacdistance)
+destroy(this.m_smtp)
+destroy(this.m_smtpmailservice)
+destroy(this.m_sep_systeminterface)
+destroy(this.m_systeminterfaces)
+destroy(this.m_appmonitor)
+destroy(this.m_sep_transreason)
+destroy(this.m_transactionadjustmentreasons)
+destroy(this.m_writeoff)
+destroy(this.m_sep_voyagetype)
+destroy(this.m_voyagetype)
+destroy(this.m_sep_contracttypes)
+destroy(this.m_contracttype)
+destroy(this.m_sep_businessunit)
+destroy(this.m_businessunit)
+destroy(this.m_sep_changerequestconfig)
+destroy(this.m_chmmapping)
+destroy(this.m_sep_chmmapping)
+destroy(this.m_changerequestconfig)
+end on
+
+type m__systemadministration from menu within m_administratortable
+end type
+
+event clicked;if uo_global.is_userid = "sa" or  (uo_global.ii_access_level=3 and  uo_global.ii_user_profile>2) then
+	OpenSheet(w_sysadmin_editusers,w_tramos_main,gi_win_pos,Original!)
+else
+	this.Enabled = FALSE
+	MessageBox("System administration","Only Administrators do have access to System administration.")
+END IF
+
+
+end event
+
+on m__systemadministration.create
+call super::create
+this.text = "S&ystem Administration"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m__systemadministration.destroy
+call super::destroy
+end on
+
+type m_usergroups from menu within m_administratortable
+end type
+
+event clicked;//JMC Disabled
+//or  (uo_global.ii_access_level=3 and  uo_global.ii_user_profile>2)
+if uo_global.is_userid = "sa" or (uo_global.ii_access_level = c#usergroup.#ADMINISTRATOR and uo_global.ii_user_profile > 2) then
+	OpenSheet(w_user_groups, w_tramos_main, gi_win_pos, Original!)
+else
+	this.Enabled = FALSE
+	MessageBox("User Groups","Only Administrators do have access to User Groups.")
+END IF
+end event
+
+on m_usergroups.create
+call super::create
+this.text = "User Groups"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_usergroups.destroy
+call super::destroy
+end on
+
+type m_userlistmanagement from menu within m_administratortable
+end type
+
+event clicked;
+if uo_global.is_userid = "sa" or  (uo_global.ii_access_level=3 and  uo_global.ii_user_profile>2) then
+	OpenSheet(w_userlist_management,w_tramos_main,gi_win_pos,Original!)
+else
+	this.Enabled = FALSE
+	MessageBox("User List","Only Administrators do have access to User List.")
+END IF
+end event
+
+on m_userlistmanagement.create
+call super::create
+this.text = "User List - Management"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_userlistmanagement.destroy
+call super::destroy
+end on
+
+type m_sep_3 from menu within m_administratortable
+end type
+
+on m_sep_3.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sep_3.destroy
+call super::destroy
+end on
+
+type m_advancedrpgroups from menu within m_administratortable
+end type
+
+event clicked;IF uo_global.ii_access_level < 3  THEN
+	this.Enabled = FALSE
+	MessageBox("Information","Only Administrators do have access to this function.")
+	return
+END IF
+
+OpenSheet(w_advanced_rp_groups, w_tramos_main, 7, Original!)
+
+end event
+
+on m_advancedrpgroups.create
+call super::create
+this.text = "Advanced Routing Point Groups"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_advancedrpgroups.destroy
+call super::destroy
+end on
+
+type m_atobviacfeedcontrol from menu within m_administratortable
+end type
+
+event clicked;IF uo_global.ii_access_level < 3  THEN
+	this.Enabled = FALSE
+	MessageBox("AtoBviaC Control Panel","Only Administrators have access to AtoBviaC Control Panel.")
+	return
+END IF
+
+OpenSheet(w_atobviac_controlpanel,w_tramos_main,gi_win_pos,Original!)
+
+end event
+
+on m_atobviacfeedcontrol.create
+call super::create
+this.text = "AtoBviaC Control Panel"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_atobviacfeedcontrol.destroy
+call super::destroy
+end on
+
+type m_hideadvancedrp from menu within m_administratortable
+end type
+
+event clicked;IF uo_global.ii_access_level < 3  THEN
+	this.Enabled = FALSE
+	MessageBox("Information","Only Administrators do have access to this function.")
+	return
+END IF
+
+OpenSheet(w_hide_advanced_rp, w_tramos_main, 7, Original!)
+
+end event
+
+on m_hideadvancedrp.create
+call super::create
+this.text = "Hide Advanced Routing Points"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_hideadvancedrp.destroy
+call super::destroy
+end on
+
+type m_localatobviacdistance from menu within m_administratortable
+end type
+
+event clicked;IF uo_global.ii_access_level < 3  THEN
+	this.Enabled = FALSE
+	MessageBox("Information","Only Administrators do have access to this function.")
+	return
+END IF
+
+OpenSheet(w_local_atobviac_distance,w_tramos_main,gi_win_pos,Original!)
+
+end event
+
+on m_localatobviacdistance.create
+call super::create
+this.text = "Local AtoBviaC Distance"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_localatobviacdistance.destroy
+call super::destroy
+end on
+
+type m_smtp from menu within m_administratortable
+end type
+
+on m_smtp.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_smtp.destroy
+call super::destroy
+end on
+
+type m_smtpmailservice from menu within m_administratortable
+end type
+
+event clicked;IF uo_global.ii_access_level < 3  THEN
+	this.Enabled = FALSE
+	MessageBox("Information","Only Administrators do have access to this function.")
+	return
+END IF
+
+OpenSheet(w_smtp_mailcontrol, w_tramos_main, 7, Original!)
+
+end event
+
+on m_smtpmailservice.create
+call super::create
+this.text = "SMTP Mail Service"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_smtpmailservice.destroy
+call super::destroy
+end on
+
+type m_sep_systeminterface from menu within m_administratortable
+end type
+
+on m_sep_systeminterface.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sep_systeminterface.destroy
+call super::destroy
+end on
+
+type m_systeminterfaces from menu within m_administratortable
+end type
+
+event clicked;if uo_global.is_userid = "sa" or  (uo_global.ii_access_level=3) then
+	OpenSheet(w_system_interfaces,w_tramos_main,gi_win_pos,Original!)
+else
+	this.Enabled = FALSE
+	MessageBox("System interfaces","Only Administrators do have access to System Interfaces.")
+END IF
+end event
+
+on m_systeminterfaces.create
+call super::create
+this.text = "System Interfaces"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_systeminterfaces.destroy
+call super::destroy
+end on
+
+type m_appmonitor from menu within m_administratortable
+end type
+
+on m_appmonitor.create
+call super::create
+this.text = "Interface/Server App Monitor"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_appmonitor.destroy
+call super::destroy
+end on
+
+event clicked;if uo_global.ii_access_level < 3 then
+	this.enabled = false
+	messagebox("Information", "Only Administrators have access to Interface/Server Monitor.")
+	return
+end if
+
+OpenSheet(w_appmonitor,w_tramos_main,gi_win_pos,Original!)
+end event
+
+type m_sep_transreason from menu within m_administratortable
+end type
+
+on m_sep_transreason.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sep_transreason.destroy
+call super::destroy
+end on
+
+type m_transactionadjustmentreasons from menu within m_administratortable
+end type
+
+event clicked;if uo_global.ii_access_level < 3 then
+	messagebox("Transaction Adjustment Reasons", "Only Administrators do have access to Transaction Adjustment Reasons.")
+	this.Enabled = false
+	return
+end if
+
+opensheet(w_adjustment_reason, w_tramos_main, 0, original!)
+end event
+
+on m_transactionadjustmentreasons.create
+call super::create
+this.text = "Tra&nsaction Adjustment Reasons"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_transactionadjustmentreasons.destroy
+call super::destroy
+end on
+
+type m_writeoff from menu within m_administratortable
+end type
+
+event clicked;if uo_global.ii_access_level < 3 then
+	messagebox("Transaction Write-Off Reasons", "Only Administrators do have access to Transaction Write-Off Reasons.")
+	this.Enabled = false
+	return
+end if
+
+opensheet(w_writeoff, w_tramos_main, 0, original!)
+
+end event
+
+on m_writeoff.create
+call super::create
+this.text = "T&ransaction Write-Off Reasons"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_writeoff.destroy
+call super::destroy
+end on
+
+type m_sep_voyagetype from menu within m_administratortable
+end type
+
+on m_sep_voyagetype.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sep_voyagetype.destroy
+call super::destroy
+end on
+
+type m_voyagetype from menu within m_administratortable
+end type
+
+event clicked;/********************************************************************
+   clicked
+   <DESC>	</DESC>
+   <RETURN>	(none):
+    </RETURN>
+   <ACCESS> </ACCESS>
+   <ARGS>
+   </ARGS>
+   <USAGE></USAGE>
+   <HISTORY>
+   	Date			CR-Ref		Author	Comments
+   	04/06/14		CR3427		CCY018	Only one instance of the same system table window can be opened at the same time.
+   </HISTORY>
+********************************************************************/
+
+if uo_global.is_userid = "sa" or  (uo_global.ii_access_level = 3) then
+	mf_opensheet(w_voyage_type)
+else
+	this.enabled = false
+	messagebox("Voyage Types", "Only Administrators do have access to Voyage Type.")
+end if
+end event
+
+on m_voyagetype.create
+call super::create
+this.text = "Voyage Types"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_voyagetype.destroy
+call super::destroy
+end on
+
+type m_sep_contracttypes from menu within m_administratortable
+end type
+
+on m_sep_contracttypes.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sep_contracttypes.destroy
+call super::destroy
+end on
+
+type m_contracttype from menu within m_administratortable
+end type
+
+on m_contracttype.create
+call super::create
+this.text = "Contract Types"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_contracttype.destroy
+call super::destroy
+end on
+
+event clicked;/********************************************************************
+   clicked
+   <DESC>	</DESC>
+   <RETURN>	(none):
+    </RETURN>
+   <ACCESS> </ACCESS>
+   <ARGS>
+   </ARGS>
+   <USAGE></USAGE>
+   <HISTORY>
+   	Date			CR-Ref		Author	Comments
+   	04/06/14		CR3427		CCY018	Only one instance of the same system table window can be opened at the same time.
+   </HISTORY>
+********************************************************************/
+
+if uo_global.ii_access_level = 1 or uo_global.ii_access_level = 2 &
+	or (uo_global.ii_access_level = 3 and uo_global.ii_user_profile = 3) then
+
+	mf_opensheet(w_contract_type)
+else
+	this.enabled = false
+	messagebox("Contract Types", "Only Administrators do have access to Contract Type.")
+end if
+end event
+
+type m_sep_businessunit from menu within m_administratortable
+end type
+
+on m_sep_businessunit.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sep_businessunit.destroy
+call super::destroy
+end on
+
+type m_businessunit from menu within m_administratortable
+end type
+
+on m_businessunit.create
+call super::create
+this.text = "Business Units"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_businessunit.destroy
+call super::destroy
+end on
+
+event clicked;if uo_global.ii_access_level < 3 then
+	this.enabled = false
+	messagebox("Information", "Only Administrators do have access to this function.")
+	return
+end if
+
+opensheet(w_businessunit, w_tramos_main, 0, original!)
+end event
+
+type m_sep_changerequestconfig from menu within m_administratortable
+end type
+
+on m_sep_changerequestconfig.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sep_changerequestconfig.destroy
+call super::destroy
+end on
+
+type m_chmmapping from menu within m_administratortable
+end type
+
+event clicked;if uo_global.ii_access_level = c#usergroup.#ADMINISTRATOR then
+	mf_opensheet(w_chmmapping)
+else
+	this.enabled = false
+	messagebox("Online Help Mapping","Only Administrators do have access to Online Help Mapping.")
+end if
+end event
+
+on m_chmmapping.create
+call super::create
+this.text = "Online Help Mapping"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_chmmapping.destroy
+call super::destroy
+end on
+
+type m_sep_chmmapping from menu within m_administratortable
+end type
+
+on m_sep_chmmapping.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sep_chmmapping.destroy
+call super::destroy
+end on
+
+type m_changerequestconfig from menu within m_administratortable
+m_type m_type
+m_nextstatus m_nextstatus
+m_severity m_severity
+m_creqstatus m_creqstatus
+m_modulesubmodule m_modulesubmodule
+m_consultants m_consultants
+m_project m_project
+end type
+
+on m_changerequestconfig.create
+call super::create
+this.text = "Change Request Config"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_type=create m_type
+this.m_nextstatus=create m_nextstatus
+this.m_severity=create m_severity
+this.m_creqstatus=create m_creqstatus
+this.m_modulesubmodule=create m_modulesubmodule
+this.m_consultants=create m_consultants
+this.m_project=create m_project
+this.Item[UpperBound(this.Item)+1]=this.m_type
+this.Item[UpperBound(this.Item)+1]=this.m_nextstatus
+this.Item[UpperBound(this.Item)+1]=this.m_severity
+this.Item[UpperBound(this.Item)+1]=this.m_creqstatus
+this.Item[UpperBound(this.Item)+1]=this.m_modulesubmodule
+this.Item[UpperBound(this.Item)+1]=this.m_consultants
+this.Item[UpperBound(this.Item)+1]=this.m_project
+end on
+
+on m_changerequestconfig.destroy
+call super::destroy
+destroy(this.m_type)
+destroy(this.m_nextstatus)
+destroy(this.m_severity)
+destroy(this.m_creqstatus)
+destroy(this.m_modulesubmodule)
+destroy(this.m_consultants)
+destroy(this.m_project)
+end on
+
+type m_type from menu within m_changerequestconfig
+end type
+
+event clicked;if uo_global.ii_access_level < 3 then
+	this.enabled = false
+	messagebox("Information", "Only Administrators do have access to this function.")
+	return
+end if
+
+opensheet(w_type, w_tramos_main, 0, original!)
+end event
+
+on m_type.create
+call super::create
+this.text = "Types"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_type.destroy
+call super::destroy
+end on
+
+type m_nextstatus from menu within m_changerequestconfig
+end type
+
+event clicked;if uo_global.ii_access_level < 3 then
+	this.enabled = false
+	messagebox("Information", "Only Administrators do have access to this function.")
+	return
+end if
+
+opensheet(w_next_status, w_tramos_main, 0, original!)
+end event
+
+on m_nextstatus.create
+call super::create
+this.text = "Work Flows"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_nextstatus.destroy
+call super::destroy
+end on
+
+type m_severity from menu within m_changerequestconfig
+end type
+
+event clicked;if uo_global.ii_access_level < 3  then
+	this.enabled = false
+	messagebox("Information", "Only Administrators do have access to this function.")
+	return
+end if
+
+opensheet(w_priority, w_tramos_main, 0, original!)
+end event
+
+on m_severity.create
+call super::create
+this.text = "Severities"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_severity.destroy
+call super::destroy
+end on
+
+type m_creqstatus from menu within m_changerequestconfig
+end type
+
+event clicked;if uo_global.ii_access_level < 3 then
+	this.enabled = false
+	messagebox("Information", "Only Administrators do have access to this function.")
+	return
+end if
+
+opensheet(w_status, w_tramos_main, 0, original!)
+end event
+
+on m_creqstatus.create
+call super::create
+this.text = "Statuses"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_creqstatus.destroy
+call super::destroy
+end on
+
+type m_modulesubmodule from menu within m_changerequestconfig
+end type
+
+event clicked;if uo_global.ii_access_level < 3 then
+	this.enabled = false
+	messagebox("Information", "Only Administrators do have access to this function.")
+	return
+end if
+
+opensheet(w_module_submodule, w_tramos_main, 0, original!)
+end event
+
+on m_modulesubmodule.create
+call super::create
+this.text = "Modules/Sub Modules"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_modulesubmodule.destroy
+call super::destroy
+end on
+
+type m_consultants from menu within m_changerequestconfig
+end type
+
+event clicked;if uo_global.ii_access_level < 3 then
+	this.enabled = false
+	messagebox("Information", "Only Administrators do have access to this function.")
+	return
+end if
+
+opensheet(w_consultant, w_tramos_main, 0, original!)
+end event
+
+on m_consultants.create
+call super::create
+this.text = "Consultants"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_consultants.destroy
+call super::destroy
+end on
+
+type m_project from menu within m_changerequestconfig
+end type
+
+event clicked;if uo_global.ii_access_level < 3 then
+	this.enabled = false
+	messagebox("Information", "Only Administrators do have access to this function.")
+	return
+end if
+
+opensheet(w_project, w_tramos_main, 0, original!)
+end event
+
+on m_project.create
+call super::create
+this.text = "Projects"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_project.destroy
+call super::destroy
+end on
+
+type m_sep_2 from menu within m_systemtabels
+end type
+
+on m_sep_2.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sep_2.destroy
+call super::destroy
+end on
+
+type m_systemreports from menu within m_systemtabels
+m_vesselsbycommsegment m_vesselsbycommsegment
+m_competitorvesselsbycommsegment m_competitorvesselsbycommsegment
+m_charterersgroup m_charterersgroup
+end type
+
+on m_systemreports.create
+call super::create
+this.text = "System Reports"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_vesselsbycommsegment=create m_vesselsbycommsegment
+this.m_competitorvesselsbycommsegment=create m_competitorvesselsbycommsegment
+this.m_charterersgroup=create m_charterersgroup
+this.Item[UpperBound(this.Item)+1]=this.m_vesselsbycommsegment
+this.Item[UpperBound(this.Item)+1]=this.m_competitorvesselsbycommsegment
+this.Item[UpperBound(this.Item)+1]=this.m_charterersgroup
+end on
+
+on m_systemreports.destroy
+call super::destroy
+destroy(this.m_vesselsbycommsegment)
+destroy(this.m_competitorvesselsbycommsegment)
+destroy(this.m_charterersgroup)
+end on
+
+type m_vesselsbycommsegment from menu within m_systemreports
+end type
+
+event clicked;OpenSheet(w_sysreport_vessel_segment, w_tramos_main, 7, Original!)
+
+end event
+
+on m_vesselsbycommsegment.create
+call super::create
+this.text = "Vessels by Commercial Segment"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_vesselsbycommsegment.destroy
+call super::destroy
+end on
+
+type m_competitorvesselsbycommsegment from menu within m_systemreports
+end type
+
+event clicked;OpenSheet(w_sysreport_competitor_vessel_segment, w_tramos_main, 7, Original!)
+
+end event
+
+on m_competitorvesselsbycommsegment.create
+call super::create
+this.text = "Competitor Vessels by Commercial Segment"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_competitorvesselsbycommsegment.destroy
+call super::destroy
+end on
+
+type m_charterersgroup from menu within m_systemreports
+end type
+
+event clicked;OpenSheet(w_sysreport_charterer_group, w_tramos_main, 7, Original!)
+
+end event
+
+on m_charterersgroup.create
+call super::create
+this.text = "Charterers in Charterer Groups"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_charterersgroup.destroy
+call super::destroy
+end on
+
+type m_sep_systemreports from menu within m_systemtabels
+end type
+
+on m_sep_systemreports.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sep_systemreports.destroy
+call super::destroy
+end on
+
+type m_refreshcachedtables from menu within m_systemtabels
+end type
+
+on clicked;w_share.TriggerEvent("ue_retrieve")
+MessageBox("Information", "Cached tables have been refreshed")
+end on
+
+on m_refreshcachedtables.create
+call super::create
+this.text = "&Refresh Cached Tables"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_refreshcachedtables.destroy
+call super::destroy
+end on
+
+type m_window from menu within m_sysmain
+m_tilevertical m_tilevertical
+end type
+
+on m_window.create
+call super::create
+this.text = "&Window"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_tilevertical=create m_tilevertical
+this.Item[UpperBound(this.Item)+1]=this.m_tilevertical
+end on
+
+on m_window.destroy
+call super::destroy
+destroy(this.m_tilevertical)
+end on
+
+type m_tilevertical from menu within m_window
+end type
+
+on clicked;arrangesheets(w_tramos_main,tile!)
+end on
+
+on m_tilevertical.create
+call super::create
+this.text = "&Tile Vertical~tShift+Alt+T"
+this.shortcut = 1620
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tilevertical.destroy
+call super::destroy
+end on
+
+type m_help from menu within m_sysmain
+m_helpindex m_helpindex
+m_tramoshelp m_tramoshelp
+m___6 m___6
+m_about m_about
+end type
+
+on m_help.create
+call super::create
+this.text = "&Help"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_helpindex=create m_helpindex
+this.m_tramoshelp=create m_tramoshelp
+this.m___6=create m___6
+this.m_about=create m_about
+this.Item[UpperBound(this.Item)+1]=this.m_helpindex
+this.Item[UpperBound(this.Item)+1]=this.m_tramoshelp
+this.Item[UpperBound(this.Item)+1]=this.m___6
+this.Item[UpperBound(this.Item)+1]=this.m_about
+end on
+
+on m_help.destroy
+call super::destroy
+destroy(this.m_helpindex)
+destroy(this.m_tramoshelp)
+destroy(this.m___6)
+destroy(this.m_about)
+end on
+
+type m_helpindex from menu within m_help
+end type
+
+event clicked;/********************************************************************
+   m_help.m_helpindex.clicked()
+<DESC>   
+	Opens Tramos wiki help in users default browser.
+</DESC>
+<RETURN>
+	n/a
+</RETURN>
+<ACCESS> 
+	Public
+</ACCESS>
+<ARGS>   
+	n/a
+</ARGS>
+<USAGE>
+	Code uses MT framework's help page data if it is applied to inherited window. 		
+	Property 'is_webhelppage' (found inside mt_w_master). 
+	This is appended to base wiki url (http://team.apmoller.net/sites/Tramos/Wiki/)
+	It MUST relate to an existing page within the tramos wiki or an error occurs.
+	Default used is 'Home.aspx' if unchanged or not part of MT framework
+</USAGE>
+<HISTORY>
+   	Date			CR-Ref			Author		Comments
+   	26/05/14		CR3222			CCY018		Use the nonvisualobject n_openhelpfile to open help file.
+	26/08/14		CR3708			CCY018		Open chm help file with index.
+   </HISTORY>
+********************************************************************/
+n_openhelpfile lnv_openfile
+
+lnv_openfile.of_openchm(parentwindow)
+
+
+end event
+
+on m_helpindex.create
+call super::create
+this.text = "Online Help~tF1"
+this.shortcut = 112
+this.microhelp = "Online Help"
+this.toolbaritemname = "help!"
+this.toolbaritemtext = "Online Help"
+this.toolbaritemorder = 98
+this.toolbaritemspace = 2
+this.menuimage = "Help!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_helpindex.destroy
+call super::destroy
+end on
+
+type m_tramoshelp from menu within m_help
+end type
+
+event clicked;/********************************************************************
+   m_help.m_helpindex.clicked()
+<DESC>   
+	Opens Tramos wiki help in users default browser.
+</DESC>
+<RETURN>
+	n/a
+</RETURN>
+<ACCESS> 
+	Public
+</ACCESS>
+<ARGS>   
+	n/a
+</ARGS>
+<USAGE>
+	Code uses MT framework's help page data if it is applied to inherited window. 		
+	Property 'is_webhelppage' (found inside mt_w_master). 
+	This is appended to base wiki url (http://team.apmoller.net/sites/Tramos/Wiki/)
+	It MUST relate to an existing page within the tramos wiki or an error occurs.
+	Default used is 'Home.aspx' if unchanged or not part of MT framework
+</USAGE>
+<HISTORY>
+   	Date			CR-Ref			Author		Comments
+   	26/05/14		CR3222			CCY018		Use the nonvisualobject n_openhelpfile to open help file.
+   </HISTORY>
+********************************************************************/
+n_openhelpfile lnv_openfile
+
+lnv_openfile.of_openpdf()
+
+
+end event
+
+on m_tramoshelp.create
+call super::create
+this.text = "Printed Manual (PDF)~tCtrl+F1"
+this.shortcut = 368
+this.microhelp = "Printed Manual (PDF)"
+this.toolbaritemvisible = false
+this.toolbaritemtext = "Printed Manual (PDF)"
+this.toolbaritemorder = 98
+this.toolbaritemspace = 2
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tramoshelp.destroy
+call super::destroy
+end on
+
+type m___6 from menu within m_help
+end type
+
+on m___6.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m___6.destroy
+call super::destroy
+end on
+
+type m_about from menu within m_help
+end type
+
+event clicked;Open(w_tramos_about)
+end event
+
+on m_about.create
+call super::create
+this.text = "About"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_about.destroy
+call super::destroy
+end on
+

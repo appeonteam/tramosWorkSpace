@@ -1,0 +1,232 @@
+﻿$PBExportHeader$tc_hire.srf
+$PBExportComments$Function for calculating the T/C hire rate
+global type tc_hire from function_object
+end type
+
+forward prototypes
+global function decimal tc_hire (datetime startdate, datetime enddate, long vessel_nr, datetime cp_date)
+end prototypes
+
+global function decimal tc_hire (datetime startdate, datetime enddate, long vessel_nr, datetime cp_date);
+INT 		daycount, i, j, no_startperiods, rate_no=1
+INT 		daysincurrentmonth, daysinlastmonth
+Decimal {4} ratesum, dayrate, previous_dayrate, dayrate_get_first, dayrate_get_second
+DATE 		idate, lastdate
+DATETIME startdates[]
+LONG 		rateswitchtime, minutesbetween
+BOOLEAN 	rateswitch=FALSE, rateperday
+TRANSACTION	SQLAPM
+S_HIRE_AVERAGE average[]
+Time	 Midnight = Time(0,0,0,0)
+
+/* S_HIRE_AVERAGE is required to assemble the calculation of hire periods */
+/* I.e. the structure holds rate and minutes for each rate switch in */
+/* period. */
+
+uo_global.defaulttransactionobject(SQLAPM)
+SQLAPM.AutoCommit 	= FALSE
+CONNECT USING SQLAPM;
+
+/* Number of days between start and end datetime */
+daycount = DaysAfter(Date(startdate), Date(enddate)) 
+IF Time(enddate) <> Midnight THEN
+	daycount += 1
+END IF
+
+If daycount < 0 Then
+//    MessageBox("Warning", "Daycount < 0 start: "+string (date(startdate), "dd/mm-yy") + " end: "+String(date(enddate), "dd/mm-yy" ) )   
+    DISCONNECT USING SQLAPM;
+    DESTROY SQLAPM  
+    return ( 0 )
+End if
+
+minutesbetween = TimeDifference(startdate, enddate)
+
+/* Same start and end date with 0:00 for both - off-hires */
+IF minutesbetween = 0 THEN
+	SELECT TC_RATE_PER_DAY INTO :dayrate FROM TCHIRERATES
+		WHERE datediff(day, TC_PERIOD_START, :startdate) >= 0
+		AND	datediff(day, :enddate, TC_PERIOD_END) >= 0
+		AND	VESSEL_NR = :vessel_nr 
+		AND	TCHIRE_CP_DATE = :cp_date 
+		USING SQLAPM;
+	
+	DISCONNECT USING SQLAPM;
+	DESTROY SQLAPM 
+
+	RETURN dayrate
+END IF
+
+ratesum = 0
+dayrate = 0
+previous_dayrate = 0
+
+/* Check start date */
+SELECT TC_RATE_PER_DAY INTO :dayrate_get_first FROM TCHIRERATES
+	WHERE datediff(day, TC_PERIOD_START, :startdate) >= 0	
+	AND	datediff(day, :startdate, TC_PERIOD_END) >= 0
+	AND	VESSEL_NR = :vessel_nr
+	AND	TCHIRE_CP_DATE = :cp_date
+	USING SQLAPM;
+
+/* Check end date */
+SELECT TC_RATE_PER_DAY INTO :dayrate_get_second FROM TCHIRERATES
+	WHERE datediff(day, TC_PERIOD_START, :enddate) >= 0
+	AND	datediff(day, :enddate, TC_PERIOD_END) >= 0
+	AND	VESSEL_NR = :vessel_nr
+	AND	TCHIRE_CP_DATE = :cp_date
+	USING SQLAPM;
+
+/* If rate not found for start and end dates for period */
+
+	/* Following line changed to check IsDate 7/12/98 (dateformat)
+	 Left(String(enddate),8) = "01-01-00" OR Left(String(startdate),8) = "01-01-00" THEN 
+		changed to
+	(NOT IsDate(String(date(enddate)))) OR (NOT IsDate(String(date(startdate)))) THEN */
+
+IF dayrate_get_first = 0 OR IsNull(dayrate_get_first) OR &
+	dayrate_get_second = 0 OR IsNull(dayrate_get_second) OR &
+	(NOT IsDate(String(date(enddate)))) OR (NOT Isdate(String(date(startdate)))) THEN
+		Messagebox("Could not calculate average T/C Hire/day", "T/C payment period is not contained in the T/C Hire rate periods or T/C hire rate was not found for the T/C payment period : "+String(Date(startdate), "dd/mm-yy")+" - "+String(Date(enddate),"dd/mm-yy")+"~r~rAs a result the calculation for the period may not be correct. ~r~nVessel number was " + string(vessel_nr), Information!, OK!)
+		DISCONNECT USING SQLAPM;
+		DESTROY SQLAPM 
+		return 0		
+ELSE
+	/* Fetch all startdates for T/C rate periods */
+	DECLARE startdates_cur CURSOR FOR 
+	SELECT TC_PERIOD_START
+	FROM 	TCHIRERATES
+	WHERE	VESSEL_NR = :vessel_nr
+	AND	TCHIRE_CP_DATE = :cp_date
+	USING SQLAPM;
+
+	OPEN startdates_cur;
+
+	no_startperiods=0
+
+	DO WHILE SQLAPM.SQLCode =0
+		FETCH startdates_cur INTO
+			:startdates[no_startperiods+1];
+
+		If SQLAPM.SQLCode = 0 then no_startperiods ++
+	LOOP  
+
+	CLOSE startdates_cur;
+
+	/* For each date sum up T/C rate and then divide by number of days */
+	/* Take rate switch different from 00:00 into account */
+	FOR i = 0 TO daycount - 1
+		idate = RelativeDate(Date(startdate), i)
+		SELECT TC_RATE_PER_DAY, RATEPERDAY 
+			INTO :dayrate, :rateperday 
+			FROM TCHIRERATES
+			WHERE datediff(day, TC_PERIOD_START, :idate) >= 0
+			AND	datediff(day, :idate, TC_PERIOD_END) >= 0
+			AND 	VESSEL_NR = :vessel_nr
+			AND	TCHIRE_CP_DATE = :cp_date
+			USING SQLAPM;
+
+		/* If last day, check for rate switch... Exception */
+		/* NOTICE: rate switch is first taken into account the next day */
+		IF i = daycount - 1 THEN
+			lastdate = RelativeDate(idate, 1)
+			SELECT TC_RATE_PER_DAY, RATEPERDAY 
+				INTO :dayrate, :rateperday 
+				FROM TCHIRERATES
+				WHERE datediff(day, TC_PERIOD_START, :lastdate) >= 0
+				AND	datediff(day, :lastdate, TC_PERIOD_END) >= 0
+				AND 	VESSEL_NR = :vessel_nr
+				AND	TCHIRE_CP_DATE = :cp_date
+				USING SQLAPM;
+		END IF
+
+		/* If rate switch, then check for switch different from 00:00 */
+		/* NOTICE: rate switch is first taken into account the next day */
+		IF dayrate <> previous_dayrate AND i <> 0 THEN
+			FOR j = 2 TO no_startperiods
+				IF ( DaysAfter(Date(startdates[j]), idate) = 1 OR &
+				     DaysAfter(Date(startdates[j]), lastdate) = 1 )   THEN
+					 		rateswitch = TRUE
+							rateswitchtime = Hour(Time(startdates[j])) * 60 + &
+													Minute(Time(startdates[j]))
+				END IF
+			NEXT
+			IF rateswitch THEN
+				rate_no += 1 /* Now add to next element in average structure */
+			END IF
+		END IF
+
+		/* Add rate to average structure */
+		IF rateperday THEN /* If day rate */
+			average[rate_no].rate = dayrate 
+		ELSE /* If month rate */ /* Divide month rate with number of days in month */
+			IF NOT daysincurrentmonth = 0 THEN /* New rate period required when month length changes */
+				daysinlastmonth = daysincurrentmonth
+			END IF
+			
+			daysincurrentmonth = daysinmonth(idate)
+
+			IF daysincurrentmonth <> daysinlastmonth AND rate_no > 1 THEN
+				rate_no += 1 /* Now add to next element in average structure */
+			END IF
+			average[rate_no].rate = dayrate
+			average[rate_no].daysinmonth = daysincurrentmonth
+		END IF
+
+		/* If rate switch and switch different from 00:00 */
+		IF rateswitch AND previous_dayrate <> 0 AND dayrate <> 0 AND NOT IsNull(dayrate) THEN
+			average[rate_no - 1].minutes += rateswitchtime /* Add to previous day */
+			average[rate_no].minutes += 1440 - rateswitchtime /* Add to current day */
+			IF NOT i = daycount - 1 THEN
+				average[rate_no - 1].minutes -= 1440 /* Roll-back previous day */
+				average[rate_no].minutes += 1440 /* Add for today */
+			END IF
+		ELSEIF (dayrate <> 0 AND NOT IsNull(dayrate)) THEN
+			IF idate = Date(startdate) AND Time(startdate) <> Midnight THEN /* First day */
+				average[rate_no].minutes += (1440 - Hour(Time(startdate))*60 - Minute(Time(startdate))) 	
+			ELSEIF idate = Date(enddate) AND Time(enddate) <> Midnight THEN /* Last day */
+				average[rate_no].minutes += (Hour(Time(enddate))*60 + Minute(Time(enddate)))
+			ELSE
+				average[rate_no].minutes += 1440 /* Add one day in minutes */
+			END IF
+		ELSEIF (dayrate = 0 OR IsNull(dayrate) ) THEN
+			Messagebox("Could not calculate average T/C Hire/day", "T/C Hire rate was not found for the date : "+String(idate, "dd/mm-yy")+"~r~rAs a result the calculation for the period may not be correct.", Information!, OK!)
+			EXIT
+		END IF
+
+		If isNull(average[1]) Or IsNull(average[1].minutes)  Then
+			Messagebox("T/C", "T/C Hire rate was not found for the date : "+String(idate, "dd/mm-yy")+"~r~rAs a result the calculation for the period may not be correct.", Information!, OK!)
+                End if
+
+		rateswitch = FALSE /* Rate Switch not 00:00 */
+		previous_dayrate = dayrate		
+	NEXT
+END IF
+
+DISCONNECT USING SQLAPM;
+DESTROY SQLAPM
+
+/* Calculate ratesum from average structure */
+FOR i = 1 TO rate_no
+
+	If i<=Upperbound(average) then
+	
+		IF rateperday THEN
+			ratesum += Round(average[i].minutes/1440, 4) * average[i].rate
+		ELSE
+			ratesum += Round(Round(average[i].minutes/1440, 4) * average[i].rate / average[i].daysinmonth, 2)
+		END IF		
+	End if
+
+	// Messagebox(string(Round(average[i].minutes/1440, 4)), string(average[i].rate)+" "+String(average[i].daysinmonth))
+NEXT
+
+// MessageBox("avg hire:", "start: "+string(startdate) + " end: " + string (enddate ) + " cp: " + string (cp_date ) + &
+	// " " + String(Round(ratesum / Round( minutesbetween / 1440, 4 ) ,4)) )
+
+/* Return TC Hire */
+Return (Round(ratesum ,4))
+
+
+end function
+

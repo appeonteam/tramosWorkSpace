@@ -1,0 +1,115 @@
+HA$PBExportHeader$d_sq_tb_reportdetail.srd
+release 11;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 2 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 9 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=no hidegrayline=no showbackcoloronxp=no )
+header(height=96 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=656 color="536870912" height.autosize=yes )
+table(column=(type=long updatewhereclause=yes key=yes name=rep_id dbname="TPERF_REPORTS.REP_ID" )
+ column=(type=long updatewhereclause=yes name=voy_id dbname="TPERF_REPORTS.VOY_ID" )
+ column=(type=decimal(1) updatewhereclause=yes name=zone dbname="TPERF_REPORTS.ZONE" )
+ column=(type=datetime updatewhereclause=yes name=localtime dbname="LOCALTIME" )
+ column=(type=long updatewhereclause=yes name=type dbname="TPERF_REPORTS.TYPE" values="Departure	0/Daily	1/Arrival	2/" )
+ column=(type=decimal(2) updatewhereclause=yes name=lat dbname="TPERF_REPORTS.LAT" )
+ column=(type=decimal(2) updatewhereclause=yes name=lng dbname="TPERF_REPORTS.LNG" )
+ column=(type=decimal(1) updatewhereclause=yes name=dtg dbname="TPERF_REPORTS.DTG" )
+ column=(type=char(20) updatewhereclause=yes name=port dbname="TPERF_REPORTS.PORT" )
+ column=(type=long updatewhereclause=yes name=sea dbname="TPERF_REPORTS.SEA" )
+ column=(type=decimal(0) updatewhereclause=yes name=wind_dir dbname="TPERF_REPORTS.WIND_DIR" )
+ column=(type=long updatewhereclause=yes name=wind dbname="TPERF_REPORTS.WIND" )
+ column=(type=decimal(1) updatewhereclause=yes name=draft dbname="TPERF_REPORTS.DRAFT" )
+ column=(type=datetime updatewhereclause=yes name=eta dbname="TPERF_REPORTS.ETA" )
+ column=(type=char(200) updatewhereclause=yes name=remarks dbname="TPERF_REPORTS.REMARKS" )
+ column=(type=decimal(2) updatewhereclause=yes name=stoppage dbname="TPERF_REPORTS.STOPPAGE" )
+ column=(type=long updatewhereclause=yes name=serial dbname="TPERF_REPORTS.SERIAL" )
+ column=(type=long updatewhereclause=yes name=air_temp dbname="TPERF_REPORTS.AIRTEMP" )
+ column=(type=char(200) updatewhereclause=yes name=reason dbname="TPERF_REPORTS.REASON" )
+ column=(type=char(35) updatewhereclause=yes name=repport dbname="REPPORT" )
+ retrieve=" SELECT TPERF_REPORTS.REP_ID,   
+         TPERF_REPORTS.VOY_ID,   
+         TPERF_REPORTS.ZONE,   
+         DATEADD(mi , TPERF_REPORTS.ZONE * 60, TPERF_REPORTS.UTC) AS LOCALTIME,   
+         TPERF_REPORTS.TYPE,   
+         TPERF_REPORTS.LAT,   
+         TPERF_REPORTS.LNG,   
+         TPERF_REPORTS.DTG,   
+         TPERF_REPORTS.PORT,   
+         TPERF_REPORTS.SEA,   
+         TPERF_REPORTS.WIND_DIR,   
+         TPERF_REPORTS.WIND,   
+         TPERF_REPORTS.DRAFT,   
+         TPERF_REPORTS.ETA,   
+         TPERF_REPORTS.REMARKS,   
+         TPERF_REPORTS.STOPPAGE,   
+         TPERF_REPORTS.SERIAL,   
+         TPERF_REPORTS.AIRTEMP,   
+         TPERF_REPORTS.REASON,  
+			(select CASE Left(TR.PORT,2) WHEN ~"^^~" THEN Right(TR.PORT, Len(TR.PORT)-2) ELSE P1.PORT_N END
+				from TPERF_REPORTS TR, PORTS P1 
+				where TR.PORT *= P1.PORT_CODE
+				AND TR.VOY_ID = :VoyID AND TR.SERIAL = TPERF_REPORTS.SERIAL) AS REPPORT
+    FROM TPERF_REPORTS
+   WHERE TPERF_REPORTS.VOY_ID = :VoyID   
+ORDER BY TPERF_REPORTS.SERIAL ASC   
+" update="TPERF_REPORTS" updatewhere=0 updatekeyinplace=no arguments=(("VoyID", number)) )
+text(band=header alignment="0" text="Sailing Reports:" border="0" color="33554432" x="9" y="12" height="80" width="613" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="1073741824" )
+rectangle(band=detail x="5" y="0" height="644~trowheight()" width="3122"  name=r_1 visible="1" brush.hatch="7" brush.color="570425344" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="33554432" )
+text(band=detail alignment="2" text="N" border="0" color="10789024" x="2720" y="200" height="40" width="55" html.valueishtml="0"  name=t_19 visible="1~tIf(type=0,0,1)"  font.face="Arial" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression="string(abs( int(lat/60)), ~"00~") + ~"$$HEX1$$b000$$ENDHEX$$~" + string(mod(abs(lat), 60), ~"00.0~") + ~"' ~" + if(lat>=0, ~"N~", ~"S~")"border="0" color="16711680" x="2386" y="16" height="64" width="297" format="[GENERAL]" html.valueishtml="0"  name=latitude visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="string( abs(int(lng/60)), ~"000~") + ~"$$HEX1$$b000$$ENDHEX$$~" + string(mod(abs(lng), 60), ~"00.0~") + ~"' ~" + if(lng>=0, ~"E~", ~"W~")"border="0" color="16711680" x="2706" y="16" height="64" width="370" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Position:" border="0" color="33554432" x="1929" y="16" height="56" width="270" html.valueishtml="0"  name=lat_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="33554432" x="1737" y="4" height="76" width="101" format="[general]" html.valueishtml="0"  name=lng visible="0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="33554432" x="1627" y="0" height="76" width="82" format="[general]" html.valueishtml="0"  name=lat visible="0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="33554432" x="1705" y="120" height="60" width="87" format="[general]" html.valueishtml="0"  name=rep_id visible="0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="33554432" x="1595" y="120" height="64" width="91" format="[general]" html.valueishtml="0"  name=voy_id visible="0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Serial/Type:" border="0" color="33554432" x="41" y="16" height="56" width="283" html.valueishtml="0"  name=serial_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Mean Draft:" border="0" color="33554432" x="1929" y="80" height="56" width="306" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Wind Force:" border="0" color="33554432" x="1929" y="144" height="56" width="384" html.valueishtml="0"  name=t_2 visible="1~tif(type=0, 0,1)"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Sea State:" border="0" color="33554432" x="1929" y="208" height="56" width="384" html.valueishtml="0"  name=t_9 visible="1~tif(type=0, 0,1)"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Wind Direction:" border="0" color="33554432" x="1929" y="272" height="56" width="425" html.valueishtml="0"  name=t_10 visible="1~tif(type=0, 0,1)"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Air Temperature:" border="0" color="33554432" x="1929" y="336" height="56" width="439" html.valueishtml="0"  name=t_14 visible="1~tif(type=0, 0,1)"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+ellipse(band=detail x="2679" y="236" height="120" width="137"  name=oval_1 visible="1~tIf(type=0,0,1)" brush.hatch="7" brush.color="570425344" pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="33554432" )
+line(band=detail x1="2747" y1="296" x2="2830~t2747 + sin(  wind_dir * pi( 1 ) /180  ) * 83" y2="296~t296 - cos(  wind_dir * pi( 1 ) /180  ) * 83"  name=l_1 visible="1~tIf(type=0,0,1)" pen.style="0" pen.width="5" pen.color="16711680"  background.mode="2" background.color="33554432" )
+report(band=detail dataobject="d_sq_tb_saildetail" x="37" y="532~tIf( (len( reason ) = 0) and (len(remarks)=0) , 400, if((len(reason)>0 and len(remarks)>0), 532, 464))" height="36" width="2949" border="0"  height.autosize=yes criteria="" nest_arguments=((" voy_id "),(" serial ")) trail_footer = yes  name=dw_1 visible="1"  slideup=directlyabove )
+report(band=detail dataobject="d_sq_tb_repcondetail" x="37" y="584" height="36" width="1554" border="0"  height.autosize=yes criteria="" nest_arguments=((" rep_id ")) trail_footer = yes  name=dw_2 visible="1~tIf( rowcount()>0, 1,0)"  slideup=directlyabove )
+report(band=detail dataobject="d_sq_tb_repconsel" x="1920" y="584" height="32" width="1051" border="0"  height.autosize=yes criteria="" nest_arguments=((" rep_id "),("18")) trail_footer = yes  name=dw_3 visible="1"  slideup=directlyabove )
+text(band=detail alignment="0" text="Local Time:" border="0" color="33554432" x="41" y="80" height="56" width="361" html.valueishtml="0"  name=zone_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="If( serial = 1, ~"Departure~", ~"Destination~") + ~" Port:~""border="0" color="33554432" x="41" y="144" height="64" width="489" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Distance to go:" border="0" color="33554432" x="41" y="208" height="56" width="457" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="ETA Reported:" border="0" color="33554432" x="41" y="272" height="56" width="462" html.valueishtml="0"  name=t_4 visible="1~tIf( type = 2, 0, 1)"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Stoppage:" border="0" color="33554432" x="41" y="336" height="56" width="338" html.valueishtml="0"  name=t_17 visible="1~tIf( type = 0, 0, 1)"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Reason for Delay:" border="0" color="33554432" x="41" y="400" height="56" width="471" html.valueishtml="0"  name=t_15 visible="1~tif (len(reason)>0, 1,0)"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="General Remarks:" border="0" color="33554432" x="41" y="464~tIf(Len(Reason)>0, 464, if(  type > 0, 400, 336))" height="56" width="498" html.valueishtml="0"  name=t_16 visible="1~tIf(Len(Remarks)>0,1,0)"  slideup=allabove  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="nm" border="0" color="10789024" x="791" y="208" height="56" width="306" html.valueishtml="0"  name=t_12 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="hrs" border="0" color="10789024" x="791" y="336" height="56" width="306" html.valueishtml="0"  name=t_18 visible="1~tIf( type = 0, 0, 1)"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="$$HEX2$$b0002000$$ENDHEX$$C" border="0" color="10789024" x="2510" y="336" height="56" width="137" html.valueishtml="0"  name=t_13 visible="1~tif(type=0, 0,1)"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="$$HEX2$$b0002000$$ENDHEX$$T" border="0" color="10789024" x="2510" y="272" height="56" width="137" html.valueishtml="0"  name=t_11 visible="1~tif(type=0, 0,1)"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="BF" border="0" color="10789024" x="2510" y="208" height="56" width="110" html.valueishtml="0"  name=t_8 visible="1~tif(type=0, 0,1)"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="BF" border="0" color="10789024" x="2510" y="144" height="56" width="96" html.valueishtml="0"  name=t_7 visible="1~tif(type=0, 0,1)"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="m" border="0" color="10789024" x="2510" y="80" height="56" width="91" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=20 border="0" color="16711680" x="654" y="16" height="60" width="485" format="[general]" html.valueishtml="0"  name=type visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes edit.codetable=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=10 border="0" color="16711680" x="571" y="16" height="52" width="78" format="00:" html.valueishtml="0"  name=serial visible="1" edit.limit=0 edit.case=any edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="0" color="16711680" x="571" y="80" height="56" width="384" format="hh:mm, dd-mm-yy" html.valueishtml="0"  name=localtime visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.displayonly=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=40 border="0" color="16711680" x="969" y="80" height="56" width="206" format="(+00.0);(-00.0);(+00.0)" html.valueishtml="0"  name=zone visible="1" edit.limit=0 edit.case=any edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=50 border="0" color="16711680" x="571" y="144" height="56" width="805" format="[general]" html.valueishtml="0"  name=repport visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.displayonly=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=60 border="0" color="16711680" x="576" y="208" height="60" width="206" format="0.0" html.valueishtml="0"  name=dtg visible="1" edit.limit=0 edit.case=any edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=70 border="0" color="16711680" x="576" y="272" height="56" width="603" format="hh:mm, dd-mm-yy" html.valueishtml="0"  name=eta visible="1~tIf( type = 2, 0, 1)" edit.limit=0 edit.case=any edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=80 border="0" color="16711680~tif ( stoppage > 0, 255, 16711680)" x="576" y="336" height="60" width="206" format="0.00" html.valueishtml="0"  name=stoppage visible="1~tIf( type = 0, 0, 1)"  slideup=directlyabove edit.limit=0 edit.case=any edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=90 border="0" color="255" x="576" y="400" height="56" width="2514" format="[general]" html.valueishtml="0"  name=reason visible="1~tif (len(reason)>0, 1,0)" edit.limit=200 edit.case=any edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=100 border="0" color="16711680" x="576" y="464~tIf(Len(Reason)>0, 464, if(  type > 0, 400, 336))" height="56" width="2514" format="[general]" html.valueishtml="0"  name=remarks visible="1~tIf(Len(Remarks)>0,1,0)"  slideup=allabove edit.limit=200 edit.case=any edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=110 border="0" color="16711680" x="2386" y="80" height="64" width="110" format="[general]" html.valueishtml="0"  name=draft visible="1" edit.limit=0 edit.case=any edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=120 border="0" color="16711680" x="2382" y="144" height="64" width="105" format="[general]" html.valueishtml="0"  name=wind visible="1~tif(type=0, 0,1)" edit.limit=0 edit.case=any edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=130 border="0" color="16711680" x="2386" y="208" height="64" width="105" format="[general]" html.valueishtml="0"  name=sea visible="1~tif(type=0, 0,1)" edit.limit=0 edit.case=any edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=150 border="0" color="16711680" x="2386" y="336" height="56" width="114" format="[general]" html.valueishtml="0"  name=air_temp visible="1~tif(type=0, 0,1)" edit.limit=0 edit.case=any edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=140 border="0" color="16711680" x="2386" y="272" height="56" width="110" format="000" html.valueishtml="0"  name=wind_dir visible="1~tif(type=0, 0,1)" edit.limit=0 edit.case=any edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

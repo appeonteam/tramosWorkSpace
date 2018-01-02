@@ -1,0 +1,11 @@
+﻿$PBExportHeader$s_email.srs
+$PBExportComments$Email structure (email from, email to, subject, attachments, message)
+global type s_email from structure
+	string		emailfrom[]
+	string		emailto[]
+	string		subject
+	string		message
+	string		attachments[]
+	integer		emailfrom_selection_pos
+end type
+

@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_expenses_offhires.srs
+$PBExportComments$Structure to parse vessel number and c/p date
+global type s_expenses_offhires from structure
+    long vessel_nr
+    datetime cp_date
+end type
+

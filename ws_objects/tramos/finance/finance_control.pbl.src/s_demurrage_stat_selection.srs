@@ -1,0 +1,15 @@
+﻿$PBExportHeader$s_demurrage_stat_selection.srs
+$PBExportComments$Used for transfer op parameters when selecting criteria for report
+global type s_demurrage_stat_selection from structure
+	integer		profitcenter[]
+	integer		vessel_nr[]
+	integer		chart_nr[]
+	integer		broker_nr[]
+	integer		office_nr[]
+	string		called_from
+	string		claimtype[]
+	string		vessel_ref_nr[]
+	string		analyst
+	string		come_from
+end type
+

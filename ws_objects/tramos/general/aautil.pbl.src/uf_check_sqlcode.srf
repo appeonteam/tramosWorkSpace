@@ -1,0 +1,13 @@
+﻿$PBExportHeader$uf_check_sqlcode.srf
+$PBExportComments$Displays error in SQLCA if any.
+global type uf_check_sqlcode from function_object
+end type
+
+forward prototypes
+global subroutine uf_check_sqlcode ()
+end prototypes
+
+global subroutine uf_check_sqlcode ();If SQLCA.SQLCode <> 0 Then MessageBox("SQL ERROR", String(SQLCA.SQLCode)+ " " + SQLCA.SQLErrtext)
+
+end subroutine
+

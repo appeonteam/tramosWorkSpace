@@ -1,0 +1,9 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "vims\\mobile\\vimsmob.pbl" "";
+@end;
+@begin Objects
+ "vims\\mobile\\nvo_img.sru" "vims\\mobile\\vimsmob.pbl";
+ "vims\\mobile\\w_config.srw" "vims\\mobile\\vimsmob.pbl";
+ "vims\\mobile\\w_vmfeedback.srw" "vims\\mobile\\vimsmob.pbl";
+@end;

@@ -1,0 +1,10 @@
+﻿$PBExportHeader$str_interface_datastore.srs
+global type str_interface_datastore from structure
+	string		ds_name		descriptor "comment" = "Name of the dataset in the array. Used when 'client' has to reference a datastore"
+	string		dw_object		descriptor "comment" = "Classname of the datawindow object"
+	mt_n_datastore		ds_data		descriptor "comment" = "Datastore 'holding' the data for dw_object"
+	string		business_service[]		descriptor "comment" = "Array of Classnames for Business Services. Update, Insert,delete....will be rerouted to these services"
+	string		master		descriptor "comment" = "Name of master dataset if part of master detail chain"
+	str_detail_linkage		detail[]		descriptor "comment" = "Array of detail datasets and their retrival arguments"
+end type
+

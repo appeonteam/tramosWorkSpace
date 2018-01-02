@@ -1,0 +1,38 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tramos\\operations\\eprejbog.pbl" "";
+@end;
+@begin Objects
+ "tramos\\operations\\w_show_tccontractmatch.srw" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\dw_idle_days.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\d_actual_earnings.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\w_actual_earnings.srw" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\d_off_services_file_actual_earnings.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\w_idle_days.srw" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\d_table_ntc_off_service.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\s_off_service.srs" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\w_offservice_tc_fuel_trans.srw" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\dw_idle_days_select_voyage.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\w_offservice_bunker_calculation.srw" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\d_off_services.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\w_select_voyage_and_port_code.srw" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\d_check_conflict_offservice_tc.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\d_find_tc_contract_for_periode.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\w_check_conflict_offservice_tc.srw" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\d_ex_bunker_off_services.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\d_edit_single_offservice.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\w_edit_single_offservice.srw" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\n_offservice.sru" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\d_off_services_file.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\dw_off_services_print.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\w_off_service_file.srw" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\d_off_services_file_office.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\dw_idle_days_select_voyage_and_port.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\d_ex_tb_offservice_calculation.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\d_get_offservice_vas_indicator.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\s_tc_trans_fuel.srs" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\w_off_services.srw" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\d_offservice_within_voyage.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\dw_daily_running_costs.srd" "tramos\\operations\\eprejbog.pbl";
+ "tramos\\operations\\w_daily_running_costs.srw" "tramos\\operations\\eprejbog.pbl";
+@end;

@@ -1,0 +1,22 @@
+﻿$PBExportHeader$s_calc_port_data.srs
+$PBExportComments$Not in use
+global type s_calc_port_data from structure
+	double		d_units
+	integer		i_ratetype
+	integer		i_usedtype
+	double		d_ratefactor
+	double		d_demurrage
+	double		d_notice_time
+	double		d_min
+	double		d_minutes
+	double		d_despatch
+	decimal { 4 }		d_estimated
+	double		d_estimated_minutes
+	decimal { 4 }		d_calculated
+	double		d_calculated_minutes
+	boolean		b_using_gear
+	long		l_contype_id
+	double		d_notice_minutes
+	string		s_purpose
+end type
+

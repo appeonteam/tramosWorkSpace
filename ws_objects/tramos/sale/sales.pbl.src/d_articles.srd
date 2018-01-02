@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_articles.srd
+$PBExportComments$This datawindow lets the user modify list of articles for a selected charterer.
+release 5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=57 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=73 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=ccs_artc_pk dbname="CCS_ARTC.CCS_ARTC_PK" )
+ column=(type=number update=yes updatewhereclause=yes name=chart_nr dbname="CCS_ARTC.CHART_NR" )
+ column=(type=datetime update=yes updatewhereclause=yes name=ccs_artc_d dbname="CCS_ARTC.CCS_ARTC_D" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=ccs_artc_head dbname="CCS_ARTC.CCS_ARTC_HEAD" )
+ column=(type=char(35) update=yes updatewhereclause=yes name=ccs_artc_sourc dbname="CCS_ARTC.CCS_ARTC_SOURC" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_ARTC~" ) COLUMN(NAME=~"CCS_ARTC.CCS_ARTC_PK~") COLUMN(NAME=~"CCS_ARTC.CHART_NR~") COLUMN(NAME=~"CCS_ARTC.CCS_ARTC_D~") COLUMN(NAME=~"CCS_ARTC.CCS_ARTC_HEAD~") COLUMN(NAME=~"CCS_ARTC.CCS_ARTC_SOURC~")WHERE( EXP1 =~"CCS_ARTC.CHART_NR~" OP =~"=~" EXP2 =~":chart_nr~" ) ) ORDER(NAME=~"CCS_ARTC.CCS_ARTC_D~" ASC=no) ARG(NAME = ~"chart_nr~" TYPE = number) " update="CCS_ARTC" updatewhere=1 updatekeyinplace=yes arguments=(("chart_nr", number)) )
+text(band=header alignment="0" text="Date"border="0" color="0" x="19" y="4" height="57" width="110"  name=ccs_artc_d_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Source"border="0" color="0" x="1409" y="4" height="57" width="179"  name=ccs_artc_sourc_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Headline"border="0" color="0" x="238" y="4" height="57" width="215"  name=ccs_artc_head_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="0" color="0" x="19" y="4" height="65" width="202" format="dd-mm-yy [time]"  name=ccs_artc_d  tag="Article Date" editmask.mask="dd-mm-yy hh:mm" editmask.focusrectangle=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="0" color="0" x="238" y="4" height="65" width="1148" format="[general]"  name=ccs_artc_head edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="0" color="0" x="1409" y="4" height="65" width="805" format="[general]"  name=ccs_artc_sourc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )

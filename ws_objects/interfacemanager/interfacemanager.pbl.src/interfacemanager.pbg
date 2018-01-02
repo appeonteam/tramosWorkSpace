@@ -1,0 +1,30 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "interfacemanager.pbl" "";
+@end;
+@begin Objects 
+ "interfacemanager.sra" "interfacemanager.pbl";
+ "d_ex_gr_confirm_msg.srd" "interfacemanager.pbl";
+ "d_ex_gr_voymaster_confirm_msg.srd" "interfacemanager.pbl";
+ "d_sq_gr_bmvm_list_claimtranskeys.srd" "interfacemanager.pbl";
+ "d_sq_gr_bmvm_lookup_transloga.srd" "interfacemanager.pbl";
+ "d_sq_gr_bmvm_lookup_voymaster.srd" "interfacemanager.pbl";
+ "d_sq_gr_bmvm_lookup_voymastermod.srd" "interfacemanager.pbl";
+ "d_sq_gr_interfacelist.srd" "interfacemanager.pbl";
+ "d_sq_gr_log_main_a.srd" "interfacemanager.pbl";
+ "d_sq_tb_bmvm_insert_transb.srd" "interfacemanager.pbl";
+ "d_sq_tb_bmvm_insert_transloga.srd" "interfacemanager.pbl";
+ "d_sq_tb_trans_a.srd" "interfacemanager.pbl";
+ "d_sq_tb_trans_b.srd" "interfacemanager.pbl";
+ "d_sq_tb_voyagemaster.srd" "interfacemanager.pbl";
+ "p_interfacemanager_exe.srj" "interfacemanager.pbl";
+ "s_interface.srs" "interfacemanager.pbl";
+ "n_interface.sru" "interfacemanager.pbl";
+ "n_interfacelogic.sru" "interfacemanager.pbl";
+ "n_interfacelogicack.sru" "interfacemanager.pbl";
+ "n_interfacelogicax.sru" "interfacemanager.pbl";
+ "n_interfacelogicexchangerates.sru" "interfacemanager.pbl";
+ "n_interfacelogicvm.sru" "interfacemanager.pbl";
+ "n_interfaceprocess.sru" "interfacemanager.pbl";
+ "w_interfacemanagertimer.srw" "interfacemanager.pbl";
+@end;

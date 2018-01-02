@@ -1,0 +1,41 @@
+﻿$PBExportHeader$d_sq_tb_totalrisk.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=288 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=lowrisk dbname="LOWRISK" )
+ column=(type=long updatewhereclause=yes name=medrisk dbname="MEDRISK" )
+ column=(type=long updatewhereclause=yes name=highrisk dbname="HIGHRISK" )
+ retrieve="SELECT Sum( Case When RISK=0 Then 1 Else 0 End) as LOWRISK,
+		 Sum( Case When RISK=1 Then 1 Else 0 End) as MEDRISK,
+		 Sum( Case When RISK=2 Then 1 Else 0 End) as HIGHRISK
+FROM VETT_MASTER
+" )
+data(null null null ) 
+rectangle(band=detail x="453" y="16" height="60" width="238~t lowrisk  * 1000 / largest"  name=r_1 visible="1" brush.hatch="6" brush.color="12639424~trgb(128,255,128)" pen.style="0" pen.width="5" pen.color="12639424~trgb(128,255,128)"  background.mode="2" background.color="33554432" )
+text(band=detail alignment="0" text="Medium Risk:" border="0" color="33554432" x="5" y="116" height="52" width="370" html.valueishtml="0"  name=t_2 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="High Risk:" border="0" color="33554432" x="5" y="212" height="52" width="279" html.valueishtml="0"  name=t_3 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Low Risk:" border="0" color="33554432" x="5" y="20" height="52" width="279" html.valueishtml="0"  name=t_1 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="String(lowrisk) + ' (' + String( lowrisk / ( lowrisk + medrisk + highrisk ), ~"0%~") + ')'"border="0" color="33554432" x="699~t458 +  lowrisk  * 1000 / largest" y="20" height="52" width="288" format="[General]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+rectangle(band=detail x="453" y="108" height="60" width="279~t medrisk  * 1000 /  largest "  name=r_3 visible="1" brush.hatch="6" brush.color="65535~trgb(255,255,64)" pen.style="0" pen.width="5" pen.color="65535~trgb(255,255,64)"  background.mode="2" background.color="33554432" )
+rectangle(band=detail x="453" y="208" height="60" width="146~t highrisk  * 1000 /  largest "  name=r_5 visible="1" brush.hatch="6" brush.color="255~trgb(255,64,64)" pen.style="0" pen.width="5" pen.color="255~trgb(255,64,64)"  background.mode="2" background.color="33554432" )
+compute(band=detail alignment="0" expression="String(medrisk) + ' (' + String( medrisk / ( lowrisk + medrisk + highrisk ), ~"0%~") + ')'"border="0" color="33554432" x="736~t458 + medrisk  * 1000 / largest" y="112" height="52" width="279" format="[General]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="String(highrisk) + ' (' + String( highrisk / ( lowrisk + medrisk + highrisk ), ~"0%~") + ')'"border="0" color="33554432" x="608~t458 + highrisk * 1000 / largest" y="212" height="52" width="279" format="[General]" html.valueishtml="0"  name=compute_3 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="If(  lowrisk >  medrisk , If(  lowrisk >  highrisk , lowrisk,  highrisk ), If(  medrisk >  highrisk ,  medrisk , highrisk))"border="0" color="33554432" x="2533" y="36" height="68" width="142" format="[GENERAL]" html.valueishtml="0"  name=largest visible="0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="33554432" x="2318" y="8" height="76" width="174" format="[general]" html.valueishtml="0"  name=lowrisk visible="0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="33554432" x="2295" y="84" height="76" width="192" format="[general]" html.valueishtml="0"  name=medrisk visible="0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="33554432" x="2281" y="160" height="76" width="206" format="[general]" html.valueishtml="0"  name=highrisk visible="0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="448" y1="8" x2="448" y2="276"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="33554432"  background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

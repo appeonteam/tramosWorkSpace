@@ -1,0 +1,55 @@
+﻿$PBExportHeader$s_calculation_result.srs
+$PBExportComments$Contains the result of the calculation
+global type s_calculation_result from structure
+	double		d_gross_freight
+	double		d_commission
+	double		d_adr_commission
+	double		d_load_minutes
+	double		d_load_minutes_gear
+	double		d_disch_minutes
+	double		d_disch_minutes_gear
+	double		d_otherpurpose_minutes
+	double		d_otherpurpose_minutes_gear
+	double		d_total_laytime
+	double		d_minutes_in_port
+	double		d_minutes_in_canal
+	double		d_port_minutes_incanal
+	double		d_add_minutes_idle
+	double		d_port_minutes_idle
+	double		d_add_minutes_bunkering
+	double		d_port_minutes_bunkering
+	double		d_add_minutes_other
+	double		d_port_minutes_other
+	double		d_minutes_total
+	double		d_demurrage
+	double		d_fo_units
+	double		d_fo_expenses
+	double		d_do_units
+	double		d_do_expenses
+	double		d_mgo_units
+	double		d_mgo_expenses
+	decimal{4}		d_lsfo_units
+	decimal{4}		d_lsfo_expenses
+	double		d_canal_expenses
+	double		d_port_expenses
+	double		d_total_expenses
+	double		d_total_costs
+	double		d_net_result
+	double		d_net_day
+	double		d_gross_day
+	double		d_after_drc_oa
+	double		d_after_drc_oa_cap
+	double		d_tc_eqv
+	double		d_tc_eqv_default
+	double		d_intake_peak
+	string		s_errortext
+	string		s_warningtext
+	double		d_misc_add_expenses
+	double		d_heat_dev_misc
+	double		d_misc_income
+	double		d_add_minutes_laden
+	double		d_add_minutes_ballasted
+	double		d_gross_freight_misc
+	double		d_dok_minutes
+end type
+

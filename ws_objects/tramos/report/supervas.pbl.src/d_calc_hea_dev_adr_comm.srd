@@ -1,0 +1,46 @@
+﻿$PBExportHeader$d_calc_hea_dev_adr_comm.srd
+$PBExportComments$Used to get adress commission on hea/dev claims i calc (u_fix_calc_est)
+release 10;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=68 color="536870912" )
+summary(height=72 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=decimal(4) updatewhereclause=yes name=cal_carg_cal_carg_adr_commision dbname="CAL_CARG.CAL_CARG_ADR_COMMISION" )
+ column=(type=decimal(4) updatewhereclause=yes name=bunkeramount dbname="bunkeramount" )
+ column=(type=decimal(4) updatewhereclause=yes name=hoursamount dbname="hoursamount" )
+ retrieve="  SELECT CAL_CARG.CAL_CARG_ADR_COMMISION,   
+         bunkeramount = Sum ((IsNull(CAL_HEDV.CAL_HEDV_HFO_TON,0) * IsNull(CAL_HEDV.CAL_HEDV_HFO_PRICE,0) 
+									+ IsNull(  CAL_HEDV.CAL_HEDV_DO_TON,0) * IsNull(CAL_HEDV.CAL_HEDV_DO_PRICE,0) 
+									+ IsNull(CAL_HEDV.CAL_HEDV_GO_TON,0) * IsNull(CAL_HEDV.CAL_HEDV_GO_PRICE,0) 
+									+ IsNull(CAL_HEDV.CAL_HEDV_LSHFO_TON,0) * IsNull(CAL_HEDV.CAL_HEDV_LSHFO_PRICE,0)) 
+									* IsNull(CAL_HEDV.CAL_HEDV_ADR_COMM_BUNKER,0)),   
+         hoursamount = Sum (((IsNull(CAL_HEDV.CAL_HEDV_HEA_DEV_HOURS,0) 
+									* IsNull(CAL_HEDV.CAL_HEDV_HEA_DEV_PRICE_PR_DAY,0)) / 24) 
+									* IsNull(CAL_HEDV.CAL_HEDV_BROKER_COMM_HOURS,0))  
+    FROM CAL_CARG,   
+         CAL_HEDV  
+   WHERE ( CAL_CARG.CAL_CARG_ID = CAL_HEDV.CAL_CARG_ID ) and  
+         ( ( CAL_CARG.CAL_CALC_ID = :calc_id ) )   
+GROUP BY CAL_CARG.CAL_CARG_ADR_COMMISION   
+" arguments=(("calc_id", number)) )
+text(band=header alignment="2" text="Cal Carg Adr Commision" border="0" color="0" x="5" y="4" height="56" width="530" html.valueishtml="0"  name=cal_carg_cal_carg_adr_commision_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Bunker amount" border="0" color="0" x="617" y="8" height="56" width="329" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Hours amount" border="0" color="0" x="1047" y="8" height="56" width="306" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Address Commission" border="0" color="0" x="1454" y="8" height="56" width="466" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="9" y="4" height="52" width="535" format="[general]" html.valueishtml="0"  name=cal_carg_cal_carg_adr_commision visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="617" y="4" height="56" width="347" format="[general]" html.valueishtml="0"  name=bunkeramount visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1047" y="4" height="56" width="306" format="[general]" html.valueishtml="0"  name=hoursamount visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="(  hoursamount )  *  (cal_carg_cal_carg_adr_commision / 100)"border="0" color="0" x="1454" y="4" height="56" width="475" format="[general]" html.valueishtml="0"  name=adrcom visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="sum((  hoursamount )  *  (cal_carg_cal_carg_adr_commision / 100) for all)"border="0" color="0" x="1458" y="8" height="60" width="475" format="[general]" html.valueishtml="0"  name=sum_adr_com visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

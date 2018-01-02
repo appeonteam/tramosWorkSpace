@@ -1,0 +1,58 @@
+﻿$PBExportHeader$d_sq_tb_chapstatim.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=164 color="536870912" )
+summary(height=408 color="536870912" height.autosize=yes )
+footer(height=0 color="536870912" )
+detail(height=132 color="536870912" height.autosize=yes )
+table(column=(type=long updatewhereclause=yes name=chapnum dbname="VETT_MASTER.CHAPNUM" )
+ column=(type=long updatewhereclause=yes name=low dbname="LOW" )
+ column=(type=long updatewhereclause=yes name=med dbname="MED" )
+ column=(type=long updatewhereclause=yes name=high dbname="HIGH" )
+ retrieve="  SELECT CHAPNUM,   
+         Sum(Case when (CharIndex(~"Pet~", IMNAME)>0) then 1 else 0 end) as LOW,
+         Sum(Case when (CharIndex(~"Gas~", IMNAME)>0) then 1 else 0 end) as MED,
+         Sum(Case when (CharIndex(~"Chem~", IMNAME)>0) then 1 else 0 end) as HIGH
+    FROM VETT_MASTER
+  Where (IMNAME like ('SIRE%')) and (CHAPNUM is not null)
+  GROUP BY CHAPNUM
+  ORDER BY CHAPNUM
+" arguments=(("IMName", string)) )
+data(null null null null ) 
+compute(band=header alignment="0" expression="3000"border="0" color="33554432" x="704" y="16" height="76" width="256" format="[GENERAL]" html.valueishtml="0"  name=maxwid visible="0"  font.face="Tahoma" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+line(band=header x1="14" y1="144" x2="3282" y2="144"  name=l_2 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1073741824" )
+text(band=header alignment="0" text="Chapters~tIMName + ~" Chapters~"" border="0" color="33554432" x="18" y="56" height="64" width="622" html.valueishtml="0"  name=t_1 visible="1"  font.face="Verdana" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Pet" border="2" color="33554432" x="2519" y="12" height="52" width="219" html.valueishtml="0"  name=t_2 visible="1~tIf( IMName = ~"CDI~", 0, 1)"  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="65280~trgb(128,255,255)" )
+text(band=header alignment="0" text="Type:" border="0" color="33554432" x="2272" y="12" height="52" width="233" html.valueishtml="0"  name=t_5 visible="1"  font.face="Verdana" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Gas" border="2" color="33554432" x="2761" y="12" height="52" width="219" html.valueishtml="0"  name=t_3 visible="1"  slideleft=yes  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="8388736~trgb(255,128,128)" )
+text(band=header alignment="2" text="Chem" border="2" color="33554432" x="3003" y="12" height="52" width="219" html.valueishtml="0"  name=t_4 visible="1"  slideleft=yes  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16711935~trgb(255,128,255)" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="33554432" x="18" y="28" height="76" width="119" format="00" html.valueishtml="0"  name=chapnum visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Verdana" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+rectangle(band=detail x="160" y="28" height="68" width="69~t maxwid  * (low / maxobs)"  name=r_1 visible="1" brush.hatch="6" brush.color="15780518~trgb(128,255,255)" pen.style="0" pen.width="5" pen.color="16711680"  background.mode="2" background.color="33554432" )
+rectangle(band=detail x="251~t160 + maxwid  * (low / maxobs)" y="28" height="68" width="69~t maxwid * (med / maxobs)"  name=r_2 visible="1" brush.hatch="6" brush.color="128~trgb(255,128,128)" pen.style="0" pen.width="5" pen.color="8388736"  background.mode="2" background.color="33554432" )
+rectangle(band=detail x="347~t160 +  maxwid  * ((low + med) / maxobs) " y="28" height="68" width="69~t maxwid  * (high / maxobs)"  name=r_3 visible="1" brush.hatch="6" brush.color="8388736~trgb(255,128,255)" pen.style="0" pen.width="5" pen.color="16711935"  background.mode="2" background.color="33554432" )
+compute(band=detail alignment="0" expression=" low  +  med  +  high "border="0" color="33554432" x="430~t170 +  maxwid  *  ((low+med+high)/maxobs)" y="32" height="56" width="151" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="If(Max(low + med + high) < 5, 5, Max(low + med + high))"border="0" color="33554432" x="2583" y="8" height="56" width="96" format="[GENERAL]" html.valueishtml="0"  name=maxobs visible="0"  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=summary x1="14" y1="12" x2="3282" y2="12"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1073741824" )
+text(band=summary alignment="0" text="Total Obs:" border="0" color="33554432" x="18" y="28" height="64" width="370" html.valueishtml="0"  name=t_6 visible="1"  font.face="Verdana" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+line(band=summary x1="14" y1="388" x2="3282" y2="388"  name=l_3 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1073741824" )
+compute(band=summary alignment="0" expression="sum(low) + sum (high) + sum(med)"border="0" color="33554432" x="407" y="28" height="64" width="229" format="[GENERAL]" html.valueishtml="0"  name=total visible="1"  font.face="Verdana" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="0" text="Pet:" border="0" color="33554432" x="64" y="120" height="64" width="174" html.valueishtml="0"  name=t_7 visible="1~tIf( IMName = ~"CDI~", 0, 1)"  font.face="Verdana" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+rectangle(band=summary x="338" y="124" height="68" width="69~t maxwid * 0.8  * (sum(low) / total)"  name=r_4 visible="1~tIf( IMName = ~"CDI~", 0, 1)" brush.hatch="6" brush.color="65280~trgb(128,255,255)" pen.style="0" pen.width="5" pen.color="16711680"  background.mode="2" background.color="33554432" )
+compute(band=summary alignment="0" expression="String(sum(low)) + ~" (~" + String(sum(low)*100/total, ~"0~") + ~"%)~""border="0" color="33554432" x="416~t 350 + maxwid * 0.8  * (sum(low) / total)" y="128" height="60" width="357" format="[General]" html.valueishtml="0"  name=compute_2 visible="1~tIf( IMName = ~"CDI~", 0, 1)"  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="0" text="Gas:" border="0" color="33554432" x="59" y="208" height="64" width="187" html.valueishtml="0"  name=t_8 visible="1"  slideup=allabove  font.face="Verdana" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=summary alignment="0" text="Chem:" border="0" color="33554432" x="59" y="292" height="64" width="201" html.valueishtml="0"  name=t_9 visible="1"  slideup=allabove  font.face="Verdana" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+rectangle(band=summary x="338" y="288" height="68" width="69~t maxwid * 0.8  * (sum(high) / total)"  name=r_6 visible="1"  slideup=allabove brush.hatch="6" brush.color="255~trgb(255,128,255)" pen.style="0" pen.width="5" pen.color="16711935"  background.mode="2" background.color="33554432" )
+compute(band=summary alignment="0" expression="String(sum(high)) + ~" (~" + String(sum(high)*100/total, ~"0~") + ~"%)~""border="0" color="33554432" x="416~t 350 + maxwid * 0.8  * (sum(high) / total)" y="296" height="60" width="384" format="[General]" html.valueishtml="0"  name=compute_4 visible="1"  slideup=allabove  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="String(sum(med)) + ~" (~" + String(sum(med)*100/total, ~"0~") + ~"%)~""border="0" color="33554432" x="416~t 350 + maxwid * 0.8  * (sum(med) / total)" y="212" height="60" width="375" format="[General]" html.valueishtml="0"  name=compute_3 visible="1"  slideup=allabove  font.face="Verdana" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+rectangle(band=summary x="338" y="204" height="68" width="69~t maxwid * 0.8 * (sum(med)/ total)"  name=r_5 visible="1"  slideup=allabove brush.hatch="6" brush.color="65535~trgb(255,128,128)" pen.style="0" pen.width="5" pen.color="8388736"  background.mode="2" background.color="33554432" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_payment_expenses.srs
+$PBExportComments$Structure for passing parametes to w_payment_expenses
+global type s_payment_expenses from structure
+	long		contract_id
+	long		payment_id
+end type
+

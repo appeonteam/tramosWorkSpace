@@ -1,0 +1,39 @@
+﻿$PBExportHeader$d_sq_nup_chapterkey.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no rows_per_detail = 3 )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=vett_obj_objnum dbname="VETT_OBJ.OBJNUM" )
+ column=(type=char(255) updatewhereclause=yes name=vett_text_textdata dbname="VETT_TEXT.TEXTDATA" )
+ retrieve="  SELECT DISTINCT VETT_OBJ.OBJNUM,   
+         VETT_TEXT.TEXTDATA  
+    FROM VETT_OBJ,   
+         VETT_TEXT,   
+         VETT_INSPMODEL  
+   WHERE ( VETT_TEXT.TEXT_ID = VETT_OBJ.OBJTEXT ) and  
+         ( VETT_INSPMODEL.IM_ID = VETT_OBJ.IM_ID ) and  
+         ( VETT_INSPMODEL.NAME like :IMName + ~"%~" ) and  
+         ( VETT_OBJ.OBJTYPE = 1 ) 
+ORDER BY VETT_OBJ.OBJNUM ASC   
+" arguments=(("IMName", string)) )
+data(null null ) 
+text(band=header alignment="0" text="Chapter Key" border="0" color="33554432" x="0" y="0" height="52" width="361" html.valueishtml="0"  name=t_1 visible="1"  font.face="Verdana" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="18" y="4" height="52" width="105" format="#0 -" html.valueishtml="0" row_in_detail=1  name=vett_obj_objnum_1 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Verdana" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="146" y="4" height="52" width="914" format="[general]" html.valueishtml="0" row_in_detail=1  name=vett_text_textdata_1 visible="1" edit.limit=255 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Verdana" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1070" y="4" height="52" width="110" format="#0 -" html.valueishtml="0" row_in_detail=2  name=vett_obj_objnum_2 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Verdana" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1198" y="4" height="52" width="951" format="[general]" html.valueishtml="0" row_in_detail=2  name=vett_text_textdata_2 visible="1" edit.limit=255 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Verdana" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="2158" y="4" height="52" width="128" format="#0 -" html.valueishtml="0" row_in_detail=3  name=vett_obj_objnum_3 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Verdana" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="2299" y="4" height="56" width="1024" format="[general]" html.valueishtml="0" row_in_detail=3  name=vett_text_textdata_3 visible="1" edit.limit=255 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Verdana" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,25 @@
+﻿$PBExportHeader$s_poc_bunker.srs
+global type s_poc_bunker from structure
+	decimal { 4 }		adc_hfo_arrival		descriptor "comment" = "Arrival HFO on current POC"
+	decimal { 4 }		adc_do_arrival		descriptor "comment" = "Arrival DO on current POC"
+	decimal { 4 }		adc_go_arrival		descriptor "comment" = "Arrival GO on current POC"
+	decimal { 4 }		adc_lshfo_arrival		descriptor "comment" = "Arrival LSHFO on current POC"
+	decimal { 4 }		adc_hfo_departure		descriptor "comment" = "Departure HFO on current POC"
+	decimal { 4 }		adc_do_departure		descriptor "comment" = "Departure DO on current POC"
+	decimal { 4 }		adc_go_departure		descriptor "comment" = "Departure GO on current POC"
+	decimal { 4 }		adc_lshfo_departure		descriptor "comment" = "Departure LSHFO on current POC"
+	decimal { 4 }		adc_hfo_departure_previous		descriptor "comment" = "Departure HFO on previous POC"
+	decimal { 4 }		adc_do_departure_previous		descriptor "comment" = "Departure DO on previous POC"
+	decimal { 4 }		adc_go_departure_previous		descriptor "comment" = "Departure GO on previous POC"
+	decimal { 4 }		adc_lshfo_departure_previous		descriptor "comment" = "Departure LSHFO on previous POC"
+	decimal { 4 }		adc_hfo_arrival_next		descriptor "comment" = "Arrival HFO on next POC"
+	decimal { 4 }		adc_do_arrival_next		descriptor "comment" = "Arrival DO on next POC"
+	decimal { 4 }		adc_go_arrival_next		descriptor "comment" = "Arrival GO on next POC"
+	decimal { 4 }		adc_lshfo_arrival_next		descriptor "comment" = "Arrival LSHFO on next POC"
+	decimal { 4 }		adc_hfo_sum		descriptor "comment" = "Arrival HFO on current POC SUM arrival + buy - sell"
+	decimal { 4 }		adc_do_sum		descriptor "comment" = "Arrival DO on current POC SUM arrival + buy - sell"
+	decimal { 4 }		adc_go_sum		descriptor "comment" = "Arrival GO on current POC SUM arrival + buy - sell"
+	decimal { 4 }		adc_lshfo_sum		descriptor "comment" = "Arrival LSHFO on current POC SUM arrival + buy - sell"
+	boolean		ab_next_port_exist		descriptor "comment" = "If the next port exist boolean variable"
+end type
+

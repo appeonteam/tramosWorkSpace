@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_scheduler_parm.srs
+$PBExportComments$Used with window scheduler
+global type s_scheduler_parm from structure
+	long		l_calc_id
+	datetime		dt_voyage_start
+	long		l_fix_id
+end type
+

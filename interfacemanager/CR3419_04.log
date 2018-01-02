@@ -1,0 +1,12 @@
+06. Jul 2015 04:19:48 - *************************
+06. Jul 2015 04:19:54 - info, application started
+06. Jul 2015 04:19:56 - info, version number=n/a
+06. Jul 2015 04:19:57 - CONFIG-> server=scrbtradkcph101
+06. Jul 2015 04:19:58 - CONFIG-> log mode=3
+06. Jul 2015 04:19:59 - CONFIG-> log name=CR3419_[HH].log
+06. Jul 2015 04:20:01 - CONFIG-> units=10
+06. Jul 2015 04:20:02 - CONFIG-> shutdown on error==on
+06. Jul 2015 04:20:03 - CONFIG-> email warnings to=AGL027
+06. Jul 2015 04:20:04 - CONFIG-> appid=AX
+06. Jul 2015 04:20:24 - info, begin check of all interfaces
+06. Jul 2015 04:20:24 - info, nothing to do

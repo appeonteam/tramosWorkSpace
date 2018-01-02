@@ -1,0 +1,14 @@
+﻿$PBExportHeader$s_company.srs
+global type s_company from structure
+	long		companyid
+	long		contactid
+	integer		pc_nr
+	integer		pcgroup
+	string		shortname
+	string		companyname
+	integer		type_id
+	long		country_id
+	string		link_table_name
+	long		link_id
+end type
+

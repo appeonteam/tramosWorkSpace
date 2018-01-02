@@ -1,0 +1,59 @@
+﻿$PBExportHeader$d_monthly_charterer_list.srd
+$PBExportComments$Datawindow for monthly reports
+release 5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 print.documentname="CACAS Print" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 9 print.prompt=no )
+header(height=337 color="536870912" )
+summary(height=109 color="536870912" )
+footer(height=85 color="536870912" )
+detail(height=5 color="536870912" )
+table(column=(type=char(40) updatewhereclause=yes name=charterer_name dbname="charterer_name" )
+ column=(type=decimal(2) updatewhereclause=yes name=org_claim_amount dbname="org_claim_amount" )
+ column=(type=decimal(2) updatewhereclause=yes name=reduced_amount dbname="reduced_amount" )
+ column=(type=decimal(2) updatewhereclause=yes name=received_amount dbname="received_amount" )
+ column=(type=number updatewhereclause=yes name=outstanding_days dbname="outstanding_days" )
+ column=(type=number updatewhereclause=yes name=outstanding_not_settled dbname="outstanding_not_settled" )
+ )
+group(level=1 header.height=77 trailer.height=1 by=("charterer_name" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="DEMURRAGE FOR PERIODEM  12/12-94 - 13/12-95"border="0" color="0" x="1281" y="24" height="65" width="2460"  name=overskrift1  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Date:"border="0" color="0" x="4444" y="24" height="57" width="124"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header alignment="0" expression="today()"border="0" color="0" x="4590" y="24" height="65" width="247" format="dd-mm-yy "  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="text"border="0" color="0" x="1281" y="92" height="65" width="2460"  name=overskrift2  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="Number
+of Claims"border="0" color="0" x="1098" y="188" height="129" width="316"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="Outstanding
+days"border="0" color="0" x="1445" y="188" height="129" width="385"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="Outstanding
+(not settled)"border="0" color="0" x="1879" y="188" height="129" width="385"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="Original
+Claim"border="0" color="0" x="2510" y="188" height="129" width="234"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="Reduced
+Amount"border="0" color="0" x="2954" y="188" height="129" width="257"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="Received
+Amount"border="0" color="0" x="3393" y="188" height="129" width="270"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="Outstanding
+Amount"border="0" color="0" x="3827" y="188" height="129" width="348"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="Pct reduced
+(Original)"border="0" color="0" x="4206" y="188" height="129" width="407"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Charterer"border="0" color="0" x="10" y="252" height="65" width="275"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="10" y1="324" x2="4641" y2="324" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="16777215" x="65" y="40" height="57" width="183" format="[GENERAL]"  name=rows  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header.1 id=1 alignment="0" tabsequence=32766 border="0" color="0" x="10" y="12" height="65" width="1043" format="[general]"  name=charterer_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header.1 alignment="1" expression="sum(  outstanding_not_settled  for group 1 ) / count(  charterer_name  for group 1 )"border="0" color="0" x="2035" y="12" height="65" width="225" format="#,##0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header.1 alignment="1" expression="sum(  org_claim_amount  for group 1 )"border="0" color="0" x="2323" y="12" height="65" width="430" format="#,##0.00;(#,##0.00)"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header.1 alignment="1" expression="sum(   reduced_amount   for group 1 )"border="0" color="0" x="2812" y="12" height="65" width="398" format="#,##0.00;(#,##0.00)"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header.1 alignment="1" expression="sum(   received_amount   for group 1 )"border="0" color="0" x="3260" y="12" height="65" width="407" format="#,##0.00;(#,##0.00)"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header.1 alignment="1" expression="sum(  org_claim_amount  for group 1 ) - (sum(   reduced_amount   for group 1 ) + sum(  received_amount   for group 1 ) ) "border="0" color="0" x="3754" y="12" height="65" width="417" format="#,##0.00;(#,##0.00)"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header.1 alignment="1" expression="sum(  reduced_amount   for group 1 ) / sum(  org_claim_amount  for group 1 )"border="0" color="0" x="4389" y="12" height="65" width="225" format="0.00%;(0.00%)"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header.1 alignment="1" expression="count(  charterer_name  for group 1 )"border="0" color="0" x="1162" y="12" height="65" width="257" format="#,##0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header.1 alignment="1" expression="sum(  outstanding_days  for group 1 ) / count(  charterer_name  for group 1 )"border="0" color="0" x="1596" y="12" height="65" width="225" format="#,##0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=summary alignment="1" text="Total all Claims"border="0" color="0" x="10" y="28" height="65" width="407"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(   outstanding_not_settled   for all ) / 22"border="0" color="0" x="2035" y="28" height="65" width="225" format="#,##0"  name=avg2  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(  org_claim_amount  for all )"border="0" color="0" x="2291" y="28" height="65" width="462" format="#,##0.00;(#,##0.00)"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(  reduced_amount  for all )"border="0" color="0" x="2771" y="28" height="65" width="439" format="#,##0.00;(#,##0.00)"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(  received_amount  for all )"border="0" color="0" x="3228" y="28" height="65" width="439" format="#,##0.00;(#,##0.00)"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(  org_claim_amount  for all ) - (sum(   reduced_amount   for all ) + sum(  received_amount   for all ) ) "border="0" color="0" x="3690" y="28" height="65" width="481" format="#,##0.00;(#,##0.00)"  name=sum_outstanding  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(  reduced_amount   for all ) / sum(  org_claim_amount  for all )"border="0" color="0" x="4389" y="28" height="65" width="225" format="0.00%"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=summary x1="10" y1="8" x2="4641" y2="8" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="count(  charterer_name  for all )"border="0" color="0" x="1162" y="28" height="65" width="257" format="#,##0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(  outstanding_days  for all ) / 22"border="0" color="0" x="1596" y="28" height="65" width="225" format="#,##0"  name=avg1  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="0" expression="'Page ' + page() + ' of ' + pageCount()"border="0" color="0" x="10" y="4" height="73" width="476" format="[general]"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )

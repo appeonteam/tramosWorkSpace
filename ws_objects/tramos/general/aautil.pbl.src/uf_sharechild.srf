@@ -1,0 +1,53 @@
+﻿$PBExportHeader$uf_sharechild.srf
+$PBExportComments$Function for sharing child datawindow to the w_share hidden datawindow
+global type uf_sharechild from function_object
+end type
+
+forward prototypes
+global function integer uf_sharechild (string as_datawindowname, ref datawindowchild adw_datawindowchild)
+end prototypes
+
+global function integer uf_sharechild (string as_datawindowname, ref datawindowchild adw_datawindowchild);/************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Function : uf_share
+  
+ Object     : 
+  
+ Event	 : 
+
+ Scope     : Global
+
+ ************************************************************************************
+
+ Author    : Martin Israelsen
+   
+ Date       : 7-8-96
+
+ Description : Globally shares a datawindow
+
+ Arguments : Datawindowname as string, datawindow as ref. 
+
+ Returns   : -2: w_share not open, -1: Sharedata error, 0: unknown datawindow type, 1: ok
+
+ Variables : {important variables - usually only used in Open-event scriptcode}
+
+ Other : {other comments}
+
+*************************************************************************************
+Development Log 
+DATE		VERSION 	NAME	DESCRIPTION
+-------- 		------- 		----- 		-------------------------------------
+7-8-96		1			MI		Yes!  
+************************************************************************************/
+DataWindow dw_tmp
+SetNull(dw_tmp)
+
+If IsValid(w_share) Then
+	Return(w_share.wf_share(as_datawindowname, dw_tmp, adw_datawindowchild, true))
+Else
+	Return(-2)
+End if
+end function
+

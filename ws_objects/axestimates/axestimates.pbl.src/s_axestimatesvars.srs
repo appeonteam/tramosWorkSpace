@@ -1,0 +1,26 @@
+﻿$PBExportHeader$s_axestimatesvars.srs
+$PBExportComments$Application structure definition.  Used instead of global object that had conflicts when using with tramos client.
+global type s_axestimatesvars from structure
+	string		s_servername		descriptor "comment" = "Passed into server process through commandline param"
+	string		s_databasename		descriptor "comment" = "Passed into server process through commandline param"
+	string		s_emailto		descriptor "comment" = "receipient of status report"
+	string		s_periodref		descriptor "comment" = "string yyyypp of period "
+	boolean		b_debugmode		descriptor "comment" = "*not used*"
+	integer		i_loglevel		descriptor "comment" = "*not used*"
+	datetime		dtm_serverperiodfrom		descriptor "comment" = "used only by the server application to hold the period start date"
+	datetime		dtm_serverperiodto		descriptor "comment" = "used only by the server application to hold the period end date"
+	boolean		b_client		descriptor "comment" = "flag to identify calling type (True = client:Tramos, False = server:AXestimates)"
+	integer		i_clientvesselnr		descriptor "comment" = "used by Tramos client to store the vessel number integer"
+	string		s_clientvoyagenr		descriptor "comment" = "used by Tramos client to store the voyage number string"
+	string		s_infomessage		descriptor "comment" = "if not equal to ~"~" calls the addmessage() function to display popup message box."
+	string		s_returnmessage		descriptor "comment" = "messagetext that contains error detail"
+	integer		i_servermode		descriptor "comment" = "used only for server application 1=standard process, 2=annual process"
+	string		s_voyageyear		descriptor "comment" = "if client mode is annual process, this is the 2 digit year used to identify records"
+	integer		i_previousmonths		descriptor "comment" = "amount of months to go back.  must be less than 12"
+	string		s_estimatetype		descriptor "comment" = "'voyage' or 'tcout' or 'tcin' or 'all'.  Default 'voyage'"
+	string		s_abctablepath		descriptor "comment" = "used to locate the atobviac distance engine table"
+	string		s_security		descriptor "comment" = "used to work with TrustBroker SSO"
+	string		s_logid		descriptor "comment" = "override SSO if needed with logid"
+	string		s_pwd		descriptor "comment" = "override SSO if needed with real password"
+end type
+

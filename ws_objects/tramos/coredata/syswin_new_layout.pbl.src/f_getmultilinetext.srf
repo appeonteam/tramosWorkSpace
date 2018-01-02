@@ -1,0 +1,36 @@
+﻿$PBExportHeader$f_getmultilinetext.srf
+global type f_getmultilinetext from function_object
+end type
+
+forward prototypes
+global function string f_getmultilinetext (string as_str, integer ai_width)
+end prototypes
+
+global function string f_getmultilinetext (string as_str, integer ai_width);/********************************************************************
+   f_getmultilinetext
+   <DESC>Return multiline string when a string is too long</DESC>
+   <RETURN>	string</RETURN>
+   <ACCESS> public </ACCESS>
+   <ARGS>
+		as_str
+		ai_width
+   </ARGS>
+   <USAGE>		</USAGE>
+   <HISTORY>
+   	Date       CR-Ref       Author             Comments
+   	25/04/17		CR4414		CCY018		First Version
+   </HISTORY>
+********************************************************************/
+
+string ls_str
+s_multiline lstr_multiline
+
+lstr_multiline.text = as_str
+lstr_multiline.width = ai_width
+openwithparm(w_mutiline, lstr_multiline)
+
+ls_str = message.stringparm
+
+return ls_str
+end function
+

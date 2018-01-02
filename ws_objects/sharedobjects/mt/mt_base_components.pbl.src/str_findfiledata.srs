@@ -1,0 +1,12 @@
+﻿$PBExportHeader$str_findfiledata.srs
+$PBExportComments$Used by the u_fileattach object for dragdrop use with explorer
+global type str_findfiledata from structure
+	unsignedlong		ul_fileattributes
+	unsignedlong		ul_filesizehigh
+	unsignedlong		ul_filesizelow
+	unsignedlong		ul_reserved0
+	unsignedlong		ul_reserved1
+	character		ch_filename[260]
+	character		ch_alternatefilename[14]
+end type
+

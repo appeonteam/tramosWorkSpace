@@ -1,0 +1,135 @@
+﻿$PBExportHeader$f_get_cp_date.srf
+$PBExportComments$This function tries to find a tc-hire for the vessel and datetime you enter. Returns cp_date if found, or null if not found.
+global type f_get_cp_date from function_object
+end type
+
+forward prototypes
+global function integer f_get_cp_date (integer fi_vessel_nr, datetime fdt_date, ref datetime fdt_cp_date_1, ref datetime fdt_cp_date_2)
+end prototypes
+
+global function integer f_get_cp_date (integer fi_vessel_nr, datetime fdt_date, ref datetime fdt_cp_date_1, ref datetime fdt_cp_date_2);/*******************************************************************************************************************************************
+
+ Arthur Andersen PowerBuilder Development
+
+ Window  : n/a
+  
+ Object     : Function f_get_cp_date
+  
+ Event	 :  n/a
+
+ Scope     : Global
+
+ **************************************************************************************************************************************************
+
+ Author    : Peter Bendix-Toft
+   
+ Date       : 22-02-96
+
+ Description : This function looks through all the tc-Hire rates for a vessel to see if the vessel is on any tc-hire(s)
+			on the date given as a parm.
+
+ Arguments : 	fi_vessel_nr : Integer parameter of vessel to check.
+			fdt_date : Date to find tc-hire on.
+			fdt_cp_date_1 : Used to return cp_date if found
+			fdt_cp_date_2 : Used to return cp_date if found
+
+ Returns   : Two of the input parameters are passed by reference and it is in these that the return
+			cp_dates are placed in. fdt_cp_date_1, fdt_cp_date_2 .
+			The function returns an integer that can be : -1 = error
+												0 = no cp date found
+												1 = one cp_date found
+												2 = 2 cp_dates found
+
+ Variables : 
+
+ Other : {other comments}
+
+************************************************************************************************************************************************
+  Development Log 
+  DATE     	VERSION 	NAME  	DESCRIPTION
+  -------- 		------- 		----- 		-------------------------------------------
+  22-02-96	2.11			PBT		Initial Version
+  
+*************************************************************************************************************************************************/
+DateTime ldt_loaded_tc_cp_dt, ldt_max_period_end, ldt_tchire_start
+SetNull(ldt_loaded_tc_cp_dt)
+int li_number_of_cp_dates 
+/* Set number of tc_dates found to 0 */
+li_number_of_cp_dates = 0
+/* create a tempory transaction object for cursor */
+transaction SQLGETCP
+uo_global.defaulttransactionobject(SQLGETCP)
+CONNECT USING SQLGETCP;
+
+If SQLGETCP.sqlcode = -1 then
+	messagebox("DB Error",sqlgetcp.sqlerrtext)
+	disconnect using sqlgetcp;
+	destroy sqlgetcp
+	return -1
+end if
+/* Declare the cursor (ie. get all tchire cp_dates and delivery dates for the vessel number given)*/
+DECLARE TCHIRE_CUR CURSOR FOR
+	SELECT TCHIRE_CP_DATE, DELIVERY_DATE
+	FROM TCHIRES
+	WHERE VESSEL_NR = :fi_vessel_nr
+	USING SQLGETCP;
+/* open the cursor */
+OPEN TCHIRE_CUR;
+/* fetch first tc-hire */
+FETCH TCHIRE_CUR INTO :ldt_loaded_tc_cp_dt, :ldt_tchire_start;
+/* if fetch failed then return -1 */
+if sqlgetcp.sqlcode = -1 then 
+	close TCHIRE_CUR;
+	commit using sqlgetcp;
+	disconnect using sqlgetcp;
+	destroy sqlgetcp
+	return -1
+end if
+/* While there are tc-hires on this vessel do.. */
+DO WHILE SQLGETCP.SQLCode = 0
+	/* get the largest tc_period_end from tchirerates */
+	SELECT max(TC_PERIOD_END)
+	INTO :ldt_max_period_end
+	FROM TCHIRERATES
+	WHERE 	VESSEL_NR = :fi_vessel_nr AND
+	datepart(yy,TCHIRE_CP_DATE) = datepart(yy,:ldt_loaded_tc_cp_dt) AND 
+	datepart(mm,TCHIRE_CP_DATE) = datepart(mm,:ldt_loaded_tc_cp_dt) AND 
+	datepart(dd,TCHIRE_CP_DATE) = datepart(dd,:ldt_loaded_tc_cp_dt) ;
+	COMMIT USING SQLCA;
+	/* if the date to test is greater than this tc's start date and lees than its max end rate date .. */
+	IF ( fdt_date >= ldt_tchire_start ) AND (fdt_date <= ldt_max_period_end ) &
+		AND ( NOT IsNull(ldt_max_period_end) ) THEN
+		/* close the cursor and destroy it */
+		/* increment number of tc dates found */
+		 li_number_of_cp_dates++
+		/* If this is the first cp date found then ... */
+		if li_number_of_cp_dates = 1 then
+			/* set structures first cp date to first found */
+			fdt_cp_date_1 = ldt_loaded_tc_cp_dt
+		/* else f this is the second cp date found then ... */
+		else
+			/* set structures second cp date to second found */
+			fdt_cp_date_2 = ldt_loaded_tc_cp_dt
+		end if
+	END IF
+	/* fetch next tc from cursor */
+	FETCH TCHIRE_CUR INTO :ldt_loaded_tc_cp_dt, :ldt_tchire_start;
+	/* if fetch failed then return -1 */
+	if sqlgetcp.sqlcode = -1 then 
+		close TCHIRE_CUR;
+		COMMIT USING sqlgetcp;
+		disconnect using sqlgetcp;
+		destroy sqlgetcp
+		return -1
+	end if
+LOOP
+/* close the cursor and destroy it */
+CLOSE TCHIRE_CUR;
+COMMIT USING SQLGETCP;
+DISCONNECT USING SQLGETCP;
+DESTROY SQLGETCP
+/* return the get_cp_date structure to calling event of function */
+return li_number_of_cp_dates
+
+end function
+

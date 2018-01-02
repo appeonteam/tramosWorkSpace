@@ -1,0 +1,96 @@
+﻿$PBExportHeader$d_sq_tb_chart_overview.srd
+$PBExportComments$Used in "n_company_contacts_interface"
+release 12;
+datawindow(units=0 timer_interval=0 color=1073741824 brushmode=0 transparency=0 gradient.angle=0 gradient.color=8421504 gradient.focus=0 gradient.repetition.count=0 gradient.repetition.length=100 gradient.repetition.mode=0 gradient.scale=100 gradient.spread=100 gradient.transparency=0 picture.blur=0 picture.clip.bottom=0 picture.clip.left=0 picture.clip.right=0 picture.clip.top=0 picture.mode=0 picture.scale.x=100 picture.scale.y=100 picture.transparency=0 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.background=no print.preview.background=no print.preview.outline=yes hidegrayline=no showbackcoloronxp=no picture.file="" grid.lines=0 )
+header(height=72 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+summary(height=136 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+footer(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+detail(height=84 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+table(column=(type=number updatewhereclause=yes name=ld_freight dbname="ld_freight" )
+ column=(type=number updatewhereclause=yes name=ld_dem dbname="ld_dem" )
+ column=(type=number updatewhereclause=yes name=ld_freight_recieved dbname="ld_freight_recieved" )
+ column=(type=number updatewhereclause=yes name=ld_transactions dbname="ld_transactions" )
+ column=(type=number updatewhereclause=yes name=ld_transactions_dem dbname="ld_transactions_dem" )
+ retrieve="SELECT	
+	isnull(sum( (select case when CLAIMS.CLAIM_TYPE = ~"FRT~" then CLAIMS.CLAIM_AMOUNT_USD else 0 end)) ,0)  as ld_freight,
+	isnull(sum( (select case when CLAIMS.CLAIM_TYPE = ~"DEM~" then CLAIMS.CLAIM_AMOUNT_USD else 0 end)) ,0)  as ld_dem,
+	0 as ld_freight_recieved,
+	0  as ld_transactions,
+	0 as ld_transactions_dem
+FROM CLAIMS, VOYAGES, VESSELS
+WHERE 	
+			VOYAGES.VESSEL_NR = CLAIMS.VESSEL_NR and
+			VOYAGES.VOYAGE_NR = CLAIMS.VOYAGE_NR and
+			VESSELS.VESSEL_NR = CLAIMS.VESSEL_NR and
+			VOYAGES.VOYAGE_FINISHED=1 AND
+			VOYAGES.VOYAGE_TYPE<>2 AND
+			( substring(CLAIMS.VOYAGE_NR,1,2) = :year ) AND  
+			( CLAIMS.CHART_NR = :chartid ) AND
+			(( CLAIMS.CLAIM_TYPE = ~"FRT~" )  OR ( CLAIMS.CLAIM_TYPE = ~"DEM~"  AND CLAIMS.CLAIM_AMOUNT_USD>0) ) AND
+			VESSELS.PC_NR in (:profitcenter) 
+union
+SELECT 
+	0 as ld_freight,
+	0 as ld_dem,
+	isnull(sum(FREIGHT_RECEIVED.FREIGHT_RECEIVED),0)  as ld_freight_recieved,
+	0  as ld_transactions,
+	0 as ld_transactions_dem
+FROM FREIGHT_RECEIVED  , VOYAGES, VESSELS
+WHERE ( substring(FREIGHT_RECEIVED.VOYAGE_NR,1,2) = :year ) 
+		AND ( FREIGHT_RECEIVED.CHART_NR = :chartid )
+		AND FREIGHT_RECEIVED.TRANS_CODE IN ('R', 'B')
+		AND VOYAGES.VOYAGE_FINISHED=1 AND
+			VOYAGES.VOYAGE_TYPE<>2 AND
+			VOYAGES.VESSEL_NR = FREIGHT_RECEIVED.VESSEL_NR and
+			VOYAGES.VOYAGE_NR = FREIGHT_RECEIVED.VOYAGE_NR and
+			VESSELS.VESSEL_NR = FREIGHT_RECEIVED.VESSEL_NR and
+			VESSELS.PC_NR in ( :profitcenter ) 
+
+union
+
+SELECT 
+	0 as ld_freight,
+	0 as ld_dem,
+	0 as ld_freight_recieved,
+	isnull(sum( (select case when CLAIMS.CLAIM_TYPE = ~"FRT~" then CLAIM_TRANSACTION.C_TRANS_AMOUNT_USD else 0 end)) ,0)  as ld_transactions,
+	isnull(sum( (select case when CLAIMS.CLAIM_TYPE = ~"DEM~" then CLAIM_TRANSACTION.C_TRANS_AMOUNT_USD else 0 end)) ,0)  as ld_transactions_dem
+
+
+FROM CLAIMS,   CLAIM_TRANSACTION, VOYAGES , VESSELS 
+WHERE 	( CLAIMS.CHART_NR = CLAIM_TRANSACTION.CHART_NR ) and  
+     		( CLAIMS.VESSEL_NR = CLAIM_TRANSACTION.VESSEL_NR ) and  
+			( CLAIMS.VOYAGE_NR = CLAIM_TRANSACTION.VOYAGE_NR ) and  
+			( CLAIMS.CLAIM_NR = CLAIM_TRANSACTION.CLAIM_NR ) and  
+			( substring(CLAIMS.VOYAGE_NR,1,2) = :year ) AND  
+			( CLAIMS.CHART_NR = :chartid) AND
+			(( CLAIMS.CLAIM_TYPE = ~"FRT~" ) or ( CLAIMS.CLAIM_TYPE = ~"DEM~" )) AND  
+			( CLAIM_TRANSACTION.C_TRANS_CODE = ~"A~"  OR CLAIM_TRANSACTION.C_TRANS_CODE = ~"W~" ) and
+			VOYAGES.VOYAGE_FINISHED=1 AND
+			VOYAGES.VOYAGE_TYPE<>2 AND
+			VOYAGES.VESSEL_NR = CLAIMS.VESSEL_NR and
+			VOYAGES.VOYAGE_NR = CLAIMS.VOYAGE_NR and 
+			VESSELS.VESSEL_NR = CLAIMS.VESSEL_NR and
+			VESSELS.PC_NR in (:profitcenter ) " arguments=(("year", string),("profitcenter", numberlist),("chartid", number)) )
+text(band=header alignment="0" text="Ld Freight" border="0" color="0" x="9" y="4" height="76" width="402" html.valueishtml="0"  name=ld_freight_t visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="0" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="0" background.gradient.focus="0" background.gradient.scale="0" background.gradient.spread="0" tooltip.backcolor="0" tooltip.delay.initial="0" tooltip.delay.visible="0" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="0" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="0" text="Ld Dem" border="0" color="0" x="421" y="4" height="76" width="402" html.valueishtml="0"  name=ld_dem_t visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="0" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="0" background.gradient.focus="0" background.gradient.scale="0" background.gradient.spread="0" tooltip.backcolor="0" tooltip.delay.initial="0" tooltip.delay.visible="0" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="0" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="0" text="Ld Freight Recieved" border="0" color="0" x="832" y="4" height="76" width="526" html.valueishtml="0"  name=ld_freight_recieved_t visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="0" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="0" background.gradient.focus="0" background.gradient.scale="0" background.gradient.spread="0" tooltip.backcolor="0" tooltip.delay.initial="0" tooltip.delay.visible="0" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="0" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="0" text="Ld Transactions" border="0" color="0" x="1367" y="4" height="76" width="439" html.valueishtml="0"  name=ld_transactions_t visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="0" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="0" background.gradient.focus="0" background.gradient.scale="0" background.gradient.spread="0" tooltip.backcolor="0" tooltip.delay.initial="0" tooltip.delay.visible="0" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="0" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="0" text="Ld Transactions Dem" border="0" color="0" x="1815" y="4" height="76" width="521" html.valueishtml="0"  name=ld_transactions_dem_t visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="0" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="0" background.gradient.focus="0" background.gradient.scale="0" background.gradient.spread="0" tooltip.backcolor="0" tooltip.delay.initial="0" tooltip.delay.visible="0" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="0" tooltip.transparency="0" transparency="0" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="76" width="402" format="[general]" html.valueishtml="0"  name=ld_freight visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="421" y="0" height="76" width="402" format="[general]" html.valueishtml="0"  name=ld_dem visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="832" y="0" height="76" width="526" format="[general]" html.valueishtml="0"  name=ld_freight_recieved visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1367" y="0" height="76" width="439" format="[general]" html.valueishtml="0"  name=ld_transactions visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1815" y="0" height="76" width="521" format="[general]" html.valueishtml="0"  name=ld_transactions_dem visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=summary alignment="0" expression="sum( ld_freight for all) + sum( ld_freight_recieved for all) - sum( ld_transactions for all)"border="0" color="0" x="832" y="56" height="52" width="526" format="[GENERAL]" html.valueishtml="0"  name=total_freight visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=summary alignment="0" expression="sum( ld_dem for all) - sum( ld_transactions_dem  for all)"border="0" color="0" x="1367" y="44" height="52" width="439" format="[GENERAL]" html.valueishtml="0"  name=total_dem visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

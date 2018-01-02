@@ -1,0 +1,10 @@
+﻿$PBExportHeader$s_verify_rejected.srs
+global type s_verify_rejected from structure
+	string		as_message
+	datastore		ads_rejected
+	string		as_filter
+	string		as_columnname
+	string		as_data
+	long		al_order_no
+end type
+

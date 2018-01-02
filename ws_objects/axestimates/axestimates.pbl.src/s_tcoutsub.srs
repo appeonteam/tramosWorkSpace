@@ -1,0 +1,10 @@
+﻿$PBExportHeader$s_tcoutsub.srs
+$PBExportComments$contract expenses / brokers
+global type s_tcoutsub from structure
+	decimal { 8 }		d_amount
+	integer		i_ratetype		descriptor "comment" = "for broker 0=%, 1=daily. for contract exp 0=daily, 1=monthly"
+	integer		i_offservice		descriptor "comment" = "for broker not used.  for contract exp 0=ignore offservice, 1=include offservice calc"
+	long		l_id		descriptor "comment" = "not used"
+	integer		i_flag		descriptor "comment" = "for broker 1=primary.  for contract exp.  not used"
+end type
+

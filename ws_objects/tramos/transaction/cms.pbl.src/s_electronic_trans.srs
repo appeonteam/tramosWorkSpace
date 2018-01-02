@@ -1,0 +1,25 @@
+﻿$PBExportHeader$s_electronic_trans.srs
+$PBExportComments$This holds keys for generating CMS transaktions.
+global type s_electronic_trans from structure
+	integer		vessel
+	string		voyage
+	integer		charter
+	integer		claimnr
+	string		port
+	integer		pcn
+	integer		agent
+	integer		broker
+	string		transtype
+	datetime		exp_date
+	string		user
+	string		claimtype
+	decimal {2}	comm_amount
+	string		comm_inv
+	decimal {2}	disb_pay_amount
+	datetime		disb_pay_date
+	string		disb_signer
+	string		disb_desc
+	datetime		disb_arr_date
+	datetime		disch_date
+end type
+

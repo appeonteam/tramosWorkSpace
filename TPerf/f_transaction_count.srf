@@ -1,0 +1,16 @@
+HA$PBExportHeader$f_transaction_count.srf
+global type f_transaction_count from function_object
+end type
+
+forward prototypes
+global subroutine f_transaction_count (string as_message)
+end prototypes
+
+global subroutine f_transaction_count (string as_message);integer	li_count
+SELECT @@TRANCOUNT INTO :li_count FROM DEFAULT_TRANS_VALUES;
+
+MESSAGEBOX(AS_MESSAGE, LI_COUNT)
+
+RETURN
+end subroutine
+

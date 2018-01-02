@@ -1,0 +1,42 @@
+﻿$PBExportHeader$d_crosstab_portcalls.srd
+$PBExportComments$Show port of calls by year and purpose (report til BPE)
+release 10;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=4 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no  crosstab.dynamic = yes grid.lines=3 grid.columnmove=no selected.mouse=no )
+header[1](height=252 color="536870912" )
+header[2](height=68 color="536870912" )
+summary(height=104 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=purpose_code dbname="purpose_code" )
+ column=(type=number updatewhereclause=yes name=compute_0003 dbname="compute_0003" )
+ retrieve="  SELECT CONVERT(CHAR(4), DATEPART(YY,PORT_DEPT_DT)),   
+         POC.PURPOSE_CODE,   
+         1  
+    FROM POC  
+   WHERE datepart(yy, PORT_DEPT_DT) > 2002
+	AND POC.PURPOSE_CODE not in (~"ACC~", ~"CHO~", ~"DEL~", ~"DOK~", ~"FWO~", ~"RED~", ~"REP~", ~"WD~")
+"  sort="purpose_code A " )
+text(band=header[2] alignment="0" text="Purpose\Year" border="0" color="33554432" x="9" y="4" height="56" width="462" html.valueishtml="0"  name=purpose_code_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="1" text="@compute_0001" border="0" color="33554432" x="480" y="4" height="56" width="370" html.valueishtml="0"  name=compute_0003_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="1" text="Grand Total " border="0" color="33554432" x="859" y="4" height="56" width="549" html.valueishtml="0"  name=grand_sum_compute_0003_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="4" height="68" width="462" format="[general]" html.valueishtml="0"  name=purpose_code visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="33554432" x="480" y="4" height="68" width="370" format="#,##0" html.valueishtml="0"  name=compute_0003 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes crosstab.repeat=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="crosstabsum(1)"border="0" color="33554432" x="859" y="4" height="68" width="549" format="#,##0" html.valueishtml="0"  name=grand_sum_compute_0003 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="~"Grand Total~""border="0" color="33554432" x="9" y="4" height="68" width="462" format="[general]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(compute_0003 for all )"border="0" color="33554432" x="480" y="4" height="68" width="370" format="#,##0" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(grand_sum_compute_0003 for all )"border="0" color="33554432" x="859" y="4" height="68" width="549" format="#,##0" html.valueishtml="0"  name=compute_3 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="Port of Calls listed pr. purpose/year" border="0" color="33554432" x="9" y="12" height="80" width="1239" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="Following Purpose Codes are excluded: ACC, CHO, DEL, DOK, FWO, RED, REP, WD" border="0" color="0" x="14" y="108" height="56" width="2464" html.valueishtml="0"  name=t_3 visible="1"  resizeable=1  slideup=allabove  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=foreground alignment="0" expression="today()"border="0" color="0" x="2336" y="12" height="80" width="242" format="[general]" html.valueishtml="0"  name=date_1 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=foreground alignment="0" text="Last year figures will be YTD" border="0" color="0" x="18" y="180" height="56" width="2469" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+ crosstab(band = foreground  crosstabonly = yes 
+ columns = "compute_0001" rows = "purpose_code" values = "sum(compute_0003 for crosstab)" sourcenames = "compute_0001, purpose_code, compute_0003")htmltable(border="0" cellpadding="1" cellspacing="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()

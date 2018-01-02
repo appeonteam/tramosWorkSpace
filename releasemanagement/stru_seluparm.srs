@@ -1,0 +1,7 @@
+HA$PBExportHeader$stru_seluparm.srs
+global type stru_seluparm from structure
+	window		owner_window
+	string		selected[]
+	boolean		selectok
+end type
+

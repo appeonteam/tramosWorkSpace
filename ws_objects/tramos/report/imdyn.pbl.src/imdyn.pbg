@@ -1,0 +1,9 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "imdyn.pbl" "";
+@end;
+@begin Objects 
+ "d_sq_gr_reports_detail.srd" "imdyn.pbl";
+ "d_sq_gr_reports_list.srd" "imdyn.pbl";
+ "w_infomaker_reports.srw" "imdyn.pbl";
+@end;

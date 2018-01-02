@@ -1,0 +1,45 @@
+﻿$PBExportHeader$d_chart_no_chartgroup_report.srd
+$PBExportComments$Charterers NOT members of Charterer Group
+release 10;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=64 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=chart_nr dbname="CLAIMS.CHART_NR" )
+ column=(type=char(10) updatewhereclause=yes name=chart_chart_sn dbname="CHART.CHART_SN" )
+ column=(type=char(70) updatewhereclause=yes name=chart_chart_n_1 dbname="CHART.CHART_N_1" )
+ retrieve="SELECT DISTINCT CLAIMS.CHART_NR,   
+	CHART.CHART_SN,   
+	CHART.CHART_N_1  
+FROM CLAIMS,   
+	CHART  
+WHERE ( CHART.CHART_NR = CLAIMS.CHART_NR ) and  
+ 	( ( CLAIM_TYPE IN (~"FRT~", ~"AFC~") ) AND  
+	( CLAIMS.CHART_NR IN (SELECT distinct CHART.CHART_NR FROM CHART WHERE CHART.CCS_CHGP_PK IS NULL) ) )
+UNION
+SELECT DISTINCT NTC_TC_CONTRACT.CHART_NR,   
+	CHART.CHART_SN,   
+	CHART.CHART_N_1  
+FROM NTC_TC_CONTRACT,   
+	CHART  
+WHERE ( CHART.CHART_NR = NTC_TC_CONTRACT.CHART_NR ) and  
+	( NTC_TC_CONTRACT.CHART_NR IN (SELECT distinct CHART.CHART_NR FROM CHART WHERE CHART.CCS_CHGP_PK IS NULL) ) 
+    
+"  sort="chart_chart_n_1 A " )
+text(band=header alignment="0" text="Nr." border="0" color="0" x="5" y="4" height="56" width="329" html.valueishtml="0"  name=chart_nr_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="0" text="Short name" border="0" color="0" x="343" y="4" height="56" width="768" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="0" text="Name" border="0" color="0" x="1120" y="4" height="56" width="1029" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="5" y="4" height="56" width="306" format="[general]" html.valueishtml="0"  name=chart_nr visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="352" y="4" height="56" width="754" format="[general]" html.valueishtml="0"  name=chart_chart_sn visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1115" y="4" height="56" width="1042" format="[general]" html.valueishtml="0"  name=chart_chart_n_1 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()

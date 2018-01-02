@@ -1,0 +1,14 @@
+﻿$PBExportHeader$d_tce_vessel_voyage_grade.srd
+$PBExportComments$Used in Report TCE Voyage System
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(35) updatewhereclause=yes name=grade_name dbname="CD.GRADE_NAME" )
+ retrieve="PBSELECT( VERSION(400) DISTINCT ()TABLE(NAME=~"CD~" ) COLUMN(NAME=~"CD.GRADE_NAME~")WHERE(    EXP1 =~"CD.VESSEL_NR~"   OP =~"=~"    EXP2 =~":ai_vessel_nr~"    LOGIC =~"And~" ) WHERE(    EXP1 =~"CD.VOYAGE_NR~"   OP =~"=~"    EXP2 =~":as_voyage_nr~" ) ) ORDER(NAME=~"CD.GRADE_NAME~" ASC=yes ) ARG(NAME = ~"ai_vessel_nr~" TYPE = number)  ARG(NAME = ~"as_voyage_nr~" TYPE = string) " arguments=(("ai_vessel_nr", number),("as_voyage_nr", string)) )
+text(band=header alignment="2" text="Grade Name" border="0" color="0" x="5" y="4" height="64" width="987"  name=grade_name_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="987" format="[general]"  name=grade_name edit.limit=35 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

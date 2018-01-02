@@ -1,0 +1,22 @@
+﻿$PBExportHeader$f_log.srf
+global type f_Log from function_object
+end type
+
+forward prototypes
+global subroutine f_log (string as_logitem)
+end prototypes
+
+global subroutine f_log (string as_logitem);Integer li_FileNum, li_Day
+
+li_Day = DayNumber(Today())
+
+li_FileNum = FileOpen(g_Obj.AppFolder + "Logs\VettSvr" + String(li_Day) + ".log", LineMode!, Write!, LockWrite!, Append!)
+
+If li_FileNum = -1 then Return
+
+FileWriteEx(li_FileNum, String(Today(), "dd-MM-yy")+ " " + String(Now(), "hh:mm:ss.f") + ": " + as_LogItem)
+
+FileClose(li_FileNum)
+
+end subroutine
+

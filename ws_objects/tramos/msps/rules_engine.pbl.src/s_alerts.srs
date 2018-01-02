@@ -1,0 +1,17 @@
+﻿$PBExportHeader$s_alerts.srs
+$PBExportComments$Rules engine alerts
+global type s_alerts from structure
+	long		rul_id
+	long		vessel_imo
+	long		report_id
+	long		revision_no
+	string		msg_type
+	integer		vessel_nr
+	string		voyage_nr
+	string		port_code
+	integer		pcn
+	long		severity_id
+	string		alerts_msg
+	string		next_port_code
+end type
+

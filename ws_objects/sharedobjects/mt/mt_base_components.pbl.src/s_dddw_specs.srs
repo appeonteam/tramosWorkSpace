@@ -1,0 +1,11 @@
+﻿$PBExportHeader$s_dddw_specs.srs
+global type s_dddw_specs from structure
+	string		s_columnname
+	string		s_dddw_columnname
+	boolean		b_autosort
+	boolean		b_ignorecase
+	boolean		b_notallowempty
+	boolean		b_allowillegalvalue
+	boolean		b_sortbydesc
+end type
+

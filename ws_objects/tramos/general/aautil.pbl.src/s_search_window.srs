@@ -1,0 +1,15 @@
+﻿$PBExportHeader$s_search_window.srs
+$PBExportComments$Structure for setting up the generic search window
+global type s_search_window from structure
+	string		dw
+	integer		search_column_1
+	string		search_column_1_text
+	integer		search_column_2
+	string		search_column_2_text
+	integer		return_column
+	string		win
+	string		window_title
+	boolean		multiselect
+	integer		sort_criteria
+end type
+

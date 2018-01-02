@@ -1,0 +1,28 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "infomaker_reports.pbl" "";
+@end;
+@begin Objects 
+ "d_chart_no_chartgroup_report.srd" "infomaker_reports.pbl";
+ "d_dddw_claims_responsible.srd" "infomaker_reports.pbl";
+ "d_dddw_claims_responsible_frt.srd" "infomaker_reports.pbl";
+ "d_ex_tb_outstanding_frt_date.srd" "infomaker_reports.pbl";
+ "d_ex_tb_outstanding_frt_userdate.srd" "infomaker_reports.pbl";
+ "d_sq_ff_selectedoffices.srd" "infomaker_reports.pbl";
+ "d_sq_gr_outfrt_select_chart.srd" "infomaker_reports.pbl";
+ "d_sq_gr_outfrt_select_office.srd" "infomaker_reports.pbl";
+ "d_sq_gr_outfrt_select_vessel.srd" "infomaker_reports.pbl";
+ "r_agents_used.srd" "infomaker_reports.pbl";
+ "r_broker.srd" "infomaker_reports.pbl";
+ "r_idledays.srd" "infomaker_reports.pbl";
+ "r_outstanding_bladings.srd" "infomaker_reports.pbl";
+ "r_outstanding_freight.srd" "infomaker_reports.pbl";
+ "r_statoil_liftings.srd" "infomaker_reports.pbl";
+ "w_chart_no_chartgroup.srw" "infomaker_reports.pbl";
+ "w_print_r_agents_used.srw" "infomaker_reports.pbl";
+ "w_print_r_brokers_report.srw" "infomaker_reports.pbl";
+ "w_print_r_charters_report.srw" "infomaker_reports.pbl";
+ "w_print_r_idle_days.srw" "infomaker_reports.pbl";
+ "w_print_r_outstanding_bladings.srw" "infomaker_reports.pbl";
+ "w_print_r_outstanding_freights.srw" "infomaker_reports.pbl";
+@end;

@@ -1,0 +1,12 @@
+﻿$PBExportHeader$f_gettimestamp.srf
+global type f_gettimestamp from function_object
+end type
+
+forward prototypes
+global function long f_gettimestamp ()
+end prototypes
+
+global function long f_gettimestamp ();
+Return (DaysAfter(2000-01-01, Today()) * 1440) + Round(SecondsAfter(00:00:00, Now()) / 60, 0)
+end function
+

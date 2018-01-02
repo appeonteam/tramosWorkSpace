@@ -1,0 +1,10 @@
+﻿$PBExportHeader$s_manual_create_tccommission.srs
+global type s_manual_create_tccommission from structure
+	long		al_contractid
+	long		al_paymentid
+	long		al_broker_nr
+	integer		ai_tchire_in
+	integer		ai_setoff
+	datetime		adt_payment_settle
+end type
+

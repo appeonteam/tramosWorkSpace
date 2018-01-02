@@ -1,0 +1,27 @@
+﻿$PBExportHeader$s_disbursement.srs
+$PBExportComments$structure used for creating new disb expense.
+global type s_disbursement from structure
+	integer		vessel_nr
+	string		voyage_nr
+	string		port_code
+	integer		pcn
+	integer		agent_nr
+	decimal { 2 }		ex_ex_rate
+	decimal { 2 }		voyage_ex_rate
+	integer		payment_counter
+	datetime		settled_date
+	decimal { 2 }		last_payment
+	string		expense_currency
+	datetime		port_arr_date
+	datetime		port_dept_date
+	string		userid
+	string		department
+	string		tc_currency
+	string		payment_currency
+	boolean		is_batch
+	datetime		pay_date
+	string		descr
+	decimal { 2 }		amount
+	integer		voucher
+end type
+

@@ -1,0 +1,10 @@
+﻿$PBExportHeader$s_poc_est_cargo.srs
+$PBExportComments$Structure used to send vessel and voyage numbers and port code and pcn to non-cargo agents window
+global type s_poc_est_cargo from structure
+	long		sl_vessel_nr
+	string		ss_voyage_nr
+	string		ss_port_code
+	integer		si_pcn
+	integer		si_poc_type
+end type
+

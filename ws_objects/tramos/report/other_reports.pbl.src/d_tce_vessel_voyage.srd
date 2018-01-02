@@ -1,0 +1,104 @@
+﻿$PBExportHeader$d_tce_vessel_voyage.srd
+$PBExportComments$TCE Report - retrieves all voyages that has to be calculated
+release 11.5;
+datawindow(units=0 timer_interval=0 color=16777215 brushmode=0 transparency=0 gradient.angle=0 gradient.color=8421504 gradient.focus=0 gradient.repetition.count=0 gradient.repetition.length=100 gradient.repetition.mode=0 gradient.scale=100 gradient.spread=100 gradient.transparency=0 picture.blur=0 picture.clip.bottom=0 picture.clip.left=0 picture.clip.right=0 picture.clip.top=0 picture.mode=0 picture.scale.x=100 picture.scale.y=100 picture.transparency=0 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.background=no print.preview.background=no print.preview.outline=yes hidegrayline=no showbackcoloronxp=no picture.file="" )
+header(height=136 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+summary(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+footer(height=0 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+detail(height=84 color="536870912" transparency="0" gradient.color="8421504" gradient.transparency="0" gradient.angle="0" brushmode="0" gradient.repetition.mode="0" gradient.repetition.count="0" gradient.repetition.length="100" gradient.focus="0" gradient.scale="100" gradient.spread="100" )
+table(column=(type=long updatewhereclause=yes name=vessel_nr dbname="VOYAGES.VESSEL_NR" )
+ column=(type=char(5) updatewhereclause=yes name=voyage_nr dbname="compute_0002" )
+ column=(type=datetime updatewhereclause=yes name=dept_dt dbname="DEPT_DT" )
+ column=(type=char(50) updatewhereclause=yes name=vessel_name dbname="VESSELS.VESSEL_NAME" )
+ column=(type=long updatewhereclause=yes name=voyages_voyage_type dbname="VOYAGES.VOYAGE_TYPE" )
+ column=(type=decimal(0) updatewhereclause=yes name=voyages_cal_calc_id dbname="VOYAGES.CAL_CALC_ID" )
+ column=(type=datetime updatewhereclause=yes name=start dbname="START" )
+ column=(type=char(5) updatewhereclause=yes name=vessel_ref_nr dbname="VESSELS.VESSEL_REF_NR" )
+ retrieve="  SELECT DISTINCT VOYAGES.VESSEL_NR,   
+         SUBSTRING(VOYAGES.VOYAGE_NR,1,5),
+			(SELECT MAX(P2.PORT_DEPT_DT) FROM POC P2 WHERE P2.VESSEL_NR = VOYAGES.VESSEL_NR AND substring(P2.VOYAGE_NR,1,5) = substring(VOYAGES.VOYAGE_NR,1,5)) as DEPT_DT,
+			VESSELS.VESSEL_NAME,
+			VOYAGES.VOYAGE_TYPE,
+			VOYAGES.CAL_CALC_ID,
+			getdate() as START,
+			VESSELS.VESSEL_REF_NR  
+    FROM VOYAGES, POC P1, VESSELS  
+   WHERE VOYAGES.VESSEL_NR = P1.VESSEL_NR AND
+			VOYAGES.VOYAGE_NR = P1.VOYAGE_NR AND
+			VOYAGES.VESSEL_NR = VESSELS.VESSEL_NR AND
+			P1.PORT_DEPT_DT >= :startdate AND  
+			VOYAGES.VESSEL_NR IN (:vessels) AND
+			VOYAGES.VOYAGE_FINISHED = 1 AND
+			( VOYAGES.CAL_CALC_ID > 1 OR VOYAGES.VOYAGE_TYPE = 2 )
+union
+  SELECT DISTINCT VOYAGES.VESSEL_NR,   
+         SUBSTRING(VOYAGES.VOYAGE_NR,1,5),
+			(SELECT MAX(P2.PORT_DEPT_DT) FROM POC_EST P2 WHERE P2.VESSEL_NR = VOYAGES.VESSEL_NR AND substring(P2.VOYAGE_NR,1,5) = substring(VOYAGES.VOYAGE_NR,1,5)) as DEPT_DT,
+			VESSELS.VESSEL_NAME,
+			VOYAGES.VOYAGE_TYPE,
+			VOYAGES.CAL_CALC_ID,
+			getdate() as START,
+			VESSELS.VESSEL_REF_NR   
+    FROM VOYAGES, POC_EST P1, VESSELS  
+   WHERE VOYAGES.VESSEL_NR = P1.VESSEL_NR AND
+			VOYAGES.VOYAGE_NR = P1.VOYAGE_NR AND
+			VOYAGES.VESSEL_NR = VESSELS.VESSEL_NR AND
+			P1.PORT_DEPT_DT >= :startdate AND  
+			VOYAGES.VESSEL_NR IN (:vessels) AND
+			VOYAGES.VOYAGE_FINISHED = 0 AND
+			( VOYAGES.CAL_CALC_ID > 1 OR VOYAGES.VOYAGE_TYPE = 2 )
+
+union
+  SELECT DISTINCT VOYAGES.VESSEL_NR,   
+      SUBSTRING(VOYAGES.VOYAGE_NR,1,5),
+		:startdate as DEPT_DT,
+		VESSELS.VESSEL_NAME,
+		VOYAGES.VOYAGE_TYPE,
+			VOYAGES.CAL_CALC_ID,
+			getdate() as START,
+			VESSELS.VESSEL_REF_NR   
+    FROM VOYAGES, VESSELS  
+   WHERE VOYAGES.VESSEL_NR = VESSELS.VESSEL_NR AND
+			VOYAGES.VESSEL_NR IN (:vessels) AND
+			(SELECT ISNULL(SUM(V2.VOYAGE_FINISHED),0) 
+				FROM VOYAGES V2 
+				WHERE V2.VESSEL_NR = VOYAGES.VESSEL_NR 
+				AND SUBSTRING(V2.VOYAGE_NR,1,5)=SUBSTRING(VOYAGES.VOYAGE_NR,1,5)) = 0 AND
+			( VOYAGES.CAL_CALC_ID > 1 OR VOYAGES.VOYAGE_TYPE = 2 )
+
+union
+	SELECT DISTINCT VOYAGES.VESSEL_NR,   
+      ~"EXTRA~",
+		getdate() as DEPT_DT,
+		VESSELS.VESSEL_NAME,
+		99,
+		-1,
+		getdate() as START,
+		VESSELS.VESSEL_REF_NR   
+    FROM VOYAGES, VESSELS
+   WHERE VOYAGES.VESSEL_NR IN (:vessels) AND
+			VOYAGES.VESSEL_NR = VESSELS.VESSEL_NR" arguments=(("startdate", datetime),("enddate", datetime),("vessels", numberlist))  sort="vessel_ref_nr A voyage_nr A " )
+text(band=header alignment="2" text="Voyages
+Vessel Nr" border="0" color="0" x="5" y="4" height="128" width="329" html.valueishtml="0"  name=voyages_vessel_nr_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="2" text="Dept Dt" border="0" color="0" x="480" y="4" height="64" width="603" html.valueishtml="0"  name=dept_dt_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+text(band=header alignment="0" text="HUSK DETTE DATAVINDUE GENNEMGÅR EN DER PROCESSING I KODE sort() filter() o.s.v.!!!!!!!!!!!!!!!!" border="0" color="0" x="1243" y="32" height="64" width="2839" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="274" format="[general]" html.valueishtml="0"  name=vessel_nr visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="370" y="0" height="76" width="137" format="[general]" html.valueishtml="0"  name=voyage_nr visible="1" edit.limit=5 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1202" y="8" height="76" width="603" format="[shortdate] [time]" html.valueishtml="0"  name=dept_dt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1897" y="8" height="64" width="677" format="[general]" html.valueishtml="0"  name=vessel_name visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2574" y="0" height="64" width="137" format="[general]" html.valueishtml="0"  name=voyages_voyage_type visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2766" y="0" height="64" width="475" format="[general]" html.valueishtml="0"  name=voyages_cal_calc_id visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="571" y="8" height="64" width="512" format="[shortdate] [time]" html.valueishtml="0"  name=start visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+compute(band=detail alignment="0" expression="if ((vessel_nr = vessel_nr[-1]) and (voyage_nr = voyage_nr[-1]), 1, 0) "border="0" color="0" x="3305" y="4" height="64" width="215" format="[General]" html.valueishtml="0"  name=test_duplicate visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3689" y="4" height="64" width="439" format="[general]" html.valueishtml="0"  name=vessel_ref_nr visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" background.transparency="0" background.gradient.color="8421504" background.gradient.transparency="0" background.gradient.angle="0" background.brushmode="0" background.gradient.repetition.mode="0" background.gradient.repetition.count="0" background.gradient.repetition.length="100" background.gradient.focus="0" background.gradient.scale="100" background.gradient.spread="100" tooltip.backcolor="134217752" tooltip.delay.initial="0" tooltip.delay.visible="32000" tooltip.enabled="0" tooltip.hasclosebutton="0" tooltip.icon="0" tooltip.isbubble="0" tooltip.maxwidth="0" tooltip.textcolor="134217751" tooltip.transparency="0" transparency="0" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

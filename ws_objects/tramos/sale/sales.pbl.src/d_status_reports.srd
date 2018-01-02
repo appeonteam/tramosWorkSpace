@@ -1,0 +1,15 @@
+﻿$PBExportHeader$d_status_reports.srd
+$PBExportComments$Displays all action status descriptions on a given charterer.
+release 5;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=1 color="536870912" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=89 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=ccs_acts_ccs_acts_sts_d dbname="CCS_ACTS.CCS_ACTS_STS_D" )
+ column=(type=char(32766) update=yes updatewhereclause=yes name=ccs_acts_ccs_acts_sts_desc dbname="CCS_ACTS.CCS_ACTS_STS_DESC" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes name=ccs_acts_ccs_acts_pk dbname="CCS_ACTS.CCS_ACTS_PK" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"CCS_ACTS~" ) TABLE(NAME=~"CCS_TARG~" ) TABLE(NAME=~"CHARTERERS_TARGETS~" ) COLUMN(NAME=~"CCS_ACTS.CCS_ACTS_STS_D~") COLUMN(NAME=~"CCS_ACTS.CCS_ACTS_STS_DESC~") COLUMN(NAME=~"CCS_ACTS.CCS_ACTS_PK~") JOIN (LEFT=~"CCS_TARG.CCS_TARG__PK~" OP =~"=~"RIGHT=~"CCS_ACTS.CCS_TARG__PK~" ) JOIN (LEFT=~"CCS_TARG.CCS_TARG__PK~" OP =~"=~"RIGHT=~"CHARTERERS_TARGETS.CCS_TARG__PK~" )WHERE( EXP1 =~"( ( CHARTERERS_TARGETS.CHART_NR~" OP =~"=~" EXP2 =~":chart_nr ) )~" ) ) ARG(NAME = ~"chart_nr~" TYPE = number) " update="CCS_ACTS" updatewhere=0 updatekeyinplace=yes arguments=(("chart_nr", number)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="20" height="57" width="439" format="dd-mm-yy [time]"  name=ccs_acts_ccs_acts_sts_d editmask.mask="dd-mm-yy hh:mm" editmask.focusrectangle=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="494" y="20" height="57" width="1116" format="[general]"  name=ccs_acts_ccs_acts_sts_desc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1646" y="20" height="57" width="366" format="[general]"  name=ccs_acts_ccs_acts_pk edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
