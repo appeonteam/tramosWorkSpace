@@ -17,5 +17,5 @@ Save Format v3.0(19990112)
  8 "interfacemanager\\interfacemanager.pbt";
  9 "axestimates\\axestimates.pbt";
 @end;
-DefaultTarget "emailnotificationservice\\emailnotificationservice.pbt";
-DefaultRemoteTarget "emailnotificationservice\\emailnotificationservice.pbt";
+DefaultTarget "tramos.pbt";
+DefaultRemoteTarget "tramos.pbt";
