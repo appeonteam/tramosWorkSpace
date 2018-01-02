@@ -29,6 +29,8 @@ type cb_debug from commandbutton within w_calc_calculation
 end type
 type uo_calculation from u_calculation within w_calc_calculation
 end type
+type cb_1 from commandbutton within w_calc_calculation
+end type
 end forward
 
 global type w_calc_calculation from mt_w_sheet_calc
@@ -57,6 +59,7 @@ cb_wizard cb_wizard
 sle_vessel sle_vessel
 cb_debug cb_debug
 uo_calculation uo_calculation
+cb_1 cb_1
 end type
 global w_calc_calculation w_calc_calculation
 
@@ -1518,6 +1521,7 @@ this.cb_wizard=create cb_wizard
 this.sle_vessel=create sle_vessel
 this.cb_debug=create cb_debug
 this.uo_calculation=create uo_calculation
+this.cb_1=create cb_1
 iCurrent=UpperBound(this.Control)
 this.Control[iCurrent+1]=this.cb_schedule
 this.Control[iCurrent+2]=this.cb_calculate
@@ -1532,6 +1536,7 @@ this.Control[iCurrent+10]=this.cb_wizard
 this.Control[iCurrent+11]=this.sle_vessel
 this.Control[iCurrent+12]=this.cb_debug
 this.Control[iCurrent+13]=this.uo_calculation
+this.Control[iCurrent+14]=this.cb_1
 end on
 
 on w_calc_calculation.destroy
@@ -1549,6 +1554,7 @@ destroy(this.cb_wizard)
 destroy(this.sle_vessel)
 destroy(this.cb_debug)
 destroy(this.uo_calculation)
+destroy(this.cb_1)
 end on
 
 type st_hidemenubar from mt_w_sheet_calc`st_hidemenubar within w_calc_calculation
@@ -2058,4 +2064,20 @@ end event
 on uo_calculation.destroy
 call u_calculation::destroy
 end on
+
+type cb_1 from commandbutton within w_calc_calculation
+integer x = 3351
+integer y = 16
+integer width = 343
+integer height = 100
+integer taborder = 110
+boolean bringtotop = true
+integer textsize = -8
+integer weight = 400
+fontcharset fontcharset = ansi!
+fontpitch fontpitch = variable!
+fontfamily fontfamily = swiss!
+string facename = "Arial"
+string text = "none"
+end type
 
