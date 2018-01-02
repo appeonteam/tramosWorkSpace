@@ -2,6 +2,8 @@
 forward
 global type w_vcn from window
 end type
+type cb_1 from commandbutton within w_vcn
+end type
 type st_exit from statictext within w_vcn
 end type
 type st_4 from statictext within w_vcn
@@ -24,14 +26,15 @@ end forward
 
 global type w_vcn from window
 boolean visible = false
-integer width = 1632
-integer height = 872
+integer width = 2062
+integer height = 1084
 windowtype windowtype = response!
 long backcolor = 67108864
 string icon = "AppIcon!"
 boolean center = true
 windowanimationstyle openanimation = centeranimation!
 integer animationtime = 300
+cb_1 cb_1
 st_exit st_exit
 st_4 st_4
 st_msg st_msg
@@ -194,6 +197,7 @@ li_Loop = FileClose(li_File)   // Close file
 end subroutine
 
 on w_vcn.create
+this.cb_1=create cb_1
 this.st_exit=create st_exit
 this.st_4=create st_4
 this.st_msg=create st_msg
@@ -203,7 +207,8 @@ this.st_2=create st_2
 this.st_1=create st_1
 this.lb_files=create lb_files
 this.gb_1=create gb_1
-this.Control[]={this.st_exit,&
+this.Control[]={this.cb_1,&
+this.st_exit,&
 this.st_4,&
 this.st_msg,&
 this.st_1hour,&
@@ -215,6 +220,7 @@ this.gb_1}
 end on
 
 on w_vcn.destroy
+destroy(this.cb_1)
 destroy(this.st_exit)
 destroy(this.st_4)
 destroy(this.st_msg)
@@ -298,6 +304,21 @@ End If
 Timer(6)
 
 end event
+
+type cb_1 from commandbutton within w_vcn
+integer x = 1586
+integer y = 912
+integer width = 402
+integer height = 112
+integer taborder = 20
+integer textsize = -10
+integer weight = 400
+fontcharset fontcharset = ansi!
+fontpitch fontpitch = variable!
+fontfamily fontfamily = swiss!
+string facename = "Tahoma"
+string text = "none"
+end type
 
 type st_exit from statictext within w_vcn
 integer x = 146
