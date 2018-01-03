@@ -21,6 +21,8 @@ type rb_prodbackup from radiobutton within w_login
 end type
 type rb_prod from radiobutton within w_login
 end type
+type cb_1 from commandbutton within w_login
+end type
 end forward
 
 global type w_login from mt_w_response
@@ -40,6 +42,7 @@ rb_develop rb_develop
 rb_preproduction rb_preproduction
 rb_prodbackup rb_prodbackup
 rb_prod rb_prod
+cb_1 cb_1
 end type
 global w_login w_login
 
@@ -409,6 +412,7 @@ this.rb_develop=create rb_develop
 this.rb_preproduction=create rb_preproduction
 this.rb_prodbackup=create rb_prodbackup
 this.rb_prod=create rb_prod
+this.cb_1=create cb_1
 iCurrent=UpperBound(this.Control)
 this.Control[iCurrent+1]=this.cb_options
 this.Control[iCurrent+2]=this.cb_cancel
@@ -419,6 +423,7 @@ this.Control[iCurrent+6]=this.rb_develop
 this.Control[iCurrent+7]=this.rb_preproduction
 this.Control[iCurrent+8]=this.rb_prodbackup
 this.Control[iCurrent+9]=this.rb_prod
+this.Control[iCurrent+10]=this.cb_1
 end on
 
 on w_login.destroy
@@ -432,6 +437,7 @@ destroy(this.rb_develop)
 destroy(this.rb_preproduction)
 destroy(this.rb_prodbackup)
 destroy(this.rb_prod)
+destroy(this.cb_1)
 end on
 
 type st_hidemenubar from mt_w_response`st_hidemenubar within w_login
@@ -889,5 +895,24 @@ dw_login.modify("db_name.protect = 1")
 dw_login.modify("server_name.color = '" + string(c#color.DisabledText) + "'")
 dw_login.modify("db_name.color = '" + string(c#color.DisabledText) + "'")
 
+end event
+
+type cb_1 from commandbutton within w_login
+integer x = 1435
+integer y = 1064
+integer width = 343
+integer height = 92
+integer taborder = 50
+boolean bringtotop = true
+integer textsize = -8
+integer weight = 400
+fontcharset fontcharset = ansi!
+fontpitch fontpitch = variable!
+fontfamily fontfamily = swiss!
+string facename = "Tahoma"
+string text = "test"
+end type
+
+event clicked;MessageBox ( "Tip", "test is OK" )
 end event
 
