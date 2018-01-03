@@ -384,8 +384,8 @@ end if
 end event
 
 type cb_new from uo_securitybutton within w_list
-integer x = 1243
-integer y = 32
+integer x = 1038
+integer y = 108
 integer width = 402
 integer height = 80
 integer taborder = 30
@@ -576,7 +576,6 @@ integer height = 1120
 integer taborder = 20
 string dataobject = "dw_vessel_list"
 boolean vscrollbar = true
-borderstyle borderstyle = stylelowered!
 end type
 
 event clicked;call super::clicked;// Clicked Script for dw_1 
